@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="فیلترشکن, وی‌پی‌ان, آزادی وی‌پی‌ان">
+    <title>آزادی وی‌پی‌ان | مقاله</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">آزادی وی‌پی‌ان</div>
+            <ul>
+                <li><a href="index.html#home">خانه</a></li>
+                <li><a href="index.html#products">محصولات</a></li>
+                <li><a href="index.html#articles">مقالات</a></li>
+                <li><a href="index.html#contact">تماس</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Article Section -->
+    <section id="article">
+        <div class="container">
+            <h1 id="article-title"></h1>
+            <div class="meta" id="article-meta"></div>
+            <div class="content" id="article-content"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const article = articles.find(a => a.id === articleId);
+
+            if (article) {
+                document.getElementById('article-title').textContent = article.title;
+                document.getElementById('article-meta').textContent = `منتشرشده در: ${new Date(article.timestamp).toLocaleString('fa-IR')}`;
+                document.getElementById('article-content').textContent = article.content;
+
+                // Update meta tags for SEO
+                document.querySelector('meta[name="description"]').setAttribute('content', article.content.substring(0, 160));
+                document.title = `آزادی وی‌پی‌ان | ${article.title}`;
+            } else {
+                document.getElementById('article-title').textContent = 'مقاله یافت نشد';
+                document.getElementById('article-content').textContent = 'متأسفانه مقاله مورد نظر وجود ندارد.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+</html>
