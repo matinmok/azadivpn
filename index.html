@@ -17,25 +17,25 @@
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="py-3 bg-white shadow-md">
+    <header class="py-2 bg-white shadow-sm">
         <nav class="container mx-auto flex items-center justify-between px-4">
             <div class="flex items-center">
-                <div class="logo text-lg font-bold bg-blue-600 text-white rounded-full px-4 py-1 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="logo text-base font-bold bg-blue-600 text-white rounded-full px-3 py-1 shadow-sm hover:shadow-md transition-shadow duration-300">
                     آزادی وی‌پی‌ان
                 </div>
             </div>
-            <ul class="flex space-x-6 space-x-reverse items-center">
+            <ul class="flex space-x-4 space-x-reverse items-center">
                 <li>
-                    <a href="#home" class="text-sm font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">خانه</a>
+                    <a href="#home" class="text-xs font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">خانه</a>
                 </li>
                 <li>
-                    <a href="#products" class="text-sm font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">تعرفه‌ها</a>
+                    <a href="#products" class="text-xs font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">تعرفه‌ها</a>
                 </li>
                 <li>
-                    <a href="#servers" class="text-sm font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">وضعیت سرورها</a>
+                    <a href="#servers" class="text-xs font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">وضعیت سرورها</a>
                 </li>
                 <li>
-                    <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">تماس</a>
+                    <a href="#contact" class="text-xs font-medium text-gray-700 hover:text-blue-600 hover:underline transition-colors duration-300">تماس</a>
                 </li>
             </ul>
         </nav>
@@ -162,4 +162,26 @@
 
     <script>
         function generateUUID() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function showServerStatus() {
+            alert("وضعیت سرورها به‌روزرسانی شد!");
+        }
+
+        function submitContact() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('پیام شما با موفقیت ارسال شد!');
+            } else {
+                alert('لطفاً تمام فیلدها را پر کنید.');
+            }
+        }
+    </script>
+</body>
+</html>
