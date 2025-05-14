@@ -30,8 +30,8 @@
                 <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">تماس</a></li>
                 <li>
-                    <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
-                        ورود / ثبت نام
+                    <a href="tel:09227334601" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+                        ارتباط با آزادی وی‌پی‌ان
                     </a>
                 </li>
             </ul>
@@ -45,12 +45,12 @@
             <ul class="px-4 py-2 space-y-2">
                 <li><a href="#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">خانه</a></li>
                 <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
-                <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="#servers" class="block text-gray- 700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس</a></li>
                 <li>
-                    <a href="#" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
-                        ورود / ثبت نام
+                    <a href="tel:09227334601" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
+                        ارتباط با آزادی وی‌پی‌ان
                     </a>
                 </li>
             </ul>
@@ -82,19 +82,19 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۱ کاربر</h3>
                     <p class="text-gray-600 mb-3">۱ ماهه، ۱ کاربر، ترافیک نامحدود</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۱۲۰,۰۰۰ تومان</p>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۲ کاربر</h3>
                     <p class="text-gray-600 mb-3">۱ ماهه، ۲ کاربر، ترافیک نامحدود</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۱۸۰,۰۰۰ تومان</p>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل‌های ویژه سه‌ماهه</h3>
                     <p class="text-gray-600 mb-3">۱ و ۲ کاربر، ترافیک نامحدود</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۳۶۰,۰۰۰ تومان</p>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">تماس</button>
+                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
             </div>
             <div class="text-center mt-10">
@@ -249,6 +249,26 @@
             </div>
         </div>
     </section>
+    <!-- Purchase Popup -->
+    <div id="purchase-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">انتخاب روش خرید</h3>
+            <div class="space-y-4">
+                <a href="https://t.me/vpnbrandicobot" target="_blank" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید از ربات تلگرام</a>
+                <a href="https://wa.me/09227334601" target="_blank" class="block bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید به صورت دستی از واتساپ</a>
+            </div>
+            <button onclick="closePurchasePopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300">بستن</button>
+        </div>
+    </div>
+    <script>
+        function openPurchasePopup() {
+            document.getElementById('purchase-popup').拦classList.remove('hidden');
+        }
+
+        function closePurchasePopup() {
+            document.getElementById('purchase-popup').classList.add('hidden');
+        }
+    </script>
     <footer class="py-8 bg-gray-800 text-white text-center">
         <div class="container mx-auto px-4">
             <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
