@@ -1,0 +1,360 @@
+/* تنظیمات پایه */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    text-align: right;
+    background-color: #f9fafb; /* bg-gray-50 */
+    color: #111827; /* text-gray-900 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* انتخاب متن */
+::selection {
+    background: #facc15;
+    color: #1f2937;
+}
+
+/* هدر */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: #ffffff; /* bg-white */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* shadow-sm */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav .logo {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #4f46e5; /* text-indigo-600 */
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem; /* space-x-8 */
+}
+
+nav ul li a {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #111827;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: #4f46e5; /* hover:text-indigo-600 */
+}
+
+/* بخش هیرو */
+#home {
+    padding-top: 6rem; /* pt-24 */
+    padding-bottom: 5rem; /* pb-20 */
+    background: linear-gradient(to bottom right, #eef2ff, #f3f4f6); /* from-indigo-50 to-gray-100 */
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+@media (min-width: 768px) {
+    #home h1 {
+        font-size: 3rem; /* md:text-5xl */
+    }
+}
+
+#home p {
+    font-size: 1.125rem; /* text-lg */
+    color: #4b5563; /* text-gray-600 */
+    margin-bottom: 2rem; /* mb-8 */
+    max-width: 32rem; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home a {
+    display: inline-block;
+    background-color: #4f46e5; /* bg-indigo-600 */
+    color: #ffffff;
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500; /* font-medium */
+    transition: background-color 0.2s;
+}
+
+#home a:hover {
+    background-color: #4338ca; /* hover:bg-indigo-700 */
+}
+
+/* بخش محصولات */
+#products {
+    padding: 5rem 0; /* py-20 */
+}
+
+#products h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    text-align: center;
+    margin-bottom: 3rem; /* mb-12 */
+}
+
+.product-card {
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 2rem; /* p-8 */
+    transition: box-shadow 0.2s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* hover:shadow-md */
+}
+
+.product-card h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.product-card p.description {
+    color: #6b7280; /* text-gray-500 */
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.product-card p.price {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #4f46e5; /* text-indigo-600 */
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.product-card button {
+    width: 100%;
+    background-color: #4f46e5; /* bg-indigo-600 */
+    color: #ffffff;
+    padding: 0.5rem; /* py-2 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.product-card button:hover {
+    background-color: #4338ca; /* hover:bg-indigo-700 */
+}
+
+/* بخش مقالات */
+#articles {
+    padding: 5= 5rem 0; /* py-20 */
+    background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+#articles h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    text-align: center;
+    margin-bottom: 3rem; /* mb-12 */
+}
+
+.article-card {
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 1.5rem; /* p-6 */
+}
+
+.article-card h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.article-card p {
+    color: #6b7280; /* text-gray-500 */
+}
+
+/* بخش تماس */
+#contact {
+    padding: 5rem 0; /* py-20 */
+    background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+#contact h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    text-align: center;
+    margin-bottom: 3rem; /* mb-12 */
+}
+
+#contact label {
+    display: block;
+    color: #4b5563; /* text-gray-700 */
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 0.75rem; /* p-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    border: 1px solid #e5e7eb; /* border-gray-200 */
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border-color: #6366f1; /* focus:ring-indigo-500 */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+#contact textarea {
+    resize: vertical;
+}
+
+#contact button {
+    width: 100%;
+    background-color: #4f46e5; /* bg-indigo-600 */
+    color: #ffffff;
+    padding: 0.75rem; /* py-3 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+#contact button:hover {
+    background-color: #4338ca; /* hover:bg-indigo-700 */
+}
+
+/* فوتر */
+footer {
+    background-color: #111827; /* bg-gray-900 */
+    color: #d1d5db; /* text-gray-300 */
+    padding: 2rem 0; /* py-8 */
+    text-align: center;
+}
+
+/* استایل‌های پنل ادمین */
+#login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .login-box {
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 2rem; /* p-8 */
+    max-width: 24rem; /* max-w-sm */
+    width: 100%;
+}
+
+#login h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    text-align: center;
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+#admin-panel {
+    padding: 5rem 0; /* py-20 */
+}
+
+#admin-panel h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    text-align: center;
+    margin-bottom: 3rem; /* mb-12 */
+}
+
+#admin-panel h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+#admin-panel .panel-section {
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 1.5rem; /* p-6 */
+}
+
+#admin-panel .form-item {
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+#admin-panel .form-item label {
+    display: block;
+    color: #4b5563; /* text-gray-700 */
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+#admin-panel .form-item input,
+#admin-panel .form-item textarea {
+    width: 100%;
+    padding: 0.75rem; /* p-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    border: 1px solid #e5e7eb; /* border-gray-200 */
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#admin-panel .form-item input:focus,
+#admin-panel .form-item textarea:focus {
+    border-color: #6366f1; /* focus:ring-indigo-500 */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+#admin-panel .form-item textarea {
+    resize: vertical;
+}
+
+#admin-panel button {
+    width: 100%;
+    background-color: #4f46e5; /* bg-indigo-600 */
+    color: #ffffff;
+    padding: 0.75rem; /* py-3 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+#admin-panel button:hover {
+    background-color: #4338ca; /* hover:bg-indigo-700 */
+}
+
+#admin-panel .contact-form-item {
+    border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+    padding: 1rem 0; /* py-4 */
+}
+
+#admin-panel .contact-form-item p {
+    margin: 0.25rem 0;
+}
+
+#admin-panel .contact-form-item p strong {
+    color: #111827;
+}
