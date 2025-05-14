@@ -75,6 +75,16 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            #pending-reviews, #published-reviews, #delete-reviews, #contact-forms {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow: visible !important;
+            }
+            #pending-reviews > div, #published-reviews > div, #delete-reviews > div, #contact-forms > div {
+                width: 100% !important;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -101,6 +111,9 @@
             <!-- Manage Pending Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">مدیریت دیدگاه‌های در انتظار</h3>
+                <div class="flex justify-end mb-4">
+                    <button onclick="loadPendingReviews()" class="btn btn-primary">رفرش دیدگاه‌ها</button>
+                </div>
                 <div id="pending-reviews" class="w-full max-w-full"></div>
             </div>
             <!-- Reply to Published Reviews -->
@@ -132,12 +145,17 @@
         }
 
         function login() {
-            const password = document.getElementById('password').value.trim();
-            if (password === ADMIN_PASSWORD) {
-                localStorage.setItem('adminLoggedIn', 'true');
-                showAdminPanel();
-            } else {
-                alert('رمز عبور اشتباه است.');
+            try {
+                const password = document.getElementById('password').value.trim();
+                if (password === ADMIN_PASSWORD) {
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    showAdminPanel();
+                } else {
+                    alert('رمز عبور اشتباه است.');
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('خطا در ورود. لطفاً دوباره امتحان کنید.');
             }
         }
 
@@ -196,14 +214,21 @@
 
         function loadPendingReviews() {
             try {
+                console.log('loadPendingReviews called');
                 const reviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
-                console.log('Pending reviews:', reviews); // Debugging
+                console.log('Pending reviews:', reviews);
                 const reviewsContainer = document.getElementById('pending-reviews');
                 if (!reviewsContainer) {
                     console.error('Pending reviews container not found');
                     return;
                 }
                 reviewsContainer.innerHTML = '';
+
+                if (!localStorage) {
+                    console.error('localStorage not supported');
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.</p>';
+                    return;
+                }
 
                 if (reviews.length === 0) {
                     reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی در انتظار تأیید نیست.</p>';
@@ -228,7 +253,10 @@
                 });
             } catch (error) {
                 console.error('Error loading pending reviews:', error);
-                document.getElementById('pending-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های در انتظار. لطفاً دوباره امتحان کنید.</p>';
+                const reviewsContainer = document.getElementById('pending-reviews');
+                if (reviewsContainer) {
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های در انتظار. لطفاً دوباره امتحان کنید.</p>';
+                }
             }
         }
 
@@ -281,6 +309,7 @@
 
         function loadPublishedReviews() {
             try {
+                console.log('loadPublishedReviews admin called');
                 const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
                 const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
                 const reviewsContainer = document.getElementById('published-reviews');
@@ -289,6 +318,12 @@
                     return;
                 }
                 reviewsContainer.innerHTML = '';
+
+                if (!localStorage) {
+                    console.error('localStorage not supported');
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.</p>';
+                    return;
+                }
 
                 if (reviews.length === 0) {
                     reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای وجود ندارد.</p>';
@@ -325,12 +360,16 @@
                 });
             } catch (error) {
                 console.error('Error loading published reviews:', error);
-                document.getElementById('published-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های تأیید شده. لطفاً دوباره امتحان کنید.</p>';
+                const reviewsContainer = document.getElementById('published-reviews');
+                if (reviewsContainer) {
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های تأیید شده. لطفاً دوباره امتحان کنید.</p>';
+                }
             }
         }
 
         function loadDeleteReviews() {
             try {
+                console.log('loadDeleteReviews called');
                 const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
                 const reviewsContainer = document.getElementById('delete-reviews');
                 if (!reviewsContainer) {
@@ -338,6 +377,12 @@
                     return;
                 }
                 reviewsContainer.innerHTML = '';
+
+                if (!localStorage) {
+                    console.error('localStorage not supported');
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.</p>';
+                    return;
+                }
 
                 if (reviews.length === 0) {
                     reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای برای حذف وجود ندارد.</p>';
@@ -359,7 +404,10 @@
                 });
             } catch (error) {
                 console.error('Error loading delete reviews:', error);
-                document.getElementById('delete-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های قابل حذف. لطفاً دوباره امتحان کنید.</p>';
+                const reviewsContainer = document.getElementById('delete-reviews');
+                if (reviewsContainer) {
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های قابل حذف. لطفاً دوباره امتحان کنید.</p>';
+                }
             }
         }
 
@@ -416,6 +464,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             try {
+                console.log('DOMContentLoaded admin triggered');
                 checkLoginStatus();
             } catch (error) {
                 console.error('Error during DOMContentLoaded:', error);
