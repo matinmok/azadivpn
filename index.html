@@ -60,7 +60,7 @@
         <script>
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const pingElements = document.querySelectorAll('#servers tbody tr td:nth-child(2)');
+            const pingElements = document.querySelectorAll('#servers tbody tr td:nth-child(2)'); // انتخاب تمام سلول‌های پینگ
 
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
@@ -69,36 +69,34 @@
             }
 
             function getRandomPing(currentPing) {
-                const fluctuation = Math.floor(Math.random() * 7) - 3;
+                const fluctuation = Math.floor(Math.random() * 5) - 2; // تغییر بین -2 تا +2
                 let newPing = currentPing + fluctuation;
-                newPing = Math.max(10, Math.min(150, newPing));
+                if (newPing < 10) newPing = 10; // جلوگیری از پینگ خیلی پایین
+                if (newPing > 150) newPing = 150; // جلوگیری از پینگ خیلی بالا
                 return newPing;
             }
 
             function updatePings() {
                 pingElements.forEach(pingElement => {
-                    const currentPing = parseInt(pingElement.textContent) || 50;
+                    const currentPing = parseInt(pingElement.textContent);
                     const newPing = getRandomPing(currentPing);
-
-                    pingElement.style.transition = 'opacity 0.3s ease';
-                    pingElement.style.opacity = '0.2';
-
-                    setTimeout(() => {
-                        pingElement.textContent = newPing;
-                        pingElement.classList.remove('text-green-600', 'text-yellow-500', 'text-red-500');
-                        if (newPing < 70) {
-                            pingElement.classList.add('text-green-600');
-                        } else if (newPing < 100) {
-                            pingElement.classList.add('text-yellow-500');
-                        } else {
-                            pingElement.classList.add('text-red-500');
-                        }
-                        pingElement.style.opacity = '1';
-                    }, 300);
+                    pingElement.textContent = newPing;
+                    // تغییر رنگ پینگ بر اساس مقدار (اختیاری)
+                    if (newPing < 70) {
+                        pingElement.classList.remove('text-yellow-500', 'text-red-500');
+                        pingElement.classList.add('text-green-600');
+                    } else if (newPing < 100) {
+                        pingElement.classList.remove('text-green-600', 'text-red-500');
+                        pingElement.classList.add('text-yellow-500');
+                    } else {
+                        pingElement.classList.remove('text-green-600', 'text-yellow-500');
+                        pingElement.classList.add('text-red-500');
+                    }
                 });
             }
 
-            setInterval(updatePings, 1000);
+            // به‌روزرسانی پینگ‌ها هر 1.5 ثانیه (1500 میلی‌ثانیه)
+            setInterval(updatePings, 1500);
 
             function generateUUID() {
                 return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -221,11 +219,4 @@
                 </div>
                 <div class="mb-6">
                     <label for="message" class="block text-gray-700 font-semibold mb-2">پیام</label>
-                    <textarea id="message" rows="4 " placeholder="پیام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                </div>
-                <button onclick="submitContact()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">ارسال پیام</button>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+                    <textarea id="message" rows="4" placeholder="پیام شما" class="w 
