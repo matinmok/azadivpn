@@ -26,7 +26,7 @@
 
     <!-- Hero Section -->
     <section id="home">
-        <div class="container">
+        <div class="container text-center">
             <h1>آزادی در اینترنت</h1>
             <p>با آزادی وی‌پی‌ان، به دنیایی بدون محدودیت متصل شوید. سریع، امن، ساده.</p>
             <a href="#products">شروع کنید</a>
@@ -107,7 +107,7 @@
 
         function submitContact() {
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const email = document.getElementById('email'].value;
             const message = document.getElementById('message').value;
             if (name && email && message) {
                 const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
