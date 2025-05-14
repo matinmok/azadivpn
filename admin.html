@@ -70,7 +70,7 @@
             <!-- View Contact Forms -->
             <div class="max-w-2xl mx-auto">
                 <h3 class="text-xl font-semibold text-gray-900 mb-4">فرم‌های ارسالی</h3>
-                <div id="contact-forms" class="bg-white rounded-xr shadow-sm p-6"></div>
+                <div id="contact-forms" class="bg-white rounded-xl shadow-sm p-6"></div>
             </div>
         </div>
     </section>
@@ -86,22 +86,27 @@
         }
 
         function login() {
-            const password = document.getElementById(' -webkit-linear-gradient(top, #48c6ef 0%, #6f7de3 100%);document.getElementById('password').value;
+            const password = document.getElementById('password').value.trim();
+            console.log('Attempting login with password:', password); // Debug
             if (password === ADMIN_PASSWORD) {
+                console.log('Password correct, logging in...');
                 localStorage.setItem('adminLoggedIn', 'true');
                 showAdminPanel();
             } else {
+                console.log('Password incorrect');
                 alert('رمز عبور اشتباه است.');
             }
         }
 
         function logout() {
+            console.log('Logging out...');
             localStorage.removeItem('adminLoggedIn');
             document.getElementById('admin-panel').classList.add('hidden');
             document.getElementById('login').classList.remove('hidden');
         }
 
         function showAdminPanel() {
+            console.log('Showing admin panel...');
             document.getElementById('login').classList.add('hidden');
             document.getElementById('admin-panel').classList.remove('hidden');
             loadContactForms();
@@ -111,6 +116,7 @@
         }
 
         function checkLoginStatus() {
+            console.log('Checking login status...');
             if (localStorage.getItem('adminLoggedIn') === 'true') {
                 showAdminPanel();
             }
@@ -359,7 +365,10 @@
             loadPublishedReviews();
         }
 
-        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded, checking login status...');
+            checkLoginStatus();
+        });
     </script>
 </body>
 </html>
