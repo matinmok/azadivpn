@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل ادمین | آزادی وی‌پی‌ان</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        ::selection {
+            background: #facc15;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+    <!-- Login Section -->
+    <section id="login" class="min-h-screen flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-sm p-8 max-w-sm w-full">
+            <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">ورود به پنل ادمین</h2>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm mb-2">رمز عبور</label>
+                <input type="password" id="password" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="رمز عبور">
+            </div>
+            <button onclick="login()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">ورود</button>
+        </div>
+    </section>
+
+    <!-- Admin Panel (Hidden by Default) -->
+    <section id="admin-panel" class="hidden py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">پنل ادمین</h2>
+            <!-- Write Article -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">نوشتن مقاله</h3>
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="mb-6">
+                        <label for="article-title" class="block text-gray-700 text-sm mb-2">عنوان مقاله</label>
+                        <input type="text" id="article-title" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="عنوان مقاله">
+                    </div>
+                    <div class="mb-6">
+                        <label for="article-content" class="block text-gray-700 text-sm mb-2">محتوای مقاله</label>
+                        <textarea id="article-content" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="6" placeholder="متن مقاله"></textarea>
+                    </div>
+                    <button onclick="publishArticle()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">انتشار مقاله</button>
+                </div>
+            </div>
+            <!-- View Contact Forms -->
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">فرم‌های ارسالی</h3>
+                <div id="contact-forms" class="bg-white rounded-xl shadow-sm p-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const ADMIN_PASSWORD = 'matin778900';
+
+        function login() {
+            const password = document.getElementById('password').value;
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                loadContactForms();
+            } else {
+                alert('رمز عبور اشتباه است.');
+            }
+        }
+
+        function publishArticle() {
+            const title = document.getElementById('article-title').value;
+            const content = document.getElementById('article-content').value;
+            if (title && content) {
+                const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+                articles.push({ title, content, timestamp: new Date().toISOString() });
+                localStorage.setItem('articles', JSON.stringify(articles));
+                alert('مقاله با موفقیت منتشر شد!');
+                document.getElementById('article-title').value = '';
+                document.getElementById('article-content').value = '';
+            } else {
+                alert('لطفاً عنوان و محتوا را وارد کنید.');
+            }
+        }
+
+        function loadContactForms() {
+            const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
+            const formsContainer = document.getElementById('contact-forms');
+            formsContainer.innerHTML = '';
+            forms.forEach(form => {
+                const formDiv = document.createElement('div');
+                formDiv.className = 'border-b border-gray-200 py-4';
+                formDiv.innerHTML = `
+                    <p><strong>نام:</strong> ${form.name}</p>
+                    <p><strong>ایمیل:</strong> ${form.email}</p>
+                    <p><strong>پیام:</strong> ${form.message}</p>
+                    <p><strong>زمان:</strong> ${new Date(form.timestamp).toLocaleString('fa-IR')}</p>
+                `;
+                formsContainer.appendChild(formDiv);
+            });
+        }
+    </script>
+</body>
+</html>
