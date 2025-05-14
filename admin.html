@@ -9,68 +9,105 @@
     <style>
         body {
             font-family: 'Vazirmatn', sans-serif;
+            background-color: #f4f7fc;
         }
         ::selection {
             background: #facc15;
             color: #1f2937;
         }
+        .section-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        .section-container:hover {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca;
+        }
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        .btn-success {
+            background-color: #10b981;
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #059669;
+        }
+        h2, h3 {
+            color: #1f2937;
+        }
+        input, textarea {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        input:focus, textarea:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            outline: none;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body class="text-gray-900 antialiased">
     <!-- Login Section -->
-    <section id="login" class="min-h-screen flex items-center justify-center">
+    <section id="login" class="min-h-screen flex items-center justify-center px-4">
         <div class="bg-white rounded-xl shadow-sm p-8 max-w-sm w-full">
             <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">ورود به پنل ادمین</h2>
             <div class="mb-6">
                 <label for="password" class="block text-gray-700 text-sm mb-2">رمز عبور</label>
                 <input type="password" id="password" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="رمز عبور">
             </div>
-            <button onclick="login()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">ورود</button>
+            <button onclick="login()" class="w-full btn btn-primary py-3">ورود</button>
         </div>
     </section>
 
     <!-- Admin Panel (Hidden by Default) -->
-    <section id="admin-panel" class="hidden py-20">
+    <section id="admin-panel" class="hidden py-12">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">پنل ادمین</h2>
-                <button onclick="logout()" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">خروج</button>
+                <h2 class="text-3xl font-bold">پنل ادمین</h2>
+                <button onclick="logout()" class="btn btn-danger">خروج</button>
             </div>
             <!-- Manage Pending Reviews -->
-            <div class="max-w-2xl mx-auto mb-12">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">مدیریت دیدگاه‌ها</h3>
-                <div id="pending-reviews" class="bg-white rounded-xl shadow-sm p-6"></div>
+            <div class="section-container max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4">مدیریت دیدگاه‌های در انتظار</h3>
+                <div id="pending-reviews"></div>
             </div>
             <!-- Reply to Published Reviews -->
-            <div class="max-w-2xl mx-auto mb-12">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">پاسخ به دیدگاه‌ها</h3>
-                <div id="published-reviews" class="bg-white rounded-xl shadow-sm p-6"></div>
+            <div class="section-container max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4">پاسخ به دیدگاه‌های تأیید شده</h3>
+                <div id="published-reviews"></div>
             </div>
-            <!-- Write Article -->
-            <div class="max-w-2xl mx-auto mb-12">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">نوشتن مقاله</h3>
-                <div class="bg-white rounded-xl shadow-sm p-6">
-                    <input type="hidden" id="article-id">
-                    <div class="mb-6">
-                        <label for="article-title" class="block text-gray-700 text-sm mb-2">عنوان مقاله</label>
-                        <input type="text" id="article-title" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="عنوان مقاله">
-                    </div>
-                    <div class="mb-6">
-                        <label for="article-content" class="block text-gray-700 text-sm mb-2">محتوای مقاله</label>
-                        <textarea id="article-content" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="6" placeholder="متن مقاله"></textarea>
-                    </div>
-                    <button onclick="publishArticle()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">انتشار مقاله</button>
-                </div>
-            </div>
-            <!-- Manage Articles -->
-            <div class="max-w-2xl mx-auto mb-12">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">مدیریت مقالات</h3>
-                <div id="articles-list" class="bg-white rounded-xl shadow-sm p-6"></div>
+            <!-- Delete Published Reviews -->
+            <div class="section-container max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4">حذف دیدگاه‌های تأیید شده</h3>
+                <div id="delete-reviews"></div>
             </div>
             <!-- View Contact Forms -->
-            <div class="max-w-2xl mx-auto">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">فرم‌های ارسالی</h3>
-                <div id="contact-forms" class="bg-white rounded-xl shadow-sm p-6"></div>
+            <div class="section-container max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4">فرم‌های ارسالی</h3>
+                <div id="contact-forms"></div>
             </div>
         </div>
     </section>
@@ -87,134 +124,33 @@
 
         function login() {
             const password = document.getElementById('password').value.trim();
-            console.log('Attempting login with password:', password); // Debug
             if (password === ADMIN_PASSWORD) {
-                console.log('Password correct, logging in...');
                 localStorage.setItem('adminLoggedIn', 'true');
                 showAdminPanel();
             } else {
-                console.log('Password incorrect');
                 alert('رمز عبور اشتباه است.');
             }
         }
 
         function logout() {
-            console.log('Logging out...');
             localStorage.removeItem('adminLoggedIn');
             document.getElementById('admin-panel').classList.add('hidden');
             document.getElementById('login').classList.remove('hidden');
         }
 
         function showAdminPanel() {
-            console.log('Showing admin panel...');
             document.getElementById('login').classList.add('hidden');
             document.getElementById('admin-panel').classList.remove('hidden');
             loadContactForms();
-            loadArticles();
             loadPendingReviews();
             loadPublishedReviews();
+            loadDeleteReviews();
         }
 
         function checkLoginStatus() {
-            console.log('Checking login status...');
             if (localStorage.getItem('adminLoggedIn') === 'true') {
                 showAdminPanel();
             }
-        }
-
-        function publishArticle() {
-            const title = document.getElementById('article-title').value.trim();
-            const content = document.getElementById('article-content').value.trim();
-            const id = document.getElementById('article-id').value;
-
-            if (!title || !content) {
-                alert('لطفاً عنوان و محتوا را وارد کنید.');
-                return;
-            }
-
-            let articles = JSON.parse(localStorage.getItem('articles') || '[]');
-            if (id) {
-                const articleIndex = articles.findIndex(article => article.id === id);
-                if (articleIndex !== -1) {
-                    articles[articleIndex] = { id, title, content, timestamp: new Date().toISOString() };
-                    alert('مقاله با موفقیت ویرایش شد!');
-                } else {
-                    alert('خطا: مقاله یافت نشد!');
-                    return;
-                }
-            } else {
-                const newId = generateUUID();
-                articles.push({ id: newId, title, content, timestamp: new Date().toISOString() });
-                alert('مقاله با موفقیت منتشر شد!');
-            }
-
-            localStorage.setItem('articles', JSON.stringify(articles));
-            resetArticleForm();
-            loadArticles();
-        }
-
-        function loadArticles() {
-            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-            const articlesList = document.getElementById('articles-list');
-            articlesList.innerHTML = '';
-
-            if (articles.length === 0) {
-                articlesList.innerHTML = '<p class="text-gray-500 text-center">هیچ مقاله‌ای وجود ندارد.</p>';
-                return;
-            }
-
-            articles.forEach(article => {
-                const articleDiv = document.createElement('div');
-                articleDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center';
-                articleDiv.innerHTML = `
-                    <div>
-                        <p><strong>عنوان:</strong> ${article.title}</p>
-                        <p><strong>زمان:</strong> ${new Date(article.timestamp).toLocaleString('fa-IR')}</p>
-                    </div>
-                    <div class="space-x-2 space-x-reverse">
-                        <button onclick="editArticle('${article.id}')" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition">ویرایش</button>
-                        <button onclick="deleteArticle('${article.id}')" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">حذف</button>
-                    </div>
-                `;
-                articlesList.appendChild(articleDiv);
-            });
-        }
-
-        function editArticle(id) {
-            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-            const article = articles.find(a => a.id === id);
-            if (article) {
-                document.getElementById('article-title').value = article.title;
-                document.getElementById('article-content').value = article.content;
-                document.getElementById('article-id').value = article.id;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                alert('خطا: مقاله یافت نشد!');
-            }
-        }
-
-        function deleteArticle(id) {
-            if (!confirm('آیا مطمئن هستید که می‌خواهید این مقاله را حذف کنید؟')) {
-                return;
-            }
-
-            let articles = JSON.parse(localStorage.getItem('articles') || '[]');
-            const initialLength = articles.length;
-            articles = articles.filter(article => article.id !== id);
-
-            if (articles.length < initialLength) {
-                localStorage.setItem('articles', JSON.stringify(articles));
-                alert('مقاله با موفقیت حذف شد!');
-                loadArticles();
-            } else {
-                alert('خطا: مقاله یافت نشد!');
-            }
-        }
-
-        function resetArticleForm() {
-            document.getElementById('article-title').value = '';
-            document.getElementById('article-content').value = '';
-            document.getElementById('article-id').value = '';
         }
 
         function loadContactForms() {
@@ -232,7 +168,7 @@
                 formDiv.className = 'border-b border-gray-200 py-4';
                 formDiv.innerHTML = `
                     <p><strong>نام:</strong> ${form.name}</p>
-                    <p><strong>ایمیل:</strong> ${form.email}</p>
+                    <p><strong>شماره:</strong> ${form.phone}</p>
                     <p><strong>پیام:</strong> ${form.message}</p>
                     <p><strong>زمان:</strong> ${new Date(form.timestamp).toLocaleString('fa-IR')}</p>
                 `;
@@ -260,8 +196,8 @@
                         <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
                     </div>
                     <div class="space-x-2 space-x-reverse">
-                        <button onclick="publishReview('${review.id}')" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">تأیید</button>
-                        <button onclick="rejectReview('${review.id}')" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">رد</button>
+                        <button onclick="publishReview('${review.id}')" class="btn btn-success">تأیید</button>
+                        <button onclick="rejectReview('${review.id}')" class="btn btn-danger">رد</button>
                     </div>
                 `;
                 reviewsContainer.appendChild(reviewDiv);
@@ -281,6 +217,7 @@
                 alert('دیدگاه با موفقیت تأیید شد!');
                 loadPendingReviews();
                 loadPublishedReviews();
+                loadDeleteReviews();
             } else {
                 alert('خطا: دیدگاه یافت نشد!');
             }
@@ -324,9 +261,8 @@
                     replyHtml = '<div class="mt-2 border-t pt-2">';
                     reviewReplies.forEach(r => {
                         replyHtml += `
-                            <p class="text-indigo-600 font-semibold">پاسخ مدیر:</p>
+                            <p class="text-indigo-600 font-semibold">پاسخ همکاران آزادی وی‌پی‌ان:</p>
                             <p class="text-gray-600">${r.reply}</p>
-                            <p class="text-gray-500 text-sm">${new Date(r.timestamp).toLocaleString('fa-IR')}</p>
                         `;
                     });
                     replyHtml += '</div>';
@@ -338,12 +274,59 @@
                     <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
                     ${replyHtml}
                     <div class="mt-4">
-                        <textarea id="reply-${review.id}" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="3" placeholder="پاسخ خود را بنویسید"></textarea>
-                        <button onclick="submitReply('${review.id}')" class="mt-2 bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition">ارسال پاسخ</button>
+                        <textarea id="reply-${review.id}" class="w-full" rows="3" placeholder="پاسخ خود را بنویسید"></textarea>
+                        <button onclick="submitReply('${review.id}')" class="mt-2 btn btn-primary">ارسال پاسخ</button>
                     </div>
                 `;
                 reviewsContainer.appendChild(reviewDiv);
             });
+        }
+
+        function loadDeleteReviews() {
+            const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+            const reviewsContainer = document.getElementById('delete-reviews');
+            reviewsContainer.innerHTML = '';
+
+            if (reviews.length === 0) {
+                reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای برای حذف وجود ندارد.</p>';
+                return;
+            }
+
+            reviews.forEach(review => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center';
+                reviewDiv.innerHTML = `
+                    <div>
+                        <p><strong>نام:</strong> ${review.name}</p>
+                        <p><strong>دیدگاه:</strong> ${review.message}</p>
+                        <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
+                    </div>
+                    <button onclick="deleteReview('${review.id}')" class="btn btn-danger">حذف</button>
+                `;
+                reviewsContainer.appendChild(reviewDiv);
+            });
+        }
+
+        function deleteReview(id) {
+            if (!confirm('آیا مطمئن هستید که می‌خواهید این دیدگاه را حذف کنید؟')) {
+                return;
+            }
+
+            let publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+            let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+            const initialLength = publishedReviews.length;
+            publishedReviews = publishedReviews.filter(r => r.id !== id);
+            replies = replies.filter(r => r.reviewId !== id);
+
+            if (publishedReviews.length < initialLength) {
+                localStorage.setItem('publishedReviews', JSON.stringify(publishedReviews));
+                localStorage.setItem('reviewReplies', JSON.stringify(replies));
+                alert('دیدگاه با موفقیت حذف شد!');
+                loadPublishedReviews();
+                loadDeleteReviews();
+            } else {
+                alert('خطا: دیدگاه یافت نشد!');
+            }
         }
 
         function submitReply(reviewId) {
@@ -365,10 +348,7 @@
             loadPublishedReviews();
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('Page loaded, checking login status...');
-            checkLoginStatus();
-        });
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
     </script>
 </body>
 </html>
