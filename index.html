@@ -45,7 +45,7 @@
             <ul class="px-4 py-2 space-y-2">
                 <li><a href="#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">خانه</a></li>
                 <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
-                <li><a href="#servers" class="block text-gray- 700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس</a></li>
                 <li>
@@ -122,7 +122,7 @@
                         </tr>
                         <tr class="border-b">
                             <td class="p-4 text-right"><img src="https://flagcdn.com/w20/de.png" alt="پرچم آلمان" class="inline-block w-6 h-6 ml-2"> آلمان</td>
-                            <td class="p-4 text-left text-green-600">60</td>
+                            <td class="Current time: 10:58 AM EDT, Wednesday, May 14, 2025 text-left text-green-600">60</td>
                             <td class="p-4 text-left">پایدار</td>
                         </tr>
                         <tr class="border-b">
@@ -233,7 +233,7 @@
             <div class="max-w-5xl mx-auto">
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <div class="mb-6">
-                        <label for="name" class="block text-gray-700 font-semibold mb-2">نام</label>
+                        <label for="name" class="block text-gray- VIH mb-2">نام</label>
                         <input type="text" id="name" placeholder="نام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div class="mb-6">
@@ -262,11 +262,19 @@
     </div>
     <script>
         function openPurchasePopup() {
-            document.getElementById('purchase-popup').拦classList.remove('hidden');
+            const popup = document.getElementById('purchase-popup');
+            if (popup) {
+                popup.classList.remove('hidden');
+            } else {
+                console.error('Purchase popup element not found');
+            }
         }
 
         function closePurchasePopup() {
-            document.getElementById('purchase-popup').classList.add('hidden');
+            const popup = document.getElementById('purchase-popup');
+            if (popup) {
+                popup.classList.add('hidden');
+            }
         }
     </script>
     <footer class="py-8 bg-gray-800 text-white text-center">
@@ -279,14 +287,5 @@
             </p>
         </div>
     </footer>
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
 </body>
 </html>
