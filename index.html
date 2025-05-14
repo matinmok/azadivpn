@@ -17,14 +17,16 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">آزادی وی‌پی‌ان</div>
-            <ul>
-                <li><a href="#home">خانه</a></li>
-                <li><a href="#products">محصولات</a></li>
-                <li><a href="#contact">تماس</a></li>
-            </ul>
+    <header class="py-4">
+        <nav class="container mx-auto flex justify-center items-center">
+            <div class="relative bg-blue-600 text-white rounded-full p-4 shadow-lg">
+                <div class="logo text-xl font-bold">آزادی وی‌پی‌ان</div>
+                <ul class="flex space-x-6 space-x-reverse mt-2 justify-center">
+                    <li><a href="#home" class="hover:text-blue-200 transition">خانه</a></li>
+                    <li><a href="#products" class="hover:text-blue-200 transition">تعرفه‌ها</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200 transition">تماس</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -42,7 +44,7 @@
     <!-- Products Section -->
     <section id="products">
         <div class="container">
-            <h2>انتخابی برای هر نیاز</h2>
+            <h2>تعرفه‌ها</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <div class="product-card">
                     <h3>پنل ۱ کاربر</h3>
@@ -72,7 +74,7 @@
     <!-- Server Status Section -->
     <section id="servers">
         <div class="container">
-            <h2 class="text-center text-3xl font-bold mb-8">وضعیت سرورهای فعلی</h2>
+            <h2 class="text-center text-3xl font-bold mb-8 cursor-pointer" onclick="showServerStatus()">وضعیت سرورهای فعلی</h2>
             <div class="max-w-5xl mx-auto">
                 <table class="w-full border-collapse rounded-lg overflow-hidden">
                     <thead>
@@ -167,6 +169,18 @@
             } else {
                 alert('لطفاً تمام فیلدها را پر کنید.');
             }
+        }
+
+        function showServerStatus() {
+            const status = `
+                وضعیت سرورهای فعلی:
+                ترکیه: پینگ 56ms، پایدار
+                آلمان: پینگ 60ms، پایدار
+                آمریکا: پینگ 80ms، پایدار
+                فنلاند: پینگ 65ms، پایدار
+                هلند: پینگ 60ms، پایدار
+            `;
+            alert(status);
         }
     </script>
 </body>
