@@ -60,64 +60,11 @@
         <script>
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const pingElements = document.querySelectorAll('#servers tbody tr td:nth-child(2)'); // انتخاب تمام سلول‌های پینگ
 
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
-            }
-
-            function getRandomPing(currentPing) {
-                const fluctuation = Math.floor(Math.random() * 5) - 2; // تغییر بین -2 تا +2
-                let newPing = currentPing + fluctuation;
-                if (newPing < 10) newPing = 10; // جلوگیری از پینگ خیلی پایین
-                if (newPing > 150) newPing = 150; // جلوگیری از پینگ خیلی بالا
-                return newPing;
-            }
-
-            function updatePings() {
-                pingElements.forEach(pingElement => {
-                    const currentPing = parseInt(pingElement.textContent);
-                    const newPing = getRandomPing(currentPing);
-                    pingElement.textContent = newPing;
-                    // تغییر رنگ پینگ بر اساس مقدار (اختیاری)
-                    if (newPing < 70) {
-                        pingElement.classList.remove('text-yellow-500', 'text-red-500');
-                        pingElement.classList.add('text-green-600');
-                    } else if (newPing < 100) {
-                        pingElement.classList.remove('text-green-600', 'text-red-500');
-                        pingElement.classList.add('text-yellow-500');
-                    } else {
-                        pingElement.classList.remove('text-green-600', 'text-yellow-500');
-                        pingElement.classList.add('text-red-500');
-                    }
-                });
-            }
-
-            // به‌روزرسانی پینگ‌ها هر 1.5 ثانیه (1500 میلی‌ثانیه)
-            setInterval(updatePings, 1500);
-
-            function generateUUID() {
-                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                    return v.toString(16);
-                });
-            }
-
-            function showServerStatus() {
-                alert("وضعیت سرورها به‌روزرسانی شد!");
-            }
-
-            function submitContact() {
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                if (name && email && message) {
-                    alert('پیام شما با موفقیت ارسال شد!');
-                } else {
-                    alert('لطفاً تمام فیلدها را پر کنید.');
-                }
             }
         </script>
     </header>
@@ -219,4 +166,34 @@
                 </div>
                 <div class="mb-6">
                     <label for="message" class="block text-gray-700 font-semibold mb-2">پیام</label>
-                    <textarea id="message" rows="4" placeholder="پیام شما" class="w
+                    <textarea id="message" rows="4" placeholder="پیام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <button onclick="submitContact()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">ارسال پیام</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن قوی</a>
+                <span class="text-gray-600">|</span>
+                <a href="#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16
