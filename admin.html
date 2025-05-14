@@ -67,6 +67,15 @@
             box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
             outline: none;
         }
+        @media (max-width: 640px) {
+            .section-container {
+                padding: 1rem;
+            }
+            .flex.items-center {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body class="text-gray-900 antialiased">
@@ -92,22 +101,22 @@
             <!-- Manage Pending Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">مدیریت دیدگاه‌های در انتظار</h3>
-                <div id="pending-reviews"></div>
+                <div id="pending-reviews" class="w-full max-w-full"></div>
             </div>
             <!-- Reply to Published Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">پاسخ به دیدگاه‌های تأیید شده</h3>
-                <div id="published-reviews"></div>
+                <div id="published-reviews" class="w-full max-w-full"></div>
             </div>
             <!-- Delete Published Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">حذف دیدگاه‌های تأیید شده</h3>
-                <div id="delete-reviews"></div>
+                <div id="delete-reviews" class="w-full max-w-full"></div>
             </div>
             <!-- View Contact Forms -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">فرم‌های ارسالی</h3>
-                <div id="contact-forms"></div>
+                <div id="contact-forms" class="w-full max-w-full"></div>
             </div>
         </div>
     </section>
@@ -154,72 +163,96 @@
         }
 
         function loadContactForms() {
-            const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
-            const formsContainer = document.getElementById('contact-forms');
-            formsContainer.innerHTML = '';
+            try {
+                const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
+                const formsContainer = document.getElementById('contact-forms');
+                if (!formsContainer) {
+                    console.error('Contact forms container not found');
+                    return;
+                }
+                formsContainer.innerHTML = '';
 
-            if (forms.length === 0) {
-                formsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ فرم ارسالی وجود ندارد.</p>';
-                return;
+                if (forms.length === 0) {
+                    formsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ فرم ارسالی وجود ندارد.</p>';
+                    return;
+                }
+
+                forms.forEach(form => {
+                    const formDiv = document.createElement('div');
+                    formDiv.className = 'border-b border-gray-200 py-4';
+                    formDiv.innerHTML = `
+                        <p><strong>نام:</strong> ${form.name}</p>
+                        <p><strong>شماره:</strong> ${form.phone}</p>
+                        <p><strong>پیام:</strong> ${form.message}</p>
+                        <p><strong>زمان:</strong> ${new Date(form.timestamp).toLocaleString('fa-IR')}</p>
+                    `;
+                    formsContainer.appendChild(formDiv);
+                });
+            } catch (error) {
+                console.error('Error loading contact forms:', error);
+                document.getElementById('contact-forms').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری فرم‌های ارسالی. لطفاً دوباره امتحان کنید.</p>';
             }
-
-            forms.forEach(form => {
-                const formDiv = document.createElement('div');
-                formDiv.className = 'border-b border-gray-200 py-4';
-                formDiv.innerHTML = `
-                    <p><strong>نام:</strong> ${form.name}</p>
-                    <p><strong>شماره:</strong> ${form.phone}</p>
-                    <p><strong>پیام:</strong> ${form.message}</p>
-                    <p><strong>زمان:</strong> ${new Date(form.timestamp).toLocaleString('fa-IR')}</p>
-                `;
-                formsContainer.appendChild(formDiv);
-            });
         }
 
         function loadPendingReviews() {
-            const reviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
-            const reviewsContainer = document.getElementById('pending-reviews');
-            reviewsContainer.innerHTML = '';
+            try {
+                const reviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+                console.log('Pending reviews:', reviews); // Debugging
+                const reviewsContainer = document.getElementById('pending-reviews');
+                if (!reviewsContainer) {
+                    console.error('Pending reviews container not found');
+                    return;
+                }
+                reviewsContainer.innerHTML = '';
 
-            if (reviews.length === 0) {
-                reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی در انتظار تأیید نیست.</p>';
-                return;
+                if (reviews.length === 0) {
+                    reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی در انتظار تأیید نیست.</p>';
+                    return;
+                }
+
+                reviews.forEach(review => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center flex-col sm:flex-row gap-4';
+                    reviewDiv.innerHTML = `
+                        <div class="w-full">
+                            <p><strong>نام:</strong> ${review.name}</p>
+                            <p><strong>دیدگاه:</strong> ${review.message}</p>
+                            <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
+                        </div>
+                        <div class="space-x-2 space-x-reverse flex-shrink-0">
+                            <button onclick="publishReview('${review.id}')" class="btn btn-success">تأیید</button>
+                            <button onclick="rejectReview('${review.id}')" class="btn btn-danger">رد</button>
+                        </div>
+                    `;
+                    reviewsContainer.appendChild(reviewDiv);
+                });
+            } catch (error) {
+                console.error('Error loading pending reviews:', error);
+                document.getElementById('pending-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های در انتظار. لطفاً دوباره امتحان کنید.</p>';
             }
-
-            reviews.forEach(review => {
-                const reviewDiv = document.createElement('div');
-                reviewDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center';
-                reviewDiv.innerHTML = `
-                    <div>
-                        <p><strong>نام:</strong> ${review.name}</p>
-                        <p><strong>دیدگاه:</strong> ${review.message}</p>
-                        <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
-                    </div>
-                    <div class="space-x-2 space-x-reverse">
-                        <button onclick="publishReview('${review.id}')" class="btn btn-success">تأیید</button>
-                        <button onclick="rejectReview('${review.id}')" class="btn btn-danger">رد</button>
-                    </div>
-                `;
-                reviewsContainer.appendChild(reviewDiv);
-            });
         }
 
         function publishReview(id) {
-            let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
-            let publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
-            const review = pendingReviews.find(r => r.id === id);
+            try {
+                let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+                let publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+                const review = pendingReviews.find(r => r.id === id);
 
-            if (review) {
-                publishedReviews.push(review);
-                pendingReviews = pendingReviews.filter(r => r.id !== id);
-                localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
-                localStorage.setItem('publishedReviews', JSON.stringify(publishedReviews));
-                alert('دیدگاه با موفقیت تأیید شد!');
-                loadPendingReviews();
-                loadPublishedReviews();
-                loadDeleteReviews();
-            } else {
-                alert('خطا: دیدگاه یافت نشد!');
+                if (review) {
+                    publishedReviews.push(review);
+                    pendingReviews = pendingReviews.filter(r => r.id !== id);
+                    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+                    localStorage.setItem('publishedReviews', JSON.stringify(publishedReviews));
+                    alert('دیدگاه با موفقیت تأیید شد!');
+                    loadPendingReviews();
+                    loadPublishedReviews();
+                    loadDeleteReviews();
+                } else {
+                    alert('خطا: دیدگاه یافت نشد!');
+                }
+            } catch (error) {
+                console.error('Error publishing review:', error);
+                alert('خطا در تأیید دیدگاه. لطفاً دوباره امتحان کنید.');
             }
         }
 
@@ -228,83 +261,106 @@
                 return;
             }
 
-            let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
-            const initialLength = pendingReviews.length;
-            pendingReviews = pendingReviews.filter(r => r.id !== id);
+            try {
+                let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+                const initialLength = pendingReviews.length;
+                pendingReviews = pendingReviews.filter(r => r.id !== id);
 
-            if (pendingReviews.length < initialLength) {
-                localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
-                alert('دیدگاه با موفقیت رد شد!');
-                loadPendingReviews();
-            } else {
-                alert('خطا: دیدگاه یافت نشد!');
+                if (pendingReviews.length < initialLength) {
+                    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+                    alert('دیدگاه با موفقیت رد شد!');
+                    loadPendingReviews();
+                } else {
+                    alert('خطا: دیدگاه یافت نشد!');
+                }
+            } catch (error) {
+                console.error('Error rejecting review:', error);
+                alert('خطا در رد دیدگاه. لطفاً دوباره امتحان کنید.');
             }
         }
 
         function loadPublishedReviews() {
-            const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
-            const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
-            const reviewsContainer = document.getElementById('published-reviews');
-            reviewsContainer.innerHTML = '';
-
-            if (reviews.length === 0) {
-                reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای وجود ندارد.</p>';
-                return;
-            }
-
-            reviews.forEach(review => {
-                const reviewDiv = document.createElement('div');
-                reviewDiv.className = 'border-b border-gray-200 py-4';
-                let replyHtml = '';
-                const reviewReplies = replies.filter(r => r.reviewId === review.id);
-                if (reviewReplies.length > 0) {
-                    replyHtml = '<div class="mt-2 border-t pt-2">';
-                    reviewReplies.forEach(r => {
-                        replyHtml += `
-                            <p class="text-indigo-600 font-semibold">پاسخ همکاران آزادی وی‌پی‌ان:</p>
-                            <p class="text-gray-600">${r.reply}</p>
-                        `;
-                    });
-                    replyHtml += '</div>';
+            try {
+                const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+                const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+                const reviewsContainer = document.getElementById('published-reviews');
+                if (!reviewsContainer) {
+                    console.error('Published reviews container not found');
+                    return;
                 }
-                reviewDiv.innerHTML = `
-                    <p><strong>شناسه دیدگاه:</strong> ${review.id}</p>
-                    <p><strong>نام:</strong> ${review.name}</p>
-                    <p><strong>دیدگاه:</strong> ${review.message}</p>
-                    <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
-                    ${replyHtml}
-                    <div class="mt-4">
-                        <textarea id="reply-${review.id}" class="w-full" rows="3" placeholder="پاسخ خود را بنویسید"></textarea>
-                        <button onclick="submitReply('${review.id}')" class="mt-2 btn btn-primary">ارسال پاسخ</button>
-                    </div>
-                `;
-                reviewsContainer.appendChild(reviewDiv);
-            });
-        }
+                reviewsContainer.innerHTML = '';
 
-        function loadDeleteReviews() {
-            const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
-            const reviewsContainer = document.getElementById('delete-reviews');
-            reviewsContainer.innerHTML = '';
+                if (reviews.length === 0) {
+                    reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای وجود ندارد.</p>';
+                    return;
+                }
 
-            if (reviews.length === 0) {
-                reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای برای حذف وجود ندارد.</p>';
-                return;
-            }
-
-            reviews.forEach(review => {
-                const reviewDiv = document.createElement('div');
-                reviewDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center';
-                reviewDiv.innerHTML = `
-                    <div>
+                reviews.forEach(review => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'border-b border-gray-200 py-4';
+                    let replyHtml = '';
+                    const reviewReplies = replies.filter(r => r.reviewId === review.id);
+                    if (reviewReplies.length > 0) {
+                        replyHtml = '<div class="mt-2 border-t pt-2">';
+                        reviewReplies.forEach(r => {
+                            replyHtml += `
+                                <p class="text-indigo-600 font-semibold">پاسخ همکاران آزادی وی‌پی‌ان:</p>
+                                <p class="text-gray-600">${r.reply}</p>
+                            `;
+                        });
+                        replyHtml += '</div>';
+                    }
+                    reviewDiv.innerHTML = `
+                        <p><strong>شناسه دیدگاه:</strong> ${review.id}</p>
                         <p><strong>نام:</strong> ${review.name}</p>
                         <p><strong>دیدگاه:</strong> ${review.message}</p>
                         <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
-                    </div>
-                    <button onclick="deleteReview('${review.id}')" class="btn btn-danger">حذف</button>
-                `;
-                reviewsContainer.appendChild(reviewDiv);
-            });
+                        ${replyHtml}
+                        <div class="mt-4">
+                            <textarea id="reply-${review.id}" class="w-full" rows="3" placeholder="پاسخ خود را بنویسید"></textarea>
+                            <button onclick="submitReply('${review.id}')" class="mt-2 btn btn-primary">ارسال پاسخ</button>
+                        </div>
+                    `;
+                    reviewsContainer.appendChild(reviewDiv);
+                });
+            } catch (error) {
+                console.error('Error loading published reviews:', error);
+                document.getElementById('published-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های تأیید شده. لطفاً دوباره امتحان کنید.</p>';
+            }
+        }
+
+        function loadDeleteReviews() {
+            try {
+                const reviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+                const reviewsContainer = document.getElementById('delete-reviews');
+                if (!reviewsContainer) {
+                    console.error('Delete reviews container not found');
+                    return;
+                }
+                reviewsContainer.innerHTML = '';
+
+                if (reviews.length === 0) {
+                    reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاه تأیید شده‌ای برای حذف وجود ندارد.</p>';
+                    return;
+                }
+
+                reviews.forEach(review => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center flex-col sm:flex-row gap-4';
+                    reviewDiv.innerHTML = `
+                        <div class="w-full">
+                            <p><strong>نام:</strong> ${review.name}</p>
+                            <p><strong>دیدگاه:</strong> ${review.message}</p>
+                            <p><strong>زمان:</strong> ${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
+                        </div>
+                        <button onclick="deleteReview('${review.id}')" class="btn btn-danger flex-shrink-0">حذف</button>
+                    `;
+                    reviewsContainer.appendChild(reviewDiv);
+                });
+            } catch (error) {
+                console.error('Error loading delete reviews:', error);
+                document.getElementById('delete-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های قابل حذف. لطفاً دوباره امتحان کنید.</p>';
+            }
         }
 
         function deleteReview(id) {
@@ -312,43 +368,59 @@
                 return;
             }
 
-            let publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
-            let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
-            const initialLength = publishedReviews.length;
-            publishedReviews = publishedReviews.filter(r => r.id !== id);
-            replies = replies.filter(r => r.reviewId !== id);
+            try {
+                let publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+                let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+                const initialLength = publishedReviews.length;
+                publishedReviews = publishedReviews.filter(r => r.id !== id);
+                replies = replies.filter(r => r.reviewId !== id);
 
-            if (publishedReviews.length < initialLength) {
-                localStorage.setItem('publishedReviews', JSON.stringify(publishedReviews));
-                localStorage.setItem('reviewReplies', JSON.stringify(replies));
-                alert('دیدگاه با موفقیت حذف شد!');
-                loadPublishedReviews();
-                loadDeleteReviews();
-            } else {
-                alert('خطا: دیدگاه یافت نشد!');
+                if (publishedReviews.length < initialLength) {
+                    localStorage.setItem('publishedReviews', JSON.stringify(publishedReviews));
+                    localStorage.setItem('reviewReplies', JSON.stringify(replies));
+                    alert('دیدگاه با موفقیت حذف شد!');
+                    loadPublishedReviews();
+                    loadDeleteReviews();
+                } else {
+                    alert('خطا: دیدگاه یافت نشد!');
+                }
+            } catch (error) {
+                console.error('Error deleting review:', error);
+                alert('خطا در حذف دیدگاه. لطفاً دوباره امتحان کنید.');
             }
         }
 
         function submitReply(reviewId) {
-            const replyText = document.getElementById(`reply-${reviewId}`).value.trim();
-            if (!replyText) {
-                alert('لطفاً متن پاسخ را وارد کنید.');
-                return;
-            }
+            try {
+                const replyText = document.getElementById(`reply-${reviewId}`).value.trim();
+                if (!replyText) {
+                    alert('لطفاً متن پاسخ را وارد کنید.');
+                    return;
+                }
 
-            let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
-            replies.push({
-                reviewId,
-                reply: replyText,
-                timestamp: new Date().toISOString()
-            });
-            localStorage.setItem('reviewReplies', JSON.stringify(replies));
-            document.getElementById(`reply-${reviewId}`).value = '';
-            alert('پاسخ با موفقیت ثبت شد.');
-            loadPublishedReviews();
+                let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+                replies.push({
+                    reviewId,
+                    reply: replyText,
+                    timestamp: new Date().toISOString()
+                });
+                localStorage.setItem('reviewReplies', JSON.stringify(replies));
+                document.getElementById(`reply-${reviewId}`).value = '';
+                alert('پاسخ با موفقیت ثبت شد.');
+                loadPublishedReviews();
+            } catch (error) {
+                console.error('Error submitting reply:', error);
+                alert('خطا در ثبت پاسخ. لطفاً دوباره امتحان کنید.');
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                checkLoginStatus();
+            } catch (error) {
+                console.error('Error during DOMContentLoaded:', error);
+            }
+        });
     </script>
 </body>
 </html>
