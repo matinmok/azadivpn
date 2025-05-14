@@ -27,6 +27,7 @@
                 <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition duration-300">خانه</a></li>
                 <li><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
                 <li><a href="#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">تماس</a></li>
                 <li>
                     <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
@@ -45,6 +46,7 @@
                 <li><a href="#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">خانه</a></li>
                 <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
                 <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس</a></li>
                 <li>
                     <a href="#" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
@@ -141,7 +143,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="max-w-5xl mx-auto mt-10">
+            <div id="reviews" class="max-w-5xl mx-auto mt-10">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">تجربه استفاده از آزادی وی‌پی‌ان</h3>
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <div class="mb-6">
@@ -154,27 +156,119 @@
                     </div>
                     <button onclick="submitReview()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">ارسال دیدگاه</button>
                 </div>
+                <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">پاسخ مدیر</h4>
+                    <div class="mb-4">
+                        <label for="admin-password" class="block text-gray-700 text-sm mb-2">رمز عبور مدیر</label>
+                        <input type="password" id="admin-password" placeholder="رمز عبور" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="reply-review-id" class="block text-gray-700 text-sm mb-2">شناسه دیدگاه</label>
+                        <input type="text" id="reply-review-id" placeholder="شناسه دیدگاه" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="admin-reply" class="block text-gray-700 text-sm mb-2">پاسخ شما</label>
+                        <textarea id="admin-reply" rows="3" placeholder="پاسخ خود را بنویسید" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                    </div>
+                    <button onclick="submitReply()" class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">ارسال پاسخ</button>
+                </div>
                 <div id="reviews-list" class="space-y-4">
-                    <!-- Reviews will be appended here -->
+                    <!-- Published reviews will be appended here -->
                 </div>
                 <script>
+                    const ADMIN_PASSWORD = 'matin778900';
+
+                    function generateUUID() {
+                        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                            return v.toString(16);
+                        });
+                    }
+
                     function submitReview() {
-                        const name = document.getElementById('review-name').value;
-                        const message = document.getElementById('review-message').value;
+                        const name = document.getElementById('review-name').value.trim();
+                        const message = document.getElementById('review-message').value.trim();
                         if (name && message) {
-                            const reviewDiv = document.createElement('div');
-                            reviewDiv.className = 'bg-white p-4 rounded-lg shadow-md';
-                            reviewDiv.innerHTML = `
-                                <p class="text-gray-800 font-semibold">${name}</p>
-                                <p class="text-gray-600">${message}</p>
-                            `;
-                            document.getElementById('reviews-list').prepend(reviewDiv);
+                            let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+                            const newReview = {
+                                id: generateUUID(),
+                                name,
+                                message,
+                                timestamp: new Date().toISOString()
+                            };
+                            pendingReviews.push(newReview);
+                            localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
                             document.getElementById('review-name').value = '';
                             document.getElementById('review-message').value = '';
+                            alert('دیدگاه شما ارسال شد و در انتظار تأیید مدیر است.');
                         } else {
                             alert('لطفاً نام و دیدگاه خود را وارد کنید.');
                         }
                     }
+
+                    function submitReply() {
+                        const password = document.getElementById('admin-password').value;
+                        const reviewId = document.getElementById('reply-review-id').value.trim();
+                        const replyText = document.getElementById('admin-reply').value.trim();
+                        if (password !== ADMIN_PASSWORD) {
+                            alert('رمز عبور مدیر اشتباه است.');
+                            return;
+                        }
+                        if (!reviewId || !replyText) {
+                            alert('لطفاً شناسه دیدگاه و متن پاسخ را وارد کنید.');
+                            return;
+                        }
+                        let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+                        replies.push({
+                            reviewId,
+                            reply: replyText,
+                            timestamp: new Date().toISOString()
+                        });
+                        localStorage.setItem('reviewReplies', JSON.stringify(replies));
+                        document.getElementById('admin-password').value = '';
+                        document.getElementById('reply-review-id').value = '';
+                        document.getElementById('admin-reply').value = '';
+                        alert('پاسخ شما با موفقیت ثبت شد.');
+                        loadPublishedReviews();
+                    }
+
+                    function loadPublishedReviews() {
+                        const publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+                        const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+                        const reviewsList = document.getElementById('reviews-list');
+                        reviewsList.innerHTML = '';
+                        if (publishedReviews.length === 0) {
+                            reviewsList.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی وجود ندارد.</p>';
+                            return;
+                        }
+                        publishedReviews.forEach(review => {
+                            const reviewDiv = document.createElement('div');
+                            reviewDiv.className = 'bg-white p-4 rounded-lg shadow-md';
+                            let replyHtml = '';
+                            const reviewReplies = replies.filter(r => r.reviewId === review.id);
+                            if (reviewReplies.length > 0) {
+                                replyHtml = '<div class="mt-2 border-t pt-2">';
+                                reviewReplies.forEach(r => {
+                                    replyHtml += `
+                                        <p class="text-indigo-600 font-semibold">پاسخ مدیر:</p>
+                                        <p class="text-gray-600">${r.reply}</p>
+                                        <p class="text-gray-500 text-sm">${new Date(r.timestamp).toLocaleString('fa-IR')}</p>
+                                    `;
+                                });
+                                replyHtml += '</div>';
+                            }
+                            reviewDiv.innerHTML = `
+                                <p class="text-gray-800 font-semibold">${review.name}</p>
+                                <p class="text-gray-600">${review.message}</p>
+                                <p class="text-gray-500 text-sm">شناسه دیدگاه: ${review.id}</p>
+                                <p class="text-gray-500 text-sm">${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
+                                ${replyHtml}
+                            `;
+                            reviewsList.appendChild(reviewDiv);
+                        });
+                    }
+
+                    document.addEventListener('DOMContentLoaded', loadPublishedReviews);
                 </script>
             </div>
         </div>
@@ -215,12 +309,6 @@
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
-            });
-        }
-        function generateUUID() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
             });
         }
     </script>
