@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزادی وی‌پی‌ان | اینترنت بدون محدودیت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        ::selection {
+            background: #facc15;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full z-10">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">آزادی وی‌پی‌ان</div>
+            <ul class="flex space-x-8 text-sm font-medium">
+                <li><a href="#home" class="hover:text-indigo-600 transition">خانه</a></li>
+                <li><a href="#products" class="hover:text-indigo-600 transition">محصولات</a></li>
+                <li><a href="#contact" class="hover:text-indigo-600 transition">تماس</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-20 bg-gradient-to-br from-indigo-50 to-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">آزادی در اینترنت</h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">با آزادی وی‌پی‌ان، به دنیایی بدون محدودیت متصل شوید. سریع، امن، ساده.</p>
+            <a href="#products" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full font-medium hover:bg-indigo-700 transition">شروع کنید</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">انتخابی برای هر نیاز</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک پایه</h3>
+                    <p class="text-gray-500 mb-6">اتصال سریع برای استفاده روزمره</p>
+                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۱۰۰,۰۰۰ تومان</p>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">خرید</button>
+                </div>
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک حرفه‌ای</h3>
+                    <p class="text-gray-500 mb-6">سرعت بالا و سرورهای اختصاصی</p>
+                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۲۰۰,۰۰۰ تومان</p>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">خرید</button>
+                </div>
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک سازمانی</h3>
+                    <p class="text-gray-500 mb-6">راه‌حل‌های سفارشی برای تیم‌ها</p>
+                    <p class="text-2xl font-bold text-indigo-600 mb-6">تماس بگیرید</p>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">تماس</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">با ما در ارتباط باشید</h2>
+            <div class="max-w-md mx-auto">
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-700 text-sm mb-2">نام</label>
+                    <input type="text" id="name" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="نام شما">
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 text-sm mb-2">ایمیل</label>
+                    <input type="email" id="email" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="ایمیل شما">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 text-sm mb-2">پیام</label>
+                    <textarea id="message" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="4" placeholder="پیام شما"></textarea>
+                </div>
+                <button onclick="submitContact()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">ارسال پیام</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitContact() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('پیام شما با موفقیت ارسال شد!');
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('لطفاً تمام فیلدها را پر کنید.');
+            }
+        }
+    </script>
+</body>
+</html>
