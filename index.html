@@ -21,87 +21,62 @@
         body {
             font-family: 'Vazirmatn', sans-serif;
         }
-        /* استایل‌های اسلایدر */
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 800px;
+        /* استایل‌های گرید دیدگاه‌ها */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1280px; /* هماهنگ با max-w-5xl */
             margin: 0 auto;
         }
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            padding: 2rem;
-            background: #f9fafb;
-            border-radius: 1rem;
+        .review-card {
+            background: #ffffff;
+            border: 2px solid #3b82f6;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
         }
-        .slide p {
-            color: #4b5563;
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .review-card h4 {
+            color: #1e3a8a;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
-        .slide h4 {
-            color: #1f2937;
-            font-size: 1.25rem;
-            font-weight: 600;
+        .review-card p {
+            color: #374151;
+            font-size: 1rem;
+            line-height: 1.5;
             margin-bottom: 0.5rem;
         }
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        .slider-nav button {
-            background: rgba(0, 0, 0, 0.5);
+        .review-card a {
+            display: inline-block;
+            background: #3b82f6;
             color: white;
-            border: none;
-            padding: 0.5rem;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            margin-top: 0.5rem;
+            transition: background 0.3s, transform 0.3s;
         }
-        .slider-nav button:hover {
-            background: rgba(0, 0, 0, 0.7);
+        .review-card a:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
         }
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-        .dot {
-            width: 0.75rem;
-            height: 0.75rem;
-            background: #d1d5db;
-            border-radius: 50%;
-            margin: 0 0.25rem;
-            cursor: pointer;
-        }
-        .dot.active {
-            background: #2563eb;
-        }
-        @media (max-width: 640px) {
-            .slide {
-                padding: 1.5rem;
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
-            .slide p {
+            .review-card {
+                padding: 1rem;
+            }
+            .review-card h4 {
                 font-size: 1rem;
             }
-            .slider-nav button {
-                width: 2rem;
-                height: 2rem;
+            .review-card p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -116,7 +91,7 @@
             </div>
             <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
                 <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition duration-300">خانه</a></li>
-                <li><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌های خرید فیلترشکن</a></li>
+                <li><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
                 <li><a href="#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">تماس</a></li>
@@ -135,7 +110,7 @@
         <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
             <ul class="px-4 py-2 space-y-2">
                 <li><a href="#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">خانه</a></li>
-                <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌های خرید فیلترشکن</a></li>
+                <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
                 <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس</a></li>
@@ -153,7 +128,6 @@
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
-                // بستن منوی موبایل هنگام کلیک روی لینک‌ها
                 const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
                 mobileMenuLinks.forEach(link => {
                     link.addEventListener('click', () => {
@@ -174,7 +148,7 @@
     </section>
     <section id="products" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">تعرفه‌های خرید فیلترشکن قوی</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">تعرفه‌ها</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۱ کاربر فیلترشکن</h3>
@@ -201,7 +175,7 @@
         </div>
     </section>
     <section id="servers" class="py-16 bg-gray-100">
-        <div class="container mx:auto px-4">
+        <div class="container mx-auto px-4">
             <h2 class="text-center text-3xl font-bold text-gray-800 mb-10 cursor-pointer" onclick="showServerStatus()">وضعیت سرورهای فیلترشکن</h2>
             <div class="max-w-5xl mx-auto">
                 <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md">
@@ -243,76 +217,29 @@
             </div>
             <div id="reviews" class="max-w-5xl mx-auto mt-10">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">تجربه کاربران از خرید فیلترشکن قوی</h3>
-                <div class="slider-container">
-                    <div class="slider" id="slider">
-                        <div class="slide">
-                            <h4>محمدرضا از مشهد</h4>
-                            <p>من از فیلترشکن آزادی وی‌پی‌ان بسیار راضی بودم. ۳ سال خرید داشتم ازشون.</p>
-                        </div>
-                        <div class="slide">
-                            <h4>حمید از شیراز</h4>
-                            <p>سلام به همه دوستان. من یک سالی هست مشتری‌شون هستم و از خدماتشون راضی بودم. مصرف من هم برای وب‌گردی و اینستاگرام بود. ممنون.</p>
-                        </div>
-                        <div class="slide">
-                            <h4>راضیه سلطانی از تهران</h4>
-                            <p>درود. من و خانوادم سه سالی میشه که از وی‌پی‌ان‌های آزادی وی‌پی‌ان استفاده می‌کنیم و هم از خدمات و هم پشتیبانی بسیار راضی هستیم.</p>
-                        </div>
-                        <div class="slide">
-                            <h4>امین از رشت</h4>
-                            <p>تقریبا ۸ ماه پیش با شما آشنا شدم. راضی بودم و به دوستان دیگه پیشنهاد می‌کنم.</p>
-                        </div>
-                        <div class="slide">
-                            <h4>دیدگاه بعدی از شما</h4>
-                            <p>تجربه خودتون از آزادی وی‌پی‌ان رو با ما به اشتراک بگذارید!</p>
-                            <a href="#contact" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full mt-4 transition duration-300">ارسال دیدگاه</a>
-                        </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <h4>محمدرضا از مشهد</h4>
+                        <p>من از فیلترشکن آزادی وی‌پی‌ان بسیار راضی بودم. ۳ سال خرید داشتم ازشون.</p>
                     </div>
-                    <div class="slider-nav">
-                        <button onclick="prevSlide()" aria-label="اسلاید قبلی">←</button>
-                        <button onclick="nextSlide()" aria-label="اسلاید بعدی">→</button>
+                    <div class="review-card">
+                        <h4>حمید از شیراز</h4>
+                        <p>سلام به همه دوستان. من یک سالی هست مشتری‌شون هستم و از خدماتشون راضی بودم. مصرف من هم برای وب‌گردی و اینستاگرام بود. ممنون.</p>
                     </div>
-                    <div class="slider-dots" id="dots"></div>
+                    <div class="review-card">
+                        <h4>راضیه سلطانی از تهران</h4>
+                        <p>درود. من و خانوادم سه سالی میشه که از وی‌پی‌ان‌های آزادی وی‌پی‌ان استفاده می‌کنیم و هم از خدمات و هم پشتیبانی بسیار راضی هستیم.</p>
+                    </div>
+                    <div class="review-card">
+                        <h4>امین از رشت</h4>
+                        <p>تقریبا ۸ ماه پیش با شما آشنا شدم. راضی بودم و به دوستان دیگه پیشنهاد می‌کنم.</p>
+                    </div>
+                    <div class="review-card">
+                        <h4>دیدگاه بعدی از شما</h4>
+                        <p>تجربه خودتون از آزادی وی‌پی‌ان رو با ما به اشتراک بگذارید!</p>
+                        <a href="#contact" class="inline-block">ارسال دیدگاه</a>
+                    </div>
                 </div>
-                <script>
-                    let currentSlide = 0;
-                    const slides = document.querySelectorAll('.slide');
-                    const slider = document.getElementById('slider');
-                    const dotsContainer = document.getElementById('dots');
-
-                    // ایجاد نقطه‌ها
-                    slides.forEach((_, index) => {
-                        const dot = document.createElement('div');
-                        dot.className = 'dot';
-                        if (index === 0) dot.classList.add('active');
-                        dot.addEventListener('click', () => goToSlide(index));
-                        dotsContainer.appendChild(dot);
-                    });
-
-                    function updateSlider() {
-                        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                        document.querySelectorAll('.dot').forEach((dot, index) => {
-                            dot.classList.toggle('active', index === currentSlide);
-                        });
-                    }
-
-                    function nextSlide() {
-                        currentSlide = (currentSlide + 1) % slides.length;
-                        updateSlider();
-                    }
-
-                    function prevSlide() {
-                        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                        updateSlider();
-                    }
-
-                    function goToSlide(index) {
-                        currentSlide = index;
-                        updateSlider();
-                    }
-
-                    // اسلاید خودکار هر ۵ ثانیه
-                    setInterval(nextSlide, 5000);
-                </script>
             </div>
         </div>
     </section>
@@ -323,7 +250,8 @@
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-semibold mb-2">نام</label>
-                        <input type="text" id="name" placeholder="نام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue=    </div>
+                        <input type="text" id="name" placeholder="نام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
                     <div class="mb-6">
                         <label for="phone" class="block text-gray-700 font-semibold mb-2">شماره</label>
                         <input type="tel" id="phone" placeholder="شماره شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -368,7 +296,8 @@
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۱۸۰,۰۰۰ تومان</p>
                     <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن ۱ ماهه ۲ کاربر تک لوکیشن">خرید</button>
-                </��            <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۲ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۲۵۰,۰۰۰ تومان</p>
