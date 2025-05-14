@@ -3,8 +3,8 @@ body {
     font-family: 'Vazirmatn', sans-serif;
     direction: rtl;
     text-align: right;
-    background-color: #f7f9fc;
-    color: #1e293b;
+    background-color: #f9fafb; /* bg-gray-50 */
+    color: #111827; /* text-gray-900 */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
@@ -12,8 +12,8 @@ body {
 
 /* انتخاب متن */
 ::selection {
-    background: #a5b4fc;
-    color: #1e293b;
+    background: #facc15;
+    color: #1f2937;
 }
 
 /* هدر */
@@ -21,216 +21,201 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 20;
-    background: linear-gradient(180deg, #ffffff, #f8fafc);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    background: #ffffff; /* bg-white */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* shadow-sm */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem; /* px-4 py-4 */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 nav .logo {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #4f46e5;
-    transition: color 0.3s ease;
-}
-
-nav .logo:hover {
-    color: #6366f1;
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #4f46e5; /* text-indigo-600 */
 }
 
 nav ul {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem; /* space-x-8 */
 }
 
 nav ul li a {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #1e293b;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #111827;
+    transition: color 0.2s ease;
 }
 
 nav ul li a:hover {
-    color: #4f46e5;
-    transform: translateY(-2px);
+    color: #4f46e5; /* hover:text-indigo-600 */
 }
 
 /* بخش هیرو */
 #home {
-    padding: 7rem 1rem 6rem;
-    background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
+    padding: 6rem 1rem 5rem; /* pt-24 pb-20 */
+    background: linear-gradient(to bottom right, #eef2ff, #f3f4f6); /* from-indigo-50 to-gray-100 */
     text-align: center;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
 }
 
 #home .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 #home h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
 @media (min-width: 768px) {
     #home h1 {
-        font-size: 3.5rem;
+        font-size: 3rem; /* md:text-5xl */
     }
 }
 
 #home p {
-    font-size: 1.125rem;
-    color: #475569;
-    margin-bottom: 2.5rem;
-    max-width: 600px;
+    font-size: 1.125rem; /* text-lg */
+    color: #4b5563; /* text-gray-600 */
+    margin-bottom: 2rem; /* mb-8 */
+    max-width: 32rem; /* max-w-2xl */
     margin-left: auto;
     margin-right: auto;
 }
 
 #home a {
     display: inline-block;
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    background: #4f46e5; /* bg-indigo-600 */
     color: #ffffff;
-    padding: 0.9rem 2.5rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500; /* font-medium */
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 #home a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    background: #4338ca; /* hover:bg-indigo-700 */
+    transform: translateY(-2px);
 }
 
 /* بخش محصولات */
 #products {
-    padding: 6rem 1rem;
-    background: #ffffff;
+    padding: 5rem 1rem; /* py-20 */
 }
 
 #products h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; /* mb-12 */
 }
 
 .product-card {
-    background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 2rem; /* p-8 */
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* hover:shadow-md */
+    transform: translateY(-4px);
 }
 
 .product-card h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 1rem;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
+    margin-bottom: 1rem; /* mb-4 */
 }
 
 .product-card p.description {
-    color: #64748b;
+    color: #6b7280; /* text-gray-500 */
     font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
 .product-card p.price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #4f46e5;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #4f46e5; /* text-indigo-600 */
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
 .product-card button {
     width: 100%;
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    background: #4f46e5; /* bg-indigo-600 */
     color: #ffffff;
-    padding: 0.75rem;
-    border-radius: 2rem;
-    font-weight: 600;
+    padding: 0.5rem; /* py-2 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .product-card button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    background: #4338ca; /* hover:bg-indigo-700 */
+    transform: scale(1.02);
 }
 
 /* بخش مقالات */
 #articles {
-    padding: 6rem 1rem;
-    background: #f1f5f9;
+    padding: 5rem 1rem;
+    background: #f3f4f6; /* bg-gray-100 */
 }
 
 #articles h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; /* mb-12 */
 }
 
 .article-card {
-    background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 1.5rem; /* p-6 */
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* hover:shadow-md */
+    transform: translateY(-4px);
 }
 
 .article-card h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
 }
 
 .article-card a {
-    color: #4f46e5;
+    color: #4f46e5; /* text-indigo-600 */
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .article-card a:hover {
-    color: #7c3aed;
+    color: #4338ca; /* hover:text-indigo-700 */
 }
 
 /* صفحه مقاله */
 #article {
-    padding: 7rem 1rem 6rem;
+    padding: 6rem 1rem 5rem;
     background: #ffffff;
-    min-height: 80vh;
 }
 
 #article .container {
@@ -239,180 +224,188 @@ nav ul li a:hover {
 }
 
 #article h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    margin-bottom: 1rem; /* mb-4 */
 }
 
 #article .meta {
-    color: #64748b;
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    color: #6b7280; /* text-gray-500 */
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 2rem; /* mb-8 */
 }
 
 #article .content {
     font-size: 1rem;
-    color: #1e293b;
+    color: #111827;
     line-height: 1.8;
     white-space: pre-wrap; /* حفظ فاصله‌ها و خطوط */
 }
 
 /* بخش تماس */
 #contact {
-    padding: 6rem 1rem;
-    background: #f1f5f9;
+    padding: 5rem 1rem; /* py-20 */
+    background: #f3f4f6; /* bg-gray-100 */
 }
 
 #contact h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; /* mb-12 */
 }
 
 .form-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
 .form-item label {
     display: block;
-    color: #475569;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    color: #4b5563; /* text-gray-700 */
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 0.5rem; /* mb-2 */
 }
 
 .form-item input,
 .form-item textarea {
     width: 100%;
-    padding: 0.85rem;
-    border-radius: 0.75rem;
-    border: 1px solid #e2e8f0;
+    padding: 0.75rem; /* p-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    border: 1px solid #e5e7eb; /* border-gray-200 */
     outline: none;
     font-size: 0.95rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-item input:focus,
 .form-item textarea:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    border-color: #6366f1; /* focus:ring-indigo-500 */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 .form-item textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
 }
 
 #contact button {
     width: 100%;
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    background: #4f46e5; /* bg-indigo-600 */
     color: #ffffff;
-    padding: 0.9rem;
-    border-radius: 2rem;
-    font-weight: 600;
+    padding: 0.75rem; /* py-3 */
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 500;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 #contact button:hover {
+    background: #4338ca; /* hover:bg-indigo-700 */
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 /* فوتر */
 footer {
-    background: #1e293b;
-    color: #e2e8f0;
-    padding: 2.5rem 0;
+    background: #111827; /* bg-gray-900 */
+    color: #d1d5db; /* text-gray-300 */
+    padding: 2rem 0; /* py-8 */
     text-align: center;
     font-size: 0.9rem;
 }
 
-/* استایل‌های صفحه ورود */
+/* صفحه ورود */
 #login {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
+    background: linear-gradient(to bottom right, #eef2ff, #f3f4f6); /* from-indigo-50 to-gray-100 */
 }
 
 .login-box {
-    background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 2.5rem;
-    max-width: 400px;
+    background: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 2rem; /* p-8 */
+    max-width: 400px; /* max-w-sm */
     width: 100%;
     text-align: center;
 }
 
 .login-box h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 2rem;
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
 .login-box .form-item input {
-    border-radius: 0.75rem;
+    border-radius: 0.5rem; /* rounded-lg */
 }
 
 .login-box button {
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
-    border-radius: 2rem;
+    background: #4f46e5; /* bg-indigo-600 */
+    border-radius: 9999px; /* rounded-full */
+    padding: 0.75rem; /* py-3 */
 }
 
-/* استایل‌های داشبورد */
+/* داشبورد */
 #dashboard {
-    padding: 6rem 1rem;
+    padding: 6rem 1rem 5rem;
+    background: #f9fafb; /* bg-gray-50 */
+}
+
+#dashboard .container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 #dashboard h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #111827;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem; /* mb-8 */
 }
 
 #dashboard h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 1.5rem;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #111827;
+    margin-bottom: 1rem; /* mb-4 */
 }
 
 .panel-section {
-    background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding: 2rem;
-    margin-bottom: 3rem;
+    background: #ffffff; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+    padding: 2rem; /* p-8 */
+    margin-bottom: 2rem; /* mb-8 */
 }
 
 .panel-section .form-item input,
 .panel-section .form-item textarea {
-    border-radius: 0.75rem;
+    border-radius: 0.5rem; /* rounded-lg */
 }
 
 .panel-section button {
-    border-radius: 2rem;
+    border-radius: 9999px; /* rounded-full */
+    padding: 0.75rem; /* py-3 */
 }
 
 .contact-form-item {
-    border-bottom: 1px solid #e2e8f0;
-    padding: 1.5rem 0;
+    border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+    padding: 1rem 0; /* py-4 */
 }
 
 .contact-form-item p {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
     font-size: 0.95rem;
 }
 
 .contact-form-item p strong {
-    color: #1e293b;
+    color: #111827;
 }
