@@ -166,4 +166,34 @@
                 </div>
                 <div class="mb-6">
                     <label for="message" class="block text-gray-700 font-semibold mb-2">پیام</label>
-                    <textarea id="message" rows="4" placeholder="پیام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-50
+                    <textarea id="message" rows="4" placeholder="پیام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <button onclick="submitContact()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">ارسال پیام</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن قوی</a>
+                <span class="text-gray-600">|</span>
+                <a href="#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16
