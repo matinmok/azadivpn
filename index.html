@@ -199,25 +199,24 @@
                         }
                         publishedReviews.forEach(review => {
                             const reviewDiv = document.createElement('div');
-                            reviewDiv.className = 'bg-white p-4 rounded-lg shadow-md';
+                            reviewDiv.className = 'bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100';
                             let replyHtml = '';
                             const reviewReplies = replies.filter(r => r.reviewId === review.id);
                             if (reviewReplies.length > 0) {
-                                replyHtml = '<div class="mt-2 border-t pt-2">';
+                                replyHtml = '<div class="mt-4 pt-4 border-t border-gray-200">';
                                 reviewReplies.forEach(r => {
                                     replyHtml += `
-                                        <p class="text-indigo-600 font-semibold">پاسخ مدیر:</p>
-                                        <p class="text-gray-600">${r.reply}</p>
-                                        <p class="text-gray-500 text-sm">${new Date(r.timestamp).toLocaleString('fa-IR')}</p>
+                                        <p class="text-indigo-600 font-semibold text-sm mb-1">پاسخ مدیر:</p>
+                                        <p class="text-gray-600 text-sm">${r.reply}</p>
+                                        <p class="text-gray-400 text-xs mt-1">${new Date(r.timestamp).toLocaleString('fa-IR')}</p>
                                     `;
                                 });
                                 replyHtml += '</div>';
                             }
                             reviewDiv.innerHTML = `
-                                <p class="text-gray-800 font-semibold">${review.name}</p>
-                                <p class="text-gray-600">${review.message}</p>
-                                <p class="text-gray-500 text-sm">شناسه دیدگاه: ${review.id}</p>
-                                <p class="text-gray-500 text-sm">${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
+                                <p class="text-gray-800 font-medium mb-2">دیدگاه ارسال شده توسط ${review.name}</p>
+                                <p class="text-gray-600 text-base leading-relaxed">${review.message}</p>
+                                <p class="text-gray-400 text-xs mt-3">${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
                                 ${replyHtml}
                             `;
                             reviewsList.appendChild(reviewDiv);
