@@ -13,7 +13,7 @@
 <body>
     <!-- Header -->
     <header>
-        <nav class="container mx-auto">
+        <nav class="container">
             <div class="logo">آزادی وی‌پی‌ان</div>
             <ul>
                 <li><a href="#home">خانه</a></li>
@@ -26,7 +26,7 @@
 
     <!-- Hero Section -->
     <section id="home">
-        <div class="container mx-auto text-center">
+        <div class="container">
             <h1>آزادی در اینترنت</h1>
             <p>با آزادی وی‌پی‌ان، به دنیایی بدون محدودیت متصل شوید. سریع، امن، ساده.</p>
             <a href="#products">شروع کنید</a>
@@ -35,24 +35,21 @@
 
     <!-- Products Section -->
     <section id="products">
-        <div class="container mx-auto">
+        <div class="container">
             <h2>انتخابی برای هر نیاز</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Product 1 -->
                 <div class="product-card">
                     <h3>اشتراک پایه</h3>
                     <p class="description">۱ کاربر، ۱ ماهه، نامحدود</p>
                     <p class="price">ماهانه ۱۲۰,۰۰۰ تومان</p>
                     <button>خرید</button>
                 </div>
-                <!-- Product 2 -->
                 <div class="product-card">
                     <h3>اشتراک حرفه‌ای</h3>
                     <p class="description">۲ کاربر، ۱ ماهه، نامحدود</p>
                     <p class="price">ماهانه ۱۸۰,۰۰۰ تومان</p>
                     <button>خرید</button>
                 </div>
-                <!-- Product 3 -->
                 <div class="product-card">
                     <h3>اشتراک سازمانی</h3>
                     <p class="description">راه‌حل‌های سفارشی برای تیم‌ها</p>
@@ -65,7 +62,7 @@
 
     <!-- Articles Section -->
     <section id="articles">
-        <div class="container mx-auto">
+        <div class="container">
             <h2>مقالات</h2>
             <div id="articles-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"></div>
         </div>
@@ -73,7 +70,7 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="container mx-auto">
+        <div class="container">
             <h2>با ما در ارتباط باشید</h2>
             <div class="max-w-md mx-auto">
                 <div class="form-item">
@@ -95,12 +92,19 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container mx-auto">
+        <div class="container">
             <p>© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
 
     <script>
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
         function submitContact() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -126,8 +130,7 @@
                 const articleDiv = document.createElement('div');
                 articleDiv.className = 'article-card';
                 articleDiv.innerHTML = `
-                    <h3>${article.title}</h3>
-                    <p>${article.content.substring(0, 100)}...</p>
+                    <h3><a href="article.html?id=${article.id}">${article.title}</a></h3>
                 `;
                 articlesList.appendChild(articleDiv);
             });
