@@ -21,17 +21,12 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             padding: 2rem;
             margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-        .section-container:hover {
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
         }
         .btn {
             border-radius: 8px;
             padding: 0.5rem 1.5rem;
             font-weight: 500;
-            transition: all 0.2s ease;
-            touch-action: manipulation; /* بهبود تعامل لمسی */
+            touch-action: manipulation;
         }
         .btn-primary {
             background-color: #4f46e5;
@@ -61,12 +56,26 @@
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 0.75rem;
-            transition: all 0.2s ease;
         }
         input:focus, textarea:focus {
             border-color: #4f46e5;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
             outline: none;
+        }
+        #pending-reviews, #published-reviews, #delete-reviews, #contact-forms {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            overflow: visible;
+        }
+        #pending-reviews > div, #published-reviews > div, #delete-reviews > div, #contact-forms > div {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        #debug-message {
+            color: red;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
         }
         @media (max-width: 640px) {
             .section-container {
@@ -90,7 +99,6 @@
     </style>
 </head>
 <body class="text-gray-900 antialiased">
-    <!-- Login Section -->
     <section id="login" class="min-h-screen flex items-center justify-center px-4">
         <div class="bg-white rounded-xl shadow-sm p-8 max-w-sm w-full">
             <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">ورود به پنل ادمین</h2>
@@ -102,32 +110,28 @@
         </div>
     </section>
 
-    <!-- Admin Panel (Hidden by Default) -->
     <section id="admin-panel" class="hidden py-12">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center mb-12">
                 <h2 class="text-3xl font-bold">پنل ادمین</h2>
                 <button onclick="logout()" class="btn btn-danger">خروج</button>
             </div>
-            <!-- Manage Pending Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">مدیریت دیدگاه‌های در انتظار</h3>
                 <div class="flex justify-end mb-4">
                     <button onclick="loadPendingReviews()" class="btn btn-primary">رفرش دیدگاه‌ها</button>
                 </div>
                 <div id="pending-reviews" class="w-full max-w-full"></div>
+                <div id="debug-message"></div>
             </div>
-            <!-- Reply to Published Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">پاسخ به دیدگاه‌های تأیید شده</h3>
                 <div id="published-reviews" class="w-full max-w-full"></div>
             </div>
-            <!-- Delete Published Reviews -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">حذف دیدگاه‌های تأیید شده</h3>
                 <div id="delete-reviews" class="w-full max-w-full"></div>
             </div>
-            <!-- View Contact Forms -->
             <div class="section-container max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold mb-4">فرم‌های ارسالی</h3>
                 <div id="contact-forms" class="w-full max-w-full"></div>
@@ -209,30 +213,36 @@
                 });
             } catch (error) {
                 console.error('Error loading contact forms:', error);
-                document.getElementById('contact-forms').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری فرم‌های ارسالی. لطفاً دوباره امتحان کنید.</p>';
+                document.getElementById('contact-forms').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری فرم‌های ارسالی.</p>';
             }
         }
 
         function loadPendingReviews() {
+            const debugMessage = document.getElementById('debug-message');
             try {
                 console.log('loadPendingReviews called');
+                if (debugMessage) debugMessage.innerHTML = 'در حال بارگذاری دیدگاه‌های در انتظار...';
+
                 const reviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
                 console.log('Pending reviews:', reviews);
                 const reviewsContainer = document.getElementById('pending-reviews');
                 if (!reviewsContainer) {
                     console.error('Pending reviews container not found');
+                    if (debugMessage) debugMessage.innerHTML = 'خطا: کانتینر دیدگاه‌ها یافت نشد.';
                     return;
                 }
                 reviewsContainer.innerHTML = '';
 
                 if (!window.localStorage) {
                     console.error('localStorage not supported');
-                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود. لطفاً حالت ناشناس را غیرفعال کنید.</p>';
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.</p>';
+                    if (debugMessage) debugMessage.innerHTML = 'خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.';
                     return;
                 }
 
                 if (reviews.length === 0) {
                     reviewsContainer.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی در انتظار تأیید نیست.</p>';
+                    if (debugMessage) debugMessage.innerHTML = 'هیچ دیدگاهی در انتظار نیست.';
                     return;
                 }
 
@@ -252,12 +262,14 @@
                     `;
                     reviewsContainer.appendChild(reviewDiv);
                 });
+                if (debugMessage) debugMessage.innerHTML = 'تعداد دیدگاه‌های در انتظار: ' + reviews.length;
             } catch (error) {
                 console.error('Error loading pending reviews:', error);
                 const reviewsContainer = document.getElementById('pending-reviews');
                 if (reviewsContainer) {
-                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های در انتظار. لطفاً دوباره امتحان کنید.</p>';
+                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های در انتظار.</p>';
                 }
+                if (debugMessage) debugMessage.innerHTML = 'خطا در بارگذاری دیدگاه‌ها: ' + error.message;
             }
         }
 
@@ -281,14 +293,12 @@
                 }
             } catch (error) {
                 console.error('Error publishing review:', error);
-                alert('خطا در تأیید دیدگاه. لطفاً دوباره امتحان کنید.');
+                alert('خطا در تأیید دیدگاه.');
             }
         }
 
         function rejectReview(id) {
-            if (!confirm('آیا مطمئن هستید که می‌خواهید این دیدگاه را رد کنید؟')) {
-                return;
-            }
+            if (!confirm('آیا مطمئن هستید که می‌خواهید این دیدگاه را رد کنید؟')) return;
 
             try {
                 let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
@@ -304,7 +314,7 @@
                 }
             } catch (error) {
                 console.error('Error rejecting review:', error);
-                alert('خطا در رد دیدگاه. لطفاً دوباره امتحان کنید.');
+                alert('خطا در رد دیدگاه.');
             }
         }
 
@@ -361,10 +371,7 @@
                 });
             } catch (error) {
                 console.error('Error loading published reviews:', error);
-                const reviewsContainer = document.getElementById('published-reviews');
-                if (reviewsContainer) {
-                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های تأیید شده. لطفاً دوباره امتحان کنید.</p>';
-                }
+                document.getElementById('published-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های تأیید شده.</p>';
             }
         }
 
@@ -405,17 +412,12 @@
                 });
             } catch (error) {
                 console.error('Error loading delete reviews:', error);
-                const reviewsContainer = document.getElementById('delete-reviews');
-                if (reviewsContainer) {
-                    reviewsContainer.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های قابل حذف. لطفاً دوباره امتحان کنید.</p>';
-                }
+                document.getElementById('delete-reviews').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌های قابل حذف.</p>';
             }
         }
 
         function deleteReview(id) {
-            if (!confirm('آیا مطمئن هستید که می‌خواهید این دیدگاه را حذف کنید؟')) {
-                return;
-            }
+            if (!confirm('آیا مطمئن هستید که می‌خواهید این دیدگاه را حذف کنید؟')) return;
 
             try {
                 let publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
@@ -435,7 +437,7 @@
                 }
             } catch (error) {
                 console.error('Error deleting review:', error);
-                alert('خطا در حذف دیدگاه. لطفاً دوباره امتحان کنید.');
+                alert('خطا در حذف دیدگاه.');
             }
         }
 
@@ -459,7 +461,7 @@
                 loadPublishedReviews();
             } catch (error) {
                 console.error('Error submitting reply:', error);
-                alert('خطا در ثبت پاسخ. لطفاً دوباره امتحان کنید.');
+                alert('خطا در ثبت پاسخ.');
             }
         }
 
