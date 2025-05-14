@@ -34,7 +34,7 @@
                 <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">تماس</a></li>
                 <li>
-                    <a href="tel:09227334601" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
                         ارتباط با آزادی وی‌پی‌ان
                     </a>
                 </li>
@@ -53,7 +53,7 @@
                 <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس</a></li>
                 <li>
-                    <a href="tel:09227334601" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
                         ارتباط با آزادی وی‌پی‌ان
                     </a>
                 </li>
@@ -160,7 +160,7 @@
                     </div>
                     <button onclick="submitReview()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300" aria-label="ارسال دیدگاه درباره فیلترشکن">ارسال دیدگاه</button>
                 </div>
-                <div id="reviews-list" class="space-y-4">
+                <div id="reviews-list" class="space-y-4 w-full max-w-full">
                     <!-- Published reviews will be appended here -->
                 </div>
                 <script>
@@ -193,40 +193,55 @@
                     }
 
                     function loadPublishedReviews() {
-                        const publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
-                        const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
-                        const reviewsList = document.getElementById('reviews-list');
-                        reviewsList.innerHTML = '';
-                        if (publishedReviews.length === 0) {
-                            reviewsList.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی درباره فیلترشکن وجود ندارد.</p>';
-                            return;
-                        }
-                        publishedReviews.forEach(review => {
-                            const reviewDiv = document.createElement('div');
-                            reviewDiv.className = 'bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100';
-                            let replyHtml = '';
-                            const reviewReplies = replies.filter(r => r.reviewId === review.id);
-                            if (reviewReplies.length > 0) {
-                                replyHtml = '<div class="mt-4 pt-4 border-t border-gray-200">';
-                                reviewReplies.forEach(r => {
-                                    replyHtml += `
-                                        <p class="text-indigo-600 font-semibold text-sm mb-1">پاسخ همکاران آزادی وی‌پی‌ان:</p>
-                                        <p class="text-gray-600 text-sm">${r.reply}</p>
-                                    `;
-                                });
-                                replyHtml += '</div>';
+                        try {
+                            const publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
+                            const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
+                            const reviewsList = document.getElementById('reviews-list');
+                            if (!reviewsList) {
+                                console.error('Reviews list element not found');
+                                return;
                             }
-                            reviewDiv.innerHTML = `
-                                <p class="text-gray-800 font-medium mb-2">دیدگاه ارسال شده توسط ${review.name}</p>
-                                <p class="text-gray-600 text-base leading-relaxed">${review.message}</p>
-                                <p class="text-gray-400 text-xs mt-3">${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
-                                ${replyHtml}
-                            `;
-                            reviewsList.appendChild(reviewDiv);
-                        });
+                            reviewsList.innerHTML = '';
+                            if (publishedReviews.length === 0) {
+                                reviewsList.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی درباره فیلترشکن وجود ندارد.</p>';
+                                return;
+                            }
+                            publishedReviews.forEach(review => {
+                                const reviewDiv = document.createElement('div');
+                                reviewDiv.className = 'bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 w-full';
+                                let replyHtml = '';
+                                const reviewReplies = replies.filter(r => r.reviewId === review.id);
+                                if (reviewReplies.length > 0) {
+                                    replyHtml = '<div class="mt-4 pt-4 border-t border-gray-200">';
+                                    reviewReplies.forEach(r => {
+                                        replyHtml += `
+                                            <p class="text-indigo-600 font-semibold text-sm mb-1">پاسخ همکاران آزادی وی‌پی‌ان:</p>
+                                            <p class="text-gray-600 text-sm">${r.reply}</p>
+                                        `;
+                                    });
+                                    replyHtml += '</div>';
+                                }
+                                reviewDiv.innerHTML = `
+                                    <p class="text-gray-800 font-medium mb-2">دیدگاه ارسال شده توسط ${review.name}</p>
+                                    <p class="text-gray-600 text-base leading-relaxed">${review.message}</p>
+                                    <p class="text-gray-400 text-xs mt-3">${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
+                                    ${replyHtml}
+                                `;
+                                reviewsList.appendChild(reviewDiv);
+                            });
+                        } catch (error) {
+                            console.error('Error loading reviews:', error);
+                            document.getElementById('reviews-list').innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌ها. لطفاً دوباره امتحان کنید.</p>';
+                        }
                     }
 
-                    document.addEventListener('DOMContentLoaded', loadPublishedReviews);
+                    document.addEventListener('DOMContentLoaded', () => {
+                        try {
+                            loadPublishedReviews();
+                        } catch (error) {
+                            console.error('Error during DOMContentLoaded:', error);
+                        }
+                    });
                 </script>
             </div>
         </div>
@@ -294,7 +309,7 @@
                     <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن ۱ ماهه ۲ کاربر VIP">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۱ کاربر (تک لوکیشن آلمان عادی)</h4>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۱ کاربر (تک لو wives آلمان عادی)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۳۶۰,۰۰۰ تومان</p>
                     <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن ۳ ماهه تک لوکیشن">خرید</button>
