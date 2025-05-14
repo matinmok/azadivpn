@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         @media (max-width: 640px) {
-            #reviews-list {
+            #reviews-list, .review-form {
                 display: block !important;
                 width: 100% !important;
                 max-width: 100% !important;
@@ -32,6 +32,9 @@
             }
             .review-form {
                 padding: 1rem;
+            }
+            #submit-review-button {
+                touch-action: manipulation; /* بهبود تعامل لمسی */
             }
         }
     </style>
@@ -175,7 +178,7 @@
                         <label for="review-message" class="block text-gray-700 font-semibold mb-2">دیدگاه شما</label>
                         <textarea id="review-message" rows="4" placeholder="تجربه خود را از خرید فیلترشکن بنویسید" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     </div>
-                    <button onclick="submitReview()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300" aria-label="ارسال دیدگاه درباره فیلترشکن">ارسال دیدگاه</button>
+                    <button id="submit-review-button" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300" aria-label="ارسال دیدگاه درباره فیلترشکن">ارسال دیدگاه</button>
                 </div>
                 <div id="reviews-list" class="space-y-4 w-full max-w-full">
                     <!-- Published reviews will be appended here -->
@@ -204,9 +207,9 @@
                                 alert('لطفاً نام و دیدگاه خود را وارد کنید.');
                                 return;
                             }
-                            if (!localStorage) {
+                            if (!window.localStorage) {
                                 console.error('localStorage not supported');
-                                alert('خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.');
+                                alert('خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود. لطفاً حالت ناشناس را غیرفعال کنید.');
                                 return;
                             }
                             let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
@@ -221,10 +224,10 @@
                             nameInput.value = '';
                             messageInput.value = '';
                             console.log('Review submitted:', newReview);
-                            alert('دیدگاه شما ارسال شد و در انتظار تأیید مدیر است.');
+                            alert('دیدگاه شما با موفقیت ارسال شد و در انتظار تأیید مدیر است.');
                         } catch (error) {
                             console.error('Error submitting review:', error);
-                            alert('خطا در ثبت دیدگاه. لطفاً دوباره امتحان کنید.');
+                            alert('خطا در ثبت دیدگاه. لطفاً دوباره امتحان کنید یا مرورگر را بررسی کنید.');
                         }
                     }
 
@@ -237,7 +240,7 @@
                                 return;
                             }
                             reviewsList.innerHTML = '';
-                            if (!localStorage) {
+                            if (!window.localStorage) {
                                 console.error('localStorage not supported');
                                 reviewsList.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.</p>';
                                 return;
@@ -285,6 +288,16 @@
                         try {
                             console.log('DOMContentLoaded triggered');
                             loadPublishedReviews();
+                            const submitButton = document.getElementById('submit-review-button');
+                            if (submitButton) {
+                                submitButton.addEventListener('click', submitReview);
+                                submitButton.addEventListener('touchend', (e) => {
+                                    e.preventDefault();
+                                    submitReview();
+                                });
+                            } else {
+                                console.error('Submit review button not found');
+                            }
                         } catch (error) {
                             console.error('Error during DOMContentLoaded:', error);
                         }
@@ -364,7 +377,7 @@
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۱ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
-                    <p class="text-blue-600 font-bold text-lg mb-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vya|4>شروع قیمت از ۶۰۰,۰۰۰ تومان</p>
+                    <p class="text-blue-600 font-bold text-lg mb-4">۶۰۰,۰۰۰ تومان</p>
                     <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن ۳ ماهه VIP">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
@@ -416,7 +429,6 @@
             }
         }
 
-        // Close popups with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closePurchasePopup();
