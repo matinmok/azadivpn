@@ -156,28 +156,10 @@
                     </div>
                     <button onclick="submitReview()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">ارسال دیدگاه</button>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow-md mb-6">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-4">پاسخ مدیر</h4>
-                    <div class="mb-4">
-                        <label for="admin-password" class="block text-gray-700 text-sm mb-2">رمز عبور مدیر</label>
-                        <input type="password" id="admin-password" placeholder="رمز عبور" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-4">
-                        <label for="reply-review-id" class="block text-gray-700 text-sm mb-2">شناسه دیدگاه</label>
-                        <input type="text" id="reply-review-id" placeholder="شناسه دیدگاه" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-4">
-                        <label for="admin-reply" class="block text-gray-700 text-sm mb-2">پاسخ شما</label>
-                        <textarea id="admin-reply" rows="3" placeholder="پاسخ خود را بنویسید" class="w-full p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                    </div>
-                    <button onclick="submitReply()" class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">ارسال پاسخ</button>
-                </div>
                 <div id="reviews-list" class="space-y-4">
                     <!-- Published reviews will be appended here -->
                 </div>
                 <script>
-                    const ADMIN_PASSWORD = 'matin778900';
-
                     function generateUUID() {
                         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                             var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -204,32 +186,6 @@
                         } else {
                             alert('لطفاً نام و دیدگاه خود را وارد کنید.');
                         }
-                    }
-
-                    function submitReply() {
-                        const password = document.getElementById('admin-password').value;
-                        const reviewId = document.getElementById('reply-review-id').value.trim();
-                        const replyText = document.getElementById('admin-reply').value.trim();
-                        if (password !== ADMIN_PASSWORD) {
-                            alert('رمز عبور مدیر اشتباه است.');
-                            return;
-                        }
-                        if (!reviewId || !replyText) {
-                            alert('لطفاً شناسه دیدگاه و متن پاسخ را وارد کنید.');
-                            return;
-                        }
-                        let replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
-                        replies.push({
-                            reviewId,
-                            reply: replyText,
-                            timestamp: new Date().toISOString()
-                        });
-                        localStorage.setItem('reviewReplies', JSON.stringify(replies));
-                        document.getElementById('admin-password').value = '';
-                        document.getElementById('reply-review-id').value = '';
-                        document.getElementById('admin-reply').value = '';
-                        alert('پاسخ شما با موفقیت ثبت شد.');
-                        loadPublishedReviews();
                     }
 
                     function loadPublishedReviews() {
