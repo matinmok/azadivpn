@@ -48,6 +48,11 @@
                     <button onclick="publishArticle()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">انتشار مقاله</button>
                 </div>
             </div>
+            <!-- Manage Articles -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">مدیریت مقالات</h3>
+                <div id="articles-list" class="bg-white rounded-xl shadow-sm p-6"></div>
+            </div>
             <!-- View Contact Forms -->
             <div class="max-w-2xl mx-auto">
                 <h3 class="text-xl font-semibold text-gray-900 mb-4">فرم‌های ارسالی</h3>
@@ -59,12 +64,20 @@
     <script>
         const ADMIN_PASSWORD = 'matin778900';
 
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
         function login() {
             const password = document.getElementById('password').value;
             if (password === ADMIN_PASSWORD) {
                 document.getElementById('login').classList.add('hidden');
                 document.getElementById('admin-panel').classList.remove('hidden');
                 loadContactForms();
+                loadArticles();
             } else {
                 alert('رمز عبور اشتباه است.');
             }
@@ -75,14 +88,78 @@
             const content = document.getElementById('article-content').value;
             if (title && content) {
                 const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-                articles.push({ title, content, timestamp: new Date().toISOString() });
+                const id = document.getElementById('article-id') ? document.getElementById('article-id').value : generateUUID();
+                const existingIndex = articles.findIndex(article => article.id === id);
+                if (existingIndex !== -1) {
+                    // Update existing article
+                    articles[existingIndex] = { id, title, content, timestamp: new Date().toISOString() };
+                } else {
+                    // Add new article
+                    articles.push({ id, title, content, timestamp: new Date().toISOString() });
+                }
                 localStorage.setItem('articles', JSON.stringify(articles));
-                alert('مقاله با موفقیت منتشر شد!');
-                document.getElementById('article-title').value = '';
-                document.getElementById('article-content').value = '';
+                alert(existingIndex !== -1 ? 'مقاله با موفقیت ویرایش شد!' : 'مقاله با موفقیت منتشر شد!');
+                resetArticleForm();
+                loadArticles();
             } else {
                 alert('لطفاً عنوان و محتوا را وارد کنید.');
             }
+        }
+
+        function loadArticles() {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const articlesList = document.getElementById('articles-list');
+            articlesList.innerHTML = '';
+            articles.forEach(article => {
+                const articleDiv = document.createElement('div');
+                articleDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center';
+                articleDiv.innerHTML = `
+                    <div>
+                        <p><strong>عنوان:</strong> ${article.title}</p>
+                        <p><strong>زمان:</strong> ${new Date(article.timestamp).toLocaleString('fa-IR')}</p>
+                    </div>
+                    <div class="space-x-2">
+                        <button onclick="editArticle('${article.id}')" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition">ویرایش</button>
+                        <button onclick="deleteArticle('${article.id}')" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">حذف</button>
+                    </div>
+                `;
+                articlesList.appendChild(articleDiv);
+            });
+        }
+
+        function editArticle(id) {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const article = articles.find(a => a.id === id);
+            if (article) {
+                document.getElementById('article-title').value = article.title;
+                document.getElementById('article-content').value = article.content;
+                // Add hidden input for article ID
+                let idInput = document.getElementById('article-id');
+                if (!idInput) {
+                    idInput = document.createElement('input');
+                    idInput.type = 'hidden';
+                    idInput.id = 'article-id';
+                    document.getElementById('article-title').parentNode.appendChild(idInput);
+                }
+                idInput.value = article.id;
+            }
+        }
+
+        function deleteArticle(id) {
+            if (confirm('آیا مطمئن هستید که می‌خواهید این مقاله را حذف کنید؟')) {
+                let articles = JSON.parse(localStorage.getItem('articles') || '[]');
+                articles = articles.filter(article => article.id !== id);
+                localStorage.setItem('articles', JSON.stringify(articles));
+                alert('مقاله با موفقیت حذف شد!');
+                loadArticles();
+            }
+        }
+
+        function resetArticleForm() {
+            document.getElementById('article-title').value = '';
+            document.getElementById('article-content').value = '';
+            const idInput = document.getElementById('article-id');
+            if (idInput) idInput.remove();
         }
 
         function loadContactForms() {
