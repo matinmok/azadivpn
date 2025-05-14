@@ -32,11 +32,15 @@
     <!-- Admin Panel (Hidden by Default) -->
     <section id="admin-panel" class="hidden py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">پنل ادمین</h2>
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">پنل ادمین</h2>
+                <button onclick="logout()" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition">خروج</button>
+            </div>
             <!-- Write Article -->
             <div class="max-w-2xl mx-auto mb-12">
                 <h3 class="text-xl font-semibold text-gray-900 mb-4">نوشتن مقاله</h3>
                 <div class="bg-white rounded-xl shadow-sm p-6">
+                    <input type="hidden" id="article-id">
                     <div class="mb-6">
                         <label for="article-title" class="block text-gray-700 text-sm mb-2">عنوان مقاله</label>
                         <input type="text" id="article-title" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="عنوان مقاله">
@@ -74,12 +78,29 @@
         function login() {
             const password = document.getElementById('password').value;
             if (password === ADMIN_PASSWORD) {
-                document.getElementById('login').classList.add('hidden');
-                document.getElementById('admin-panel').classList.remove('hidden');
-                loadContactForms();
-                loadArticles();
+                localStorage.setItem('adminLoggedIn', 'true');
+                showAdminPanel();
             } else {
                 alert('رمز عبور اشتباه است.');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('adminLoggedIn');
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden');
+        }
+
+        function showAdminPanel() {
+            document.getElementById('login').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+            loadContactForms();
+            loadArticles();
+        }
+
+        function checkLoginStatus() {
+            if (localStorage.getItem('adminLoggedIn') === 'true') {
+                showAdminPanel();
             }
         }
 
@@ -87,18 +108,19 @@
             const title = document.getElementById('article-title').value;
             const content = document.getElementById('article-content').value;
             if (title && content) {
-                const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-                const id = document.getElementById('article-id') ? document.getElementById('article-id').value : generateUUID();
+                let articles = JSON.parse(localStorage.getItem('articles') || '[]');
+                const id = document.getElementById('article-id').value || generateUUID();
                 const existingIndex = articles.findIndex(article => article.id === id);
                 if (existingIndex !== -1) {
                     // Update existing article
                     articles[existingIndex] = { id, title, content, timestamp: new Date().toISOString() };
+                    alert('مقاله با موفقیت ویرایش شد!');
                 } else {
                     // Add new article
                     articles.push({ id, title, content, timestamp: new Date().toISOString() });
+                    alert('مقاله با موفقیت منتشر شد!');
                 }
                 localStorage.setItem('articles', JSON.stringify(articles));
-                alert(existingIndex !== -1 ? 'مقاله با موفقیت ویرایش شد!' : 'مقاله با موفقیت منتشر شد!');
                 resetArticleForm();
                 loadArticles();
             } else {
@@ -110,6 +132,10 @@
             const articles = JSON.parse(localStorage.getItem('articles') || '[]');
             const articlesList = document.getElementById('articles-list');
             articlesList.innerHTML = '';
+            if (articles.length === 0) {
+                articlesList.innerHTML = '<p class="text-gray-500 text-center">هیچ مقاله‌ای وجود ندارد.</p>';
+                return;
+            }
             articles.forEach(article => {
                 const articleDiv = document.createElement('div');
                 articleDiv.className = 'border-b border-gray-200 py-4 flex justify-between items-center';
@@ -133,15 +159,8 @@
             if (article) {
                 document.getElementById('article-title').value = article.title;
                 document.getElementById('article-content').value = article.content;
-                // Add hidden input for article ID
-                let idInput = document.getElementById('article-id');
-                if (!idInput) {
-                    idInput = document.createElement('input');
-                    idInput.type = 'hidden';
-                    idInput.id = 'article-id';
-                    document.getElementById('article-title').parentNode.appendChild(idInput);
-                }
-                idInput.value = article.id;
+                document.getElementById('article-id').value = article.id;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
@@ -158,8 +177,7 @@
         function resetArticleForm() {
             document.getElementById('article-title').value = '';
             document.getElementById('article-content').value = '';
-            const idInput = document.getElementById('article-id');
-            if (idInput) idInput.remove();
+            document.getElementById('article-id').value = '';
         }
 
         function loadContactForms() {
@@ -178,6 +196,8 @@
                 formsContainer.appendChild(formDiv);
             });
         }
+
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
     </script>
 </body>
 </html>
