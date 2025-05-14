@@ -231,260 +231,6 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">با ما در ارتباط باشید</h2>
             <div class="max-w-5xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow-md mb- Analysis of your prompt:
-- You provided a detailed request to modify the existing `index.html` file.
-- You asked to add icons for Telegram and WhatsApp next to the buttons in the purchase popup.
-- You requested a new popup for the "See More Plans" button, displaying a list of specific plans with purchase buttons linked to the original purchase popup.
-- The plans include 8 options with details about duration, number of users, data limits, price, and location type (Germany standard or 5-location VIP).
-- The code should maintain existing functionality while adding the new features.
-
-Action plan:
-1. **Add Icons to Purchase Popup**:
-   - Use SVG icons for Telegram and WhatsApp, styled with Tailwind CSS.
-   - Place icons inline with the text in the purchase popup buttons.
-2. **Create New Plans Popup**:
-   - Add a new `<div>` for the plans popup with ID `plans-popup`.
-   - List the 8 plans in a clean, grid-based layout for readability.
-   - Include a "Buy" button for each plan, linked to the `openPurchasePopup()` function.
-3. **Update JavaScript**:
-   - Add functions `openPlansPopup()` and `closePlansPopup()` to manage the new popup.
-   - Ensure the purchase popup can still be opened from the plans popup.
-4. **Preserve Existing Functionality**:
-   - Maintain all existing sections, scripts, and styles.
-   - Ensure the new popups integrate seamlessly with the current design.
-
-I'll now generate the updated `index.html` with these changes, wrapped in the required `<xaiArtifact>` tag.
-
-<xaiArtifact artifact_id="b614a948-5615-4474-b13f-d75ab4f5e237" artifact_version_id="895782a1-78cf-4b8f-bf21-e5bf933eb3ea" title="index.html" contentType="text/html">
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="خرید فیلترشکن قوی و امن با آزادی وی‌پی‌ان. دسترسی به اینترنت آزاد با سرورهای پرسرعت و پروتکل V2Ray.">
-    <meta name="keywords" content="خرید فیلترشکن قوی, خرید فیلترشکن, وی‌پی‌ان, آزادی وی‌پی‌ان, فیلترشکن امن, اینترنت آزاد, V2Ray">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="آزادی وی‌پی‌ان | خرید فیلترشکن قوی و پرسرعت">
-    <meta property="og:description" content="با خرید فیلترشکن قوی از آزادی وی‌پی‌ان، به اینترنت آزاد و بدون محدودیت دسترسی پیدا کنید.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.azadivpn.com/">
-    <title>آزادی وی‌پی‌ان | خرید فیلترشکن قوی و امن</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="">
-    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
-        <nav class="container mx-auto px-4 flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="#" class="text-xl font-bold text-blue-600">
-                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
-                </a>
-            </div>
-            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
-                <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition duration-300">خانه</a></li>
-                <li><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
-                <li><a href="#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
-                <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
-                <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">تماس</a></li>
-                <li>
-                    <a href="tel:09227334601" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
-                        ارتباط با آزادی وی‌پی‌ان
-                    </a>
-                </li>
-            </ul>
-            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none">
-                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
-                </svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
-            <ul class="px-4 py-2 space-y-2">
-                <li><a href="#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">خانه</a></li>
-                <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
-                <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
-                <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
-                <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس</a></li>
-                <li>
-                    <a href="tel:09227334601" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
-                        ارتباط با آزادی وی‌پی‌ان
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <script>
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-        </script>
-    </header>
-    <section id="home" class="bg-gray-100 py-12 mt-16">
-        <div class="container mx-auto text-center px-4">
-            <h1 class="text-4xl font-bold text-gray-800 mb-6">خرید فیلترشکن قوی و امن</h1>
-            <p class="max-w-2xl mx-auto text-lg text-gray-700 mb-8">
-                دسترسی به اینترنت آزاد در ایران با محدودیت‌های شدید مواجه است. با <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> از آزادی وی‌پی‌ان، به بیش از ۵ لوکیشن سرور متصل شوید و بدون قطعی از اینترنت آزاد لذت ببرید. سرورهای ما با پروتکل قدرتمند V2Ray، اتصالی امن و پرسرعت ارائه می‌دهند.
-            </p>
-            <a href="#products" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">خرید فیلترشکن</a>
-        </div>
-    </section>
-    <section id="products" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">تعرفه‌ها</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۱ کاربر</h3>
-                    <p class="text-gray-600 mb-3">۱ ماهه، ۱ کاربر، ترافیک نامحدود</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۱۲۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۲ کاربر</h3>
-                    <p class="text-gray-600 mb-3">۱ ماهه، ۲ کاربر، ترافیک نامحدود</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۱۸۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل‌های ویژه سه‌ماهه</h3>
-                    <p class="text-gray-600 mb-3">۱ و ۲ کاربر، ترافیک نامحدود</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۳۶۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
-                </div>
-            </div>
-            <div class="text-center mt-10">
-                <button onclick="openPlansPopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">دیدن پنل‌های بیشتر</button>
-            </div>
-        </div>
-    </section>
-    <section id="servers" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-3xl font-bold text-gray-800 mb-10 cursor-pointer" onclick="showServerStatus()">وضعیت سرورهای فعلی</h2>
-            <div class="max-w-5xl mx-auto">
-                <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md">
-                    <thead>
-                        <tr class="bg-blue-600 text-white">
-                            <th class="p-4 text-right">کشور</th>
-                            <th class="p-4 text-left">پینگ (ms)</th>
-                            <th class="p-4 text-left">وضعیت</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white">
-                        <tr class="border-b">
-                            <td class="p-4 text-right"><img src="https://flagcdn.com/w20/tr.png" alt="پرچم ترکیه" class="inline-block w-6 h-6 ml-2"> ترکیه</td>
-                            <td class="p-4 text-left text-green-600">56</td>
-                            <td class="p-4 text-left">پایدار</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="p-4 text-right"><img src="https://flagcdn.com/w20/de.png" alt="پرچم آلمان" class="inline-block w-6 h-6 ml-2"> آلمان</td>
-                            <td class="p-4 text-left text-green-600">60</td>
-                            <td class="p-4 text-left">پایدار</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="p-4 text-right"><img src="https://flagcdn.com/w20/us.png" alt="پرچم آمریکا" class="inline-block w-6 h-6 ml-2"> آمریکا</td>
-                            <td class="p-4 text-left text-green-600">80</td>
-                            <td class="p-4 text-left">پایدار</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="p-4 text-right"><img src="https://flagcdn.com/w20/fi.png" alt="پرچم فنلاند" class="inline-block w-6 h-6 ml-2"> فنلاند</td>
-                            <td class="p-4 text-left text-green-600">65</td>
-                            <td class="p-4 text-left">پایدار</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 text-right"><img src="https://flagcdn.com/w20/nl.png" alt="پرچم هلند" class="inline-block w-6 h-6 ml-2"> هلند</td>
-                            <td class="p-4 text-left text-green-600">60</td>
-                            <td class="p-4 text-left">پایدار</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="reviews" class="max-w-5xl mx-auto mt-10">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">تجربه استفاده از آزادی وی‌پی‌ان</h3>
-                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                    <div class="mb-6">
-                        <label for="review-name" class="block text-gray-700 font-semibold mb-2">نام</label>
-                        <input type="text" id="review-name" placeholder="نام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="mb-6">
-                        <label for="review-message" class="block text-gray-700 font-semibold mb-2">دیدگاه شما</label>
-                        <textarea id="review-message" rows="4" placeholder="تجربه خود را بنویسید" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                    <button onclick="submitReview()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">ارسال دیدگاه</button>
-                </div>
-                <div id="reviews-list" class="space-y-4">
-                    <!-- Published reviews will be appended here -->
-                </div>
-                <script>
-                    function generateUUID() {
-                        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                            return v.toString(16);
-                        });
-                    }
-
-                    function submitReview() {
-                        const name = document.getElementById('review-name').value.trim();
-                        const message = document.getElementById('review-message').value.trim();
-                        if (name && message) {
-                            let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
-                            const newReview = {
-                                id: generateUUID(),
-                                name,
-                                message,
-                                timestamp: new Date().toISOString()
-                            };
-                            pendingReviews.push(newReview);
-                            localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
-                            document.getElementById('review-name').value = '';
-                            document.getElementById('review-message').value = '';
-                            alert('دیدگاه شما ارسال شد و در انتظار تأیید مدیر است.');
-                        } else {
-                            alert('لطفاً نام و دیدگاه خود را وارد کنید.');
-                        }
-                    }
-
-                    function loadPublishedReviews() {
-                        const publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
-                        const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
-                        const reviewsList = document.getElementById('reviews-list');
-                        reviewsList.innerHTML = '';
-                        if (publishedReviews.length === 0) {
-                            reviewsList.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی وجود ندارد.</p>';
-                            return;
-                        }
-                        publishedReviews.forEach(review => {
-                            const reviewDiv = document.createElement('div');
-                            reviewDiv.className = 'bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100';
-                            let replyHtml = '';
-                            const reviewReplies = replies.filter(r => r.reviewId === review.id);
-                            if (reviewReplies.length > 0) {
-                                replyHtml},${r.reply}</p>
-                                    `;
-                                });
-                                replyHtml += '</div>';
-                            }
-                            reviewDiv.innerHTML = `
-                                <p class="text-gray-800 font-medium mb-2">دیدگاه ارسال شده توسط ${review.name}</p>
-                                <p class="text-gray-600 text-base leading-relaxed">${review.message}</p>
-                                <p class="text-gray-400 text-xs mt-3">${new Date(review.timestamp).toLocaleString('fa-IR')}</p>
-                                ${replyHtml}
-                            `;
-                            reviewsList.appendChild(reviewDiv);
-                        });
-                    }
-
-                    document.addEventListener('DOMContentLoaded', loadPublishedReviews);
-                </script>
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">با ما در ارتباط باشید</h2>
-            <div class="max-w-5xl mx-auto">
                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-semibold mb-2">نام</label>
@@ -508,20 +254,8 @@ I'll now generate the updated `index.html` with these changes, wrapped in the re
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">انتخاب روش خرید</h3>
             <div class="space-y-4">
-                <a href="https://t.me/vpnbrandicobot" target="_blank" class="flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
-                    <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12scardiobot" target="_blank" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">
-                    <svg class="inline-block w-5 h-5 ml-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.69 1.39-1.38 1.54-.58.12-1.24-.04-1.81-.4l-2.49-1.63-1.51 1.46c-.17.16-.34.24-.57.24-.44 0-.76-.24-.85-.67-.22-1.09-.67-3.5-.92-4.79-.09-.47.01-.89.29-1.24 2.01-2.45 3.76-4.46 4.96-5.99.16-.2.38-.3.61-.3.23 0 .46.1.61.3.07.09.12.19.15.3l-.92 3.26 2.67 1.67c.69.43 1.37.22 1.67-.24l.35-1.02c.15-.47.24-.93.24-1.37 0-.44-.09-.87-.27-1.27z"/>
-                    </svg>
-                    خرید از ربات تلگرام
-                </a>
-                <a href="https://wa.me/09227334601" target="_blank" class="block bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">
-                    <svg class="inline-block w-5 h-5 ml-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.79 15.92c-.66.49-1.43.73-2.37.73-1.67 0-2.94-.9-3.74-2.06-.66-1.01-1.12-2.27-1.39-3.67-.26-1.39-.29-2.67-.08-3.84.21-1.17.67-2.13 1.38-2.87.71-.74 1.58-1.13 2.59-1.13.99 0 1.86.39 2.57 1.13.71.74 1.17 1.7 1.38 2.87.21 1.17.18 2.45-.08 3.84-.27 1.4-.73 2.66-1.39 3.67-.34.52-.74.99-1.17 1.33zm-1.97-2.26c.23-.35.45-.73.64-1.14.47-1.01.73-2.14.73-3.33 0-1.19-.26-2.32-.73-3.33-.19-.41-.41-.79-.64-1.14-.23-.35-.49-.66-.79-.94-.3-.28-.64-.51-1.01-.68-.37-.17-.78-.26-1.22-.26-.44 0-.85.09-1.22.26-.37.17-.71.4-1.01.68-.3.28-.56.59-.79.94-.23.35-.45.73-.64 1.14-.47 1.01-.73 2.14-.73 3.33 0 1.19.26 2.32.73 3.33.19.41.41.79.64 1.14.23.35.49.66.79.94.3.28.64.51 1.01.68.37.17.78.26 1.22.26.44 0 .85-.09 1.22-.26.37-.17.71-.4 1.01-.68.3-.28.56-.59.79-.94z"/>
-                    </svg>
-                    خرید به صورت دستی از واتساپ
-                </a>
+                <a href="https://t.me/vpnbrandicobot" target="_blank" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید از ربات تلگرام</a>
+                <a href="https://wa.me/09227334601" target="_blank" class="block bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید به صورت دستی از واتساپ</a>
             </div>
             <button onclick="closePurchasePopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300">بستن</button>
         </div>
@@ -535,49 +269,49 @@ I'll now generate the updated `index.html` with these changes, wrapped in the re
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۱ کاربر (تک لوکیشن آلمان عادی)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۱۲۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۱ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۲۰۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۲ کاربر (تک لوکیشن آلمان عادی)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۱۸۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۲ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۲۵۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۱ کاربر (تک لوکیشن آلمان عادی)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۳۶۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۱ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۶۰۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۲ کاربر (تک لوکیشن آلمان عادی)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۵۴۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۲ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۷۵۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
                 </div>
             </div>
             <button onclick="closePlansPopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300">بستن</button>
