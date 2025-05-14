@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروش فیلترشکن | وی‌پی‌ان امن و سریع</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">وی‌پی‌ان آزادی</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:text-blue-200">خانه</a></li>
+                <li><a href="#products" class="hover:text-blue-200">محصولات</a></li>
+                <li><a href="#contact" class="hover:text-blue-200">تماس با ما</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">اینترنت آزاد با وی‌پی‌ان ما</h1>
+            <p class="text-lg md:text-xl mb-6">اتصال سریع، امن و پایدار به دنیای بدون محدودیت</p>
+            <a href="#products" class="bg-yellow-400 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300">مشاهده محصولات</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">محصولات ما</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-semibold mb-4">اشتراک پایه</h3>
+                    <p class="text-gray-600 mb-4">مناسب برای استفاده روزمره با سرعت خوب</p>
+                    <p class="text-2xl font-bold text-blue-600 mb-4">ماهانه ۱۰۰,۰۰۰ تومان</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">خرید</button>
+                </div>
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-semibold mb-4">اشتراک حرفه‌ای</h3>
+                    <p class="text-gray-600 mb-4">سرعت بالا و سرورهای اختصاصی</p>
+                    <p class="text-2xl font-bold text-blue-600 mb-4">ماهانه ۲۰۰,۰۰۰ تومان</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">خرید</button>
+                </div>
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-semibold mb-4">اشتراک سازمانی</h3>
+                    <p class="text-gray-600 mb-4">مناسب برای تیم‌ها و شرکت‌ها</p>
+                    <p class="text-2xl font-bold text-blue-600 mb-4">تماس بگیرید</p>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">تماس</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">تماس با ما</h2>
+            <div class="max-w-lg mx-auto">
+                <div>
+                    <label for="name" class="block text-gray-700 mb-2">نام</label>
+                    <input type="text" id="name" class="w-full p-3 rounded-lg border border-gray-300 mb-4" placeholder="نام شما">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 mb-2">ایمیل</label>
+                    <input type="email" id="email" class="w-full p-3 rounded-lg border border-gray-300 mb-4" placeholder="ایمیل شما">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 mb-2">پیام</label>
+                    <textarea id="message" class="w-full p-3 rounded-lg border border-gray-300 mb-4" rows="5" placeholder="پیام شما"></textarea>
+                </div>
+                <button onclick="submitContact()" class="bg-blue-600 text-white px-6 py-3 rounded-lg w-full hover:bg-blue-700">ارسال پیام</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; ۱۴۰۴ وی‌پی‌ان آزادی. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitContact() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                alert('پیام شما با موفقیت ارسال شد!');
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('لطفاً تمام فیلدها را پر کنید.');
+            }
+        }
+    </script>
+</body>
+</html>
