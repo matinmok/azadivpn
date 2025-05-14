@@ -37,6 +37,11 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             box-sizing: border-box;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .review-card:hover {
+            transform: scale(1.02);
+            border-color: #1d4ed8;
         }
         .review-card h4 {
             color: #1e3a8a;
@@ -64,6 +69,63 @@
             background: #1d4ed8;
             transform: scale(1.05);
         }
+        /* استایل‌های آکاردئون سوالات متداول */
+        .faq-container {
+            max-width: 1280px; /* هماهنگ با max-w-5xl */
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #ffffff;
+            border: 2px solid #3b82f6;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .faq-item:hover {
+            border-color: #1d4ed8;
+        }
+        .faq-item details {
+            width: 100%;
+        }
+        .faq-item summary {
+            padding: 1rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            transition: background 0.3s;
+        }
+        .faq-item summary:hover {
+            background: #e0f2fe;
+        }
+        .faq-item summary::before {
+            content: '❓';
+            margin-left: 0.5rem;
+            font-size: 1rem;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '↓';
+            margin-right: auto;
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+        .faq-item details[open] summary::after {
+            transform: rotate(180deg);
+        }
+        .faq-item .faq-content {
+            padding: 1.5rem;
+            color: #374151;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
         @media (max-width: 768px) {
             .reviews-grid {
                 grid-template-columns: 1fr;
@@ -77,6 +139,14 @@
             }
             .review-card p {
                 font-size: 0.9rem;
+            }
+            .faq-item summary {
+                font-size: 1rem;
+                padding: 0.75rem 1rem;
+            }
+            .faq-item .faq-content {
+                font-size: 0.9rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -242,6 +312,43 @@
                         <h4>دیدگاه بعدی از شما</h4>
                         <p>تجربه خودتون از آزادی وی‌پی‌ان رو با ما به اشتراک بگذارید!</p>
                         <a href="https://t.me/mykalikal" target="_blank" rel="noopener noreferrer" class="inline-block">ارسال دیدگاه</a>
+                    </div>
+                </div>
+            </div>
+            <div id="faq" class="max-w-5xl mx-auto mt-10">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">سوالات متداول درباره خرید فیلترشکن</h3>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <details>
+                            <summary>تفاوت پلن عادی و VIP در خرید فیلترشکن قوی چیست؟</summary>
+                            <div class="faq-content">
+                                در <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a>، پلن عادی شامل یک کانفیگ اختصاصی از سرور آلمان است که برای نیازهای روزمره مناسب است. در مقابل، پلن VIP با دسترسی به بیش از ۵ کشور پیشرفته، امکانات حرفه‌ای و انعطاف‌پذیری بیشتری برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a> ارائه می‌دهد.
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>چگونه می‌توانم اقدام به خرید فیلترشکن کنم؟</summary>
+                            <div class="faq-content">
+                                برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a>، کافی است پلن موردنظر خود را از بخش تعرفه‌ها انتخاب کنید و روی دکمه خرید کلیک کنید. سپس می‌توانید از طریق ربات تلگرام به‌صورت مستقیم یا از طریق واتساپ به‌صورت دستی برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> اقدام کنید.
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>مدت زمان و محدودیت ترافیک پلن‌های فیلترشکن چگونه است؟</summary>
+                            <div class="faq-content">
+                                پلن‌های ما برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> شامل دوره‌های ۱ ماهه و ۳ ماهه هستند. همچنین، تمامی سرویس‌های آزادی وی‌پی‌ان با ترافیک نامحدود ارائه می‌شوند تا تجربه‌ای بدون محدودیت در <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a> داشته باشید.
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>آیا فیلترشکن با آی‌پی ایران برای کاربران خارج از کشور ارائه می‌دهید؟</summary>
+                            <div class="faq-content">
+                                بله، در آزادی وی‌پی‌ان امکان <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a> با آی‌پی ایران برای کاربران خارج از کشور فراهم است. برای دریافت این سرویس، کافی است با پشتیبانی ما تماس بگیرید تا از خدمات ویژه <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> بهره‌مند شوید.
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
