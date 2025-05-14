@@ -24,6 +24,7 @@
             <ul class="flex space-x-8 text-sm font-medium">
                 <li><a href="#home" class="hover:text-indigo-600 transition">خانه</a></li>
                 <li><a href="#products" class="hover:text-indigo-600 transition">محصولات</a></li>
+                <li><a href="#articles" class="hover:text-indigo-600 transition">مقالات</a></li>
                 <li><a href="#contact" class="hover:text-indigo-600 transition">تماس</a></li>
             </ul>
         </nav>
@@ -46,15 +47,15 @@
                 <!-- Product 1 -->
                 <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک پایه</h3>
-                    <p class="text-gray-500 mb-6">اتصال سریع برای استفاده روزمره</p>
-                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۱۰۰,۰۰۰ تومان</p>
+                    <p class="text-gray-500 mb-6">۱ کاربر، ۱ ماهه، نامحدود</p>
+                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۱۲۰,۰۰۰ تومان</p>
                     <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">خرید</button>
                 </div>
                 <!-- Product 2 -->
                 <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک حرفه‌ای</h3>
-                    <p class="text-gray-500 mb-6">سرعت بالا و سرورهای اختصاصی</p>
-                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۲۰۰,۰۰۰ تومان</p>
+                    <p class="text-gray-500 mb-6">۲ کاربر، ۱ ماهه، نامحدود</p>
+                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۱۸۰,۰۰۰ تومان</p>
                     <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">خرید</button>
                 </div>
                 <!-- Product 3 -->
@@ -65,6 +66,14 @@
                     <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">تماس</button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">مقالات</h2>
+            <div id="articles-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"></div>
         </div>
     </section>
 
@@ -103,6 +112,10 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             if (name && email && message) {
+                // Save form data to LocalStorage
+                const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
+                forms.push({ name, email, message, timestamp: new Date().toISOString() });
+                localStorage.setItem('contactForms', JSON.stringify(forms));
                 alert('پیام شما با موفقیت ارسال شد!');
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
@@ -111,6 +124,25 @@
                 alert('لطفاً تمام فیلدها را پر کنید.');
             }
         }
+
+        // Load articles from LocalStorage
+        function loadArticles() {
+            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+            const articlesList = document.getElementById('articles-list');
+            articlesList.innerHTML = '';
+            articles.forEach(article => {
+                const articleDiv = document.createElement('div');
+                articleDiv.className = 'bg-white rounded-xl shadow-sm p-6';
+                articleDiv.innerHTML = `
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">${article.title}</h3>
+                    <p class="text-gray-500">${article.content.substring(0, 100)}...</p>
+                `;
+                articlesList.appendChild(articleDiv);
+            });
+        }
+
+        // Load articles on page load
+        document.addEventListener('DOMContentLoaded', loadArticles);
     </script>
 </body>
 </html>
