@@ -17,8 +17,32 @@
     <title>آزادی وی‌پی‌ان | خرید فیلترشکن قوی و پرسرعت</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        #reviews-list, .review-form {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            overflow: visible;
+        }
+        #reviews-list > div {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .review-form {
+            padding: 1rem;
+        }
+        #submit-review-button {
+            touch-action: manipulation;
+        }
+        #debug-message {
+            color: red;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
         @media (max-width: 640px) {
             #reviews-list, .review-form {
                 display: block !important;
@@ -31,10 +55,10 @@
                 margin-bottom: 1rem;
             }
             .review-form {
-                padding: 1rem;
+                padding: 1rem !important;
             }
             #submit-review-button {
-                touch-action: manipulation; /* بهبود تعامل لمسی */
+                touch-action: manipulation;
             }
         }
     </style>
@@ -179,6 +203,7 @@
                         <textarea id="review-message" rows="4" placeholder="تجربه خود را از خرید فیلترشکن بنویسید" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     </div>
                     <button id="submit-review-button" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300" aria-label="ارسال دیدگاه درباره فیلترشکن">ارسال دیدگاه</button>
+                    <div id="debug-message"></div>
                 </div>
                 <div id="reviews-list" class="space-y-4 w-full max-w-full">
                     <!-- Published reviews will be appended here -->
@@ -192,26 +217,36 @@
                     }
 
                     function submitReview() {
+                        const debugMessage = document.getElementById('debug-message');
                         try {
                             console.log('submitReview called');
+                            if (debugMessage) debugMessage.innerHTML = 'در حال ثبت دیدگاه...';
+
                             const nameInput = document.getElementById('review-name');
                             const messageInput = document.getElementById('review-message');
                             if (!nameInput || !messageInput) {
                                 console.error('Review form elements not found');
+                                if (debugMessage) debugMessage.innerHTML = 'خطا: فرم دیدگاه یافت نشد.';
                                 alert('خطا: فرم دیدگاه یافت نشد.');
                                 return;
                             }
+
                             const name = nameInput.value.trim();
                             const message = messageInput.value.trim();
                             if (!name || !message) {
+                                console.error('Name or message empty');
+                                if (debugMessage) debugMessage.innerHTML = 'لطفاً نام و دیدگاه خود را وارد کنید.';
                                 alert('لطفاً نام و دیدگاه خود را وارد کنید.');
                                 return;
                             }
+
                             if (!window.localStorage) {
                                 console.error('localStorage not supported');
-                                alert('خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود. لطفاً حالت ناشناس را غیرفعال کنید.');
+                                if (debugMessage) debugMessage.innerHTML = 'خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود. حالت ناشناس را غیرفعال کنید.';
+                                alert('خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود. حالت ناشناس را غیرفعال کنید.');
                                 return;
                             }
+
                             let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
                             const newReview = {
                                 id: generateUUID(),
@@ -224,37 +259,49 @@
                             nameInput.value = '';
                             messageInput.value = '';
                             console.log('Review submitted:', newReview);
+                            if (debugMessage) debugMessage.innerHTML = 'دیدگاه با موفقیت ثبت شد: ' + newReview.name;
                             alert('دیدگاه شما با موفقیت ارسال شد و در انتظار تأیید مدیر است.');
                         } catch (error) {
                             console.error('Error submitting review:', error);
+                            if (debugMessage) debugMessage.innerHTML = 'خطا در ثبت دیدگاه: ' + error.message;
                             alert('خطا در ثبت دیدگاه. لطفاً دوباره امتحان کنید یا مرورگر را بررسی کنید.');
                         }
                     }
 
                     function loadPublishedReviews() {
+                        const debugMessage = document.getElementById('debug-message');
                         try {
                             console.log('loadPublishedReviews called');
+                            if (debugMessage) debugMessage.innerHTML = 'در حال بارگذاری دیدگاه‌ها...';
+
                             const reviewsList = document.getElementById('reviews-list');
                             if (!reviewsList) {
                                 console.error('Reviews list element not found');
+                                if (debugMessage) debugMessage.innerHTML = 'خطا: لیست دیدگاه‌ها یافت نشد.';
                                 return;
                             }
                             reviewsList.innerHTML = '';
+
                             if (!window.localStorage) {
                                 console.error('localStorage not supported');
                                 reviewsList.innerHTML = '<p class="text-red-500 text-center">خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.</p>';
+                                if (debugMessage) debugMessage.innerHTML = 'خطا: ذخیره‌سازی مرورگر پشتیبانی نمی‌شود.';
                                 return;
                             }
+
                             const publishedReviews = JSON.parse(localStorage.getItem('publishedReviews') || '[]');
                             const replies = JSON.parse(localStorage.getItem('reviewReplies') || '[]');
                             console.log('Published reviews:', publishedReviews);
+                            if (debugMessage) debugMessage.innerHTML = 'تعداد دیدگاه‌ها: ' + publishedReviews.length;
+
                             if (publishedReviews.length === 0) {
                                 reviewsList.innerHTML = '<p class="text-gray-500 text-center">هیچ دیدگاهی درباره فیلترشکن وجود ندارد.</p>';
                                 return;
                             }
+
                             publishedReviews.forEach(review => {
                                 const reviewDiv = document.createElement('div');
-                                reviewDiv.className = 'bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 w-full';
+                                reviewDiv.className = 'bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100 w-full';
                                 let replyHtml = '';
                                 const reviewReplies = replies.filter(r => r.reviewId === review.id);
                                 if (reviewReplies.length > 0) {
@@ -281,6 +328,7 @@
                             if (reviewsList) {
                                 reviewsList.innerHTML = '<p class="text-red-500 text-center">خطا در بارگذاری دیدگاه‌ها. لطفاً دوباره امتحان کنید.</p>';
                             }
+                            if (debugMessage) debugMessage.innerHTML = 'خطا در بارگذاری دیدگاه‌ها: ' + error.message;
                         }
                     }
 
@@ -297,9 +345,13 @@
                                 });
                             } else {
                                 console.error('Submit review button not found');
+                                const debugMessage = document.getElementById('debug-message');
+                                if (debugMessage) debugMessage.innerHTML = 'خطا: دکمه ارسال دیدگاه یافت نشد.';
                             }
                         } catch (error) {
                             console.error('Error during DOMContentLoaded:', error);
+                            const debugMessage = document.getElementById('debug-message');
+                            if (debugMessage) debugMessage.innerHTML = 'خطا در بارگذاری صفحه: ' + error.message;
                         }
                     });
                 </script>
@@ -328,7 +380,6 @@
             </div>
         </div>
     </section>
-    <!-- Purchase Popup -->
     <div id="purchase-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">انتخاب روش خرید فیلترشکن</h3>
@@ -339,7 +390,6 @@
             <button onclick="closePurchasePopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="بستن پاپ‌آپ خرید فیلترشکن">بستن</button>
         </div>
     </div>
-    <!-- Plans Popup -->
     <div id="plans-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto">
             <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">لیست پنل‌های خرید فیلترشکن قوی</h3>
@@ -399,34 +449,22 @@
     <script>
         function openPurchasePopup() {
             const popup = document.getElementById('purchase-popup');
-            if (popup) {
-                popup.classList.remove('hidden');
-            } else {
-                console.error('Purchase popup element not found');
-            }
+            if (popup) popup.classList.remove('hidden');
         }
 
         function closePurchasePopup() {
             const popup = document.getElementById('purchase-popup');
-            if (popup) {
-                popup.classList.add('hidden');
-            }
+            if (popup) popup.classList.add('hidden');
         }
 
         function openPlansPopup() {
             const popup = document.getElementById('plans-popup');
-            if (popup) {
-                popup.classList.remove('hidden');
-            } else {
-                console.error('Plans popup element not found');
-            }
+            if (popup) popup.classList.remove('hidden');
         }
 
         function closePlansPopup() {
             const popup = document.getElementById('plans-popup');
-            if (popup) {
-                popup.classList.add('hidden');
-            }
+            if (popup) popup.classList.add('hidden');
         }
 
         document.addEventListener('keydown', (e) => {
