@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت | آزادی وی‌پی‌ان</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">آزادی وی‌پی‌ان</div>
+            <ul>
+                <li><a href="index.html#home">خانه</a></li>
+                <li><a href="index.html#products">محصولات</a></li>
+                <li><a href="index.html#articles">مقالات</a></li>
+                <li><a href="index.html#contact">تماس</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+        <div class="container">
+            <h2>پنل مدیریت</h2>
+            <!-- Write Article -->
+            <div class="panel-section">
+                <h3>نوشتن مقاله</h3>
+                <div class="form-item">
+                    <label for="article-title">عنوان مقاله</label>
+                    <input type="text" id="article-title" placeholder="عنوان مقاله">
+                </div>
+                <div class="form-item">
+                    <label for="article-content">محتوای مقاله</label>
+                    <textarea id="article-content" rows="6" placeholder="متن مقاله"></textarea>
+                </div>
+                <button onclick="publishArticle()">انتشار مقاله</button>
+            </div>
+            <!-- View Contact Forms -->
+            <div class="panel-section">
+                <h3>فرم‌های ارسالی</h3>
+                <div id="contact-forms"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function publishArticle() {
+            const title = document.getElementById('article-title').value;
+            const content = document.getElementById('article-content').value;
+            if (title && content) {
+                const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+                const id = generateUUID();
+                articles.push({ id, title, content, timestamp: new Date().toISOString() });
+                localStorage.setItem('articles', JSON.stringify(articles));
+                alert('مقاله با موفقیت منتشر شد!');
+                document.getElementById('article-title').value = '';
+                document.getElementById('article-content').value = '';
+            } else {
+                alert('لطفاً عنوان و محتوا را وارد کنید.');
+            }
+        }
+
+        function loadContactForms() {
+            const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
+            const formsContainer = document.getElementById('contact-forms');
+            formsContainer.innerHTML = '';
+            forms.forEach(form => {
+                const formDiv = document.createElement('div');
+                formDiv.className = 'contact-form-item';
+                formDiv.innerHTML = `
+                    <p><strong>نام:</strong> ${form.name}</p>
+                    <p><strong>ایمیل:</strong> ${form.email}</p>
+                    <p寻求: ${form.message}</p>
+                    <p><strong>زمان:</strong> ${new Date(form.timestamp).toLocaleString('fa-IR')}</p>
+                `;
+                formsContainer.appendChild(formDiv);
+                formsContainer.appendChild(document.createElement('hr'));
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadContactForms);
+    </script>
+</body>
+</html>
