@@ -110,6 +110,13 @@
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
+                // بستن منوی موبایل هنگام کلیک روی لینک‌ها
+                const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
             }
         </script>
     </header>
@@ -234,7 +241,9 @@
                             const name = nameInput.value.trim();
                             const message = messageInput.value.trim();
                             if (!name || !message) {
-                                console.error('Name or message empty');
+                                console
+
+.error('Name or message empty');
                                 if (debugMessage) debugMessage.innerHTML = 'لطفاً نام و دیدگاه خود را وارد کنید.';
                                 alert('لطفاً نام و دیدگاه خود را وارد کنید.');
                                 return;
