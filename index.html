@@ -3,116 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="آزادی وی‌پی‌ان: خرید فیلترشکن سریع، امن و نامحدود برای اینترنت بدون محدودیت.">
+    <meta name="keywords" content="فیلترشکن, وی‌پی‌ان, خرید VPN, آزادی وی‌پی‌ان, اینترنت آزاد">
     <title>آزادی وی‌پی‌ان | اینترنت بدون محدودیت</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        ::selection {
-            background: #facc15;
-            color: #1f2937;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body>
     <!-- Header -->
-    <header class="bg-white shadow-sm fixed w-full z-10">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-indigo-600">آزادی وی‌پی‌ان</div>
-            <ul class="flex space-x-8 text-sm font-medium">
-                <li><a href="#home" class="hover:text-indigo-600 transition">خانه</a></li>
-                <li><a href="#products" class="hover:text-indigo-600 transition">محصولات</a></li>
-                <li><a href="#articles" class="hover:text-indigo-600 transition">مقالات</a></li>
-                <li><a href="#contact" class="hover:text-indigo-600 transition">تماس</a></li>
+    <header>
+        <nav class="container">
+            <div class="logo">آزادی وی‌پی‌ان</div>
+            <ul>
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#products">محصولات</a></li>
+                <li><a href="#articles">مقالات</a></li>
+                <li><a href="#contact">تماس</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-20 bg-gradient-to-br from-indigo-50 to-gray-100">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">آزادی در اینترنت</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">با آزادی وی‌پی‌ان، به دنیایی بدون محدودیت متصل شوید. سریع، امن، ساده.</p>
-            <a href="#products" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full font-medium hover:bg-indigo-700 transition">شروع کنید</a>
+    <section id="home">
+        <div class="container">
+            <h1>آزادی در اینترنت</h1>
+            <p>با آزادی وی‌پی‌ان، به دنیایی بدون محدودیت متصل شوید. سریع، امن، ساده.</p>
+            <a href="#products">شروع کنید</a>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">انتخابی برای هر نیاز</h2>
+    <section id="products">
+        <div class="container">
+            <h2>انتخابی برای هر نیاز</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Product 1 -->
-                <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک پایه</h3>
-                    <p class="text-gray-500 mb-6">۱ کاربر، ۱ ماهه، نامحدود</p>
-                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۱۲۰,۰۰۰ تومان</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">خرید</button>
+                <div class="product-card">
+                    <h3>اشتراک پایه</h3>
+                    <p class="description">۱ کاربر، ۱ ماهه، نامحدود</p>
+                    <p class="price">ماهانه ۱۲۰,۰۰۰ تومان</p>
+                    <button>خرید</button>
                 </div>
-                <!-- Product 2 -->
-                <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک حرفه‌ای</h3>
-                    <p class="text-gray-500 mb-6">۲ کاربر، ۱ ماهه، نامحدود</p>
-                    <p class="text-2xl font-bold text-indigo-600 mb-6">ماهانه ۱۸۰,۰۰۰ تومان</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">خرید</button>
+                <div class="product-card">
+                    <h3>اشتراک حرفه‌ای</h3>
+                    <p class="description">۲ کاربر، ۱ ماهه، نامحدود</p>
+                    <p class="price">ماهانه ۱۸۰,۰۰۰ تومان</p>
+                    <button>خرید</button>
                 </div>
-                <!-- Product 3 -->
-                <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">اشتراک سازمانی</h3>
-                    <p class="text-gray-500 mb-6">راه‌حل‌های سفارشی برای تیم‌ها</p>
-                    <p class="text-2xl font-bold text-indigo-600 mb-6">تماس بگیرید</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700 transition">تماس</button>
+                <div class="product-card">
+                    <h3>اشتراک سازمانی</h3>
+                    <p class="description">راه‌حل‌های سفارشی برای تیم‌ها</p>
+                    <p class="price">تماس بگیرید</p>
+                    <button>تماس</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Articles Section -->
-    <section id="articles" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">مقالات</h2>
+    <section id="articles">
+        <div class="container">
+            <h2>مقالات</h2>
             <div id="articles-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"></div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">با ما در ارتباط باشید</h2>
+    <section id="contact">
+        <div class="container">
+            <h2>با ما در ارتباط باشید</h2>
             <div class="max-w-md mx-auto">
-                <div class="mb-6">
-                    <label for="name" class="block text-gray-700 text-sm mb-2">نام</label>
-                    <input type="text" id="name" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="نام شما">
+                <div class="form-item">
+                    <label for="name">نام</label>
+                    <input type="text" id="name" placeholder="نام شما">
                 </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 text-sm mb-2">ایمیل</label>
-                    <input type="email" id="email" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="ایمیل شما">
+                <div class="form-item">
+                    <label for="email">ایمیل</label>
+                    <input type="email" id="email" placeholder="ایمیل شما">
                 </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-700 text-sm mb-2">پیام</label>
-                    <textarea id="message" class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="4" placeholder="پیام شما"></textarea>
+                <div class="form-item">
+                    <label for="message">پیام</label>
+                    <textarea id="message" rows="4" placeholder="پیام شما"></textarea>
                 </div>
-                <button onclick="submitContact()" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">ارسال پیام</button>
+                <button onclick="submitContact()">ارسال پیام</button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-8">
-        <div class="container mx-auto px-4 text-center">
+    <footer>
+        <div class="container">
             <p>© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
 
     <script>
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
         function submitContact() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             if (name && email && message) {
-                // Save form data to LocalStorage
                 const forms = JSON.parse(localStorage.getItem('contactForms') || '[]');
                 forms.push({ name, email, message, timestamp: new Date().toISOString() });
                 localStorage.setItem('contactForms', JSON.stringify(forms));
@@ -125,22 +122,20 @@
             }
         }
 
-        // Load articles from LocalStorage
         function loadArticles() {
             const articles = JSON.parse(localStorage.getItem('articles') || '[]');
             const articlesList = document.getElementById('articles-list');
             articlesList.innerHTML = '';
             articles.forEach(article => {
                 const articleDiv = document.createElement('div');
-                articleDiv.className = 'bg-white rounded-xl shadow-sm p-6';
+                articleDiv.className = 'article-card';
                 articleDiv.innerHTML = `
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">${article.title}</h3>
+                    <h3><a href="article.html?id=${article.id}">${article.title}</a></h3>
                 `;
                 articlesList.appendChild(articleDiv);
             });
         }
 
-        // Load articles on page load
         document.addEventListener('DOMContentLoaded', loadArticles);
     </script>
 </body>
