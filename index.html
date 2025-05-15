@@ -19,16 +19,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* اسکرول نرم برای مرورگرهای مدرن */
         }
         body {
             font-family: 'Vazirmatn', sans-serif;
         }
+        /* استایل‌های گرید دیدگاه‌ها */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
-            max-width: 1280px;
+            max-width: 1280px; /* هماهنگ با max-w-5xl */
             margin: 0 auto;
         }
         .review-card {
@@ -65,14 +66,15 @@
             padding: 0.5rem 1.5rem;
             border-radius: 9999px;
             margin-top: 0.5rem;
-            transition: background 0.3s, transform.ConcurrentModificationException 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
         .review-card a:hover {
             background: #1d4ed8;
             transform: scale(1.05);
         }
+        /* استایل‌های آکاردئون سوالات متداول */
         .faq-container {
-            max-width: 1280px;
+            max-width: 1280px; /* هماهنگ با max-w-5xl */
             margin: 0 auto;
         }
         .faq-item {
@@ -127,63 +129,11 @@
             font-size: 1rem;
             line-height: 1.5;
         }
+        /* استایل جداکننده | در منوی دسکتاپ */
         .nav-divider {
-            color: #6b7280;
+            color: #6b7280; /* gray-500 */
             font-size: 1rem;
             font-weight: 300;
-        }
-        /* استایل جدول پنل همکاری */
-        .partnership-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: #ffffff;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .partnership-table th,
-        .partnership-table td {
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .partnership-table th {
-            background: #3b82f6;
-            color: white;
-            font-weight: 700;
-            font-size: 1.125rem;
-        }
-        .partnership-table tr:last-child td {
-            border-bottom: none;
-        }
-        .partnership-table td {
-            color: #374151;
-            font-size: 1rem;
-        }
-        .partnership-table .plan-button {
-            display: inline-block;
-            background: #3b82f6;
-            color: white;
-            font-weight: 600;
-            padding: 0.5rem 1.5rem;
-            border-radius: 9999px;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .partnership-table .plan-button:hover {
-            background: #1d4ed8;
-            transform: scale(1.05);
-        }
-        .notes-list li {
-            margin-bottom: 0.75rem;
-            color: #374151;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        .notes-list li::before {
-            content: '•';
-            color: #3b82f6;
-            margin-left: 0.5rem;
         }
         @media (max-width: 768px) {
             .reviews-grid {
@@ -207,26 +157,6 @@
                 font-size: 0.9rem;
                 padding: 1rem;
             }
-            .partnership-table th,
-            .partnership-table td {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-            .partnership-table .plan-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
-        @media (max-width: 640px) {
-            .partnership-table {
-                display: block;
-                overflow-x: auto;
-            }
-            .partnership-table th,
-            .partnership-table td {
-                font-size: 0.85rem;
-                padding: 0.75rem;
-            }
         }
     </style>
 </head>
@@ -249,7 +179,7 @@
                 <li><span class="nav-divider">|</span></li>
                 <li><a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
                 <li><span class="nav-divider">|</span></li>
-                <li><a href="#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">پنل همکاری</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">فرم تماس</a></li>
                 <li>
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
                         ارتباط با آزادی وی‌پی‌ان
@@ -269,7 +199,7 @@
                 <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
-                <li><a href="#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">پنل همکاری</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">فرم تماس</a></li>
                 <li>
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
                         ارتباط با آزادی وی‌پی‌ان
@@ -417,7 +347,7 @@
                         <details>
                             <summary>آیا فیلترشکن با آی‌پی ایران برای کاربران خارج از کشور ارائه می‌دهید؟</summary>
                             <div class="faq-content">
-                                بله، در آزادی وی‌پی‌ان امکان <a href="#products" classs="text-blue-600 hover:underline">خرید فیلترشکن</a> با آی‌پی ایران برای کاربران خارج از کشور فراهم است. برای دریافت این سرویس، کافی است با پشتیبانی ما تماس بگیرید تا از خدمات ویژه <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> بهره‌مند شوید.
+                                بله، در آزادی وی‌پی‌ان امکان <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a> با آی‌پی ایران برای کاربران خارج از کشور فراهم است. برای دریافت این سرویس، کافی است با پشتیبانی ما تماس بگیرید تا از خدمات ویژه <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> بهره‌مند شوید.
                             </div>
                         </details>
                     </div>
@@ -425,48 +355,24 @@
             </div>
         </div>
     </section>
-    <section id="partnership" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">پنل همکاری آزادی وی‌پی‌ان</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">تماس برای خرید فیلترشکن</h2>
             <div class="max-w-5xl mx-auto">
-                <p class="text-lg text-gray-700 mb-8 text-center">
-                    اگر صاحب کسب‌وکار هستید یا فروش بالایی در حوزه <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a> دارید، با دریافت نمایندگی از آزادی وی‌پی‌ان می‌توانید بدون نگرانی از چالش‌های مدیریت و نگهداری سرور، به‌راحتی کسب درآمد کنید. پنل همکاری ما با پشتیبانی 24 ساعته و سرورهای پرسرعت V2Ray، فرصتی ایده‌آل برای درآمد زایی بالا کسب‌وکار شماست.
-                </p>
-                <table class="partnership-table">
-                    <thead>
-                        <tr>
-                            <th>نام پلن</th>
-                            <th>قیمت‌های تحویلی</th>
-                            <th>حداقل فروش ماهانه</th>
-                            <th>هزینه فعال‌سازی</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>پلن پایه</td>
-                            <td>شروع از ۵۹,۰۰۰ تومان</td>
-                            <td>۲۰ مشتری</td>
-                            <td>۳۵۰,۰۰۰ تومان <br>
-                                <a href="https://t.me/vpnbrandicobot?start=product_1008" target="_blank" rel="noopener noreferrer" class="plan-button mt-2">درخواست آنی</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>پلن سازمانی</td>
-                            <td>شروع از ۳۵,۰۰۰ تومان</td>
-                            <td>۱۰۰ مشتری</td>
-                            <td>۵۵۰,۰۰۰ تومان <br>
-                                <a href="https://t.me/Mykalikal" target="_blank" rel="noopener noreferrer" class="plan-button mt-2">درخواست آنی</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="mt-8">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">نکات دریافت نمایندگی فیلترشکن</h3>
-                    <ul class="notes-list">
-                        <li>در پلن پایه، خرید به‌صورت دستی انجام می‌شود. شما پس از دریافت نمایندگی، می‌توانید سفارشات خود را به‌صورت انبوه (مثلاً ۵ کانفیگ عادی تک‌کاربر و ۳ کانفیگ VIP دوکاربر) ثبت کنید و ما آن‌ها را به‌سرعت برایتان ارسال می‌کنیم. اما در پلن سازمانی، خرید و مدیریت کانفیگ‌ها به‌صورت آنی از طریق ربات همکاری انجام می‌شود، بدون نیاز به دخالت دستی.</li>
-                        <li>در صورت نیاز به ربات فروش اختصاصی برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a>، هزینه طراحی و راه‌اندازی آن به‌صورت جداگانه محاسبه و ارائه خواهد شد.</li>
-                        <li>پشتیبانی 24 ساعته آزادی وی‌پی‌ان در تمام مراحل همکاری همراه شماست تا بتوانید با خیال راحت و بدون دغدغه از خدمات نمایندگی وی‌پی‌ان استفاده کنید.</li>
-                    </ul>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 font-semibold mb-2">نام</label>
+                        <input type="text" id="name" placeholder="نام شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block text-gray-700 font-semibold mb-2">شماره</label>
+                        <input type="tel" id="phone" placeholder="شماره شما" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-semibold mb-2">پیام</label>
+                        <textarea id="message" rows="4" placeholder="سوالات خود درباره خرید فیلترشکن بنویسید" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button onclick="submitContact()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300" aria-label="ارسال پیام برای خرید فیلترشکن">ارسال پیام</button>
                 </div>
             </div>
         </div>
@@ -602,7 +508,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 80, // جبران هدر ثابت
                         behavior: 'smooth'
                     });
                 }
@@ -611,27 +517,38 @@
 
         // به‌روزرسانی پویای پینگ‌ها
         function updatePings() {
+            // ترکیه: 45 تا 60
             const turkeyPing = document.querySelector('.ping-turkey');
             if (turkeyPing) {
                 turkeyPing.textContent = Math.floor(Math.random() * (60 - 45 + 1)) + 45;
             }
+
+            // آلمان: 50 تا 60
             const germanyPing = document.querySelector('.ping-germany');
             if (germanyPing) {
                 germanyPing.textContent = Math.floor(Math.random() * (60 - 50 + 1)) + 50;
             }
+
+            // آمریکا: 65 تا 80
             const usaPing = document.querySelector('.ping-usa');
             if (usaPing) {
                 usaPing.textContent = Math.floor(Math.random() * (80 - 65 + 1)) + 65;
             }
+
+            // فنلاند: 60 تا 70
             const finlandPing = document.querySelector('.ping-finland');
             if (finlandPing) {
                 finlandPing.textContent = Math.floor(Math.random() * (70 - 60 + 1)) + 60;
             }
+
+            // هلند: 55 تا 65
             const netherlandsPing = document.querySelector('.ping-netherlands');
             if (netherlandsPing) {
                 netherlandsPing.textContent = Math.floor(Math.random() * (65 - 55 + 1)) + 55;
             }
         }
+
+        // اجرای اولیه و سپس هر 1 ثانیه
         updatePings();
         setInterval(updatePings, 1000);
     </script>
