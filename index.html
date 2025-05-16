@@ -52,9 +52,7 @@
             margin-bottom: 0.75rem;
         }
         .review-card p {
-            color: #374151_COMMENT
-
-System: .374151;
+            color: #374151;
             font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 0.5rem;
@@ -143,7 +141,6 @@ System: .374151;
             font-size: 1rem;
             font-weight: 300;
         }
-        /* استایل جدول پنل همکاری */
         .partnership-table {
             width: 100%;
             border-collapse: separate;
@@ -196,7 +193,6 @@ System: .374151;
             color: #3b82f6;
             margin-left: 0.5rem;
         }
-        /* استایل بخش مقالات */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -299,7 +295,7 @@ System: .374151;
         }
     </style>
 </head>
-<body class="">
+<body>
     <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
         <nav class="container mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center">
@@ -318,9 +314,9 @@ System: .374151;
                 <li><span class="nav-divider">|</span></li>
                 <li><a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
                 <li><span class="nav-divider">|</span></li>
-                <li><a href="#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">پنل همکاری</a></li>
+                <li><a href="article1.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
                 <li><span class="nav-divider">|</span></li>
-                <li><a href="blog.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><a href="#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">پنل همکاری</a></li>
                 <li>
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
                         ارتباط با آزادی وی‌پی‌ان
@@ -340,8 +336,8 @@ System: .374151;
                 <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+                <li><a href="article1.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
                 <li><a href="#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">پنل همکاری</a></li>
-                <li><a href="blog.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
                 <li>
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
                         ارتباط با آزادی وی‌پی‌ان
@@ -501,17 +497,17 @@ System: .374151;
                     <div class="article-card">
                         <h3>خرید فیلترشکن صفر تا صد</h3>
                         <p>همه چیز درباره خرید فیلترشکن امن و پرسرعت از آزادی وی‌پی‌ان، از مزایا تا روش‌های خرید.</p>
-                        <a href="blog.html#article-1" class="inline-block">خواندن مقاله</a>
+                        <a href="article1.html" class="inline-block">خواندن مقاله</a>
                     </div>
                     <div class="article-card">
                         <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
                         <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف.</p>
-                        <a href="blog.html#article-2" class="inline-block">خواندن مقاله</a>
+                        <a href="article2.html" class="inline-block">خواندن مقاله</a>
                     </div>
                     <div class="article-card">
                         <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
                         <p>بررسی امنیت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان.</p>
-                        <a href="blog.html#article-3" class="inline-block">خواندن مقاله</a>
+                        <a href="article3.html" class="inline-block">خواندن مقاله</a>
                     </div>
                 </div>
             </div>
@@ -587,7 +583,7 @@ System: .374151;
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۱ کاربر (۵ لوکیشن VIP)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۲۰۰,۰۰۰ تومان</p>
-                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue money-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن ۱ ماهه VIP">خرید</button>
+                    <button onclick="closePlansPopup(); openPurchasePopup();" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن ۱ ماهه VIP">خرید</button>
                 </div>
                 <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۱ ماهه، ۲ کاربر (تک لوکیشن آلمان عادی)</h4>
@@ -686,7 +682,7 @@ System: .374151;
             });
         });
 
-        // اسکرول نرم برای مرورگرهای قدیمی
+        // اسکرول نرم
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -704,25 +700,15 @@ System: .374151;
         // به‌روزرسانی پویای پینگ‌ها
         function updatePings() {
             const turkeyPing = document.querySelector('.ping-turkey');
-            if (turkeyPing) {
-                turkeyPing.textContent = Math.floor(Math.random() * (60 - 45 + 1)) + 45;
-            }
+            if (turkeyPing) turkeyPing.textContent = Math.floor(Math.random() * (60 - 45 + 1)) + 45;
             const germanyPing = document.querySelector('.ping-germany');
-            if (germanyPing) {
-                germanyPing.textContent = Math.floor(Math.random() * (60 - 50 + 1)) + 50;
-            }
+            if (germanyPing) germanyPing.textContent = Math.floor(Math.random() * (60 - 50 + 1)) + 50;
             const usaPing = document.querySelector('.ping-usa');
-            if (usaPing) {
-                usaPing.textContent = Math.floor(Math.random() * (80 - 65 + 1)) + 65;
-            }
+            if (usaPing) usaPing.textContent = Math.floor(Math.random() * (80 - 65 + 1)) + 65;
             const finlandPing = document.querySelector('.ping-finland');
-            if (finlandPing) {
-                finlandPing.textContent = Math.floor(Math.random() * (70 - 60 + 1)) + 60;
-            }
+            if (finlandPing) finlandPing.textContent = Math.floor(Math.random() * (70 - 60 + 1)) + 60;
             const netherlandsPing = document.querySelector('.ping-netherlands');
-            if (netherlandsPing) {
-                netherlandsPing.textContent = Math.floor(Math.random() * (65 - 55 + 1)) + 55;
-            }
+            if (netherlandsPing) netherlandsPing.textContent = Math.floor(Math.random() * (65 - 55 + 1)) + 55;
         }
         updatePings();
         setInterval(updatePings, 5000);
