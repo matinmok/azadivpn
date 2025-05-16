@@ -373,19 +373,19 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۱ کاربر فیلترشکن</h3>
                     <p class="text-gray-600 mb-3">۱ ماهه، ۱ کاربر، ترافیک نامحدود</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۱۲۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن قوی ۱ کاربر">خرید</button>
+                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1000')" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن قوی ۱ کاربر">خرید</button>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل ۲ کاربر فیلترشکن</h3>
                     <p class="text-gray-600 mb-3">۱ ماهه، ۲ کاربر، ترافیک نامحدود</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۱۸۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن قوی ۲ کاربر">خرید</button>
+                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1002')" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن قوی ۲ کاربر">خرید</button>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">پنل‌های ویژه سه‌ماهه فیلترشکن</h3>
                     <p class="text-gray-600 mb-3">۱ و ۲ کاربر، ترافیک نامحدود</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">شروع قیمت از ۳۶۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن قوی سه‌ماهه">خرید</button>
+                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1004')" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="خرید فیلترشکن قوی سه‌ماهه">خرید</button>
                 </div>
             </div>
             <div class="text-center mt-10">
@@ -479,7 +479,7 @@
                         <details>
                             <summary>چگونه می‌توانم اقدام به خرید فیلترشکن کنم؟</summary>
                             <div class="faq-content">
-                                برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a>، کافی است پلن موردنظر خود را از بخش تعرفه‌ها انتخاب کنید و روی دکمه خرید کلیک کنید. سپس می‌توانید از طریق ربات تلگرام به‌صورت مستقیم یا از طریق واتساپ به‌صورت دستی برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> اقدام کنید.
+                                برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a>، کافی است پلن موردنظر خود را از بخش تعرفه‌ها انتخاب کنید و روی دکمه خرید کلیک کنید. سپس می‌توانید از طریق ربات تلگرام به‌صورت مستقیم برای <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن قوی</a> اقدام کنید.
                             </div>
                         </details>
                     </div>
@@ -571,10 +571,9 @@
     </section>
     <div id="purchase-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">انتخاب روش خرید فیلترشکن</h3>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">خرید فیلترشکن</h3>
             <div class="space-y-4">
-                <a href="https://t.me/vpnbrandicobot" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن از ربات تلگرام</a>
-                <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن به صورت دستی از واتساپ</a>
+                <a id="telegram-purchase-link" href="#" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن از ربات تلگرام</a>
             </div>
             <button onclick="closePurchasePopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="بستن پاپ‌آپ خرید فیلترشکن">بستن</button>
         </div>
@@ -652,9 +651,13 @@
         }
 
         // پاپ‌آپ‌ها
-        function openPurchasePopup() {
+        function openPurchasePopup(telegramLink) {
             const popup = document.getElementById('purchase-popup');
-            if (popup) popup.classList.remove('hidden');
+            const telegramButton = document.getElementById('telegram-purchase-link');
+            if (popup && telegramButton) {
+                telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
+                popup.classList.remove('hidden');
+            }
         }
 
         function closePurchasePopup() {
@@ -721,7 +724,7 @@
             if (netherlandsPing) netherlandsPing.textContent = Math.floor(Math.random() * (65 - 55 + 1)) + 55;
         }
         updatePings();
-        setInterval(updatePings, 5000);
+        setInterval(updatePings, 2000);
     </script>
     <footer class="py-8 bg-gray-800 text-white text-center">
         <div class="container mx-auto px-4">
