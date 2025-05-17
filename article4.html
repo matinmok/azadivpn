@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="راهنمای کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با امنیت بالا و سرعت عالی در آزادی وی‌پی‌ان.">
+    <meta name="keywords" content="پروتکل V2Ray, فیلترشکن V2Ray, آزادی وی‌پی‌ان, راهنمای وی‌پی‌ان, خرید فیلترشکن, اینترنت آزاد">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="راهنمای استفاده از پروتکل V2Ray | آزادی وی‌پی‌ان">
+    <meta name="twitter:description" content="راهنمای کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با امنیت بالا و سرعت عالی در آزادی وی‌پی‌ان.">
+    <meta property="og:title" content="راهنمای استفاده از پروتکل V2Ray | آزادی وی‌پی‌ان">
+    <meta property="og:description" content="راهنمای کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با امنیت بالا و سرعت عالی در آزادی وی‌پی‌ان.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://matinmok.github.io/azadivpn/article4.html">
+    <link rel="canonical" href="https://matinmok.github.io/azadivpn/article4.html">
+    <title>راهنمای استفاده از پروتکل V2Ray | آزادی وی‌پی‌ان</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8fafc;
+        }
+        .article-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        .article-section h2 {
+            color: #1e3a8a;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .article-section h3 {
+            color: #374151;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .article-section p {
+            color: #374151;
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .article-section a {
+            color: #3b82f6;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .article-section a:hover {
+            color: #1d4ed8;
+        }
+        .article-section .publish-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .article-section .toc {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-section .toc summary {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .article-section .toc summary::before {
+            content: '📋';
+            margin-left: 0.5rem;
+        }
+        .article-section .toc details[open] summary::after {
+            content: '↑';
+            margin-right: auto;
+            font-size: 1rem;
+        }
+        .article-section .toc details summary::after {
+            content: '↓';
+            margin-right: auto;
+            font-size: 1rem;
+        }
+        .article-section .toc ul {
+            list-style: disc;
+            margin-right: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .article-section .toc ul li {
+            margin-bottom: 0.5rem;
+        }
+        .article-section .toc ul li a {
+            color: #374151;
+            text-decoration: none;
+        }
+        .article-section .toc ul li a:hover {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+        .article-section ul.list-disc {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .article-section ul.list-disc li {
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .article-section {
+                padding: 1.5rem;
+            }
+            .article-section h2 {
+                font-size: 1.75rem;
+            }
+            .article-section h3 {
+                font-size:1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-600">
+                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                </a>
+            </div>
+            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+                <li><a href="index.html#home" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">پنل همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+                        ارتباط با آزادی وی‌پی‌ان
+                    </a>
+                </li>
+            </ul>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="index.html#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
+                <li><a href="index.html#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
+                <li><a href="index.html#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="index.html#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
+                <li><a href="index.html#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+                <li><a href="article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+                <li><a href="index.html#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">پنل همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
+                        ارتباط با آزادی وی‌پی‌ان
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="pt-24 pb-16">
+        <section class="article-section">
+            <p class="publish-date">منتشر شده در: ۲۷ اردیبهشت ۱۴۰۴، ساعت ۱۴:۳۰</p>
+            <h2>راهنمای استفاده از پروتکل V2Ray</h2>
+            <details class="toc">
+                <summary>راهنمای مقاله</summary>
+                <ul>
+                    <li><a href="#intro">پروتکل V2Ray چیست؟</a></li>
+                    <li><a href="#why-v2ray">چرا از V2Ray استفاده کنیم؟</a></li>
+                    <li><a href="#setup">نحوه راه‌اندازی V2Ray</a></li>
+                    <li><a href="#clients">معرفی کلاینت‌های V2Ray</a></li>
+                    <li><a href="#config">تنظیم کانفیگ V2Ray</a></li>
+                    <li><a href="#troubleshoot">رفع مشکلات رایج</a></li>
+                    <li><a href="#azadi-vpn">V2Ray با آزادی وی‌پی‌ان</a></li>
+                    <li><a href="#conclusion">جمع‌بندی</a></li>
+                </ul>
+            </details>
+            <p>پروتکل V2Ray یکی از پیشرفته‌ترین ابزارها برای دسترسی به اینترنت آزاد است که به دلیل امنیت بالا، انعطاف‌پذیری، و توانایی دور زدن فیلترینگ‌های شدید، در میان کاربران ایرانی محبوبیت زیادی پیدا کرده است. در این مقاله، راهنمای جامعی برای استفاده از پروتکل V2Ray ارائه می‌دهیم تا بتوانید با <a href="index.html#products">خرید فیلترشکن</a> از آزادی وی‌پی‌ان، به‌راحتی از این پروتکل استفاده کنید.</p>
+            <h3 id="intro">پروتکل V2Ray چیست؟</h3>
+            <p>V2Ray یک پلتفرم متن‌باز است که برای ایجاد ارتباطات امن و مخفی در اینترنت طراحی شده است. برخلاف پروتکل‌های سنتی مانند OpenVPN یا PPTP، V2Ray از پروتکل‌های پیشرفته‌تر مانند VMess و VLESS استفاده می‌کند و قابلیت‌های متعددی مانند رمزنگاری قوی، مخفی‌سازی ترافیک، و پشتیبانی از چندین پروتکل انتقال (TCP، mKCP، WebSocket) را ارائه می‌دهد.</p>
+            <p>این پروتکل به‌ویژه در کشورهایی با فیلترینگ شدید مانند ایران بسیار مؤثر است، زیرا می‌تواند ترافیک VPN را به‌گونه‌ای شبیه‌سازی کند که تشخیص آن برای سیستم‌های فیلترینگ دشوار باشد. با استفاده از V2Ray، می‌توانید به سایت‌های مسدودشده دسترسی پیدا کنید، از استریم با کیفیت بالا لذت ببرید، و حریم خصوصی خود را حفظ کنید.</p>
+            <h3 id="why-v2ray">چرا از V2Ray استفاده کنیم؟</h3>
+            <p>V2Ray به دلایل متعددی انتخابی عالی برای کاربرانی است که به دنبال یک فیلترشکن قوی و امن هستند:</p>
+            <ul class="list-disc">
+                <li><strong>امنیت بالا</strong>: استفاده از رمزنگاری پیشرفته (مانند AES-256) و پروتکل‌های امن مانند TLS برای حفاظت از داده‌ها.</li>
+                <li><strong>مخفی‌سازی ترافیک</strong>: قابلیت شبیه‌سازی ترافیک عادی وب (مانند HTTPS) برای دور زدن فیلترینگ.</li>
+                <li><strong>سرعت بالا</strong>: پشتیبانی از پروتکل‌های انتقال سریع مانند mKCP و WebSocket برای کاهش تأخیر.</li>
+                <li><strong>انعطاف‌پذیری</strong>: امکان استفاده در پلتفرم‌های مختلف (اندروید، iOS، ویندوز، مک، لینوکس).</li>
+                <li><strong>پشتیبانی از چندین سرور</strong>: امکان اتصال به سرورهای مختلف در کشورهای متعدد با یک کانفیگ.</li>
+            </ul>
+            <p>این ویژگی‌ها V2Ray را به یکی از بهترین گزینه‌ها برای کاربرانی تبدیل کرده است که به دنبال دسترسی آزاد و امن به اینترنت هستند.</p>
+            <h3 id="setup">نحوه راه‌اندازی V2Ray</h3>
+            <p>برای استفاده از V2Ray، باید چند مرحله ساده را طی کنید. در ادامه، مراحل کلی راه‌اندازی را توضیح می‌دهیم:</p>
+            <ol class="list-decimal mr-6 mb-4">
+                <li><strong>خرید فیلترشکن</strong>: ابتدا یک پلن V2Ray از <a href="index.html#products">آزادی وی‌پی‌ان</a> خریداری کنید. پس از خرید، یک فایل کانفیگ یا لینک کانفیگ دریافت خواهید کرد.</li>
+                <li><strong>دانلود کلاینت V2Ray</strong>: بسته به دستگاه خود، کلاینت مناسب (مانند V2RayNG برای اندروید یا Qv2ray برای ویندوز) را دانلود کنید.</li>
+                <li><strong>وارد کردن کانفیگ</strong>: فایل یا لینک کانفیگ را در کلاینت V2Ray وارد کنید.</li>
+                <li><strong>اتصال به سرور</strong>: سرور موردنظر را انتخاب کرده و اتصال را برقرار کنید.</li>
+                <li><strong>بررسی اتصال</strong>: از وب‌سایتی مانند <a href="https://www.speedtest.net" target="_blank" rel="noopener noreferrer">Speedtest</a> برای بررسی سرعت و پایداری استفاده کنید.</li>
+            </ol>
+            <p>در بخش‌های بعدی، جزئیات بیشتری درباره کلاینت‌ها و تنظیم کانفیگ ارائه می‌دهیم.</p>
+            <h3 id="clients">معرفی کلاینت‌های V2Ray</h3>
+            <p>V2Ray از کلاینت‌های مختلفی برای پلتفرم‌های متنوع پشتیبانی می‌کند. در زیر، چند کلاینت محبوب را معرفی می‌کنیم:</p>
+            <ul class="list-disc">
+                <li><strong>V2RayNG (اندروید)</strong>: یک کلاینت ساده و قدرتمند برای اندروید که از VMess و VLESS پشتیبانی می‌کند. قابل دانلود از <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank" rel="noopener noreferrer">گوگل پلی</a> یا مخازن GitHub.</li>
+                <li><strong>v2rayN (ویندوز)</strong>: کلاینت ویندوزی با رابط کاربری ساده و پشتیبانی از پروتکل‌های متعدد. از <a href="https://github.com/2dust/v2rayN" target="_blank" rel="noopener noreferrer">GitHub</a> قابل دانلود است.</li>
+                <li><strong>Nekoray (مک و ویندوز)</strong>: کلاینتی سبک و سریع با پشتیبانی از V2Ray و سایر پروتکل‌ها.</li>
+                <li><strong>V2RayA (لینوکس)</strong>: مناسب برای کاربران لینوکس، با قابلیت‌های پیشرفته برای مدیریت کانفیگ‌ها.</li>
+                <li><strong>Shadowrocket (iOS)</strong>: کلاینت محبوب برای iOS که نیاز به اپل آیدی خارجی برای دانلود از اپ استور دارد.</li>
+            </ul>
+            <p>پس از دانلود کلاینت، مطمئن شوید که نسخه به‌روز آن را استفاده می‌کنید تا از مشکلات امنیتی یا ناسازگاری جلوگیری شود.</p>
+            <h3 id="config">تنظیم کانفیگ V2Ray</h3>
+            <p>کانفیگ V2Ray معمولاً به‌صورت یک فایل JSON یا لینک ارائه می‌شود. برای تنظیم آن، مراحل زیر را دنبال کنید:</p>
+            <ol class="list-decimal mr-6 mb-4">
+                <li><strong>دریافت کانفیگ</strong>: پس از <a href="index.html#products">خرید فیلترشکن</a> از آزادی وی‌پی‌ان، لینک یا فایل کانفیگ از طریق تلگرام یا واتساپ برای شما ارسال می‌شود.</li>
+                <li><strong>وارد کردن کانفیگ</strong>:
+                    <ul class="list-disc mr-6 mb-2">
+                        <li>اگر لینک دارید، آن را کپی کرده و در بخش "Import URL" کلاینت جای‌گذاری کنید.</li>
+                        <li>اگر فایل JSON دارید، آن را در کلاینت بارگذاری کنید.</li>
+                    </ul>
+                </li>
+                <li><strong>انتخاب سرور</strong>: در صورت وجود چندین سرور در کانفیگ، سروری با پینگ پایین (مانند ترکیه یا آلمان) انتخاب کنید.</li>
+                <li><strong>اتصال</strong>: دکمه اتصال را فشار دهید و چند ثانیه صبر کنید تا ارتباط برقرار شود.</li>
+            </ol>
+            <p>نکته: آزادی وی‌پی‌ان کانفیگ‌های بهینه‌شده‌ای ارائه می‌دهد که نیازی به تنظیمات دستی ندارند. بااین‌حال، اگر نیاز به تغییر پورت یا پروتکل دارید، با پشتیبانی تماس بگیرید.</p>
+            <h3 id="troubleshoot">رفع مشکلات رایج</h3>
+            <p>در هنگام استفاده از V2Ray ممکن است با مشکلاتی مواجه شوید. در زیر، چند مشکل رایج و راه‌حل‌های آن‌ها را بررسی می‌کنیم:</p>
+            <ul class="list-disc">
+                <li><strong>عدم اتصال به سرور</strong>: مطمئن شوید که کانفیگ درست وارد شده و سرور فعال است. همچنین، اتصال اینترنت خود را بررسی کنید.</li>
+                <li><strong>سرعت پایین</strong>: سرور دیگری را امتحان کنید یا پروتکل انتقال را به mKCP تغییر دهید.</li>
+                <li><strong>خطای کانفیگ</strong>: نسخه کلاینت را به‌روز کنید یا کانفیگ جدیدی از آزادی وی‌پی‌ان درخواست کنید.</li>
+                <li><strong>قطعی مکرر</strong>: از پشتیبانی بخواهید سرورهای پایدارتر یا تنظیمات بهینه‌تر ارائه دهند.</li>
+            </ul>
+            <p>تیم پشتیبانی آزادی وی‌پی‌ان به‌صورت 24/7 از طریق <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer">واتساپ</a> یا تلگرام در دسترس است تا مشکلات شما را سریعاً رفع کند.</p>
+            <h3 id="azadi-vpn">V2Ray با آزادی وی‌پی‌ان</h3>
+            <p>آزادی وی‌پی‌ان یکی از پیشروترین ارائه‌دهندگان خدمات V2Ray در ایران است که با ارائه کانفیگ‌های بهینه و سرورهای پرسرعت، تجربه‌ای بی‌نظیر را برای کاربران فراهم می‌کند. ویژگی‌های V2Ray در آزادی وی‌پی‌ان عبارت‌اند از:</p>
+            <ul class="list-disc">
+                <li><strong>سرورهای متنوع</strong>: دسترسی به سرورهای کشورهای مختلف مانند ترکیه، آلمان، و آمریکا با پینگ پایین.</li>
+                <li><strong>کانفیگ‌های آماده</strong>: کانفیگ‌های از پیش تنظیم‌شده برای استفاده آسان در تمام پلتفرم‌ها.</li>
+                <li><strong>پشتیبانی حرفه‌ای</strong>: تیم پشتیبانی 24/7 برای راهنمایی و رفع مشکلات.</li>
+                <li><strong>ترافیک نامحدود</strong>: بدون محدودیت در حجم داده برای استریم و دانلود.</li>
+            </ul>
+            <p>برای شروع، کافی است به <a href="index.html#products">بخش تعرفه‌ها</a> مراجعه کنید و پلن V2Ray موردنظر خود را انتخاب کنید.</p>
+            <h3 id="conclusion">جمع‌بندی</h3>
+            <p>پروتکل V2Ray یک ابزار قدرتمند برای دسترسی به اینترنت آزاد با امنیت و سرعت بالا است. با استفاده از کلاینت‌های مناسب و کانفیگ‌های بهینه‌شده آزادی وی‌پی‌ان، می‌توانید به‌راحتی از این پروتکل در دستگاه‌های مختلف استفاده کنید. از مزایای V2Ray می‌توان به مخفی‌سازی ترافیک، پشتیبانی از پروتکل‌های پیشرفته، و انعطاف‌پذیری در پلتفرم‌های مختلف اشاره کرد. اگر به دنبال یک فیلترشکن قوی و قابل اعتماد هستید، <a href="index.html#products">خرید فیلترشکن</a> با پروتکل V2Ray از آزادی وی‌پی‌ان بهترین انتخاب است. همین حالا با مراجعه به <a href="index.html#products">بخش تعرفه‌ها</a> شروع کنید و از اینترنت بدون محدودیت لذت ببرید!</p>
+        </section>
+    </main>
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن قوی</a>
+                <span class="text-gray-600">|</span>
+                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // منوی موبایل
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
