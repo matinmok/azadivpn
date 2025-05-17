@@ -3,65 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="فیلترشکن, وی‌پی‌ان, آزادی وی‌پی‌ان">
-    <title>آزادی وی‌پی‌ان | مقاله</title>
+    <meta name="description" content="مجموعه مقالات آزادی وی‌پی‌ان درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان، و راهنمای استفاده از V2Ray برای دسترسی به اینترنت آزاد.">
+    <meta name="keywords" content="خرید فیلترشکن قوی, فیلترشکن امن, وی‌پی‌ان, آزادی وی‌پی‌ان, اینترنت آزاد, V2Ray, راهنمای فیلترشکن">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="مقالات آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی">
+    <meta name="twitter:description" content="مقالات آموزشی و کاربردی درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از پروتکل V2Ray در آزادی وی‌پی‌ان.">
+    <meta property="og:title" content="مقالات آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی">
+    <meta property="og:description" content="مقالات آموزشی و کاربردی درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از پروتکل V2Ray در آزادی وی‌پی‌ان.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matinmok.github.io/azadivpn/article.html">
+    <link rel="canonical" href="https://matinmok.github.io/azadivpn/article.html">
+    <title>مقالات آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">آزادی وی‌پی‌ان</div>
-            <ul>
-                <li><a href="index.html#home">خانه</a></li>
-                <li><a href="index.html#products">محصولات</a></li>
-                <li><a href="index.html#articles">مقالات</a></li>
-                <li><a href="index.html#contact">تماس</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Article Section -->
-    <section id="article">
-        <div class="container">
-            <h1 id="article-title"></h1>
-            <div class="meta" id="article-meta"></div>
-            <div class="content" id="article-content"></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
-        </div>
-    </footer>
-
-    <script>
-        function loadArticle() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const articleId = urlParams.get('id');
-            const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-            const article = articles.find(a => a.id === articleId);
-
-            if (article) {
-                document.getElementById('article-title').textContent = article.title;
-                document.getElementById('article-meta').textContent = `منتشرشده در: ${new Date(article.timestamp).toLocaleString('fa-IR')}`;
-                document.getElementById('article-content').textContent = article.content;
-
-                // Update meta tags for SEO
-                document.querySelector('meta[name="description"]').setAttribute('content', article.content.substring(0, 160));
-                document.title = `آزادی وی‌پی‌ان | ${article.title}`;
-            } else {
-                document.getElementById('article-title').textContent = 'مقاله یافت نشد';
-                document.getElementById('article-content').textContent = 'متأسفانه مقاله مورد نظر وجود ندارد.';
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .article-card {
+            background: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: right;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        .article-card h3 {
+            color: #1e3a8a;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .article-card p {
+            color: #374151;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .article-card a {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .article-card a:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .article-card {
+                padding: 1rem;
+            }
+            .article-card h3 {
+                font-size: 1.125rem;
+            }
+            .article-card p {
+                font-size: 0.9rem;
             }
         }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="index.html" class="text-xl font-bold text-blue-600">
+                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                </a>
+            </div>
+            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+                <li><a href="index.html#home" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">تجربه کاربران</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">پنل همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">
+                        ارتباط با آزادی وی‌پی‌ان
+                    </a>
+                </li>
+            </ul>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="index.html#home" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
+                <li><a href="index.html#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
+                <li><a href="index.html#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="index.html#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
+                <li><a href="index.html#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+                <li><a href="article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+                <li><a href="index.html#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">پنل همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
+                        ارتباط با آزادی وی‌پی‌ان
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section id="articles" class="py-16 bg-gray-100 mt-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">مقالات خرید فیلترشکن</h2>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <h3>خرید فیلترشکن صفر تا صد</h3>
+                    <p>در این مقاله، همه چیز درباره خرید فیلترشکن امن و پرسرعت از آزادی وی‌پی‌ان، از مزایا تا روش‌های خرید را بررسی می‌کنیم.</p>
+                    <a href="article1.html" class="inline-block">خواندن مقاله</a>
+                </div>
+                <div class="article-card">
+                    <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
+                    <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p>
+                    <a href="article2.html" class="inline-block">خواندن مقاله</a>
+                </div>
+                <div class="article-card">
+                    <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
+                    <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب آزادی وی‌پی‌ان.</p>
+                    <a href="article3.html" class="inline-block">خواندن مقاله</a>
+                </div>
+                <div class="article-card">
+                    <h3>راهنمای استفاده از پروتکل V2Ray</h3>
+                    <p>آموزش کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با سرعت بالا و امنیت تضمین‌شده.</p>
+                    <a href="article4.html" class="inline-block">خواندن مقاله</a>
+                </div>
+                <div class="article-card">
+                    <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
+                    <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
+                    <a href="article5.html" class="inline-block">خواندن مقاله</a>
+                </div>
+                <div class="article-card">
+                    <h3>مزایای خرید فیلترشکن با ترافیک نامحدود</h3>
+                    <p>چرا فیلترشکن‌های با ترافیک نامحدود آزادی وی‌پی‌ان بهترین انتخاب برای کاربران حرفه‌ای هستند؟</p>
+                    <a href="article6.html" class="inline-block">خواندن مقاله</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن قوی</a>
+                <span class="text-gray-600">|</span>
+                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
 
-        document.addEventListener('DOMContentLoaded', loadArticle);
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
