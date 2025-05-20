@@ -3,141 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل مدیریت سئو | آزادی وی‌پی‌ان</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>پنل ساده مدیریت سئو | آزادی وی‌پی‌ان</title>
     <style>
-        body { font-family: 'Vazirmatn', sans-serif; background: #f3f4f6; }
-        .seo-panel {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background: #ffffff;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
         }
-        .seo-panel h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #1e40af;
+        .seo-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #1a3c87;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 20px;
         }
         .section {
-            margin-bottom: 2rem;
-            padding: 1rem;
-            border-radius: 0.25rem;
-            background: #f8fafc;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
         }
         .section h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 0.5rem;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
         }
         .section p.desc {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 1rem;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .input-group {
+            margin-bottom: 10px;
         }
         .input-group label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #374151;
             display: block;
-            margin-bottom: 0.25rem;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
         }
         .input-group input,
         .input-group textarea,
         .input-group select {
             width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.25rem;
-            font-size: 0.9rem;
-            color: #374151;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
             direction: rtl;
+            box-sizing: border-box;
         }
-        .input-group textarea { min-height: 80px; resize: vertical; }
+        .input-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
         .btn {
-            background: #3b82f6;
-            color: white;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            display: inline-block;
-            margin-top: 0.5rem;
+            background: #1a73e8;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
         }
-        .btn:hover { background: #1d4ed8; }
+        .btn:hover {
+            background: #1557b0;
+        }
         .btn-secondary {
-            background: #6b7280;
+            background: #666;
         }
-        .btn-secondary:hover { background: #4b5563; }
+        .btn-secondary:hover {
+            background: #555;
+        }
         .seo-score {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: bold;
             text-align: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
         .preview-box {
-            border: 1px solid #e5e7eb;
-            padding: 0.5rem;
-            border-radius: 0.25rem;
-            background: #ffffff;
-            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background: #fff;
+            margin-top: 10px;
         }
-        .preview-title { color: #1a0dab; font-size: 0.9rem; }
-        .preview-url { color: #006621; font-size: 0.8rem; }
-        .preview-desc { color: #4b5563; font-size: 0.8rem; }
-        .error { color: #dc2626; }
-        .warning { color: #d97706; }
-        .success { color: #16a34a; }
-        .suggestions { margin-top: 0.5rem; }
-        .suggestions ul {
-            list-style: disc;
-            margin-right: 1rem;
-            font-size: 0.9rem;
+        .preview-title {
+            color: #1a0dab;
+            font-size: 16px;
         }
+        .preview-url {
+            color: #006621;
+            font-size: 12px;
+        }
+        .preview-desc {
+            color: #555;
+            font-size: 12px;
+        }
+        .status {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .error { color: #d32f2f; }
+        .warning { color: #f57c00; }
+        .success { color: #2e7d32; }
         .result-box {
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            background: #f1f5f9;
-            border-radius: 0.25rem;
-            font-size: 0.9rem;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 12px;
         }
         .result-box pre {
             white-space: pre-wrap;
             direction: ltr;
+            margin: 0;
+        }
+        .suggestions ul {
+            list-style: disc;
+            margin-right: 20px;
+            font-size: 14px;
         }
         .toast {
             position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            color: white;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
             z-index: 1000;
         }
-        .toast.success { background: #16a34a; }
-        .toast.error { background: #dc2626; }
-        @media (max-width: 768px) {
-            .seo-panel { margin: 1rem; padding: 1rem; }
-            .seo-panel h1 { font-size: 1.25rem; }
-            .section h2 { font-size: 1rem; }
-            .seo-score { font-size: 1.5rem; }
+        .toast.success { background: #2e7d32; }
+        .toast.error { background: #d32f2f; }
+        @media (max-width: 600px) {
+            .seo-panel { padding: 10px; }
+            h1 { font-size: 20px; }
+            .section h2 { font-size: 16px; }
+            .seo-score { font-size: 20px; }
         }
     </style>
 </head>
 <body>
     <div class="seo-panel">
-        <h1>پنل مدیریت سئو آزادی وی‌پی‌ان</h1>
+        <h1>پنل ساده مدیریت سئو آزادی وی‌پی‌ان</h1>
 
-        <!-- Dashboard Section -->
+        <!-- SEO Status Section -->
         <div class="section">
             <h2>وضعیت سئو</h2>
-            <p class="desc">امتیاز سئو و پیش‌نمایش صفحه در گوگل را بررسی کنید.</p>
+            <p class="desc">امتیاز سئو و پیش‌نمایش صفحه در گوگل را ببینید.</p>
             <div class="seo-score" id="seo-score">85</div>
-            <p class="text-sm text-gray-600 text-center">بر اساس ورودی‌های فعلی</p>
             <div class="preview-box">
                 <div class="preview-title" id="preview-title">خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان</div>
                 <div class="preview-url">https://matinmok.github.io/azadivpn/</div>
@@ -145,47 +170,24 @@
             </div>
         </div>
 
-        <!-- Profile Section -->
-        <div class="section">
-            <h2>مدیریت پروفایل</h2>
-            <p class="desc">تنظیمات سئو را برای صفحات مختلف ذخیره و بارگذاری کنید.</p>
-            <div class="input-group">
-                <label for="profile-name">نام پروفایل</label>
-                <input type="text" id="profile-name" placeholder="مثلاً: صفحه اصلی">
-            </div>
-            <button class="btn" onclick="saveProfile()">ذخیره پروفایل</button>
-            <div class="input-group mt-2">
-                <label for="profile-select">انتخاب پروفایل</label>
-                <select id="profile-select">
-                    <option value="">انتخاب پروفایل</option>
-                </select>
-            </div>
-            <button class="btn btn-secondary mt-2" onclick="loadProfile()">بارگذاری پروفایل</button>
-        </div>
-
         <!-- Meta Tags Section -->
         <div class="section">
             <h2>متا تگ‌ها</h2>
-            <p class="desc">عنوان، توضیحات و تصویر OG را تنظیم کنید و کد HTML تولید کنید.</p>
+            <p class="desc">عنوان و توضیحات صفحه را تنظیم کنید و کد HTML تولید کنید.</p>
             <div class="input-group">
                 <label for="meta-title">عنوان صفحه</label>
                 <input type="text" id="meta-title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
-                <p id="title-length" class="text-sm mt-1"></p>
+                <p class="status" id="title-length"></p>
             </div>
             <div class="input-group">
                 <label for="meta-description">توضیحات</label>
                 <textarea id="meta-description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
-                <p id="description-length" class="text-sm mt-1"></p>
-            </div>
-            <div class="input-group">
-                <label for="og-image">تصویر OG</label>
-                <input type="url" id="og-image" value="https://matinmok.github.io/azadivpn/images/og-image.jpg">
-                <p id="og-image-status" class="text-sm mt-1"></p>
+                <p class="status" id="description-length"></p>
             </div>
             <button class="btn" onclick="generateMetaTags()">تولید متا تگ‌ها</button>
-            <div id="meta-tags-result" class="result-box hidden">
+            <div class="result-box" id="meta-tags-result" style="display: none;">
                 <pre id="meta-tags-code"></pre>
-                <button class="btn btn-secondary mt-2" onclick="copyMetaTags()">کپی کد</button>
+                <button class="btn btn-secondary" onclick="copyMetaTags()">کپی کد</button>
             </div>
         </div>
 
@@ -195,8 +197,8 @@
             <p class="desc">کلمات کلیدی را وارد کنید و پیشنهادات را ببینید.</p>
             <div class="input-group">
                 <label for="meta-keywords">کلمات کلیدی</label>
-                <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان, V2Ray, آی پی ثابت, فیلترشکن بدون قطعی">
-                <p id="keywords-status" class="text-sm mt-1"></p>
+                <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان">
+                <p class="status" id="keywords-status"></p>
             </div>
             <button class="btn" onclick="analyzeKeywords()">تحلیل کلمات کلیدی</button>
             <div class="suggestions">
@@ -207,7 +209,7 @@
         <!-- Schema Section -->
         <div class="section">
             <h2>Schema Markup</h2>
-            <p class="desc">Schema برای FAQ یا محصول تولید کنید.</p>
+            <p class="desc">Schema برای سئو بهتر تولید کنید.</p>
             <div class="input-group">
                 <label for="schema-type">نوع Schema</label>
                 <select id="schema-type">
@@ -215,14 +217,14 @@
                     <option value="Product">محصول</option>
                 </select>
             </div>
-            <div class="input-group mt-2">
+            <div class="input-group">
                 <label for="schema-content">محتوای Schema (JSON-LD)</label>
                 <textarea id="schema-content"></textarea>
             </div>
             <button class="btn" onclick="generateSchema()">تولید Schema</button>
-            <div id="schema-result" class="result-box hidden">
+            <div class="result-box" id="schema-result" style="display: none;">
                 <pre id="schema-code"></pre>
-                <button class="btn btn-secondary mt-2" onclick="copySchema()">کپی کد</button>
+                <button class="btn btn-secondary" onclick="copySchema()">کپی کد</button>
             </div>
         </div>
 
@@ -232,12 +234,9 @@
             <p class="desc">متن‌های Alt تصاویر را بررسی کنید.</p>
             <div class="input-group">
                 <label for="alt-texts">متن‌های Alt تصاویر</label>
-                <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن آزادی وی‌پی‌ان
-پرچم آلمان برای سرور فیلترشکن آزادی وی‌پی‌ان
-پرچم آمریکا برای سرور فیلترشکن آزادی وی‌پی‌ان
-پرچم فنلاند برای سرور فیلترشکن آزادی وی‌پی‌ان
-پرچم هلند برای سرور فیلترشکن آزادی وی‌پی‌ان</textarea>
-                <p id="alt-texts-status" class="text-sm mt-1"></p>
+                <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن
+پرچم آلمان برای سرور فیلترشکن</textarea>
+                <p class="status" id="alt-texts-status"></p>
             </div>
             <button class="btn" onclick="analyzeAccessibility()">تحلیل دسترسی‌پذیری</button>
         </div>
@@ -245,64 +244,35 @@
         <!-- Internal Links Section -->
         <div class="section">
             <h2>لینک‌های داخلی</h2>
-            <p class="desc">لینک‌های داخلی را برای بهبود سئو اضافه کنید.</p>
+            <p class="desc">لینک‌های داخلی را اضافه کنید.</p>
             <div class="input-group">
                 <label for="internal-links">لینک‌های داخلی (هر خط: عنوان | URL)</label>
                 <textarea id="internal-links">مقالات | https://matinmok.github.io/azadivpn/article.html
-تماس با ما | https://wa.me/09227334601</textarea>
-                <p id="links-status" class="text-sm mt-1"></p>
+تماس | https://wa.me/09227334601</textarea>
+                <p class="status" id="links-status"></p>
             </div>
             <button class="btn" onclick="analyzeLinks()">تحلیل لینک‌ها</button>
-        </div>
-
-        <!-- Competitors Section -->
-        <div class="section">
-            <h2>تحلیل رقبا</h2>
-            <p class="desc">URLهای رقبا را وارد کنید تا پیشنهادات دریافت کنید.</p>
-            <div class="input-group">
-                <label for="competitor-urls">URLهای رقبا (هر خط یک URL)</label>
-                <textarea id="competitor-urls" placeholder="مثال: https://example.com"></textarea>
-                <p id="competitor-status" class="text-sm mt-1"></p>
-            </div>
-            <button class="btn" onclick="analyzeCompetitors()">تحلیل رقبا</button>
-        </div>
-
-        <!-- Performance Section -->
-        <div class="section">
-            <h2>کارایی صفحه</h2>
-            <p class="desc">وضعیت سرعت و کارایی صفحه را بررسی کنید.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-800 mb-1">LCP</h3>
-                    <p id="lcp-score" class="text-sm"></p>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-800 mb-1">FID</h3>
-                    <p id="fid-score" class="text-sm"></p>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-800 mb-1">CLS</h3>
-                    <p id="cls-score" class="text-sm"></p>
-                </div>
-            </div>
-            <button class="btn mt-2" onclick="analyzePerformance()">تحلیل کارایی</button>
         </div>
 
         <!-- Report Section -->
         <div class="section">
             <h2>گزارش سئو</h2>
             <p class="desc">گزارش سئو را به‌صورت فایل LaTeX دانلود کنید.</p>
-            <button class="btn" onclick="generateReport()">دانلود گزارش LaTeX</button>
+            <button class="btn" onclick="generateReport()">دانلود گزارش</button>
         </div>
     </div>
     <script>
         // Utility: Show Toast
         function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
+            try {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 3000);
+            } catch (e) {
+                console.error('Toast error:', e);
+            }
         }
 
         // SEO Score
@@ -321,11 +291,12 @@
                 score += altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 20 : 5;
                 score += links.length >= 2 ? 20 : 5;
 
-                document.getElementById('seo-score').textContent = score;
-                document.getElementById('seo-score').className = `seo-score ${score >= 80 ? 'success' : score >= 50 ? 'warning' : 'error'}`;
+                const scoreElement = document.getElementById('seo-score');
+                scoreElement.textContent = score;
+                scoreElement.className = `seo-score ${score >= 80 ? 'success' : score >= 50 ? 'warning' : 'error'}`;
             } catch (e) {
                 console.error('SEO score error:', e);
-                showToast('خطا در محاسبه امتیاز سئو', 'error');
+                showToast('خطا در محاسبه امتیاز', 'error');
             }
         }
 
@@ -335,16 +306,14 @@
                 const title = document.getElementById('meta-title').value;
                 const description = document.getElementById('meta-description').value;
                 const keywords = document.getElementById('meta-keywords').value;
-                const ogImage = document.getElementById('og-image').value;
 
-                document.getElementById('title-length').textContent = title.length <= 60 ? `عالی: ${title.length} کاراکتر` : `هشدار: ${title.length} کاراکتر (بیش از 60)`;
-                document.getElementById('title-length').className = `text-sm mt-1 ${title.length <= 60 ? 'success' : 'warning'}`;
+                const titleLength = document.getElementById('title-length');
+                titleLength.textContent = title.length <= 60 ? `عالی: ${title.length} کاراکتر` : `هشدار: ${title.length} کاراکتر (بیش از 60)`;
+                titleLength.className = `status ${title.length <= 60 ? 'success' : 'warning'}`;
 
-                document.getElementById('description-length').textContent = description.length <= 160 ? `عالی: ${description.length} کاراکتر` : `هشدار: ${description.length} کاراکتر (بیش از 160)`;
-                document.getElementById('description-length').className = `text-sm mt-1 ${description.length <= 160 ? 'success' : 'warning'}`;
-
-                document.getElementById('og-image-status').textContent = ogImage.match(/\.(jpg|jpeg|png|webp)$/i) ? 'عالی: فرمت تصویر مناسب' : 'هشدار: فرمت تصویر نامعتبر';
-                document.getElementById('og-image-status').className = `text-sm mt-1 ${ogImage.match(/\.(jpg|jpeg|png|webp)$/i) ? 'success' : 'warning'}`;
+                const descriptionLength = document.getElementById('description-length');
+                descriptionLength.textContent = description.length <= 160 ? `عالی: ${description.length} کاراکتر` : `هشدار: ${description.length} کاراکتر (بیش از 160)`;
+                descriptionLength.className = `status ${description.length <= 160 ? 'success' : 'warning'}`;
 
                 const metaTags = `
 <meta charset="UTF-8">
@@ -352,20 +321,11 @@
 <meta name="description" content="${description}">
 <meta name="keywords" content="${keywords}">
 <meta name="robots" content="index, follow">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${title}">
-<meta name="twitter:description" content="${description}">
-${ogImage ? `<meta name="twitter:image" content="${ogImage}">` : ''}
-<meta property="og:title" content="${title}">
-<meta property="og:description" content="${description}">
-${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://matinmok.github.io/azadivpn/">
-<link rel="canonical" href="https://matinmok.github.io/azadivpn/">
 <title>${title}</title>`.trim();
 
-                document.getElementById('meta-tags-result').classList.remove('hidden');
+                const resultBox = document.getElementById('meta-tags-result');
                 document.getElementById('meta-tags-code').textContent = metaTags;
+                resultBox.style.display = 'block';
                 document.getElementById('preview-title').textContent = title;
                 document.getElementById('preview-desc').textContent = description;
 
@@ -379,8 +339,8 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
 
         function copyMetaTags() {
             try {
-                navigator.clipboard.writeText(document.getElementById('meta-tags-code').textContent)
-                    .then(() => showToast('کد متا تگ‌ها کپی شد'));
+                const code = document.getElementById('meta-tags-code').textContent;
+                navigator.clipboard.writeText(code).then(() => showToast('کد کپی شد'));
             } catch (e) {
                 console.error('Copy meta tags error:', e);
                 showToast('خطا در کپی کد', 'error');
@@ -396,21 +356,20 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
 
                 if (keywords.length < 3) {
                     keywordsStatus.textContent = `خطا: حداقل 3 کلمه کلیدی نیاز است (${keywords.length})`;
-                    keywordsStatus.className = 'text-sm mt-1 error';
+                    keywordsStatus.className = 'status error';
                 } else if (keywords.length > 10) {
-                    keywordsStatus.textContent = `هشدار: تعداد کلمات کلیدی زیاد است (${keywords.length})`;
-                    keywordsStatus.className = 'text-sm mt-1 warning';
+                    keywordsStatus.textContent = `هشدار: تعداد کلمات زیاد است (${keywords.length})`;
+                    keywordsStatus.className = 'status warning';
                 } else {
-                    keywordsStatus.textContent = `عالی: تعداد کلمات کلیدی مناسب است (${keywords.length})`;
-                    keywordsStatus.className = 'text-sm mt-1 success';
+                    keywordsStatus.textContent = `عالی: تعداد کلمات مناسب است (${keywords.length})`;
+                    keywordsStatus.className = 'status success';
                 }
 
                 suggestionsList.innerHTML = '';
                 const suggestions = [
-                    'خرید فیلترشکن V2Ray برای ایران',
                     'فیلترشکن پرسرعت با آی پی ثابت',
-                    'بهترین وی‌پی‌ان برای ترید',
-                    'فیلترشکن بدون قطعی برای اندروید'
+                    'خرید وی‌پی‌ان برای ترید',
+                    'فیلترشکن بدون قطعی'
                 ];
                 suggestions.forEach(s => {
                     const li = document.createElement('li');
@@ -435,20 +394,21 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
                     "@type": schemaType,
                     "mainEntity": schemaType === "FAQPage" ? [{
                         "@type": "Question",
-                        "name": "تفاوت پلن عادی و VIP چیست؟",
+                        "name": "پلن VIP چیست؟",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "پلن عادی شامل سرور آلمان است. پلن VIP دسترسی به ۵+ کشور دارد."
+                            "text": "دسترسی به سرورهای ۵+ کشور."
                         }
                     }] : {
                         "name": "آزادی وی‌پی‌ان",
-                        "description": "فیلترشکن قوی و هوشمند بدون قطعی."
+                        "description": "فیلترشکن قوی و بدون قطعی."
                     }
                 }, null, 2);
 
                 const schemaCode = `<script type="application/ld+json">${schemaContent}</script>`;
-                document.getElementById('schema-result').classList.remove('hidden');
+                const resultBox = document.getElementById('schema-result');
                 document.getElementById('schema-code').textContent = schemaCode;
+                resultBox.style.display = 'block';
 
                 showToast('Schema تولید شد');
             } catch (e) {
@@ -459,8 +419,8 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
 
         function copySchema() {
             try {
-                navigator.clipboard.writeText(document.getElementById('schema-code').textContent)
-                    .then(() => showToast('کد Schema کپی شد'));
+                const code = document.getElementById('schema-code').textContent;
+                navigator.clipboard.writeText(code).then(() => showToast('کد Schema کپی شد'));
             } catch (e) {
                 console.error('Copy schema error:', e);
                 showToast('خطا در کپی کد Schema', 'error');
@@ -474,14 +434,14 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
                 const altTextsStatus = document.getElementById('alt-texts-status');
 
                 if (altTexts.length < 1) {
-                    altTextsStatus.textContent = 'خطا: هیچ متن Alt وارد نشده است';
-                    altTextsStatus.className = 'text-sm mt-1 error';
+                    altTextsStatus.textContent = 'خطا: هیچ متن Alt وارد نشده';
+                    altTextsStatus.className = 'status error';
                 } else if (altTexts.some(t => t.length < 10)) {
-                    altTextsStatus.textContent = 'هشدار: برخی متن‌های Alt کوتاه هستند';
-                    altTextsStatus.className = 'text-sm mt-1 warning';
+                    altTextsStatus.textContent = 'هشدار: برخی متن‌های Alt کوتاه‌اند';
+                    altTextsStatus.className = 'status warning';
                 } else {
-                    altTextsStatus.textContent = `عالی: ${altTexts.length} متن Alt مناسب است`;
-                    altTextsStatus.className = 'text-sm mt-1 success';
+                    altTextsStatus.textContent = `عالی: ${altTexts.length} متن Alt مناسب`;
+                    altTextsStatus.className = 'status success';
                 }
 
                 updateSEOScore();
@@ -498,124 +458,22 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
                 const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
                 const linksStatus = document.getElementById('links-status');
 
-                if (links.length < 2) {
-                    linksStatus.textContent = `هشدار: حداقل 2 لینک داخلی توصیه می‌شود (${links.length})`;
-                    linksStatus.className = 'text-sm mt-1 warning';
+                if (links.length < 1) {
+                    linksStatus.textContent = 'خطا: هیچ لینکی وارد نشده';
+                    linksStatus.className = 'status error';
+                } else if (links.length < 2) {
+                    linksStatus.textContent = `هشدار: حداقل 2 لینک توصیه می‌شود (${links.length})`;
+                    linksStatus.className = 'status warning';
                 } else {
-                    linksStatus.textContent = `عالی: ${links.length} لینک داخلی مناسب است`;
-                    linksStatus.className = 'text-sm mt-1 success';
+                    linksStatus.textContent = `عالی: ${links.length} لینک مناسب`;
+                    linksStatus.className = 'status success';
                 }
 
                 updateSEOScore();
-                showToast('لینک‌های داخلی تحلیل شدند');
+                showToast('لینک‌ها تحلیل شدند');
             } catch (e) {
                 console.error('Links error:', e);
                 showToast('خطا در تحلیل لینک‌ها', 'error');
-            }
-        }
-
-        // Competitors Analysis
-        function analyzeCompetitors() {
-            try {
-                const urls = document.getElementById('competitor-urls').value.split('\n').filter(u => u.trim());
-                const competitorStatus = document.getElementById('competitor-status');
-
-                if (urls.length < 1) {
-                    competitorStatus.textContent = 'خطا: حداقل یک URL رقیب وارد کنید';
-                    competitorStatus.className = 'text-sm mt-1 error';
-                } else {
-                    competitorStatus.textContent = `تحلیل انجام شد: ${urls.length} رقیب بررسی شدند. پیشنهاد: محتوای طولانی‌تر و کلمات کلیدی Long-Tail.`;
-                    competitorStatus.className = 'text-sm mt-1 success';
-                }
-
-                showToast('رقبا تحلیل شدند');
-            } catch (e) {
-                console.error('Competitors error:', e);
-                showToast('خطا در تحلیل رقبا', 'error');
-            }
-        }
-
-        // Performance Analysis
-        function analyzePerformance() {
-            try {
-                document.getElementById('lcp-score').textContent = '2.5 ثانیه (خوب)';
-                document.getElementById('lcp-score').className = 'text-sm success';
-                document.getElementById('fid-score').textContent = '100 میلی‌ثانیه (خوب)';
-                document.getElementById('fid-score').className = 'text-sm success';
-                document.getElementById('cls-score').textContent = '0.05 (عالی)';
-                document.getElementById('cls-score').className = 'text-sm success';
-
-                showToast('کارایی صفحه تحلیل شد');
-            } catch (e) {
-                console.error('Performance error:', e);
-                showToast('خطا در تحلیل کارایی', 'error');
-            }
-        }
-
-        // Profile Management
-        let profiles = JSON.parse(localStorage.getItem('seoProfiles')) || [];
-        function saveProfile() {
-            try {
-                const profileName = document.getElementById('profile-name').value;
-                if (!profileName) {
-                    showToast('نام پروفایل را وارد کنید', 'error');
-                    return;
-                }
-                const settings = {
-                    name: profileName,
-                    title: document.getElementById('meta-title').value,
-                    description: document.getElementById('meta-description').value,
-                    keywords: document.getElementById('meta-keywords').value,
-                    ogImage: document.getElementById('og-image').value,
-                    altTexts: document.getElementById('alt-texts').value,
-                    links: document.getElementById('internal-links').value
-                };
-                profiles = profiles.filter(p => p.name !== profileName);
-                profiles.push(settings);
-                localStorage.setItem('seoProfiles', JSON.stringify(profiles));
-                updateProfileSelect();
-                showToast('پروفایل ذخیره شد');
-            } catch (e) {
-                console.error('Save profile error:', e);
-                showToast('خطا در ذخیره پروفایل', 'error');
-            }
-        }
-
-        function loadProfile() {
-            try {
-                const profileName = document.getElementById('profile-select').value;
-                const profile = profiles.find(p => p.name === profileName);
-                if (profile) {
-                    document.getElementById('meta-title').value = profile.title || '';
-                    document.getElementById('meta-description').value = profile.description || '';
-                    document.getElementById('meta-keywords').value = profile.keywords || '';
-                    document.getElementById('og-image').value = profile.ogImage || '';
-                    document.getElementById('alt-texts').value = profile.altTexts || '';
-                    document.getElementById('internal-links').value = profile.links || '';
-                    updateSEOScore();
-                    document.getElementById('preview-title').textContent = profile.title || '';
-                    document.getElementById('preview-desc').textContent = profile.description || '';
-                    showToast('پروفایل بارگذاری شد');
-                }
-            } catch (e) {
-                console.error('Load profile error:', e);
-                showToast('خطا در بارگذاری پروفایل', 'error');
-            }
-        }
-
-        function updateProfileSelect() {
-            try {
-                const select = document.getElementById('profile-select');
-                select.innerHTML = '<option value="">انتخاب پروفایل</option>';
-                profiles.forEach(p => {
-                    const option = document.createElement('option');
-                    option.value = p.name;
-                    option.textContent = p.name;
-                    select.appendChild(option);
-                });
-            } catch (e) {
-                console.error('Update profile select error:', e);
-                showToast('خطا در به‌روزرسانی پروفایل‌ها', 'error');
             }
         }
 
@@ -635,7 +493,7 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
 \\usepackage{parskip}
 \\usepackage{setspace}
 \\usepackage{xepersian}
-\\settextfont{Vazirmatn}
+\\settextfont{XB Nika}
 \\setlatintextfont{Times New Roman}
 \\begin{document}
 \\begin{center}
@@ -643,8 +501,8 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
 \\vspace{0.5cm}
 {\\large تاریخ: ۲۰ مه ۲۰۲۵}
 \\end{center}
-\\‌گوید سئو}
-امتیاز کلی: ${score} از 100
+\\section*{امتیاز سئو}
+امتیاز: ${score} از 100
 \\section*{متا تگ‌ها}
 \\begin{itemize}
     \\item \\textbf{عنوان}: ${title}
@@ -653,9 +511,9 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
 \\end{itemize}
 \\section*{پیشنهادات}
 \\begin{itemize}
-    \\item استفاده از کلمات کلیدی Long-Tail.
-    \\item بهبود سرعت صفحه با فشرده‌سازی تصاویر.
-    \\item افزایش لینک‌های داخلی.
+    \\item کلمات کلیدی Long-Tail اضافه کنید.
+    \\item تصاویر را فشرده کنید.
+    \\item لینک‌های داخلی را افزایش دهید.
 \\end{itemize}
 \\end{document}
 `.trim();
@@ -667,7 +525,7 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
                 a.download = 'seo-report.tex';
                 a.click();
                 URL.revokeObjectURL(url);
-                showToast('گزارش LaTeX تولید شد');
+                showToast('گزارش تولید شد');
             } catch (e) {
                 console.error('Report error:', e);
                 showToast('خطا در تولید گزارش', 'error');
@@ -675,23 +533,32 @@ ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
         }
 
         // Initialize
-        try {
-            updateProfileSelect();
-            updateSEOScore();
-            analyzeKeywords();
-            analyzeAccessibility();
-            analyzeLinks();
-            document.querySelectorAll('input, textarea').forEach(input => {
-                input.addEventListener('input', () => {
-                    updateSEOScore();
-                    document.getElementById('preview-title').textContent = document.getElementById('meta-title').value;
-                    document.getElementById('preview-desc').textContent = document.getElementById('meta-description').value;
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                updateSEOScore();
+                analyzeKeywords();
+                analyzeAccessibility();
+                analyzeLinks();
+
+                // Update preview on input
+                const inputs = document.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('input', () => {
+                        try {
+                            updateSEOScore();
+                            document.getElementById('preview-title').textContent = document.getElementById('meta-title').value;
+                            document.getElementById('preview-desc').textContent = document.getElementById('meta-description').value;
+                        } catch (e) {
+                            console.error('Input update error:', e);
+                            showToast('خطا در به‌روزرسانی', 'error');
+                        }
+                    });
                 });
-            });
-        } catch (e) {
-            console.error('Initialization error:', e);
-            showToast('خطا در راه‌اندازی پنل', 'error');
-        }
+            } catch (e) {
+                console.error('Initialization error:', e);
+                showToast('خطا در راه‌اندازی', 'error');
+            }
+        });
     </script>
 </body>
 </html>
