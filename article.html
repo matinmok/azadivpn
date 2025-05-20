@@ -104,7 +104,7 @@
                 <li><span class="nav-divider">|</span></li>
                 <li><a href="index.html#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
                 <li><span class="nav-divider">|</span></li>
-                <li><a href="https://matinmok.github.io/azadivpn" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><a href="blogadmin.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مدیریت مقالات</a></li>
                 <li><span class="nav-divider">|</span></li>
                 <li><a href="index.html#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">پنل همکاری</a></li>
                 <li>
@@ -126,7 +126,7 @@
                 <li><a href="index.html#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
                 <li><a href="index.html#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تجربه کاربران</a></li>
                 <li><a href="index.html#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
-                <li><a href="https://matinmok.github.io/azadivpn" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+                <li><a href="blogadmin.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مدیریت مقالات</a></li>
                 <li><a href="index.html#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">پنل همکاری</a></li>
                 <li>
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">
@@ -139,38 +139,7 @@
     <section id="articles" class="py-16 bg-gray-100 mt-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">مقالات خرید فیلترشکن</h2>
-            <div class="articles-grid">
-                <div class="article-card">
-                    <h3>خرید فیلترشکن صفر تا صد</h3>
-                    <p>در این مقاله، همه چیز درباره خرید فیلترشکن امن و پرسرعت از آزادی وی‌پی‌ان، از مزایا تا روش‌های خرید را بررسی می‌کنیم.</p>
-                    <a href="article1.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
-                    <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p>
-                    <a href="article2.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
-                    <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب آزادی وی‌پی‌ان.</p>
-                    <a href="article3.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>راهنمای استفاده از پروتکل V2Ray</h3>
-                    <p>آموزش کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با سرعت بالا و امنیت تضمین‌شده.</p>
-                    <a href="article4.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
-                    <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
-                    <a href="article5.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>مزایای خرید فیلترشکن با ترافیک نامحدود</h3>
-                    <p>چرا فیلترشکن‌های با ترافیک نامحدود آزادی وی‌پی‌ان بهترین انتخاب برای کاربران حرفه‌ای هستند؟</p>
-                    <a href="article6.html" class="inline-block">خواندن مقاله</a>
-                </div>
-            </div>
+            <div class="articles-grid" id="articles-grid"></div>
         </div>
     </section>
     <footer class="py-8 bg-gray-800 text-white text-center">
@@ -213,6 +182,30 @@
                 }
             });
         });
+
+        // بارگذاری مقالات از LocalStorage
+        const articlesGrid = document.getElementById('articles-grid');
+        function loadArticlesToGrid() {
+            const articles = JSON.parse(localStorage.getItem('articles')) || [];
+            articlesGrid.innerHTML = ''; // پاک کردن مقالات قبلی
+            if (articles.length === 0) {
+                articlesGrid.innerHTML = '<p class="text-center text-gray-600">هیچ مقاله‌ای یافت نشد.</p>';
+            } else {
+                articles.forEach(article => {
+                    const articleCard = document.createElement('div');
+                    articleCard.className = 'article-card';
+                    articleCard.innerHTML = `
+                        <h3>${article.title}</h3>
+                        <p>${article.description}</p>
+                        <a href="${article.link}" class="inline-block">خواندن مقاله</a>
+                    `;
+                    articlesGrid.appendChild(articleCard);
+                });
+            }
+        }
+
+        // بارگذاری اولیه مقالات
+        loadArticlesToGrid();
     </script>
 </body>
 </html>
