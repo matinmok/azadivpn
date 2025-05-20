@@ -1,20 +1,24 @@
-name: Jekyll site CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+---
+title: آزادی وی‌پی‌ان
+description: خرید فیلترشکن قوی و هوشمند بدون قطعی با آی پی ثابت و پشتیبانی 24 ساعته
+url: https://matinmok.github.io/azadivpn
+baseurl: /azadivpn
+permalink: /blog/:year/:month/:day/:title/
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: متین
+      categories: [آموزشی]
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+---
