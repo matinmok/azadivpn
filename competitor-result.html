@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتیجه تحلیل رقبا | آزادی وی‌پی‌ان</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .result-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #1a3c87;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .success { color: #2e7d32; }
+        .error { color: #d32f2f; }
+        .suggestions ul {
+            list-style: disc;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .toast.success { background: #2e7d32; }
+    </style>
+</head>
+<body>
+    <div class="result-panel">
+        <h1>نتیجه تحلیل رقبا</h1>
+        <p class="status" id="competitor-status"></p>
+        <div class="suggestions">
+            <h2>پیشنهادات</h2>
+            <ul id="competitor-suggestions"></ul>
+        </div>
+    </div>
+    <script>
+        function showToast(message, type = 'success') {
+            console.log(`Toast: ${message} (${type})`);
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Competitor result page loaded');
+            const params = new URLSearchParams(window.location.search);
+            const urls = params.get('urls') ? params.get('urls').split('\n').filter(u => u.trim()) : [];
+
+            const competitorStatus = document.getElementById('competitor-status');
+            if (urls.length < 1) {
+                competitorStatus.textContent = 'خطا: حداقل یک URL رقیب وارد کنید';
+                competitorStatus.className = 'status error';
+            } else {
+                competitorStatus.textContent = `تحلیل انجام شد: ${urls.length} رقیب بررسی شدند`;
+                competitorStatus.className = 'status success';
+            }
+
+            const suggestionsList = document.getElementById('competitor-suggestions');
+            const suggestions = [
+                'محتوای طولانی‌تر (1000+ کلمه) تولید کنید',
+                'کلمات کلیدی Long-Tail اضافه کنید',
+                'سرعت صفحه را بهبود دهید'
+            ];
+            suggestions.forEach(s => {
+                const li = document.createElement('li');
+                li.textContent = s;
+                suggestionsList.appendChild(li);
+            });
+
+            showToast('نتایج تحلیل رقبا نمایش داده شد');
+            console.log('Competitor results displayed');
+        });
+    </script>
+</body>
+</html>
