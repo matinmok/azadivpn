@@ -52,8 +52,7 @@
             margin-bottom: 5px;
         }
         .input-group input,
-        .input-group textarea,
-        .input-group select {
+        .input-group textarea {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
@@ -79,18 +78,6 @@
         .btn:hover {
             background: #1557b0;
         }
-        .btn-secondary {
-            background: #666;
-        }
-        .btn-secondary:hover {
-            background: #555;
-        }
-        .seo-score {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
-        }
         .preview-box {
             border: 1px solid #ddd;
             padding: 10px;
@@ -110,31 +97,6 @@
             color: #555;
             font-size: 12px;
         }
-        .status {
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        .error { color: #d32f2f; }
-        .warning { color: #f57c00; }
-        .success { color: #2e7d32; }
-        .result-box {
-            margin-top: 10px;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            font-size: 12px;
-            display: none;
-        }
-        .result-box pre {
-            white-space: pre-wrap;
-            direction: ltr;
-            margin: 0;
-        }
-        .suggestions ul {
-            list-style: disc;
-            margin-right: 20px;
-            font-size: 14px;
-        }
         .toast {
             position: fixed;
             bottom: 20px;
@@ -151,7 +113,6 @@
             .seo-panel { padding: 10px; }
             h1 { font-size: 20px; }
             .section h2 { font-size: 16px; }
-            .seo-score { font-size: 20px; }
         }
     </style>
 </head>
@@ -159,11 +120,10 @@
     <div class="seo-panel">
         <h1>پنل مدیریت سئو آزادی وی‌پی‌ان</h1>
 
-        <!-- SEO Status Section -->
+        <!-- Preview Section -->
         <div class="section">
-            <h2>وضعیت سئو</h2>
-            <p class="desc">امتیاز سئو و پیش‌نمایش صفحه در گوگل را ببینید.</p>
-            <div class="seo-score" id="seo-score">85</div>
+            <h2>پیش‌نمایش</h2>
+            <p class="desc">پیش‌نمایش صفحه در گوگل را ببینید.</p>
             <div class="preview-box">
                 <div class="preview-title" id="preview-title">خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان</div>
                 <div class="preview-url">https://matinmok.github.io/azadivpn/</div>
@@ -174,895 +134,83 @@
         <!-- Meta Tags Section -->
         <div class="section">
             <h2>متا تگ‌ها</h2>
-            <p class="desc">عنوان و توضیحات صفحه را تنظیم کنید و کد HTML تولید کنید.</p>
-            <div class="input-group">
-                <label for="meta-title">عنوان صفحه</label>
-                <input type="text" id="meta-title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
-                <p class="status" id="title-length"></p>
-            </div>
-            <div class="input-group">
-                <label for="meta-description">توضیحات</label>
-                <textarea id="meta-description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
-                <p class="status" id="description-length"></p>
-            </div>
-            <button class="btn" data-action="generate-meta-tags">تولید متا تگ‌ها</button>
-            <div class="result-box" id="meta-tags-result">
-                <pre id="meta-tags-code"></pre>
-                <button class="btn btn-secondary" data-action="copy-meta-tags">کپی کد</button>
-            </div>
-        </div>
-
-        <!-- Keywords Section -->
-        <div class="section">
-            <h2>کلمات کلیدی</h2>
-            <p class="desc">کلمات کلیدی را وارد کنید و پیشنهادات را ببینید.</p>
-            <div class="input-group">
-                <label for="meta-keywords">کلمات کلیدی</label>
-                <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان">
-                <p class="status" id="keywords-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-keywords">تحلیل کلمات کلیدی</button>
-            <div class="suggestions">
-                <ul id="keyword-suggestions"></ul>
-            </div>
-        </div>
-
-        <!-- Schema Section -->
-        <div class="section">
-            <h2>Schema Markup</h2>
-            <p class="desc">Schema برای سئو بهتر تولید کنید.</p>
-            <div class="input-group">
-                <label for="schema-type">نوع Schema</label>
-                <select id="schema-type">
-                    <option value="FAQPage">FAQ</option>
-                    <option value="Product">محصول</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="schema-content">محتوای Schema (JSON-LD)</label>
-                <textarea id="schema-content"></textarea>
-            </div>
-            <button class="btn" data-action="generate-schema">تولید Schema</button>
-            <div class="result-box" id="schema-result">
-                <pre id="schema-code"></pre>
-                <button class="btn btn-secondary" data-action="copy-schema">کپی کد</button>
-            </div>
-        </div>
-
-        <!-- Accessibility Section -->
-        <div class="section">
-            <h2>دسترسی‌پذیری</h2>
-            <p class="desc">متن‌های Alt تصاویر را بررسی کنید.</p>
-            <div class="input-group">
-                <label for="alt-texts">متن‌های Alt تصاویر</label>
-                <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن
-پرچم آلمان برای سرور فیلترشکن</textarea>
-                <p class="status" id="alt-texts-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-accessibility">تحلیل دسترسی‌پذیری</button>
-        </div>
-
-        <!-- Internal Links Section -->
-        <div class="section">
-            <h2>لینک‌های داخلی</h2>
-            <p class="desc">لینک‌های داخلی را اضافه کنید.</p>
-            <div class="input-group">
-                <label for="internal-links">لینک‌های داخلی (هر خط: عنوان | URL)</label>
-                <textarea id="internal-links">مقالات | https://matinmok.github.io/azadivpn/article.html
-تماس | https://wa.me/09227334601</textarea>
-                <p class="status" id="links-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-links">تحلیل لینک‌ها</button>
+            <p class="desc">عنوان و توضیحات را وارد کنید و کد HTML تولید کنید.</p>
+            <form action="meta-result.html" method="GET" target="_blank">
+                <div class="input-group">
+                    <label for="meta-title">عنوان صفحه</label>
+                    <input type="text" id="meta-title" name="title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
+                </div>
+                <div class="input-group">
+                    <label for="meta-description">توضیحات</label>
+                    <textarea id="meta-description" name="description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="meta-keywords">کلمات کلیدی</label>
+                    <input type="text" id="meta-keywords" name="keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان">
+                </div>
+                <button type="submit" class="btn" onclick="showToast('در حال تولید متا تگ‌ها...')">تولید متا تگ‌ها</button>
+            </form>
         </div>
 
         <!-- Competitors Section -->
         <div class="section">
             <h2>تحلیل رقبا</h2>
             <p class="desc">URLهای رقبا را وارد کنید تا پیشنهادات دریافت کنید.</p>
-            <div class="input-group">
-                <label for="competitor-urls">URLهای رقبا (هر خط یک URL)</label>
-                <textarea id="competitor-urls" placeholder="مثال: https://example.com"></textarea>
-                <p class="status" id="competitor-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-competitors">تحلیل رقبا</button>
+            <form action="competitor-result.html" method="GET" target="_blank">
+                <div class="input-group">
+                    <label for="competitor-urls">URLهای رقبا (هر خط یک URL)</label>
+                    <textarea id="competitor-urls" name="urls" placeholder="مثال: https://example.com"></textarea>
+                </div>
+                <button type="submit" class="btn" onclick="showToast('در حال تحلیل رقبا...')">تحلیل رقبا</button>
+            </form>
         </div>
 
         <!-- Report Section -->
         <div class="section">
             <h2>گزارش سئو</h2>
-            <p class="desc">گزارش سئو را به‌صورت فایل LaTeX دانلود کنید.</p>
-            <button class="btn" data-action="generate-report">دانلود گزارش</button>
+            <p class="desc">گزارش سئو را به‌صورت فایل LaTeX تولید کنید.</p>
+            <form action="report-result.html" method="GET" target="_blank">
+                <div class="input-group">
+                    <label for="report-title">عنوان صفحه</label>
+                    <input type="text" id="report-title" name="title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
+                </div>
+                <div class="input-group">
+                    <label for="report-description">توضیحات</label>
+                    <textarea id="report-description" name="description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="report-keywords">کلمات کلیدی</label>
+                    <input type="text" id="report-keywords" name="keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان">
+                </div>
+                <button type="submit" class="btn" onclick="showToast('در حال تولید گزارش...')">دانلود گزارش</button>
+            </form>
         </div>
     </div>
     <script>
-        // Utility: Show Toast
         function showToast(message, type = 'success') {
-            try {
-                console.log(`Toast: ${message} (${type})`);
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.textContent = message;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 3000);
-            } catch (e) {
-                console.error('Toast error:', e);
-            }
+            console.log(`Toast: ${message} (${type})`);
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
         }
 
-        // SEO Score
-        function updateSEOScore() {
-            try {
-                console.log('Updating SEO score...');
-                const title = document.getElementById('meta-title').value;
-                const description = document.getElementById('meta-description').value;
-                const keywords = document.getElementById('meta-keywords').value.split(',').filter(k => k.trim());
-                const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
-                const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
-
-                let score = 0;
-                score += title.length >= 10 && title.length <= 60 ? 20 : 5;
-                score += description.length >= 50 && description.length <= 160 ? 20 : 5;
-                score += keywords.length >= 3 && keywords.length <= 10 ? 20 : 5;
-                score += altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 20 : 5;
-                score += links.length >= 2 ? 20 : 5;
-
-                const scoreElement = document.getElementById('seo-score');
-                scoreElement.textContent = score;
-                scoreElement.className = `seo-score ${score >= 80 ? 'success' : score >= 50 ? 'warning' : 'error'}`;
-                console.log(`SEO score updated: ${score}`);
-            } catch (e) {
-                console.error('SEO score error:', e);
-                showToast('خطا در محاسبه امتیاز', 'error');
-            }
-        }
-
-        // Meta Tags
-        function generateMetaTags() {
-            try {
-                console.log('Generating meta tags...');
-                const title = document.getElementById('meta-title').value;
-                const description = document.getElementById('meta-description').value;
-                const keywords = document.getElementById('meta-keywords').value;
-
-                const titleLength = document.getElementById('title-length');
-                titleLength.textContent = title.length <= 60 ? `عالی: ${title.length} کاراکتر` : `هشدار: ${title.length} کاراکتر (بیش از 60)`;
-                titleLength.className = `status ${title.length <= 60 ? 'success' : 'warning'}`;
-
-                const descriptionLength = document.getElementById('description-length');
-                descriptionLength.textContent = description.length <= 160 ? `عالی: ${description.length} کاراکتر` : `هشدار: ${description.length} کاراکتر (بیش از 160)`;
-                descriptionLength.className = `status ${description.length <= 160 ? 'success' : 'warning'}`;
-
-                const metaTags = `
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="${description}">
-<meta name="keywords" content="${keywords}">
-<meta name="robots" content="index, follow">
-<title>${title}</title>`.trim();
-
-                const resultBox = document.getElementById('meta-tags-result');
-                document.getElementById('meta-tags-code').textContent = metaTags;
-                resultBox.style.display = 'block';
-                document.getElementById('preview-title').textContent = title;
-                document.getElementById('preview-desc').textContent = description;
-
-                updateSEOScore();
-                showToast('متا تگ‌ها تولید شدند');
-                console.log('Meta tags generated');
-            } catch (e) {
-                console.error('Meta tags error:', e);
-                showToast('خطا در تولید متا تگ‌ها', 'error');
-            }
-        }
-
-        function copyMetaTags() {
-            try {
-                console.log('Copying meta tags...');
-                const code = document.getElementById('meta-tags-code').textContent;
-                navigator.clipboard.writeText(code).then(() => {
-                    showToast('کد متا تگ‌ها کپی شد');
-                    console.log('Meta tags copied');
-                });
-            } catch (e) {
-                console.error('Copy meta tags error:', e);
-                showToast('خطا در کپی کد', 'error');
-            }
-        }
-
-        // Keywords Analysis
-        function analyzeKeywords() {
-            try {
-                console.log('Analyzing keywords...');
-                const keywords = document.getElementById('meta-keywords').value.split(',').map(k => k.trim()).filter(k => k);
-                const keywordsStatusovernmental
-
-System: I'm sorry, but the code provided in the artifact is incomplete—it appears to be cut off in the middle of the `analyzeKeywords` function, which could contribute to the issues you're experiencing with buttons not working. I'll complete and refine the code to ensure all buttons (including "Generate Meta Tags" and "Analyze Competitors") function correctly, while keeping the interface simple, single-page, and robust. I'll also address your feedback about missing features (like competitor analysis) and ensure every button produces a visible result.
-
-### Approach to Fix the Issues
-1. **Complete the Code**: Finish the incomplete `analyzeKeywords` function and ensure all other functions are fully implemented.
-2. **Guarantee Button Functionality**:
-   - Use **Event Delegation** for reliable click handling.
-   - Ensure DOM is fully loaded before attaching events using `DOMContentLoaded`.
-   - Add console logs and visible feedback (Toast messages) for every button action.
-3. **Restore Competitor Analysis**: Reintroduce a simple competitor analysis section that produces clear output when the button is clicked.
-4. **Simplify and Debug**:
-   - Keep CSS raw (no external dependencies like Tailwind).
-   - Use minimal JavaScript with `try-catch` blocks for error handling.
-   - Log every action to the console for debugging.
-5. **Test Thoroughly**: Ensure the code works on Chrome, Firefox, and GitHub Pages, with no silent errors.
-6. **Visible Feedback**: Every button click will show a Toast message and update the UI (e.g., display generated code, status text, or suggestions).
-
-The code will maintain the single-page layout with sections for SEO status, meta tags, keywords, Schema, accessibility, internal links, competitor analysis, and report generation. Default values (e.g., title: "خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان") will be preserved.
-
----
-
-### Updated seo.html Code
-
-<xaiArtifact artifact_id="ffeacfc0-4cbc-4412-9081-57b4de86da25" artifact_version_id="07533f21-7128-4ddf-be66-3cab5852c8d1" title="seo.html" contentType="text/html">
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل مدیریت سئو | آزادی وی‌پی‌ان</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-        }
-        .seo-panel {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 24px;
-            color: #1a3c87;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 4px;
-        }
-        .section h2 {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .section p.desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        .input-group {
-            margin-bottom: 10px;
-        }
-        .input-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-        .input-group input,
-        .input-group textarea,
-        .input-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            direction: rtl;
-            box-sizing: border-box;
-        }
-        .input-group textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        .btn {
-            background: #1a73e8;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        .btn:hover {
-            background: #1557b0;
-        }
-        .btn-secondary {
-            background: #666;
-        }
-        .btn-secondary:hover {
-            background: #555;
-        }
-        .seo-score {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .preview-box {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
-            background: #fff;
-            margin-top: 10px;
-        }
-        .preview-title {
-            color: #1a0dab;
-            font-size: 16px;
-        }
-        .preview-url {
-            color: #006621;
-            font-size: 12px;
-        }
-        .preview-desc {
-            color: #555;
-            font-size: 12px;
-        }
-        .status {
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        .error { color: #d32f2f; }
-        .warning { color: #f57c00; }
-        .success { color: #2e7d32; }
-        .result-box {
-            margin-top: 10px;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            font-size: 12px;
-            display: none;
-        }
-        .result-box pre {
-            white-space: pre-wrap;
-            direction: ltr;
-            margin: 0;
-        }
-        .suggestions ul {
-            list-style: disc;
-            margin-right: 20px;
-            font-size: 14px;
-        }
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 14px;
-            z-index: 1000;
-        }
-        .toast.success { background: #2e7d32; }
-        .toast.error { background: #d32f2f; }
-        @media (max-width: 600px) {
-            .seo-panel { padding: 10px; }
-            h1 { font-size: 20px; }
-            .section h2 { font-size: 16px; }
-            .seo-score { font-size: 20px; }
-        }
-    </style>
-</head>
-<body>
-    <div class="seo-panel">
-        <h1>پنل مدیریت سئو آزادی وی‌پی‌ان</h1>
-
-        <!-- SEO Status Section -->
-        <div class="section">
-            <h2>وضعیت سئو</h2>
-            <p class="desc">امتیاز سئو و پیش‌نمایش صفحه در گوگل را ببینید.</p>
-            <div class="seo-score" id="seo-score">85</div>
-            <div class="preview-box">
-                <div class="preview-title" id="preview-title">خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان</div>
-                <div class="preview-url">https://matinmok.github.io/azadivpn/</div>
-                <div class="preview-desc" id="preview-desc">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</div>
-            </div>
-        </div>
-
-        <!-- Meta Tags Section -->
-        <div class="section">
-            <h2>متا تگ‌ها</h2>
-            <p class="desc">عنوان و توضیحات صفحه را تنظیم کنید و کد HTML تولید کنید.</p>
-            <div class="input-group">
-                <label for="meta-title">عنوان صفحه</label>
-                <input type="text" id="meta-title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
-                <p class="status" id="title-length"></p>
-            </div>
-            <div class="input-group">
-                <label for="meta-description">توضیحات</label>
-                <textarea id="meta-description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
-                <p class="status" id="description-length"></p>
-            </div>
-            <button class="btn" data-action="generate-meta-tags">تولید متا تگ‌ها</button>
-            <div class="result-box" id="meta-tags-result">
-                <pre id="meta-tags-code"></pre>
-                <button class="btn btn-secondary" data-action="copy-meta-tags">کپی کد</button>
-            </div>
-        </div>
-
-        <!-- Keywords Section -->
-        <div class="section">
-            <h2>کلمات کلیدی</h2>
-            <p class="desc">کلمات کلیدی را وارد کنید و پیشنهادات را ببینید.</p>
-            <div class="input-group">
-                <label for="meta-keywords">کلمات کلیدی</label>
-                <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان">
-                <p class="status" id="keywords-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-keywords">تحلیل کلمات کلیدی</button>
-            <div class="suggestions">
-                <ul id="keyword-suggestions"></ul>
-            </div>
-        </div>
-
-        <!-- Schema Section -->
-        <div class="section">
-            <h2>Schema Markup</h2>
-            <p class="desc">Schema برای سئو بهتر تولید کنید.</p>
-            <div class="input-group">
-                <label for="schema-type">نوع Schema</label>
-                <select id="schema-type">
-                    <option value="FAQPage">FAQ</option>
-                    <option value="Product">محصول</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="schema-content">محتوای Schema (JSON-LD)</label>
-                <textarea id="schema-content"></textarea>
-            </div>
-            <button class="btn" data-action="generate-schema">تولید Schema</button>
-            <div class="result-box" id="schema-result">
-                <pre id="schema-code"></pre>
-                <button class="btn btn-secondary" data-action="copy-schema">کپی کد</button>
-            </div>
-        </div>
-
-        <!-- Accessibility Section -->
-        <div class="section">
-            <h2>دسترسی‌پذیری</h2>
-            <p class="desc">متن‌های Alt تصاویر را بررسی کنید.</p>
-            <div class="input-group">
-                <label for="alt-texts">متن‌های Alt تصاویر</label>
-                <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن
-پرچم آلمان برای سرور فیلترشکن</textarea>
-                <p class="status" id="alt-texts-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-accessibility">تحلیل دسترسی‌پذیری</button>
-        </div>
-
-        <!-- Internal Links Section -->
-        <div class="section">
-            <h2>لینک‌های داخلی</h2>
-            <p class="desc">لینک‌های داخلی را اضافه کنید.</p>
-            <div class="input-group">
-                <label for="internal-links">لینک‌های داخلی (هر خط: عنوان | URL)</label>
-                <textarea id="internal-links">مقالات | https://matinmok.github.io/azadivpn/article.html
-تماس | https://wa.me/09227334601</textarea>
-                <p class="status" id="links-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-links">تحلیل لینک‌ها</button>
-        </div>
-
-        <!-- Competitors Section -->
-        <div class="section">
-            <h2>تحلیل رقبا</h2>
-            <p class="desc">URLهای رقبا را وارد کنید تا پیشنهادات دریافت کنید.</p>
-            <div class="input-group">
-                <label for="competitor-urls">URLهای رقبا (هر خط یک URL)</label>
-                <textarea id="competitor-urls" placeholder="مثال: https://example.com"></textarea>
-                <p class="status" id="competitor-status"></p>
-            </div>
-            <button class="btn" data-action="analyze-competitors">تحلیل رقبا</button>
-        </div>
-
-        <!-- Report Section -->
-        <div class="section">
-            <h2>گزارش سئو</h2>
-            <p class="desc">گزارش سئو را به‌صورت فایل LaTeX دانلود کنید.</p>
-            <button class="btn" data-action="generate-report">دانلود گزارش</button>
-        </div>
-    </div>
-    <script>
-        // Utility: Show Toast
-        function showToast(message, type = 'success') {
-            try {
-                console.log(`Toast: ${message} (${type})`);
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.textContent = message;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 3000);
-            } catch (e) {
-                console.error('Toast error:', e);
-            }
-        }
-
-        // SEO Score
-        function updateSEOScore() {
-            try {
-                console.log('Updating SEO score...');
-                const title = document.getElementById('meta-title').value;
-                const description = document.getElementById('meta-description').value;
-                const keywords = document.getElementById('meta-keywords').value.split(',').filter(k => k.trim());
-                const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
-                const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
-
-                let score = 0;
-                score += title.length >= 10 && title.length <= 60 ? 20 : 5;
-                score += description.length >= 50 && description.length <= 160 ? 20 : 5;
-                score += keywords.length >= 3 && keywords.length <= 10 ? 20 : 5;
-                score += altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 20 : 5;
-                score += links.length >= 2 ? 20 : 5;
-
-                const scoreElement = document.getElementById('seo-score');
-                scoreElement.textContent = score;
-                scoreElement.className = `seo-score ${score >= 80 ? 'success' : score >= 50 ? 'warning' : 'error'}`;
-                console.log(`SEO score updated: ${score}`);
-            } catch (e) {
-                console.error('SEO score error:', e);
-                showToast('خطا در محاسبه امتیاز', 'error');
-            }
-        }
-
-        // Meta Tags
-        function generateMetaTags() {
-            try {
-                console.log('Generating meta tags...');
-                const title = document.getElementById('meta-title').value;
-                const description = document.getElementById('meta-description').value;
-                const keywords = document.getElementById('meta-keywords').value;
-
-                const titleLength = document.getElementById('title-length');
-                titleLength.textContent = title.length <= 60 ? `عالی: ${title.length} کاراکتر` : `هشدار: ${title.length} کاراکتر (بیش از 60)`;
-                titleLength.className = `status ${title.length <= 60 ? 'success' : 'warning'}`;
-
-                const descriptionLength = document.getElementById('description-length');
-                descriptionLength.textContent = description.length <= 160 ? `عالی: ${description.length} کاراکتر` : `هشدار: ${description.length} کاراکتر (بیش از 160)`;
-                descriptionLength.className = `status ${description.length <= 160 ? 'success' : 'warning'}`;
-
-                const metaTags = `
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="${description}">
-<meta name="keywords" content="${keywords}">
-<meta name="robots" content="index, follow">
-<title>${title}</title>`.trim();
-
-                const resultBox = document.getElementById('meta-tags-result');
-                document.getElementById('meta-tags-code').textContent = metaTags;
-                resultBox.style.display = 'block';
-                document.getElementById('preview-title').textContent = title;
-                document.getElementById('preview-desc').textContent = description;
-
-                updateSEOScore();
-                showToast('متا تگ‌ها تولید شدند');
-                console.log('Meta tags generated');
-            } catch (e) {
-                console.error('Meta tags error:', e);
-                showToast('خطا در تولید متا تگ‌ها', 'error');
-            }
-        }
-
-        function copyMetaTags() {
-            try {
-                console.log('Copying meta tags...');
-                const code = document.getElementById('meta-tags-code').textContent;
-                navigator.clipboard.writeText(code).then(() => {
-                    showToast('کد متا تگ‌ها کپی شد');
-                    console.log('Meta tags copied');
-                });
-            } catch (e) {
-                console.error('Copy meta tags error:', e);
-                showToast('خطا در کپی کد', 'error');
-            }
-        }
-
-        // Keywords Analysis
-        function analyzeKeywords() {
-            try {
-                console.log('Analyzing keywords...');
-                const keywords = document.getElementById('meta-keywords').value.split(',').map(k => k.trim()).filter(k => k);
-                const keywordsStatus = document.getElementById('keywords-status');
-                const suggestionsList = document.getElementById('keyword-suggestions');
-
-                if (keywords.length < 3) {
-                    keywordsStatus.textContent = `خطا: حداقل 3 کلمه کلیدی نیاز است (${keywords.length})`;
-                    keywordsStatus.className = 'status error';
-                } else if (keywords.length > 10) {
-                    keywordsStatus.textContent = `هشدار: تعداد کلمات زیاد است (${keywords.length})`;
-                    keywordsStatus.className = 'status warning';
-                } else {
-                    keywordsStatus.textContent = `عالی: تعداد کلمات مناسب است (${keywords.length})`;
-                    keywordsStatus.className = 'status success';
-                }
-
-                suggestionsList.innerHTML = '';
-                const suggestions = [
-                    'فیلترشکن پرسرعت با آی پی ثابت',
-                    'خرید وی‌پی‌ان برای ترید',
-                    'فیلترشکن بدون قطعی'
-                ];
-                suggestions.forEach(s => {
-                    const li = document.createElement('li');
-                    li.textContent = s;
-                    suggestionsList.appendChild(li);
-                });
-
-                updateSEOScore();
-                showToast('کلمات کلیدی تحلیل شدند');
-                console.log('Keywords analyzed');
-            } catch (e) {
-                console.error('Keywords error:', e);
-                showToast('خطا در تحلیل کلمات کلیدی', 'error');
-            }
-        }
-
-        // Schema Markup
-        function generateSchema() {
-            try {
-                console.log('Generating schema...');
-                const schemaType = document.getElementById('schema-type').value;
-                const schemaContent = document.getElementById('schema-content').value || JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": schemaType,
-                    "mainEntity": schemaType === "FAQPage" ? [{
-                        "@type": "Question",
-                        "name": "پلن VIP چیست؟",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "دسترسی به سرورهای ۵+ کشور."
-                        }
-                    }] : {
-                        "name": "آزادی وی‌پی‌ان",
-                        "description": "فیلترشکن قوی و بدون قطعی."
-                    }
-                }, null, 2);
-
-                const schemaCode = `<script type="application/ld+json">${schemaContent}</script>`;
-                const resultBox = document.getElementById('schema-result');
-                document.getElementById('schema-code').textContent = schemaCode;
-                resultBox.style.display = 'block';
-
-                showToast('Schema تولید شد');
-                console.log('Schema generated');
-            } catch (e) {
-                console.error('Schema error:', e);
-                showToast('خطا در تولید Schema', 'error');
-            }
-        }
-
-        function copySchema() {
-            try {
-                console.log('Copying schema...');
-                const code = document.getElementById('schema-code').textContent;
-                navigator.clipboard.writeText(code).then(() => {
-                    showToast('کد Schema کپی شد');
-                    console.log('Schema copied');
-                });
-            } catch (e) {
-                console.error('Copy schema error:', e);
-                showToast('خطا در کپی کد Schema', 'error');
-            }
-        }
-
-        // Accessibility
-        function analyzeAccessibility() {
-            try {
-                console.log('Analyzing accessibility...');
-                const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
-                const altTextsStatus = document.getElementById('alt-texts-status');
-
-                if (altTexts.length < 1) {
-                    altTextsStatus.textContent = 'خطا: هیچ متن Alt وارد نشده';
-                    altTextsStatus.className = 'status error';
-                } else if (altTexts.some(t => t.length < 10)) {
-                    altTextsStatus.textContent = 'هشدار: برخی متن‌های Alt کوتاه‌اند';
-                    altTextsStatus.className = 'status warning';
-                } else {
-                    altTextsStatus.textContent = `عالی: ${altTexts.length} متن Alt مناسب`;
-                    altTextsStatus.className = 'status success';
-                }
-
-                updateSEOScore();
-                showToast('دسترسی‌پذیری تحلیل شد');
-                console.log('Accessibility analyzed');
-            } catch (e) {
-                console.error('Accessibility error:', e);
-                showToast('خطا در تحلیل دسترسی‌پذیری', 'error');
-            }
-        }
-
-        // Internal Links
-        function analyzeLinks() {
-            try {
-                console.log('Analyzing links...');
-                const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
-                const linksStatus = document.getElementById('links-status');
-
-                if (links.length < 1) {
-                    linksStatus.textContent = 'خطا: هیچ لینکی وارد نشده';
-                    linksStatus.className = 'status error';
-                } else if (links.length < 2) {
-                    linksStatus.textContent = `هشدار: حداقل 2 لینک توصیه می‌شود (${links.length})`;
-                    linksStatus.className = 'status warning';
-                } else {
-                    linksStatus.textContent = `عالی: ${links.length} لینک مناسب`;
-                    linksStatus.className = 'status success';
-                }
-
-                updateSEOScore();
-                showToast('لینک‌ها تحلیل شدند');
-                console.log('Links analyzed');
-            } catch (e) {
-                console.error('Links error:', e);
-                showToast('خطا در تحلیل لینک‌ها', 'error');
-            }
-        }
-
-        // Competitors Analysis
-        function analyzeCompetitors() {
-            try {
-                console.log('Analyzing competitors...');
-                const urls = document.getElementById('competitor-urls').value.split('\n').filter(u => u.trim());
-                const competitorStatus = document.getElementById('competitor-status');
-
-                if (urls.length < 1) {
-                    competitorStatus.textContent = 'خطا: حداقل یک URL رقیب وارد کنید';
-                    competitorStatus.className = 'status error';
-                } else {
-                    competitorStatus.textContent = `تحلیل انجام شد: ${urls.length} رقیب بررسی شدند. پیشنهاد: محتوای طولانی‌تر و کلمات کلیدی Long-Tail.`;
-                    competitorStatus.className = 'status success';
-                }
-
-                showToast('رقبا تحلیل شدند');
-                console.log('Competitors analyzed');
-            } catch (e) {
-                console.error('Competitors error:', e);
-                showToast('خطا در تحلیل رقبا', 'error');
-            }
-        }
-
-        // Report Generation
-        function generateReport() {
-            try {
-                console.log('Generating report...');
-                const title = document.getElementById('meta-title').value;
-                const description = document.getElementById('meta-description').value;
-                const keywords = document.getElementById('meta-keywords').value;
-                const score = document.getElementById('seo-score').textContent;
-
-                const latexContent = `
-\\documentclass[a4paper,12pt]{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{geometry}
-\\geometry{a4paper, margin=1in}
-\\usepackage{parskip}
-\\usepackage{setspace}
-\\usepackage{xepersian}
-\\settextfont{XB Nika}
-\\setlatintextfont{Times New Roman}
-\\begin{document}
-\\begin{center}
-{\\LARGE گزارش سئو آزادی وی‌پی‌ان}\\\\
-\\vspace{0.5cm}
-{\\large تاریخ: ۲۰ مه ۲۰۲۵}
-\\end{center}
-\\section*{امتیاز سئو}
-امتیاز: ${score} از 100
-\\section*{متا تگ‌ها}
-\\begin{itemize}
-    \\item \\textbf{عنوان}: ${title}
-    \\item \\textbf{توضیحات}: ${description}
-    \\item \\textbf{کلمات کلیدی}: ${keywords}
-\\end{itemize}
-\\section*{پیشنهادات}
-\\begin{itemize}
-    \\item کلمات کلیدی Long-Tail اضافه کنید.
-    \\item تصاویر را فشرده کنید.
-    \\item لینک‌های داخلی را افزایش دهید.
-\\end{itemize}
-\\end{document}
-`.trim();
-
-                const blob = new Blob([latexContent], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'seo-report.tex';
-                a.click();
-                URL.revokeObjectURL(url);
-                showToast('گزارش تولید شد');
-                console.log('Report generated');
-            } catch (e) {
-                console.error('Report error:', e);
-                showToast('خطا در تولید گزارش', 'error');
-            }
-        }
-
-        // Event Delegation for Buttons
         document.addEventListener('DOMContentLoaded', () => {
-            try {
-                console.log('Initializing page...');
-                updateSEOScore();
-                analyzeKeywords();
-                analyzeAccessibility();
-                analyzeLinks();
+            console.log('Page loaded');
+            const titleInput = document.getElementById('meta-title');
+            const descInput = document.getElementById('meta-description');
+            const previewTitle = document.getElementById('preview-title');
+            const previewDesc = document.getElementById('preview-desc');
 
-                // Handle button clicks
-                document.body.addEventListener('click', (event) => {
-                    const button = event.target.closest('.btn');
-                    if (!button) return;
-
-                    const action = button.dataset.action;
-                    console.log(`Button clicked: ${action}`);
-
-                    switch (action) {
-                        case 'generate-meta-tags':
-                            generateMetaTags();
-                            break;
-                        case 'copy-meta-tags':
-                            copyMetaTags();
-                            break;
-                        case 'analyze-keywords':
-                            analyzeKeywords();
-                            break;
-                        case 'generate-schema':
-                            generateSchema();
-                            break;
-                        case 'copy-schema':
-                            copySchema();
-                            break;
-                        case 'analyze-accessibility':
-                            analyzeAccessibility();
-                            break;
-                        case 'analyze-links':
-                            analyzeLinks();
-                            break;
-                        case 'analyze-competitors':
-                            analyzeCompetitors();
-                            break;
-                        case 'generate-report':
-                            generateReport();
-                            break;
-                        default:
-                            console.warn('Unknown action:', action);
-                    }
-                });
-
-                // Update preview on input
-                const inputs = document.querySelectorAll('input, textarea');
-                inputs.forEach(input => {
-                    input.addEventListener('input', () => {
-                        try {
-                            updateSEOScore();
-                            document.getElementById('preview-title').textContent = document.getElementById('meta-title').value;
-                            document.getElementById('preview-desc').textContent = document.getElementById('meta-description').value;
-                            console.log('Preview updated');
-                        } catch (e) {
-                            console.error('Input update error:', e);
-                            showToast('خطا در به‌روزرسانی', 'error');
-                        }
-                    });
-                });
-
-                console.log('Page initialized');
-            } catch (e) {
-                console.error('Initialization error:', e);
-                showToast('خطا در راه‌اندازی', 'error');
-            }
+            titleInput.addEventListener('input', () => {
+                previewTitle.textContent = titleInput.value || 'عنوان پیش‌فرض';
+                console.log('Title updated');
+            });
+            descInput.addEventListener('input', () => {
+                previewDesc.textContent = descInput.value || 'توضیحات پیش‌فرض';
+                console.log('Description updated');
+            });
         });
     </script>
 </body>
