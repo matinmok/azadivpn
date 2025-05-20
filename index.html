@@ -1,3 +1,33 @@
+Skip to content
+Navigation Menu
+matinmok
+azadivpn
+
+Type / to search
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+azadivpn
+/index.html
+Go to file
+t
+matinmok
+matinmok
+Update index.html
+74e03f4
+ · 
+8 hours ago
+
+Code
+
+Blame
+821 lines (813 loc) · 49.6 KB
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -21,10 +51,6 @@
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Vazirmatn', sans-serif; }
-        /* Ensure content is not hidden under fixed header */
-        body > section {
-            padding-top: 80px; /* Matches header height */
-        }
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -135,6 +161,11 @@
         .faq-item details[open] .faq-content {
             max-height: 500px;
             opacity: 1;
+        }
+        .nav-divider {
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 300;
         }
         .partnership-table {
             width: 100%;
@@ -301,8 +332,53 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
-    <section id="home" class="bg-gray-100 py-12">
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                </a>
+            </div>
+            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+                <li><a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">نظرات کاربران</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="./article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">تماس با ما</a>
+                </li>
+            </ul>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="https://matinmok.github.io/azadivpn/" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
+                <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
+                <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">نظرات کاربران</a></li>
+                <li><a href="#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+                <li><a href="./article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+                <li><a href="#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">تماس با ما</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section id="home" class="bg-gray-100 py-12 mt-16">
         <div class="container mx-auto text-center px-4">
             <h1 class="text-4xl font-bold text-gray-800 mb-6">خرید فیلترشکن قوی و پرسرعت با آزادی وی‌پی‌ان</h1>
             <p class="max-w-2xl mx-auto text-lg text-gray-700 mb-8">
@@ -526,7 +602,7 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">نکات همکاری</h3>
                     <ul class="notes-list">
                         <li>پلن پایه برای سفارشات دستی مناسب است. در پلن سازمانی، مدیریت کانفیگ‌ها از طریق ربات آنی انجام می‌شود.</li>
-                        <li>امکان سفارش ربات فروش اختصاصی با هزینه جداگانه وجود دارد。</li>
+                        <li>امکان سفارش ربات فروش اختصاصی با هزینه جداگانه وجود دارد.</li>
                         <li>پشتیبانی 24 ساعته برای تمام نمایندگان در دسترس است.</li>
                     </ul>
                 </div>
@@ -572,7 +648,7 @@
                     <p class="text-blue-600 font-bold text-lg mb-4">۲۵۰,۰۰۰ تومان</p>
                     <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1003')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300" aria-label="خرید فیلترشکن ۱ ماهه ۲ کاربر VIP">خرید</button>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                <div class="bg-gray-50 p-4 roundedの-lg shadow-sm">
                     <h4 class="text-lg font-semibold text-gray-800 mb-2">۳ ماهه، ۱ کاربر (آلمان)</h4>
                     <p class="text-gray-600 mb-3">بدون محدودیت حجم، مناسب استفاده طولانی</p>
                     <p class="text-blue-600 font-bold text-lg mb-4">۳۶۰,۰۰۰ تومان</p>
@@ -600,7 +676,18 @@
             <button onclick="closePlansPopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300" aria-label="بستن پنجره تعرفه‌ها">بستن</button>
         </div>
     </div>
-    <div id="footer-placeholder"></div>
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+                <span class="text-gray-600">|</span>
+                <a href="./article.html" class="text-blue-400 hover:underline mx-2">مقالات</a>
+                <span class="text-gray-600">|</span>
+                <a href="https://wa.me/09227334601" class="text-blue-400 hover:underline mx-2">تماس با ما</a>
+            </p>
+        </div>
+    </footer>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -673,72 +760,19 @@
     }
     </script>
     <script>
-        // Function to load header and footer
-        async function loadHeaderFooter() {
-            try {
-                // Load header
-                const headerResponse = await fetch('header.html');
-                if (headerResponse.ok) {
-                    const headerContent = await headerResponse.text();
-                    document.getElementById('header-placeholder').innerHTML = headerContent;
-                } else {
-                    console.error('Failed to load header:', headerResponse.status);
-                    document.getElementById('header-placeholder').innerHTML = `
-                        <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
-                            <nav class="container mx-auto px-4 flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
-                                        <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
-                                    </a>
-                                </div>
-                                <div class="text-gray-700">هدر بارگذاری نشد. لطفاً صفحه را رفرش کنید.</div>
-                            </nav>
-                        </header>
-                    `;
-                }
-
-                // Load footer
-                const footerResponse = await fetch('footer.html');
-                if (footerResponse.ok) {
-                    const footerContent = await footerResponse.text();
-                    document.getElementById('footer-placeholder').innerHTML = footerContent;
-                } else {
-                    console.error('Failed to load footer:', footerResponse.status);
-                    document.getElementById('footer-placeholder').innerHTML = `
-                        <footer class="py-8 bg-gray-800 text-white text-center">
-                            <div class="container mx-auto px-4">
-                                <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
-                            </div>
-                        </footer>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error loading header or footer:', error);
-                document.getElementById('header-placeholder').innerHTML = `
-                    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
-                        <nav class="container mx-auto px-4 flex items-center justify-between">
-                            <div class="flex items-center">
-                                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
-                                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
-                                </a>
-                            </div>
-                            <div class="text-gray-700">هدر بارگذاری نشد. لطفاً صفحه را رفرش کنید.</div>
-                        </nav>
-                    </header>
-                `;
-                document.getElementById('footer-placeholder').innerHTML = `
-                    <footer class="py-8 bg-gray-800 text-white text-center">
-                        <div class="container mx-auto px-4">
-                            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
-                        </div>
-                    </footer>
-                `;
-            }
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
         }
-
-        // Call the function immediately and on DOMContentLoaded
-        loadHeaderFooter();
-        document.addEventListener('DOMContentLoaded', loadHeaderFooter);
 
         function openPurchasePopup(telegramLink) {
             closePlansPopup();
@@ -784,6 +818,20 @@
             });
         });
 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         function updatePings() {
             const turkeyPing = document.querySelector('.ping-turkey');
             if (turkeyPing) turkeyPing.textContent = Math.floor(Math.random() * (60 - 45 + 1)) + 45;
@@ -801,3 +849,8 @@
     </script>
 </body>
 </html>
+Symbols
+Symbol outline not available for this file
+To inspect a symbol, try clicking on the symbol directly in the code view.
+Code navigation supports a limited number of languages. See which languages are supported.
+azadivpn/index.html at main · matinmok/azadivpn 
