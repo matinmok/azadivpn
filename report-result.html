@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتیجه گزارش سئو | آزادی وی‌پی‌ان</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .result-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #1a3c87;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .result-box {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .result-box pre {
+            white-space: pre-wrap;
+            direction: ltr;
+            margin: 0;
+        }
+        .btn {
+            background: #1a73e8;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #1557b0;
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .toast.success { background: #2e7d32; }
+    </style>
+</head>
+<body>
+    <div class="result-panel">
+        <h1>نتیجه گزارش سئو</h1>
+        <div class="result-box">
+            <pre id="report-code"></pre>
+        </div>
+        <button class="btn" onclick="downloadReport()">دانلود گزارش</button>
+    </div>
+    <script>
+        function showToast(message, type = 'success') {
+            console.log(`Toast: ${message} (${type})`);
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function downloadReport() {
+            console.log('Downloading report...');
+            const code = document.getElementById('report-code').textContent;
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'seo-report.tex';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('گزارش دانلود شد');
+            console.log('Report downloaded');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Report result page loaded');
+            const params = new URLSearchParams(window.location.search);
+            const title = params.get('title') || 'عنوان پیش‌فرض';
+            const description = params.get('description') || 'توضیحات پیش‌فرض';
+            const keywords = params.get('keywords') || '';
+
+            const latexContent = `
+\\documentclass[a4paper,12pt]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage{geometry}
+\\geometry{a4paper, margin=1in}
+\\usepackage{parskip}
+\\usepackage{setspace}
+\\usepackage{xepersian}
+\\settextfont{XB Nika}
+\\setlatintextfont{Times New Roman}
+\\begin{document}
+\\begin{center}
+{\\LARGE گزارش سئو آزادی وی‌پی‌ان}\\\\
+\\vspace{0.5cm}
+{\\large تاریخ: ۲۰ مه ۲۰۲۵}
+\\end{center}
+\\section*{متا تگ‌ها}
+\\begin{itemize}
+    \\item \\textbf{عنوان}: ${title}
+    \\item \\textbf{توضیحات}: ${description}
+    \\item \\textbf{کلمات کلیدی}: ${keywords}
+\\end{itemize}
+\\section*{پیشنهادات}
+\\begin{itemize}
+    \\item کلمات کلیدی Long-Tail اضافه کنید.
+    \\item تصاویر را فشرده کنید.
+    \\item لینک‌های داخلی را افزایش دهید.
+\\end{itemize}
+\\end{document}
+`.trim();
+
+            document.getElementById('report-code').textContent = latexContent;
+            showToast('گزارش نمایش داده شد');
+            console.log('Report displayed');
+        });
+    </script>
+</body>
+</html>
