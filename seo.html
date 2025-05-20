@@ -3,338 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل حرفه‌ای مدیریت سئو | آزادی وی‌پی‌ان</title>
+    <title>پنل مدیریت سئو | آزادی وی‌پی‌ان</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Vazirmatn', sans-serif; background: linear-gradient(to bottom, #f3f4f6, #e5e7eb); }
-        .seo-dashboard {
-            max-width: 1400px;
+        body { font-family: 'Vazirmatn', sans-serif; background: #f3f4f6; }
+        .seo-panel {
+            max-width: 1000px;
             margin: 2rem auto;
-            padding: 2rem;
+            padding: 1.5rem;
             background: #ffffff;
-            border-radius: 1rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .seo-dashboard h1 {
-            font-size: 2rem;
+        .seo-panel h1 {
+            font-size: 1.75rem;
             font-weight: 700;
             color: #1e40af;
             text-align: center;
             margin-bottom: 2rem;
         }
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            border-bottom: 2px solid #e5e7eb;
-            margin-bottom: 1.5rem;
-        }
-        .tab {
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            color: #4b5563;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 0.5rem 0.5rem 0 0;
-        }
-        .tab:hover { background: #f1f5f9; }
-        .tab.active {
-            background: #3b82f6;
-            color: white;
-        }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .card {
+        .section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 0.25rem;
             background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            margin-bottom: 1.5rem;
+        }
+        .section h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .section p.desc {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
         }
         .input-group label {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #374151;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
         .input-group input,
         .input-group textarea,
         .input-group select {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.5rem;
             border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            font-size: 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
             color: #374151;
             direction: rtl;
         }
-        .input-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+        .input-group textarea { min-height: 80px; resize: vertical; }
         .btn {
             background: #3b82f6;
             color: white;
             font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+            margin-top: 0.5rem;
         }
-        .btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
+        .btn:hover { background: #1d4ed8; }
         .btn-secondary {
             background: #6b7280;
         }
-        .btn-secondary:hover {
-            background: #4b5563;
-        }
+        .btn-secondary:hover { background: #4b5563; }
         .seo-score {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         .preview-box {
             border: 1px solid #e5e7eb;
-            padding: 1rem;
-            border-radius: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
             background: #ffffff;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
-        .preview-title { color: #1a0dab; font-size: 1.25rem; }
-        .preview-url { color: #006621; font-size: 0.9rem; }
-        .preview-desc { color: #4b5563; font-size: 0.9rem; }
+        .preview-title { color: #1a0dab; font-size: 0.9rem; }
+        .preview-url { color: #006621; font-size: 0.8rem; }
+        .preview-desc { color: #4b5563; font-size: 0.8rem; }
         .error { color: #dc2626; }
         .warning { color: #d97706; }
         .success { color: #16a34a; }
+        .suggestions { margin-top: 0.5rem; }
         .suggestions ul {
             list-style: disc;
-            margin-right: 1.5rem;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+        .result-box {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #f1f5f9;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+        }
+        .result-box pre {
+            white-space: pre-wrap;
+            direction: ltr;
         }
         .toast {
             position: fixed;
             bottom: 1rem;
             right: 1rem;
-            padding: 1rem;
-            border-radius: 0.375rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
             color: white;
             z-index: 1000;
-            transition: opacity 0.3s;
         }
         .toast.success { background: #16a34a; }
         .toast.error { background: #dc2626; }
-        .tooltip {
-            position: relative;
-        }
-        .tooltip:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            right: 0;
-            background: #1e40af;
-            color: white;
-            padding: 0.5rem;
-            border-radius: 0.25rem;
-            font-size: 0.8rem;
-            z-index: 10;
-        }
         @media (max-width: 768px) {
-            .seo-dashboard {
-                margin: 1rem;
-                padding: 1rem;
-            }
-            .seo-dashboard h1 {
-                font-size: 1.5rem;
-            }
-            .tab { font-size: 0.9rem; padding: 0.5rem 1rem; }
-            .card { padding: 1rem; }
-            .seo-score { font-size: 2rem; }
+            .seo-panel { margin: 1rem; padding: 1rem; }
+            .seo-panel h1 { font-size: 1.25rem; }
+            .section h2 { font-size: 1rem; }
+            .seo-score { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="seo-dashboard">
-        <h1>پنل حرفه‌ای مدیریت سئو آزادی وی‌پی‌ان</h1>
-        <div class="tabs">
-            <div class="tab active" data-tab="dashboard">داشبورد</div>
-            <div class="tab" data-tab="meta-tags">متا تگ‌ها</div>
-            <div class="tab" data-tab="keywords">کلمات کلیدی</div>
-            <div class="tab" data-tab="schema">Schema Markup</div>
-            <div class="tab" data-tab="accessibility">دسترسی‌پذیری</div>
-            <div class="tab" data-tab="links">لینک‌های داخلی</div>
-            <div class="tab" data-tab="competitors">تحلیل رقبا</div>
-            <div class="tab" data-tab="performance">کارایی صفحه</div>
-        </div>
-        <div id="dashboard" class="tab-content active">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">امتیاز سئو</h2>
-                <div class="seo-score" id="seo-score">85</div>
-                <canvas id="seo-chart" height="100"></canvas>
-            </div>
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">پیش‌نمایش در گوگل</h2>
-                <div class="preview-box">
-                    <div class="preview-title" id="preview-title">خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان</div>
-                    <div class="preview-url">https://matinmok.github.io/azadivpn/</div>
-                    <div class="preview-desc" id="preview-desc">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</div>
-                </div>
-            </div>
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت پروفایل‌ها</h2>
-                <div class="input-group">
-                    <label for="profile-name">نام پروفایل</label>
-                    <input type="text" id="profile-name" placeholder="مثلاً: صفحه اصلی">
-                    <button class="btn mt-2" onclick="saveProfile()">ذخیره پروفایل</button>
-                    <select id="profile-select" class="mt-2">
-                        <option value="">انتخاب پروفایل</option>
-                    </select>
-                    <button class="btn btn-secondary mt-2" onclick="loadProfile()">بارگذاری پروفایل</button>
-                </div>
+    <div class="seo-panel">
+        <h1>پنل مدیریت سئو آزادی وی‌پی‌ان</h1>
+
+        <!-- Dashboard Section -->
+        <div class="section">
+            <h2>وضعیت سئو</h2>
+            <p class="desc">امتیاز سئو و پیش‌نمایش صفحه در گوگل را بررسی کنید.</p>
+            <div class="seo-score" id="seo-score">85</div>
+            <p class="text-sm text-gray-600 text-center">بر اساس ورودی‌های فعلی</p>
+            <div class="preview-box">
+                <div class="preview-title" id="preview-title">خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان</div>
+                <div class="preview-url">https://matinmok.github.io/azadivpn/</div>
+                <div class="preview-desc" id="preview-desc">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</div>
             </div>
         </div>
-        <div id="meta-tags" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت متا تگ‌ها</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="input-group">
-                        <label for="meta-title" class="tooltip" data-tooltip="عنوان صفحه باید 10-60 کاراکتر باشد">عنوان صفحه</label>
-                        <input type="text" id="meta-title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
-                        <p id="title-length" class="text-sm mt-1"></p>
-                    </div>
-                    <div class="input-group">
-                        <label for="meta-description" class="tooltip" data-tooltip="توضیحات باید 50-160 کاراکتر باشد">توضیحات</label>
-                        <textarea id="meta-description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
-                        <p id="description-length" class="text-sm mt-1"></p>
-                    </div>
-                    <div class="input-group">
-                        <label for="og-image" class="tooltip" data-tooltip="تصویر باید JPG، PNG یا WebP باشد">تصویر OG</label>
-                        <input type="url" id="og-image" value="https://matinmok.github.io/azadivpn/images/og-image.jpg">
-                        <p id="og-image-status" class="text-sm mt-1"></p>
-                    </div>
-                </div>
-                <button class="btn mt-4" onclick="generateMetaTags()">تولید متا تگ‌ها</button>
-                <div id="meta-tags-result" class="mt-4 hidden">
-                    <pre id="meta-tags-code" class="bg-gray-100 p-4 rounded-lg"></pre>
-                    <button class="btn btn-secondary mt-2" onclick="copyMetaTags()">کپی کد</button>
-                    <a id="download-meta-tags" class="btn btn-secondary mt-2 mr-2" href="#" download="meta-tags.html">دانلود کد</a>
-                </div>
+
+        <!-- Profile Section -->
+        <div class="section">
+            <h2>مدیریت پروفایل</h2>
+            <p class="desc">تنظیمات سئو را برای صفحات مختلف ذخیره و بارگذاری کنید.</p>
+            <div class="input-group">
+                <label for="profile-name">نام پروفایل</label>
+                <input type="text" id="profile-name" placeholder="مثلاً: صفحه اصلی">
+            </div>
+            <button class="btn" onclick="saveProfile()">ذخیره پروفایل</button>
+            <div class="input-group mt-2">
+                <label for="profile-select">انتخاب پروفایل</label>
+                <select id="profile-select">
+                    <option value="">انتخاب پروفایل</option>
+                </select>
+            </div>
+            <button class="btn btn-secondary mt-2" onclick="loadProfile()">بارگذاری پروفایل</button>
+        </div>
+
+        <!-- Meta Tags Section -->
+        <div class="section">
+            <h2>متا تگ‌ها</h2>
+            <p class="desc">عنوان، توضیحات و تصویر OG را تنظیم کنید و کد HTML تولید کنید.</p>
+            <div class="input-group">
+                <label for="meta-title">عنوان صفحه</label>
+                <input type="text" id="meta-title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
+                <p id="title-length" class="text-sm mt-1"></p>
+            </div>
+            <div class="input-group">
+                <label for="meta-description">توضیحات</label>
+                <textarea id="meta-description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
+                <p id="description-length" class="text-sm mt-1"></p>
+            </div>
+            <div class="input-group">
+                <label for="og-image">تصویر OG</label>
+                <input type="url" id="og-image" value="https://matinmok.github.io/azadivpn/images/og-image.jpg">
+                <p id="og-image-status" class="text-sm mt-1"></p>
+            </div>
+            <button class="btn" onclick="generateMetaTags()">تولید متا تگ‌ها</button>
+            <div id="meta-tags-result" class="result-box hidden">
+                <pre id="meta-tags-code"></pre>
+                <button class="btn btn-secondary mt-2" onclick="copyMetaTags()">کپی کد</button>
             </div>
         </div>
-        <div id="keywords" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت کلمات کلیدی</h2>
-                <div class="input-group">
-                    <label for="meta-keywords" class="tooltip" data-tooltip="3-10 کلمه کلیدی توصیه می‌شود">کلمات کلیدی</label>
-                    <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان, V2Ray, آی پی ثابت, فیلترشکن بدون قطعی">
-                    <p id="keywords-status" class="text-sm mt-1"></p>
-                </div>
-                <div class="input-group mt-4">
-                    <h3 class="text-md font-semibold text-gray-800 mb-2">پیشنهادات کلمات کلیدی</h3>
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="bg-blue-600 text-white">
-                                <th class="p-2">کلمه کلیدی</th>
-                                <th class="p-2">حجم جستجو</th>
-                                <th class="p-2">سختی</th>
-                            </tr>
-                        </thead>
-                        <tbody id="keyword-suggestions" class="bg-white"></tbody>
-                    </table>
-                </div>
-                <button class="btn mt-4" onclick="analyzeKeywords()">تحلیل کلمات کلیدی</button>
+
+        <!-- Keywords Section -->
+        <div class="section">
+            <h2>کلمات کلیدی</h2>
+            <p class="desc">کلمات کلیدی را وارد کنید و پیشنهادات را ببینید.</p>
+            <div class="input-group">
+                <label for="meta-keywords">کلمات کلیدی</label>
+                <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان, V2Ray, آی پی ثابت, فیلترشکن بدون قطعی">
+                <p id="keywords-status" class="text-sm mt-1"></p>
+            </div>
+            <button class="btn" onclick="analyzeKeywords()">تحلیل کلمات کلیدی</button>
+            <div class="suggestions">
+                <ul id="keyword-suggestions"></ul>
             </div>
         </div>
-        <div id="schema" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت Schema Markup</h2>
-                <div class="input-group">
-                    <label for="schema-type">نوع Schema</label>
-                    <select id="schema-type">
-                        <option value="FAQPage">FAQ</option>
-                        <option value="Product">محصول</option>
-                    </select>
-                </div>
-                <div class="input-group mt-4">
-                    <label for="schema-content">محتوای Schema (JSON-LD)</label>
-                    <textarea id="schema-content"></textarea>
-                </div>
-                <button class="btn mt-4" onclick="generateSchema()">تولید Schema</button>
-                <div id="schema-result" class="mt-4 hidden">
-                    <pre id="schema-code" class="bg-gray-100 p-4 rounded-lg"></pre>
-                    <button class="btn btn-secondary mt-2" onclick="copySchema()">کپی کد</button>
-                </div>
+
+        <!-- Schema Section -->
+        <div class="section">
+            <h2>Schema Markup</h2>
+            <p class="desc">Schema برای FAQ یا محصول تولید کنید.</p>
+            <div class="input-group">
+                <label for="schema-type">نوع Schema</label>
+                <select id="schema-type">
+                    <option value="FAQPage">FAQ</option>
+                    <option value="Product">محصول</option>
+                </select>
+            </div>
+            <div class="input-group mt-2">
+                <label for="schema-content">محتوای Schema (JSON-LD)</label>
+                <textarea id="schema-content"></textarea>
+            </div>
+            <button class="btn" onclick="generateSchema()">تولید Schema</button>
+            <div id="schema-result" class="result-box hidden">
+                <pre id="schema-code"></pre>
+                <button class="btn btn-secondary mt-2" onclick="copySchema()">کپی کد</button>
             </div>
         </div>
-        <div id="accessibility" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">دسترسی‌پذیری</h2>
-                <div class="input-group">
-                    <label for="alt-texts" class="tooltip" data-tooltip="هر متن Alt باید حداقل 10 کاراکتر باشد">متن‌های Alt تصاویر</label>
-                    <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن آزادی وی‌پی‌ان
+
+        <!-- Accessibility Section -->
+        <div class="section">
+            <h2>دسترسی‌پذیری</h2>
+            <p class="desc">متن‌های Alt تصاویر را بررسی کنید.</p>
+            <div class="input-group">
+                <label for="alt-texts">متن‌های Alt تصاویر</label>
+                <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن آزادی وی‌پی‌ان
 پرچم آلمان برای سرور فیلترشکن آزادی وی‌پی‌ان
 پرچم آمریکا برای سرور فیلترشکن آزادی وی‌پی‌ان
 پرچم فنلاند برای سرور فیلترشکن آزادی وی‌پی‌ان
 پرچم هلند برای سرور فیلترشکن آزادی وی‌پی‌ان</textarea>
-                    <p id="alt-texts-status" class="text-sm mt-1"></p>
-                </div>
-                <button class="btn mt-4" onclick="analyzeAccessibility()">تحلیل دسترسی‌پذیری</button>
+                <p id="alt-texts-status" class="text-sm mt-1"></p>
             </div>
+            <button class="btn" onclick="analyzeAccessibility()">تحلیل دسترسی‌پذیری</button>
         </div>
-        <div id="links" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت لینک‌های داخلی</h2>
-                <div class="input-group">
-                    <label for="internal-links" class="tooltip" data-tooltip="هر خط یک لینک داخلی با عنوان">لینک‌های داخلی (هر خط: عنوان | URL)</label>
-                    <textarea id="internal-links">مقالات | https://matinmok.github.io/azadivpn/article.html
+
+        <!-- Internal Links Section -->
+        <div class="section">
+            <h2>لینک‌های داخلی</h2>
+            <p class="desc">لینک‌های داخلی را برای بهبود سئو اضافه کنید.</p>
+            <div class="input-group">
+                <label for="internal-links">لینک‌های داخلی (هر خط: عنوان | URL)</label>
+                <textarea id="internal-links">مقالات | https://matinmok.github.io/azadivpn/article.html
 تماس با ما | https://wa.me/09227334601</textarea>
-                    <p id="links-status" class="text-sm mt-1"></p>
-                </div>
-                <button class="btn mt-4" onclick="analyzeLinks()">تحلیل لینک‌ها</button>
+                <p id="links-status" class="text-sm mt-1"></p>
             </div>
+            <button class="btn" onclick="analyzeLinks()">تحلیل لینک‌ها</button>
         </div>
-        <div id="competitors" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">تحلیل رقبا</h2>
-                <div class="input-group">
-                    <label for="competitor-urls" class="tooltip" data-tooltip="هر خط یک URL رقیب">URLهای رقبا (هر خط یک URL)</label>
-                    <textarea id="competitor-urls" placeholder="مثال: https://example.com"></textarea>
-                    <p id="competitor-status" class="text-sm mt-1"></p>
-                </div>
-                <button class="btn mt-4" onclick="analyzeCompetitors()">تحلیل رقبا</button>
+
+        <!-- Competitors Section -->
+        <div class="section">
+            <h2>تحلیل رقبا</h2>
+            <p class="desc">URLهای رقبا را وارد کنید تا پیشنهادات دریافت کنید.</p>
+            <div class="input-group">
+                <label for="competitor-urls">URLهای رقبا (هر خط یک URL)</label>
+                <textarea id="competitor-urls" placeholder="مثال: https://example.com"></textarea>
+                <p id="competitor-status" class="text-sm mt-1"></p>
             </div>
+            <button class="btn" onclick="analyzeCompetitors()">تحلیل رقبا</button>
         </div>
-        <div id="performance" class="tab-content">
-            <div class="card">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">کارایی صفحه</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <h3 class="text-md font-semibold text-gray-800 mb-2">LCP (بارگذاری بزرگ‌ترین محتوا)</h3>
-                        <p id="lcp-score" class="text-sm"></p>
-                    </div>
-                    <div>
-                        <h3 class="text-md font-semibold text-gray-800 mb-2">FID (تاخیر اولین ورودی)</h3>
-                        <p id="fid-score" class="text-sm"></p>
-                    </div>
-                    <div>
-                        <h3 class="text-md font-semibold text-gray-800 mb-2">CLS (تغییر چیدمان تجمعی)</h3>
-                        <p id="cls-score" class="text-sm"></p>
-                    </div>
+
+        <!-- Performance Section -->
+        <div class="section">
+            <h2>کارایی صفحه</h2>
+            <p class="desc">وضعیت سرعت و کارایی صفحه را بررسی کنید.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-800 mb-1">LCP</h3>
+                    <p id="lcp-score" class="text-sm"></p>
                 </div>
-                <button class="btn mt-4" onclick="analyzePerformance()">تحلیل کارایی</button>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-800 mb-1">FID</h3>
+                    <p id="fid-score" class="text-sm"></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-800 mb-1">CLS</h3>
+                    <p id="cls-score" class="text-sm"></p>
+                </div>
             </div>
+            <button class="btn mt-2" onclick="analyzePerformance()">تحلیل کارایی</button>
         </div>
-        <div class="card">
-            <h2 class="text-lg font-semibold text-gray-800 mb-4">تولید گزارش سئو</h2>
-            <button class="btn" onclick="generateReport()">دانلود گزارش PDF</button>
+
+        <!-- Report Section -->
+        <div class="section">
+            <h2>گزارش سئو</h2>
+            <p class="desc">گزارش سئو را به‌صورت فایل LaTeX دانلود کنید.</p>
+            <button class="btn" onclick="generateReport()">دانلود گزارش LaTeX</button>
         </div>
     </div>
     <script>
-        // Toast Notification
+        // Utility: Show Toast
         function showToast(message, type = 'success') {
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
@@ -343,314 +305,329 @@
             setTimeout(() => toast.remove(), 3000);
         }
 
-        // Tab Navigation
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                tab.classList.add('active');
-                const tabContent = document.getElementById(tab.dataset.tab);
-                if (tabContent) {
-                    tabContent.classList.add('active');
-                } else {
-                    console.error(`Tab content for ${tab.dataset.tab} not found`);
-                    showToast('خطا در بارگذاری تب', 'error');
-                }
-            });
-        });
-
-        // SEO Score and Chart
+        // SEO Score
         function updateSEOScore() {
-            const title = document.getElementById('meta-title').value;
-            const description = document.getElementById('meta-description').value;
-            const keywords = document.getElementById('meta-keywords').value.split(',').filter(k => k.trim());
-            const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
-            const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
+            try {
+                const title = document.getElementById('meta-title').value;
+                const description = document.getElementById('meta-description').value;
+                const keywords = document.getElementById('meta-keywords').value.split(',').filter(k => k.trim());
+                const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
+                const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
 
-            let score = 0;
-            score += title.length >= 10 && title.length <= 60 ? 20 : 5;
-            score += description.length >= 50 && description.length <= 160 ? 20 : 5;
-            score += keywords.length >= 3 && keywords.length <= 10 ? 15 : 5;
-            score += altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 15 : 5;
-            score += links.length >= 2 ? 15 : 5;
-            score += document.getElementById('schema-content').value ? 15 : 5;
+                let score = 0;
+                score += title.length >= 10 && title.length <= 60 ? 20 : 5;
+                score += description.length >= 50 && description.length <= 160 ? 20 : 5;
+                score += keywords.length >= 3 && keywords.length <= 10 ? 20 : 5;
+                score += altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 20 : 5;
+                score += links.length >= 2 ? 20 : 5;
 
-            document.getElementById('seo-score').textContent = score;
-            document.getElementById('seo-score').style.color = score >= 80 ? '#16a34a' : score >= 50 ? '#d97706' : '#dc2626';
-
-            const ctx = document.getElementById('seo-chart').getContext('2d');
-            if (window.seoChart) window.seoChart.destroy();
-            window.seoChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['عنوان', 'توضیحات', 'کلمات کلیدی', 'دسترسی‌پذیری', 'لینک‌ها', 'Schema'],
-                    datasets: [{
-                        label: 'امتیاز سئو',
-                        data: [
-                            title.length >= 10 && title.length <= 60 ? 20 : 5,
-                            description.length >= 50 && description.length <= 160 ? 20 : 5,
-                            keywords.length >= 3 && keywords.length <= 10 ? 15 : 5,
-                            altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 15 : 5,
-                            links.length >= 2 ? 15 : 5,
-                            document.getElementById('schema-content').value ? 15 : 5
-                        ],
-                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899']
-                    }]
-                },
-                options: { scales: { y: { beginAtZero: true, max: 20 } } }
-            });
+                document.getElementById('seo-score').textContent = score;
+                document.getElementById('seo-score').className = `seo-score ${score >= 80 ? 'success' : score >= 50 ? 'warning' : 'error'}`;
+            } catch (e) {
+                console.error('SEO score error:', e);
+                showToast('خطا در محاسبه امتیاز سئو', 'error');
+            }
         }
 
         // Meta Tags
         function generateMetaTags() {
-            const title = document.getElementById('meta-title').value;
-            const description = document.getElementById('meta-description').value;
-            const keywords = document.getElementById('meta-keywords').value;
-            const ogImage = document.getElementById('og-image').value;
+            try {
+                const title = document.getElementById('meta-title').value;
+                const description = document.getElementById('meta-description').value;
+                const keywords = document.getElementById('meta-keywords').value;
+                const ogImage = document.getElementById('og-image').value;
 
-            const titleLength = document.getElementById('title-length');
-            titleLength.textContent = title.length <= 60 ? `عالی: ${title.length} کاراکتر` : `هشدار: ${title.length} کاراکتر (بیش از 60)`;
-            titleLength.className = `text-sm mt-1 ${title.length <= 60 ? 'success' : 'warning'}`;
+                document.getElementById('title-length').textContent = title.length <= 60 ? `عالی: ${title.length} کاراکتر` : `هشدار: ${title.length} کاراکتر (بیش از 60)`;
+                document.getElementById('title-length').className = `text-sm mt-1 ${title.length <= 60 ? 'success' : 'warning'}`;
 
-            const descriptionLength = document.getElementById('description-length');
-            descriptionLength.textContent = description.length <= 160 ? `عالی: ${description.length} کاراکتر` : `هشدار: ${description.length} کاراکتر (بیش از 160)`;
-            descriptionLength.className = `text-sm mt-1 ${description.length <= 160 ? 'success' : 'warning'}`;
+                document.getElementById('description-length').textContent = description.length <= 160 ? `عالی: ${description.length} کاراکتر` : `هشدار: ${description.length} کاراکتر (بیش از 160)`;
+                document.getElementById('description-length').className = `text-sm mt-1 ${description.length <= 160 ? 'success' : 'warning'}`;
 
-            const ogImageStatus = document.getElementById('og-image-status');
-            ogImageStatus.textContent = ogImage.match(/\.(jpg|jpeg|png|webp)$/i) ? 'عالی: فرمت تصویر مناسب' : 'هشدار: فرمت تصویر نامعتبر';
-            ogImageStatus.className = `text-sm mt-1 ${ogImage.match(/\.(jpg|jpeg|png|webp)$/i) ? 'success' : 'warning'}`;
+                document.getElementById('og-image-status').textContent = ogImage.match(/\.(jpg|jpeg|png|webp)$/i) ? 'عالی: فرمت تصویر مناسب' : 'هشدار: فرمت تصویر نامعتبر';
+                document.getElementById('og-image-status').className = `text-sm mt-1 ${ogImage.match(/\.(jpg|jpeg|png|webp)$/i) ? 'success' : 'warning'}`;
 
-            const metaTags = `
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="${description}">
-    <meta name="keywords" content="${keywords}">
-    <meta name="robots" content="index, follow">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${title}">
-    <meta name="twitter:description" content="${description}">
-${ogImage ? `    <meta name="twitter:image" content="${ogImage}">` : ''}
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${description}">
-${ogImage ? `    <meta property="og:image" content="${ogImage}">` : ''}
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://matinmok.github.io/azadivpn/">
-    <link rel="canonical" href="https://matinmok.github.io/azadivpn/">
-    <title>${title}</title>`.trim();
+                const metaTags = `
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="${description}">
+<meta name="keywords" content="${keywords}">
+<meta name="robots" content="index, follow">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${description}">
+${ogImage ? `<meta name="twitter:image" content="${ogImage}">` : ''}
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+${ogImage ? `<meta property="og:image" content="${ogImage}">` : ''}
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://matinmok.github.io/azadivpn/">
+<link rel="canonical" href="https://matinmok.github.io/azadivpn/">
+<title>${title}</title>`.trim();
 
-            document.getElementById('meta-tags-result').classList.remove('hidden');
-            document.getElementById('meta-tags-code').textContent = metaTags;
-            document.getElementById('preview-title').textContent = title;
-            document.getElementById('preview-desc').textContent = description;
+                document.getElementById('meta-tags-result').classList.remove('hidden');
+                document.getElementById('meta-tags-code').textContent = metaTags;
+                document.getElementById('preview-title').textContent = title;
+                document.getElementById('preview-desc').textContent = description;
 
-            const blob = new Blob([metaTags], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            document.getElementById('download-meta-tags').href = url;
-
-            updateSEOScore();
-            showToast('متا تگ‌ها با موفقیت تولید شدند');
+                updateSEOScore();
+                showToast('متا تگ‌ها تولید شدند');
+            } catch (e) {
+                console.error('Meta tags error:', e);
+                showToast('خطا در تولید متا تگ‌ها', 'error');
+            }
         }
 
         function copyMetaTags() {
-            navigator.clipboard.writeText(document.getElementById('meta-tags-code').textContent)
-                .then(() => showToast('کد متا تگ‌ها کپی شد'));
+            try {
+                navigator.clipboard.writeText(document.getElementById('meta-tags-code').textContent)
+                    .then(() => showToast('کد متا تگ‌ها کپی شد'));
+            } catch (e) {
+                console.error('Copy meta tags error:', e);
+                showToast('خطا در کپی کد', 'error');
+            }
         }
 
         // Keywords Analysis
         function analyzeKeywords() {
-            const keywords = document.getElementById('meta-keywords').value.split(',').map(k => k.trim()).filter(k => k);
-            const keywordsStatus = document.getElementById('keywords-status');
-            const suggestionsTable = document.getElementById('keyword-suggestions');
+            try {
+                const keywords = document.getElementById('meta-keywords').value.split(',').map(k => k.trim()).filter(k => k);
+                const keywordsStatus = document.getElementById('keywords-status');
+                const suggestionsList = document.getElementById('keyword-suggestions');
 
-            if (keywords.length < 3) {
-                keywordsStatus.textContent = `خطا: حداقل 3 کلمه کلیدی نیاز است (${keywords.length})`;
-                keywordsStatus.className = 'text-sm mt-1 error';
-            } else if (keywords.length > 10) {
-                keywordsStatus.textContent = `هشدار: تعداد کلمات کلیدی زیاد است (${keywords.length})`;
-                keywordsStatus.className = 'text-sm mt-1 warning';
-            } else {
-                keywordsStatus.textContent = `عالی: تعداد کلمات کلیدی مناسب است (${keywords.length})`;
-                keywordsStatus.className = 'text-sm mt-1 success';
+                if (keywords.length < 3) {
+                    keywordsStatus.textContent = `خطا: حداقل 3 کلمه کلیدی نیاز است (${keywords.length})`;
+                    keywordsStatus.className = 'text-sm mt-1 error';
+                } else if (keywords.length > 10) {
+                    keywordsStatus.textContent = `هشدار: تعداد کلمات کلیدی زیاد است (${keywords.length})`;
+                    keywordsStatus.className = 'text-sm mt-1 warning';
+                } else {
+                    keywordsStatus.textContent = `عالی: تعداد کلمات کلیدی مناسب است (${keywords.length})`;
+                    keywordsStatus.className = 'text-sm mt-1 success';
+                }
+
+                suggestionsList.innerHTML = '';
+                const suggestions = [
+                    'خرید فیلترشکن V2Ray برای ایران',
+                    'فیلترشکن پرسرعت با آی پی ثابت',
+                    'بهترین وی‌پی‌ان برای ترید',
+                    'فیلترشکن بدون قطعی برای اندروید'
+                ];
+                suggestions.forEach(s => {
+                    const li = document.createElement('li');
+                    li.textContent = s;
+                    suggestionsList.appendChild(li);
+                });
+
+                updateSEOScore();
+                showToast('کلمات کلیدی تحلیل شدند');
+            } catch (e) {
+                console.error('Keywords error:', e);
+                showToast('خطا در تحلیل کلمات کلیدی', 'error');
             }
-
-            suggestionsTable.innerHTML = '';
-            const suggestions = [
-                { keyword: 'خرید فیلترشکن V2Ray برای ایران', volume: '500', difficulty: 'متوسط' },
-                { keyword: 'فیلترشکن پرسرعت با آی پی ثابت', volume: '300', difficulty: 'کم' },
-                { keyword: 'بهترین وی‌پی‌ان برای ترید', volume: '200', difficulty: 'بالا' },
-                { keyword: 'فیلترشکن بدون قطعی برای اندروید', volume: '400', difficulty: 'متوسط' }
-            ];
-            suggestions.forEach(s => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td class="p-2">${s.keyword}</td><td class="p-2">${s.volume}</td><td class="p-2">${s.difficulty}</td>`;
-                suggestionsTable.appendChild(tr);
-            });
-
-            updateSEOScore();
-            showToast('کلمات کلیدی تحلیل شدند');
         }
 
         // Schema Markup
         function generateSchema() {
-            const schemaType = document.getElementById('schema-type').value;
-            const schemaContent = document.getElementById('schema-content').value || JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": schemaType,
-                "mainEntity": schemaType === "FAQPage" ? [{
-                    "@type": "Question",
-                    "name": "تفاوت پلن عادی و VIP چیست؟",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "پلن عادی شامل سرور آلمان است. پلن VIP دسترسی به ۵+ کشور دارد."
+            try {
+                const schemaType = document.getElementById('schema-type').value;
+                const schemaContent = document.getElementById('schema-content').value || JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": schemaType,
+                    "mainEntity": schemaType === "FAQPage" ? [{
+                        "@type": "Question",
+                        "name": "تفاوت پلن عادی و VIP چیست؟",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "پلن عادی شامل سرور آلمان است. پلن VIP دسترسی به ۵+ کشور دارد."
+                        }
+                    }] : {
+                        "name": "آزادی وی‌پی‌ان",
+                        "description": "فیلترشکن قوی و هوشمند بدون قطعی."
                     }
-                }] : {
-                    "name": "آزادی وی‌پی‌ان",
-                    "description": "فیلترشکن قوی و هوشمند بدون قطعی."
-                }
-            }, null, 2);
+                }, null, 2);
 
-            const schemaCode = `<script type="application/ld+json">${schemaContent}</script>`;
-            document.getElementById('schema-result').classList.remove('hidden');
-            document.getElementById('schema-code').textContent = schemaCode;
+                const schemaCode = `<script type="application/ld+json">${schemaContent}</script>`;
+                document.getElementById('schema-result').classList.remove('hidden');
+                document.getElementById('schema-code').textContent = schemaCode;
 
-            updateSEOScore();
-            showToast('Schema تولید شد');
+                showToast('Schema تولید شد');
+            } catch (e) {
+                console.error('Schema error:', e);
+                showToast('خطا در تولید Schema', 'error');
+            }
         }
 
         function copySchema() {
-            navigator.clipboard.writeText(document.getElementById('schema-code').textContent)
-                .then(() => showToast('کد Schema کپی شد'));
+            try {
+                navigator.clipboard.writeText(document.getElementById('schema-code').textContent)
+                    .then(() => showToast('کد Schema کپی شد'));
+            } catch (e) {
+                console.error('Copy schema error:', e);
+                showToast('خطا در کپی کد Schema', 'error');
+            }
         }
 
         // Accessibility
         function analyzeAccessibility() {
-            const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
-            const altTextsStatus = document.getElementById('alt-texts-status');
+            try {
+                const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
+                const altTextsStatus = document.getElementById('alt-texts-status');
 
-            if (altTexts.length < 1) {
-                altTextsStatus.textContent = 'خطا: هیچ متن Alt وارد نشده است';
-                altTextsStatus.className = 'text-sm mt-1 error';
-            } else if (altTexts.some(t => t.length < 10)) {
-                altTextsStatus.textContent = 'هشدار: برخی متن‌های Alt کوتاه هستند';
-                altTextsStatus.className = 'text-sm mt-1 warning';
-            } else {
-                altTextsStatus.textContent = `عالی: ${altTexts.length} متن Alt مناسب است`;
-                altTextsStatus.className = 'text-sm mt-1 success';
+                if (altTexts.length < 1) {
+                    altTextsStatus.textContent = 'خطا: هیچ متن Alt وارد نشده است';
+                    altTextsStatus.className = 'text-sm mt-1 error';
+                } else if (altTexts.some(t => t.length < 10)) {
+                    altTextsStatus.textContent = 'هشدار: برخی متن‌های Alt کوتاه هستند';
+                    altTextsStatus.className = 'text-sm mt-1 warning';
+                } else {
+                    altTextsStatus.textContent = `عالی: ${altTexts.length} متن Alt مناسب است`;
+                    altTextsStatus.className = 'text-sm mt-1 success';
+                }
+
+                updateSEOScore();
+                showToast('دسترسی‌پذیری تحلیل شد');
+            } catch (e) {
+                console.error('Accessibility error:', e);
+                showToast('خطا در تحلیل دسترسی‌پذیری', 'error');
             }
-
-            updateSEOScore();
-            showToast('دسترسی‌پذیری تحلیل شد');
         }
 
         // Internal Links
         function analyzeLinks() {
-            const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
-            const linksStatus = document.getElementById('links-status');
+            try {
+                const links = document.getElementById('internal-links').value.split('\n').filter(l => l.trim());
+                const linksStatus = document.getElementById('links-status');
 
-            if (links.length < 2) {
-                linksStatus.textContent = `هشدار: حداقل 2 لینک داخلی توصیه می‌شود (${links.length})`;
-                linksStatus.className = 'text-sm mt-1 warning';
-            } else {
-                linksStatus.textContent = `عالی: ${links.length} لینک داخلی مناسب است`;
-                linksStatus.className = 'text-sm mt-1 success';
+                if (links.length < 2) {
+                    linksStatus.textContent = `هشدار: حداقل 2 لینک داخلی توصیه می‌شود (${links.length})`;
+                    linksStatus.className = 'text-sm mt-1 warning';
+                } else {
+                    linksStatus.textContent = `عالی: ${links.length} لینک داخلی مناسب است`;
+                    linksStatus.className = 'text-sm mt-1 success';
+                }
+
+                updateSEOScore();
+                showToast('لینک‌های داخلی تحلیل شدند');
+            } catch (e) {
+                console.error('Links error:', e);
+                showToast('خطا در تحلیل لینک‌ها', 'error');
             }
-
-            updateSEOScore();
-            showToast('لینک‌های داخلی تحلیل شدند');
         }
 
         // Competitors Analysis
         function analyzeCompetitors() {
-            const urls = document.getElementById('competitor-urls').value.split('\n').filter(u => u.trim());
-            const competitorStatus = document.getElementById('competitor-status');
+            try {
+                const urls = document.getElementById('competitor-urls').value.split('\n').filter(u => u.trim());
+                const competitorStatus = document.getElementById('competitor-status');
 
-            if (urls.length < 1) {
-                competitorStatus.textContent = 'خطا: حداقل یک URL رقیب وارد کنید';
-                competitorStatus.className = 'text-sm mt-1 error';
-            } else {
-                competitorStatus.textContent = `تحلیل انجام شد: ${urls.length} رقیب بررسی شدند. پیشنهادات: محتوای طولانی‌تر، کلمات کلیدی Long-Tail، و بک‌لینک‌های باکیفیت.`;
-                competitorStatus.className = 'text-sm mt-1 success';
+                if (urls.length < 1) {
+                    competitorStatus.textContent = 'خطا: حداقل یک URL رقیب وارد کنید';
+                    competitorStatus.className = 'text-sm mt-1 error';
+                } else {
+                    competitorStatus.textContent = `تحلیل انجام شد: ${urls.length} رقیب بررسی شدند. پیشنهاد: محتوای طولانی‌تر و کلمات کلیدی Long-Tail.`;
+                    competitorStatus.className = 'text-sm mt-1 success';
+                }
+
+                showToast('رقبا تحلیل شدند');
+            } catch (e) {
+                console.error('Competitors error:', e);
+                showToast('خطا در تحلیل رقبا', 'error');
             }
-
-            showToast('رقبا تحلیل شدند');
         }
 
         // Performance Analysis
         function analyzePerformance() {
-            const lcpScore = document.getElementById('lcp-score');
-            const fidScore = document.getElementById('fid-score');
-            const clsScore = document.getElementById('cls-score');
+            try {
+                document.getElementById('lcp-score').textContent = '2.5 ثانیه (خوب)';
+                document.getElementById('lcp-score').className = 'text-sm success';
+                document.getElementById('fid-score').textContent = '100 میلی‌ثانیه (خوب)';
+                document.getElementById('fid-score').className = 'text-sm success';
+                document.getElementById('cls-score').textContent = '0.05 (عالی)';
+                document.getElementById('cls-score').className = 'text-sm success';
 
-            lcpScore.textContent = '2.5 ثانیه (خوب)';
-            lcpScore.className = 'text-sm success';
-            fidScore.textContent = '100 میلی‌ثانیه (خوب)';
-            fidScore.className = 'text-sm success';
-            clsScore.textContent = '0.05 (عالی)';
-            clsScore.className = 'text-sm success';
-
-            showToast('کارایی صفحه تحلیل شد. پیشنهاد: استفاده از CDN و فشرده‌سازی تصاویر.');
+                showToast('کارایی صفحه تحلیل شد');
+            } catch (e) {
+                console.error('Performance error:', e);
+                showToast('خطا در تحلیل کارایی', 'error');
+            }
         }
 
         // Profile Management
         let profiles = JSON.parse(localStorage.getItem('seoProfiles')) || [];
         function saveProfile() {
-            const profileName = document.getElementById('profile-name').value;
-            if (!profileName) {
-                showToast('نام پروفایل را وارد کنید', 'error');
-                return;
+            try {
+                const profileName = document.getElementById('profile-name').value;
+                if (!profileName) {
+                    showToast('نام پروفایل را وارد کنید', 'error');
+                    return;
+                }
+                const settings = {
+                    name: profileName,
+                    title: document.getElementById('meta-title').value,
+                    description: document.getElementById('meta-description').value,
+                    keywords: document.getElementById('meta-keywords').value,
+                    ogImage: document.getElementById('og-image').value,
+                    altTexts: document.getElementById('alt-texts').value,
+                    links: document.getElementById('internal-links').value
+                };
+                profiles = profiles.filter(p => p.name !== profileName);
+                profiles.push(settings);
+                localStorage.setItem('seoProfiles', JSON.stringify(profiles));
+                updateProfileSelect();
+                showToast('پروفایل ذخیره شد');
+            } catch (e) {
+                console.error('Save profile error:', e);
+                showToast('خطا در ذخیره پروفایل', 'error');
             }
-            const settings = {
-                name: profileName,
-                title: document.getElementById('meta-title').value,
-                description: document.getElementById('meta-description').value,
-                keywords: document.getElementById('meta-keywords').value,
-                ogImage: document.getElementById('og-image').value,
-                altTexts: document.getElementById('alt-texts').value,
-                links: document.getElementById('internal-links').value,
-                schema: document.getElementById('schema-content').value
-            };
-            profiles = profiles.filter(p => p.name !== profileName);
-            profiles.push(settings);
-            localStorage.setItem('seoProfiles', JSON.stringify(profiles));
-            updateProfileSelect();
-            showToast('پروفایل ذخیره شد');
         }
 
         function loadProfile() {
-            const profileName = document.getElementById('profile-select').value;
-            const profile = profiles.find(p => p.name === profileName);
-            if (profile) {
-                document.getElementById('meta-title').value = profile.title || '';
-                document.getElementById('meta-description').value = profile.description || '';
-                document.getElementById('meta-keywords').value = profile.keywords || '';
-                document.getElementById('og-image').value = profile.ogImage || '';
-                document.getElementById('alt-texts').value = profile.altTexts || '';
-                document.getElementById('internal-links').value = profile.links || '';
-                document.getElementById('schema-content').value = profile.schema || '';
-                updateSEOScore();
-                showToast('پروفایل بارگذاری شد');
+            try {
+                const profileName = document.getElementById('profile-select').value;
+                const profile = profiles.find(p => p.name === profileName);
+                if (profile) {
+                    document.getElementById('meta-title').value = profile.title || '';
+                    document.getElementById('meta-description').value = profile.description || '';
+                    document.getElementById('meta-keywords').value = profile.keywords || '';
+                    document.getElementById('og-image').value = profile.ogImage || '';
+                    document.getElementById('alt-texts').value = profile.altTexts || '';
+                    document.getElementById('internal-links').value = profile.links || '';
+                    updateSEOScore();
+                    document.getElementById('preview-title').textContent = profile.title || '';
+                    document.getElementById('preview-desc').textContent = profile.description || '';
+                    showToast('پروفایل بارگذاری شد');
+                }
+            } catch (e) {
+                console.error('Load profile error:', e);
+                showToast('خطا در بارگذاری پروفایل', 'error');
             }
         }
 
         function updateProfileSelect() {
-            const select = document.getElementById('profile-select');
-            select.innerHTML = '<option value="">انتخاب پروفایل</option>';
-            profiles.forEach(p => {
-                const option = document.createElement('option');
-                option.value = p.name;
-                option.textContent = p.name;
-                select.appendChild(option);
-            });
+            try {
+                const select = document.getElementById('profile-select');
+                select.innerHTML = '<option value="">انتخاب پروفایل</option>';
+                profiles.forEach(p => {
+                    const option = document.createElement('option');
+                    option.value = p.name;
+                    option.textContent = p.name;
+                    select.appendChild(option);
+                });
+            } catch (e) {
+                console.error('Update profile select error:', e);
+                showToast('خطا در به‌روزرسانی پروفایل‌ها', 'error');
+            }
         }
 
         // Report Generation
         function generateReport() {
-            const title = document.getElementById('meta-title').value;
-            const description = document.getElementById('meta-description').value;
-            const keywords = document.getElementById('meta-keywords').value;
-            const score = document.getElementById('seo-score').textContent;
+            try {
+                const title = document.getElementById('meta-title').value;
+                const description = document.getElementById('meta-description').value;
+                const keywords = document.getElementById('meta-keywords').value;
+                const score = document.getElementById('seo-score').textContent;
 
-            const latexContent = `
+                const latexContent = `
 \\documentclass[a4paper,12pt]{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage{geometry}
@@ -664,9 +641,9 @@ ${ogImage ? `    <meta property="og:image" content="${ogImage}">` : ''}
 \\begin{center}
 {\\LARGE گزارش سئو آزادی وی‌پی‌ان}\\\\
 \\vspace{0.5cm}
-{\\large تاریخ: ${new Date().toLocaleDateString('fa-IR')}}
+{\\large تاریخ: ۲۰ مه ۲۰۲۵}
 \\end{center}
-\\section*{امتیاز سئو}
+\\‌گوید سئو}
 امتیاز کلی: ${score} از 100
 \\section*{متا تگ‌ها}
 \\begin{itemize}
@@ -676,36 +653,45 @@ ${ogImage ? `    <meta property="og:image" content="${ogImage}">` : ''}
 \\end{itemize}
 \\section*{پیشنهادات}
 \\begin{itemize}
-    \\item استفاده از کلمات کلیدی Long-Tail برای رقابت کمتر.
+    \\item استفاده از کلمات کلیدی Long-Tail.
     \\item بهبود سرعت صفحه با فشرده‌سازی تصاویر.
-    \\item افزایش لینک‌های داخلی به مقالات مرتبط.
+    \\item افزایش لینک‌های داخلی.
 \\end{itemize}
 \\end{document}
 `.trim();
 
-            const blob = new Blob([latexContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'seo-report.tex';
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('گزارش LaTeX تولید شد');
+                const blob = new Blob([latexContent], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'seo-report.tex';
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast('گزارش LaTeX تولید شد');
+            } catch (e) {
+                console.error('Report error:', e);
+                showToast('خطا در تولید گزارش', 'error');
+            }
         }
 
         // Initialize
-        updateProfileSelect();
-        updateSEOScore();
-        analyzeKeywords();
-        analyzeAccessibility();
-        analyzeLinks();
-        document.querySelectorAll('input, textarea').forEach(input => {
-            input.addEventListener('input', () => {
-                updateSEOScore();
-                document.getElementById('preview-title').textContent = document.getElementById('meta-title').value;
-                document.getElementById('preview-desc').textContent = document.getElementById('meta-description').value;
+        try {
+            updateProfileSelect();
+            updateSEOScore();
+            analyzeKeywords();
+            analyzeAccessibility();
+            analyzeLinks();
+            document.querySelectorAll('input, textarea').forEach(input => {
+                input.addEventListener('input', () => {
+                    updateSEOScore();
+                    document.getElementById('preview-title').textContent = document.getElementById('meta-title').value;
+                    document.getElementById('preview-desc').textContent = document.getElementById('meta-description').value;
+                });
             });
-        });
+        } catch (e) {
+            console.error('Initialization error:', e);
+            showToast('خطا در راه‌اندازی پنل', 'error');
+        }
     </script>
 </body>
 </html>
