@@ -18,11 +18,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Vazirmatn', sans-serif;
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .nav-divider {
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 300;
         }
         .articles-grid {
             display: grid;
@@ -86,7 +87,52 @@
     </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                </a>
+            </div>
+            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+                <li><a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">نظرات کاربران</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="./article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">تماس با ما</a>
+                </li>
+            </ul>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="https://matinmok.github.io/azadivpn/" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
+                <li><a href="index.html#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
+                <li><a href="index.html#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="index.html#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">نظرات کاربران</a></li>
+                <li><a href="index.html#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+                <li><a href="./article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+                <li><a href="index.html#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">همکاری</a></li>
+                <li>
+                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">تماس با ما</a>
+                </li>
+            </ul>
+        </div>
+    </header>
     <section id="articles" class="py-16 bg-gray-100 mt-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">مقالات خرید فیلترشکن</h2>
@@ -124,35 +170,48 @@
             </div>
         </div>
     </section>
-    <div id="footer-placeholder"></div>
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+                <span class="text-gray-600">|</span>
+                <a href="./article.html" class="text-blue-400 hover:underline mx-2">مقالات</a>
+                <span class="text-gray-600">|</span>
+                <a href="https://wa.me/09227334601" class="text-blue-400 hover:underline mx-2">تماس با ما</a>
+            </p>
+        </div>
+    </footer>
     <script>
-        // Function to load header and footer
-        async function loadHeaderFooter() {
-            try {
-                // Load header
-                const headerResponse = await fetch('header.html');
-                if (headerResponse.ok) {
-                    const headerContent = await headerResponse.text();
-                    document.getElementById('header-placeholder').innerHTML = headerContent;
-                } else {
-                    console.error('Failed to load header:', headerResponse.status);
-                }
-
-                // Load footer
-                const footerResponse = await fetch('footer.html');
-                if (footerResponse.ok) {
-                    const footerContent = await footerResponse.text();
-                    document.getElementById('footer-placeholder').innerHTML = footerContent;
-                } else {
-                    console.error('Failed to load footer:', footerResponse.status);
-                }
-            } catch (error) {
-                console.error('Error loading header or footer:', error);
-            }
+        // Mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
         }
 
-        // Call the function to load header and footer when the page loads
-        window.addEventListener('load', loadHeaderFooter);
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
