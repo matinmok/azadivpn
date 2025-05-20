@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل حرفه‌ای مدیریت سئو | آزادی وی‌پی‌ان</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; background: linear-gradient(to bottom, #f3f4f6, #e5e7eb); }
+        .seo-dashboard {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        .seo-dashboard h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e40af;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .tab {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            color: #4b5563;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: #3b82f6;
+            color: white;
+            border-radius: 0.5rem;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            color: #374151;
+            direction: rtl;
+        }
+        .input-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .btn {
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #6b7280;
+        }
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        .seo-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #16a34a;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .preview-box {
+            border: 1px solid #e5e7eb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: #ffffff;
+            margin-top: 1rem;
+        }
+        .preview-title { color: #1a0dab; font-size: 1.25rem; }
+        .preview-url { color: #006621; font-size: 0.9rem; }
+        .preview-desc { color: #4b5563; font-size: 0.9rem; }
+        .error { color: #dc2626; }
+        .warning { color: #d97706; }
+        .success { color: #16a34a; }
+        .suggestions ul {
+            list-style: disc;
+            margin-right: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .seo-dashboard {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            .seo-dashboard h1 {
+                font-size: 1.5rem;
+            }
+            .tab { font-size: 0.9rem; padding: 0.5rem 1rem; }
+            .card { padding: 1rem; }
+            .seo-score { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="seo-dashboard">
+        <h1>پنل حرفه‌ای مدیریت سئو آزادی وی‌پی‌ان</h1>
+        <div class="flex space-x-2 space-x-reverse mb-6 border-b border-gray-200">
+            <div class="tab active" data-tab="dashboard">داشبورد</div>
+            <div class="tab" data-tab="meta-tags">متا تگ‌ها</div>
+            <div class="tab" data-tab="keywords">کلمات کلیدی</div>
+            <div class="tab" data-tab="schema">Schema Markup</div>
+            <div class="tab" data-tab="accessibility">دسترسی‌پذیری</div>
+        </div>
+        <div id="dashboard" class="tab-content active">
+            <div class="card">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">امتیاز سئو</h2>
+                <div class="seo-score" id="seo-score">85</div>
+                <canvas id="seo-chart" height="100"></canvas>
+            </div>
+            <div class="card">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">پیش‌نمایش در گوگل</h2>
+                <div class="preview-box">
+                    <div class="preview-title" id="preview-title">خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان</div>
+                    <div class="preview-url">https://matinmok.github.io/azadivpn/</div>
+                    <div class="preview-desc" id="preview-desc">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</div>
+                </div>
+            </div>
+        </div>
+        <div id="meta-tags" class="tab-content">
+            <div class="card">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت متا تگ‌ها</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="input-group">
+                        <label for="meta-title">عنوان صفحه</label>
+                        <input type="text" id="meta-title" value="خرید فیلترشکن قوی و پرسرعت | آزادی وی پی ان">
+                        <p id="title-length" class="text-sm mt-1"></p>
+                    </div>
+                    <div class="input-group">
+                        <label for="meta-description">توضیحات</label>
+                        <textarea id="meta-description">خرید فیلترشکن قوی و هوشمند بدون قطعی | آی پی ثابت مناسب ترید و... | همراه با پشتیبانی 24 ساعته</textarea>
+                        <p id="description-length" class="text-sm mt-1"></p>
+                    </div>
+                    <div class="input-group">
+                        <label for="og-image">تصویر OG</label>
+                        <input type="url" id="og-image" value="https://matinmok.github.io/azadivpn/images/og-image.jpg">
+                        <p id="og-image-status" class="text-sm mt-1"></p>
+                    </div>
+                </div>
+                <button class="btn mt-4" onclick="generateMetaTags()">تولید متا تگ‌ها</button>
+                <div id="meta-tags-result" class="mt-4 hidden">
+                    <pre id="meta-tags-code" class="bg-gray-100 p-4 rounded-lg"></pre>
+                    <button class="btn btn-secondary mt-2" onclick="copyMetaTags()">کپی کد</button>
+                    <a id="download-meta-tags" class="btn btn-secondary mt-2 mr-2" href="#" download="meta-tags.html">دانلود کد</a>
+                </div>
+            </div>
+        </div>
+        <div id="keywords" class="tab-content">
+            <div class="card">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت کلمات کلیدی</h2>
+                <div class="input-group">
+                    <label for="meta-keywords">کلمات کلیدی</label>
+                    <input type="text" id="meta-keywords" value="خرید فیلترشکن, فیلترشکن قوی, وی‌پی‌ان پرسرعت, آزادی وی‌پی‌ان, V2Ray, آی پی ثابت, فیلترشکن بدون قطعی">
+                    <p id="keywords-status" class="text-sm mt-1"></p>
+                </div>
+                <div class="input-group mt-4">
+                    <h3 class="text-md font-semibold text-gray-800 mb-2">پیشنهادات کلمات کلیدی</h3>
+                    <ul id="keyword-suggestions" class="suggestions"></ul>
+                </div>
+                <button class="btn mt-4" onclick="analyzeKeywords()">تحلیل کلمات کلیدی</button>
+            </div>
+        </div>
+        <div id="schema" class="tab-content">
+            <div class="card">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">مدیریت Schema Markup</h2>
+                <div class="input-group">
+                    <label for="schema-type">نوع Schema</label>
+                    <select id="schema-type" class="border p-2 rounded-lg">
+                        <option value="FAQPage">FAQ</option>
+                        <option value="Product">محصول</option>
+                    </select>
+                </div>
+                <div class="input-group mt-4">
+                    <label for="schema-content">محتوای Schema (JSON-LD)</label>
+                    <textarea id="schema-content"></textarea>
+                </div>
+                <button class="btn mt-4" onclick="generateSchema()">تولید Schema</button>
+                <div id="schema-result" class="mt-4 hidden">
+                    <pre id="schema-code" class="bg-gray-100 p-4 rounded-lg"></pre>
+                    <button class="btn btn-secondary mt-2" onclick="copySchema()">کپی کد</button>
+                </div>
+            </div>
+        </div>
+        <div id="accessibility" class="tab-content">
+            <div class="card">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">دسترسی‌پذیری (Accessibility)</h2>
+                <div class="input-group">
+                    <label for="alt-texts">متن‌های Alt تصاویر</label>
+                    <textarea id="alt-texts">پرچم ترکیه برای سرور فیلترشکن آزادی وی‌پی‌ان
+پرچم آلمان برای سرور فیلترشکن آزادی وی‌پی‌ان
+پرچم آمریکا برای سرور فیلترشکن آزادی وی‌پی‌ان
+پرچم فنلاند برای سرور فیلترشکن آزادی وی‌پی‌ان
+پرچم هلند برای سرور فیلترشکن آزادی وی‌پی‌ان</textarea>
+                    <p id="alt-texts-status" class="text-sm mt-1"></p>
+                </div>
+                <button class="btn mt-4" onclick="analyzeAccessibility()">تحلیل دسترسی‌پذیری</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // SEO Score and Chart
+        function updateSEOScore() {
+            const title = document.getElementById('meta-title').value;
+            const description = document.getElementById('meta-description').value;
+            const keywords = document.getElementById('meta-keywords').value.split(',').filter(k => k.trim());
+            const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
+
+            let score = 0;
+            score += title.length >= 10 && title.length <= 60 ? 30 : 10;
+            score += description.length >= 50 && description.length <= 160 ? 30 : 10;
+            score += keywords.length >= 3 && keywords.length <= 10 ? 20 : 5;
+            score += altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 20 : 5;
+
+            document.getElementById('seo-score').textContent = score;
+            document.getElementById('seo-score').style.color = score >= 80 ? '#16a34a' : score >= 50 ? '#d97706' : '#dc2626';
+
+            const ctx = document.getElementById('seo-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['عنوان', 'توضیحات', 'کلمات کلیدی', 'دسترسی‌پذیری'],
+                    datasets: [{
+                        label: 'امتیاز سئو',
+                        data: [
+                            title.length >= 10 && title.length <= 60 ? 30 : 10,
+                            description.length >= 50 && description.length <= 160 ? 30 : 10,
+                            keywords.length >= 3 && keywords.length <= 10 ? 20 : 5,
+                            altTexts.length >= 1 && !altTexts.some(t => t.length < 10) ? 20 : 5
+                        ],
+                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
+                    }]
+                },
+                options: { scales: { y: { beginAtZero: true, max: 30 } } }
+            });
+        }
+
+        // Meta Tags
+        function generateMetaTags() {
+            const title = document.getElementById('meta-title').value;
+            const description = document.getElementById('meta-description').value;
+            const keywords = document.getElementById('meta-keywords').value;
+            const ogImage = document.getElementById('og-image').value;
+
+            const metaTags = `
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="${description}">
+    <meta name="keywords" content="${keywords}">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${title}">
+    <meta name="twitter:description" content="${description}">
+${ogImage ? `    <meta name="twitter:image" content="${ogImage}">` : ''}
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${description}">
+${ogImage ? `    <meta property="og:image" content="${ogImage}">` : ''}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matinmok.github.io/azadivpn/">
+    <link rel="canonical" href="https://matinmok.github.io/azadivpn/">
+    <title>${title}</title>`.trim();
+
+            document.getElementById('meta-tags-result').classList.remove('hidden');
+            document.getElementById('meta-tags-code').textContent = metaTags;
+            document.getElementById('preview-title').textContent = title;
+            document.getElementById('preview-desc').textContent = description;
+
+            const blob = new Blob([metaTags], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const downloadLink = document.getElementById('download-meta-tags');
+            downloadLink.href = url;
+            downloadLink.download = 'meta-tags.html';
+
+            updateSEOScore();
+        }
+
+        function copyMetaTags() {
+            const metaTagsCode = document.getElementById('meta-tags-code').textContent;
+            navigator.clipboard.writeText(metaTagsCode).then(() => alert('کد متا تگ‌ها کپی شد!'));
+        }
+
+        // Keywords Analysis
+        function analyzeKeywords() {
+            const keywords = document.getElementById('meta-keywords').value.split(',').map(k => k.trim()).filter(k => k);
+            const keywordsStatus = document.getElementById('keywords-status');
+            const suggestionsList = document.getElementById('keyword-suggestions');
+
+            if (keywords.length < 3) {
+                keywordsStatus.textContent = `خطا: حداقل 3 کلمه کلیدی نیاز است (${keywords.length}).`;
+                keywordsStatus.className = 'text-sm mt-1 error';
+            } else if (keywords.length > 10) {
+                keywordsStatus.textContent = `هشدار: تعداد کلمات کلیدی زیاد است (${keywords.length}).`;
+                keywordsStatus.className = 'text-sm mt-1 warning';
+            } else {
+                keywordsStatus.textContent = `عالی: تعداد کلمات کلیدی مناسب است (${keywords.length}).`;
+                keywordsStatus.className = 'text-sm mt-1 success';
+            }
+
+            suggestionsList.innerHTML = '';
+            const suggestions = [
+                'خرید فیلترشکن V2Ray برای ایران',
+                'فیلترشکن پرسرعت با آی پی ثابت',
+                'بهترین وی‌پی‌ان برای ترید',
+                'فیلترشکن بدون قطعی برای اندروید'
+            ];
+            suggestions.forEach(s => {
+                const li = document.createElement('li');
+                li.textContent = s;
+                suggestionsList.appendChild(li);
+            });
+
+            updateSEOScore();
+        }
+
+        // Schema Markup
+        function generateSchema() {
+            const schemaType = document.getElementById('schema-type').value;
+            const schemaContent = document.getElementById('schema-content').value || JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": schemaType,
+                "mainEntity": schemaType === "FAQPage" ? [{
+                    "@type": "Question",
+                    "name": "تفاوت پلن عادی و VIP چیست؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "پلن عادی شامل سرور آلمان است. پلن VIP دسترسی به ۵+ کشور دارد."
+                    }
+                }] : {
+                    "name": "آزادی وی‌پی‌ان",
+                    "description": "فیلترشکن قوی و هوشمند بدون قطعی."
+                }
+            }, null, 2);
+
+            const schemaCode = `<script type="application/ld+json">${schemaContent}</script>`;
+            document.getElementById('schema-result').classList.remove('hidden');
+            document.getElementById('schema-code').textContent = schemaCode;
+        }
+
+        function copySchema() {
+            const schemaCode = document.getElementById('schema-code').textContent;
+            navigator.clipboard.writeText(schemaCode).then(() => alert('کد Schema کپی شد!'));
+        }
+
+        // Accessibility
+        function analyzeAccessibility() {
+            const altTexts = document.getElementById('alt-texts').value.split('\n').filter(t => t.trim());
+            const altTextsStatus = document.getElementById('alt-texts-status');
+
+            if (altTexts.length < 1) {
+                altTextsStatus.textContent = 'خطا: هیچ متن Alt وارد نشده است.';
+                altTextsStatus.className = 'text-sm mt-1 error';
+            } else if (altTexts.some(t => t.length < 10)) {
+                altTextsStatus.textContent = 'هشدار: برخی متن‌های Alt کوتاه هستند.';
+                altTextsStatus.className = 'text-sm mt-1 warning';
+            } else {
+                altTextsStatus.textContent = `عالی: ${altTexts.length} متن Alt مناسب است.`;
+                altTextsStatus.className = 'text-sm mt-1 success';
+            }
+
+            updateSEOScore();
+        }
+
+        // Initialize
+        updateSEOScore();
+        analyzeKeywords();
+        analyzeAccessibility();
+
+        // Save Settings
+        function saveSettings() {
+            const settings = {
+                title: document.getElementById('meta-title').value,
+                description: document.getElementById('meta-description').value,
+                keywords: document.getElementById('meta-keywords').value,
+                ogImage: document.getElementById('og-image').value,
+                altTexts: document.getElementById('alt-texts').value
+            };
+            localStorage.setItem('seoSettings', JSON.stringify(settings));
+        }
+
+        // Load Settings
+        function loadSettings() {
+            const settings = JSON.parse(localStorage.getItem('seoSettings'));
+            if (settings) {
+                document.getElementById('meta-title').value = settings.title || '';
+                document.getElementById('meta-description').value = settings.description || '';
+                document.getElementById('meta-keywords').value = settings.keywords || '';
+                document.getElementById('og-image').value = settings.ogImage || '';
+                document.getElementById('alt-texts').value = settings.altTexts || '';
+            }
+        }
+
+        // Auto-save on input
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', () => {
+                saveSettings();
+                updateSEOScore();
+                document.getElementById('preview-title').textContent = document.getElementById('meta-title').value;
+                document.getElementById('preview-desc').textContent = document.getElementById('meta-description').value;
+            });
+        });
+
+        loadSettings();
+    </script>
+</body>
+</html>
