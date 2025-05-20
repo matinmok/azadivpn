@@ -21,6 +21,10 @@
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Vazirmatn', sans-serif; }
+        /* Ensure content is not hidden under fixed header */
+        body > section {
+            padding-top: 80px; /* Matches header height */
+        }
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -298,7 +302,7 @@
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <section id="home" class="bg-gray-100 py-12 mt-16">
+    <section id="home" class="bg-gray-100 py-12">
         <div class="container mx-auto text-center px-4">
             <h1 class="text-4xl font-bold text-gray-800 mb-6">خرید فیلترشکن قوی و پرسرعت با آزادی وی‌پی‌ان</h1>
             <p class="max-w-2xl mx-auto text-lg text-gray-700 mb-8">
@@ -522,7 +526,7 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">نکات همکاری</h3>
                     <ul class="notes-list">
                         <li>پلن پایه برای سفارشات دستی مناسب است. در پلن سازمانی، مدیریت کانفیگ‌ها از طریق ربات آنی انجام می‌شود.</li>
-                        <li>امکان سفارش ربات فروش اختصاصی با هزینه جداگانه وجود دارد.</li>
+                        <li>امکان سفارش ربات فروش اختصاصی با هزینه جداگانه وجود دارد。</li>
                         <li>پشتیبانی 24 ساعته برای تمام نمایندگان در دسترس است.</li>
                     </ul>
                 </div>
@@ -679,6 +683,18 @@
                     document.getElementById('header-placeholder').innerHTML = headerContent;
                 } else {
                     console.error('Failed to load header:', headerResponse.status);
+                    document.getElementById('header-placeholder').innerHTML = `
+                        <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+                            <nav class="container mx-auto px-4 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                                        <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                                    </a>
+                                </div>
+                                <div class="text-gray-700">هدر بارگذاری نشد. لطفاً صفحه را رفرش کنید.</div>
+                            </nav>
+                        </header>
+                    `;
                 }
 
                 // Load footer
@@ -688,14 +704,41 @@
                     document.getElementById('footer-placeholder').innerHTML = footerContent;
                 } else {
                     console.error('Failed to load footer:', footerResponse.status);
+                    document.getElementById('footer-placeholder').innerHTML = `
+                        <footer class="py-8 bg-gray-800 text-white text-center">
+                            <div class="container mx-auto px-4">
+                                <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+                            </div>
+                        </footer>
+                    `;
                 }
             } catch (error) {
                 console.error('Error loading header or footer:', error);
+                document.getElementById('header-placeholder').innerHTML = `
+                    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+                        <nav class="container mx-auto px-4 flex items-center justify-between">
+                            <div class="flex items-center">
+                                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                                </a>
+                            </div>
+                            <div class="text-gray-700">هدر بارگذاری نشد. لطفاً صفحه را رفرش کنید.</div>
+                        </nav>
+                    </header>
+                `;
+                document.getElementById('footer-placeholder').innerHTML = `
+                    <footer class="py-8 bg-gray-800 text-white text-center">
+                        <div class="container mx-auto px-4">
+                            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+                        </div>
+                    </footer>
+                `;
             }
         }
 
-        // Call the function to load header and footer when the page loads
-        window.addEventListener('load', loadHeaderFooter);
+        // Call the function immediately and on DOMContentLoaded
+        loadHeaderFooter();
+        document.addEventListener('DOMContentLoaded', loadHeaderFooter);
 
         function openPurchasePopup(telegramLink) {
             closePlansPopup();
