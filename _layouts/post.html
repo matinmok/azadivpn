@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="keywords" content="{{ page.tags | join: ', ' }}, فیلترشکن, وی‌پی‌ان, آزادی وی‌پی‌ان">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .post-content { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+        .post-content h1 { font-size: 2rem; font-weight: 700; color: #1e3a8a; margin-bottom: 1rem; }
+        .post-content h2 { font-size: 1.5rem; font-weight: 600; color: #1e3a8a; margin: 1.5rem 0 1rem; }
+        .post-content p { color: #374151; line-height: 1.75; margin-bottom: 1rem; }
+        .post-content a { color: #3b82f6; text-decoration: underline; }
+        .post-content a:hover { color: #1d4ed8; }
+        .post-meta { color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem; }
+        @media (max-width: 768px) {
+            .post-content { padding: 1rem; }
+            .post-content h1 { font-size: 1.75rem; }
+            .post-content h2 { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="{{ '/' | relative_url }}" class="text-xl font-bold text-blue-600">
+                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                </a>
+            </div>
+            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+                <li><a href="{{ '/' | relative_url }}" class="text-gray-700 hover:text-blue-600">صفحه نخست</a></li>
+                <li><span class="text-gray-600">|</span></li>
+                <li><a href="{{ '/#products' | relative_url }}" class="text-gray-700 hover:text-blue-600">تعرفه‌ها</a></li>
+                <li><span class="text-gray-600">|</span></li>
+                <li><a href="{{ '/#servers' | relative_url }}" class="text-gray-700 hover:text-blue-600">وضعیت سرورها</a></li>
+                <li><span class="text-gray-600">|</span></li>
+                <li><a href="{{ '/#reviews' | relative_url }}" class="text-gray-700 hover:text-blue-600">نظرات کاربران</a></li>
+                <li><span class="text-gray-600">|</span></li>
+                <li><a href="{{ '/#faq' | relative_url }}" class="text-gray-700 hover:text-blue-600">سوالات متداول</a></li>
+                <li><span class="text-gray-600">|</span></li>
+                <li><a href="{{ '/blog' | relative_url }}" class="text-gray-700 hover:text-blue-600">مقالات</a></li>
+                <li><span class="text-gray-600">|</span></li>
+                <li><a href="{{ '/#partnership' | relative_url }}" class="text-gray-700 hover:text-blue-600">همکاری</a></li>
+                <li><a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">تماس با ما</a></li>
+            </ul>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="{{ '/' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">صفحه نخست</a></li>
+                <li><a href="{{ '/#products' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">تعرفه‌ها</a></li>
+                <li><a href="{{ '/#servers' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">وضعیت سرورها</a></li>
+                <li><a href="{{ '/#reviews' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">نظرات کاربران</a></li>
+                <li><a href="{{ '/#faq' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">سوالات متداول</a></li>
+                <li><a href="{{ '/blog' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">مقالات</a></li>
+                <li><a href="{{ '/#partnership' | relative_url }}" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md">همکاری</a></li>
+                <li><a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full text-center">تماس با ما</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="pt-24 pb-12 bg-gray-100">
+        <div class="post-content">
+            <h1>{{ page.title }}</h1>
+            <div class="post-meta">
+                نوشته شده توسط {{ page.author }} در {{ page.date | date: "%Y/%m/%d" }} | دسته‌بندی: {{ page.categories | join: ", " }}
+            </div>
+            {{ content }}
+        </div>
+    </main>
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="{{ '/#products' | relative_url }}" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+                <span class="text-gray-600">|</span>
+                <a href="{{ '/blog' | relative_url }}" class="text-blue-400 hover:underline mx-2">مقالات</a>
+                <span class="text-gray-600">|</span>
+                <a href="https://wa.me/09227334601" class="text-blue-400 hover:underline mx-2">تماس با ما</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
+            });
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
+    {{ page.content | jsonify | prepend: '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"' | append: page.title | append: '","datePublished":"' | append: page.date | append: '","author":{"@type":"Person","name":"' | append: page.author | append: '"},"publisher":{"@type":"Organization","name":"' | append: site.title | append: '"},"description":"' | append: page.description | append: '"}</script>' }}
