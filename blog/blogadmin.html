@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پنل مدیریت مقالات | آزادی وی‌پی‌ان</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -84,6 +85,7 @@
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             margin-top: 0.5rem;
+            margin-left: 0.5rem;
             transition: background 0.3s;
         }
         .copy-button:hover, .download-button:hover {
@@ -125,7 +127,7 @@
                 <label for="description" class="block text-gray-700 font-semibold mb-2">توضیح کوتاه</label>
                 <textarea id="description" rows="4" placeholder="توضیح کوتاه مقاله را وارد کنید" required></textarea>
                 <label for="content" class="block text-gray-700 font-semibold mb-2">محتوای مقاله</label>
-                <textarea id="content" rows="8" placeholder="محتوای کامل مقاله را وارد کنید" required></textarea>
+                <textarea id="content" placeholder="محتوای کامل مقاله را وارد کنید"></textarea>
                 <label for="link" class="block text-gray-700 font-semibold mb-2">لینک مقاله</label>
                 <input type="text" id="link" placeholder="لینک مقاله (مثلاً article7.html)" required>
                 <button type="submit" id="submit-button">ذخیره مقاله</button>
@@ -143,12 +145,23 @@
         </div>
     </main>
     <script>
+        // راه‌اندازی TinyMCE
+        tinymce.init({
+            selector: '#content',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            menubar: false,
+            directionality: 'rtl',
+            language: 'fa',
+            height: 400,
+            content_style: 'body { font-family: Vazirmatn, sans-serif; }'
+        });
+
         // مدیریت مقالات با LocalStorage
         const articleForm = document.getElementById('article-form');
         const articleList = document.getElementById('article-list');
         const titleInput = document.getElementById('title');
         const descriptionInput = document.getElementById('description');
-        const contentInput = document.getElementById('content');
         const linkInput = document.getElementById('link');
         const articleIdInput = document.getElementById('article-id');
         const submitButton = document.getElementById('submit-button');
@@ -156,7 +169,7 @@
         const generatedHtmlTextarea = document.getElementById('generated-html');
 
         // الگوی HTML برای مقاله
-        function generateArticleHtml(title, content, description) {
+        function generateArticleHtml(title, content, description, link) {
             return `
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -172,8 +185,8 @@
     <meta property="og:title" content="${title} | آزادی وی‌پی‌ان">
     <meta property="og:description" content="${description}">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://matinmok.github.io/azadivpn/${linkInput.value}">
-    <link rel="canonical" href="https://matinmok.github.io/azadivpn/${linkInput.value}">
+    <meta property="og:url" content="https://matinmok.github.io/azadivpn/${link}">
+    <link rel="canonical" href="https://matinmok.github.io/azadivpn/${link}">
     <title>${title} | آزادی وی‌پی‌ان</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
@@ -251,7 +264,7 @@
             const article = {
                 title: titleInput.value,
                 description: descriptionInput.value,
-                content: contentInput.value,
+                content: tinymce.get('content').getContent(),
                 link: linkInput.value
             };
 
@@ -266,11 +279,12 @@
             localStorage.setItem('articles', JSON.stringify(articles));
 
             // تولید فایل HTML
-            const htmlContent = generateArticleHtml(article.title, article.content, article.description);
+            const htmlContent = generateArticleHtml(article.title, article.content, article.description, article.link);
             generatedHtmlTextarea.value = htmlContent;
             generatedHtmlCard.classList.remove('hidden');
 
             articleForm.reset();
+            tinymce.get('content').setContent('');
             articleIdInput.value = '';
             submitButton.textContent = 'ذخیره مقاله';
             loadArticles();
@@ -282,7 +296,7 @@
             const article = articles[index];
             titleInput.value = article.title;
             descriptionInput.value = article.description;
-            contentInput.value = article.content;
+            tinymce.get('content').setContent(article.content);
             linkInput.value = article.link;
             articleIdInput.value = index;
             submitButton.textContent = 'به‌روزرسانی مقاله';
