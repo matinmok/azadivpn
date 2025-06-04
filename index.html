@@ -290,6 +290,16 @@
                 margin-right: 1rem;
                 width: calc(100% - 2rem);
             }
+            .home-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .home-buttons a {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+            }
         }
         @media (max-width: 640px) {
             .partnership-table {
@@ -300,6 +310,10 @@
             .partnership-table td {
                 font-size: 0.85rem;
                 padding: 0.75rem;
+            }
+            .home-buttons a {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -357,7 +371,7 @@
             <p class="max-w-2xl mx-auto text-lg text-gray-700 mb-8">
                 با <a href="#products" class="text-blue-600 hover:underline">خرید فیلترشکن</a> از آزادی وی‌پی‌ان، به اینترنت آزاد و بدون محدودیت دسترسی پیدا کنید. سرورهای پرسرعت V2Ray با آی پی ثابت و پشتیبانی 24 ساعته. برای استفاده امن و قانونی، <a href="https://matinmok.github.io/azadivpn/Rules.html" class="text-blue-600 hover:underline">قوانین آزادی وی‌پی‌ان</a> را مطالعه کنید.
             </p>
-            <div class="space-x-4 space-x-reverse">
+            <div class="home-buttons flex flex-col md:flex-row justify-center gap-4">
                 <a href="#products" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">خرید فیلترشکن قوی</a>
                 <a href="https://matinmok.github.io/azadivpn/Rules.html" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-300">قوانین آزادی وی‌پی‌ان</a>
             </div>
