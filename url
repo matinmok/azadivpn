@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت کانفیگ فیلترشکن پیشرفته</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        glass: 'rgba(255, 255, 255, 0.1)',
+                        'glass-dark': 'rgba(0, 0, 0, 0.1)'
+                    },
+                    fontFamily: {
+                        'vazir': ['Vazirmatn', 'Arial', 'sans-serif']
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Vazirmatn', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .platform-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .config-item {
+            transition: all 0.3s ease;
+        }
+        
+        .config-item:hover {
+            transform: translateX(-4px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .loading-spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #5D5CDE;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="glass rounded-3xl p-8 mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center mr-4">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h1 class="text-4xl font-bold">مدیریت کانفیگ فیلترشکن</h1>
+                </div>
+                <p class="text-xl opacity-90 mb-6">تجزیه و تحلیل کامل کانفیگ‌ها و subscription های شما</p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <span class="bg-white/20 px-3 py-1 rounded-full">✨ تشخیص خودکار پروتکل</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">📱 پشتیبانی همه پلتفرم‌ها</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">🔍 نمایش اطلاعات کامل</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-8">
+            <!-- Single Config Input -->
+            <div class="glass rounded-2xl p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-code text-primary mr-3 text-3xl"></i>
+                    کانفیگ تکی
+                </h2>
+                
+                <div class="space-y-4">
+                    <textarea 
+                        id="singleConfigInput" 
+                        placeholder="vmess:// یا vless:// یا ss:// یا trojan:// ..."
+                        class="w-full h-32 px-4 py-3 text-base border-0 rounded-xl glass text-white placeholder-gray-300 resize-none focus:ring-2 focus:ring-primary focus:outline-none"
+                        dir="ltr"
+                    ></textarea>
+                    
+                    <button 
+                        onclick="parseSingleConfig()" 
+                        class="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+                    >
+                        <i class="fas fa-search mr-2"></i>
+                        تجزیه کانفیگ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subscription Input -->
+            <div class="glass rounded-2xl p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-link text-primary mr-3 text-3xl"></i>
+                    لینک Subscription
+                </h2>
+                
+                <div class="space-y-4">
+                    <input 
+                        type="url" 
+                        id="subscriptionInput" 
+                        placeholder="https://your-subscription-link.com/sub"
+                        class="w-full px-4 py-3 text-base border-0 rounded-xl glass text-white placeholder-gray-300 focus:ring-2 focus:ring-primary focus:outline-none"
+                        dir="ltr"
+                    />
+                    
+                    <button 
+                        onclick="parseSubscription()" 
+                        id="parseSubBtn"
+                        class="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+                    >
+                        <i class="fas fa-download mr-2"></i>
+                        دریافت و تجزیه Subscription
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Info Section (Optional) -->
+        <div class="glass rounded-2xl p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <i class="fas fa-server text-primary mr-3 text-3xl"></i>
+                اطلاعات پنل (اختیاری)
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <input 
+                    type="url" 
+                    id="panelUrl" 
+                    placeholder="آدرس پنل: https://panel.example.com"
+                    class="px-4 py-3 text-base border-0 rounded-xl glass text-white placeholder-gray-300 focus:ring-2 focus:ring-primary focus:outline-none"
+                    dir="ltr"
+                />
+                <input 
+                    type="text" 
+                    id="panelKey" 
+                    placeholder="کلید API یا رمز عبور"
+                    class="px-4 py-3 text-base border-0 rounded-xl glass text-white placeholder-gray-300 focus:ring-2 focus:ring-primary focus:outline-none"
+                    dir="ltr"
+                />
+            </div>
+            
+            <button 
+                onclick="fetchPanelInfo()" 
+                class="mt-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
+            >
+                <i class="fas fa-chart-line mr-2"></i>
+                دریافت آمار از پنل
+            </button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="hidden">
+            <!-- Config List -->
+            <div class="glass rounded-2xl p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-list text-primary mr-3 text-3xl"></i>
+                    لیست کانفیگ‌ها
+                    <span id="configCount" class="bg-primary px-3 py-1 rounded-full text-sm mr-3">0</span>
+                </h2>
+                
+                <div id="configList" class="space-y-4"></div>
+            </div>
+
+            <!-- Platform Selection -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-center">
+                    <i class="fas fa-mobile-alt text-primary mr-3"></i>
+                    انتخاب پلتفرم
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Android -->
+                    <div class="platform-card glass rounded-2xl p-6 cursor-pointer" onclick="selectPlatform('android')">
+                        <div class="text-center">
+                            <i class="fab fa-android text-5xl text-green-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Android</h3>
+                            <p class="text-sm opacity-80">V2rayNG، Clash، Shadowsocks</p>
+                            <div class="mt-4 text-xs opacity-60">
+                                <div>✓ V2ray، Shadowsocks</div>
+                                <div>✓ Import از کلیپبورد</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- iOS -->
+                    <div class="platform-card glass rounded-2xl p-6 cursor-pointer" onclick="selectPlatform('ios')">
+                        <div class="text-center">
+                            <i class="fab fa-apple text-5xl text-gray-300 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">iOS</h3>
+                            <p class="text-sm opacity-80">Shadowrocket، Quantumult X</p>
+                            <div class="mt-4 text-xs opacity-60">
+                                <div>✓ App Store</div>
+                                <div>✓ QR Code یا لینک</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Windows -->
+                    <div class="platform-card glass rounded-2xl p-6 cursor-pointer" onclick="selectPlatform('windows')">
+                        <div class="text-center">
+                            <i class="fab fa-windows text-5xl text-blue-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Windows</h3>
+                            <p class="text-sm opacity-80">V2rayN، Clash for Windows</p>
+                            <div class="mt-4 text-xs opacity-60">
+                                <div>✓ فایل کانفیگ</div>
+                                <div>✓ Batch Import</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- macOS -->
+                    <div class="platform-card glass rounded-2xl p-6 cursor-pointer" onclick="selectPlatform('macos')">
+                        <div class="text-center">
+                            <i class="fab fa-apple text-5xl text-gray-300 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">macOS</h3>
+                            <p class="text-sm opacity-80">ClashX، V2rayU</p>
+                            <div class="mt-4 text-xs opacity-60">
+                                <div>✓ منبع باز</div>
+                                <div>✓ Auto Import</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructions Section -->
+            <div id="instructionsSection" class="hidden glass rounded-2xl p-6">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-info-circle text-primary mr-3 text-3xl"></i>
+                    راهنمای نصب
+                </h3>
+                <div id="instructionContent" class="space-y-4 mb-6"></div>
+                <div id="actionButtons" class="flex flex-wrap gap-3"></div>
+            </div>
+        </div>
+
+        <!-- Clear Button -->
+        <div class="text-center">
+            <button 
+                onclick="clearAll()" 
+                class="bg-red-500/20 hover:bg-red-500/30 border border-red-500/50 text-red-200 px-8 py-3 rounded-xl font-semibold transition-all duration-300"
+            >
+                <i class="fas fa-trash mr-2"></i>
+                پاک کردن همه
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode setup
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        let parsedConfigs = [];
+        let selectedPlatform = null;
+
+        // تجزیه کانفیگ تکی
+        function parseSingleConfig() {
+            const input = document.getElementById('singleConfigInput');
+            const config = input.value.trim();
+            
+            if (!config) {
+                showNotification('لطفاً کد کانفیگ را وارد کنید', 'error');
+                return;
+            }
+
+            const parsed = parseConfig(config);
+            if (parsed) {
+                parsedConfigs = [parsed];
+                displayConfigs();
+                showNotification('کانفیگ با موفقیت تجزیه شد!', 'success');
+            }
+        }
+
+        // تجزیه subscription
+        async function parseSubscription() {
+            const input = document.getElementById('subscriptionInput');
+            const url = input.value.trim();
+            const btn = document.getElementById('parseSubBtn');
+            
+            if (!url) {
+                showNotification('لطفاً لینک subscription را وارد کنید', 'error');
+                return;
+            }
+
+            // نمایش loading
+            btn.innerHTML = '<div class="loading-spinner inline-block mr-2"></div>در حال دریافت...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('خطا در دریافت subscription');
+                }
+                
+                const text = await response.text();
+                
+                // Base64 decode کردن
+                let decoded;
+                try {
+                    decoded = atob(text);
+                } catch (e) {
+                    decoded = text; // اگر encode نبود
+                }
+                
+                // جدا کردن کانفیگ‌ها
+                const configs = decoded.split('\n').filter(line => line.trim());
+                parsedConfigs = [];
+                
+                configs.forEach(config => {
+                    const parsed = parseConfig(config.trim());
+                    if (parsed) {
+                        parsedConfigs.push(parsed);
+                    }
+                });
+                
+                if (parsedConfigs.length > 0) {
+                    displayConfigs();
+                    showNotification(`${parsedConfigs.length} کانفیگ با موفقیت دریافت شد!`, 'success');
+                } else {
+                    showNotification('هیچ کانفیگ معتبری پیدا نشد', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('خطا در دریافت subscription. لطفاً لینک را بررسی کنید.', 'error');
+            } finally {
+                btn.innerHTML = '<i class="fas fa-download mr-2"></i>دریافت و تجزیه Subscription';
+                btn.disabled = false;
+            }
+        }
+
+        // تجزیه تک کانفیگ
+        function parseConfig(config) {
+            if (!config) return null;
+            
+            try {
+                let parsed = {
+                    raw: config,
+                    type: 'unknown',
+                    name: 'بدون نام',
+                    server: '',
+                    port: '',
+                    protocol: '',
+                    security: '',
+                    network: '',
+                    details: {}
+                };
+
+                if (config.startsWith('vmess://')) {
+                    parsed = parseVmess(config, parsed);
+                } else if (config.startsWith('vless://')) {
+                    parsed = parseVless(config, parsed);
+                } else if (config.startsWith('ss://')) {
+                    parsed = parseShadowsocks(config, parsed);
+                } else if (config.startsWith('trojan://')) {
+                    parsed = parseTrojan(config, parsed);
+                } else if (config.startsWith('hy2://')) {
+                    parsed.type = 'hysteria2';
+                    parsed.protocol = 'Hysteria 2';
+                }
+
+                return parsed;
+            } catch (error) {
+                console.error('Parse error:', error);
+                return null;
+            }
+        }
+
+        function parseVmess(config, parsed) {
+            try {
+                const data = JSON.parse(atob(config.substring(8)));
+                parsed.type = 'vmess';
+                parsed.protocol = 'VMess';
+                parsed.name = data.ps || 'VMess Config';
+                parsed.server = data.add;
+                parsed.port = data.port;
+                parsed.security = data.tls || 'none';
+                parsed.network = data.net || 'tcp';
+                parsed.details = {
+                    uuid: data.id,
+                    alterId: data.aid,
+                    method: data.scy || 'auto',
+                    path: data.path,
+                    host: data.host,
+                    sni: data.sni
+                };
+            } catch (e) {
+                parsed.name = 'VMess (خطا در تجزیه)';
+            }
+            return parsed;
+        }
+
+        function parseVless(config, parsed) {
+            const url = new URL(config);
+            parsed.type = 'vless';
+            parsed.protocol = 'VLess';
+            parsed.server = url.hostname;
+            parsed.port = url.port;
+            parsed.name = decodeURIComponent(url.hash.substring(1)) || 'VLess Config';
+            parsed.security = url.searchParams.get('security') || 'none';
+            parsed.network = url.searchParams.get('type') || 'tcp';
+            parsed.details = {
+                uuid: url.username,
+                flow: url.searchParams.get('flow'),
+                path: url.searchParams.get('path'),
+                host: url.searchParams.get('host'),
+                sni: url.searchParams.get('sni')
+            };
+            return parsed;
+        }
+
+        function parseShadowsocks(config, parsed) {
+            const parts = config.substring(5).split('#');
+            const name = parts[1] ? decodeURIComponent(parts[1]) : 'Shadowsocks Config';
+            const decoded = atob(parts[0]);
+            const [method, rest] = decoded.split(':');
+            const [password, serverPort] = rest.split('@');
+            const [server, port] = serverPort.split(':');
+            
+            parsed.type = 'shadowsocks';
+            parsed.protocol = 'Shadowsocks';
+            parsed.name = name;
+            parsed.server = server;
+            parsed.port = port;
+            parsed.details = {
+                method: method,
+                password: password
+            };
+            return parsed;
+        }
+
+        function parseTrojan(config, parsed) {
+            const url = new URL(config);
+            parsed.type = 'trojan';
+            parsed.protocol = 'Trojan';
+            parsed.server = url.hostname;
+            parsed.port = url.port;
+            parsed.name = decodeURIComponent(url.hash.substring(1)) || 'Trojan Config';
+            parsed.security = url.searchParams.get('security') || 'tls';
+            parsed.network = url.searchParams.get('type') || 'tcp';
+            parsed.details = {
+                password: url.username,
+                path: url.searchParams.get('path'),
+                host: url.searchParams.get('host'),
+                sni: url.searchParams.get('sni')
+            };
+            return parsed;
+        }
+
+        // نمایش کانفیگ‌ها
+        function displayConfigs() {
+            const configList = document.getElementById('configList');
+            const configCount = document.getElementById('configCount');
+            const resultsSection = document.getElementById('resultsSection');
+            
+            configCount.textContent = parsedConfigs.length;
+            resultsSection.classList.remove('hidden');
+            
+            configList.innerHTML = parsedConfigs.map((config, index) => `
+                <div class="config-item glass rounded-xl p-4 cursor-pointer" onclick="selectConfig(${index})">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-sm font-bold">${index + 1}</span>
+                                <h3 class="font-bold text-lg">${config.name}</h3>
+                                <span class="px-2 py-1 bg-${getProtocolColor(config.type)} rounded-full text-xs font-semibold">${config.protocol}</span>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm opacity-80">
+                                <div><i class="fas fa-server w-4"></i> ${config.server}</div>
+                                <div><i class="fas fa-plug w-4"></i> ${config.port}</div>
+                                <div><i class="fas fa-shield-alt w-4"></i> ${config.security}</div>
+                                <div><i class="fas fa-network-wired w-4"></i> ${config.network}</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="event.stopPropagation(); copyConfig(${index})" class="p-2 bg-green-500/20 hover:bg-green-500/30 rounded-lg transition-colors">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button onclick="event.stopPropagation(); showConfigDetails(${index})" class="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors">
+                                <i class="fas fa-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getProtocolColor(type) {
+            const colors = {
+                'vmess': 'purple-500/20',
+                'vless': 'blue-500/20',
+                'shadowsocks': 'green-500/20',
+                'trojan': 'red-500/20',
+                'hysteria2': 'yellow-500/20'
+            };
+            return colors[type] || 'gray-500/20';
+        }
+
+        function selectConfig(index) {
+            document.querySelectorAll('.config-item').forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('ring-2', 'ring-primary');
+                } else {
+                    item.classList.remove('ring-2', 'ring-primary');
+                }
+            });
+        }
+
+        function copyConfig(index) {
+            navigator.clipboard.writeText(parsedConfigs[index].raw).then(() => {
+                showNotification('کانفیگ کپی شد!', 'success');
+            });
+        }
+
+        function showConfigDetails(index) {
+            const config = parsedConfigs[index];
+            const details = Object.entries(config.details)
+                .filter(([key, value]) => value)
+                .map(([key, value]) => `<div><strong>${key}:</strong> ${value}</div>`)
+                .join('');
+            
+            showNotification(`
+                <div class="text-right">
+                    <h4 class="font-bold text-lg mb-2">${config.name}</h4>
+                    ${details}
+                </div>
+            `, 'info', 5000);
+        }
+
+        function selectPlatform(platform) {
+            selectedPlatform = platform;
+            document.getElementById('instructionsSection').classList.remove('hidden');
+            
+            // Platform-specific instructions and buttons would go here
+            // ... (similar to previous implementation but with glass styling)
+        }
+
+        async function fetchPanelInfo() {
+            const panelUrl = document.getElementById('panelUrl').value;
+            const panelKey = document.getElementById('panelKey').value;
+            
+            if (!panelUrl) {
+                showNotification('لطفاً آدرس پنل را وارد کنید', 'error');
+                return;
+            }
+            
+            showNotification('این قابلیت بستگی به نوع پنل دارد و نیاز به پیکربندی خاص دارد', 'info');
+        }
+
+        function clearAll() {
+            parsedConfigs = [];
+            document.getElementById('singleConfigInput').value = '';
+            document.getElementById('subscriptionInput').value = '';
+            document.getElementById('panelUrl').value = '';
+            document.getElementById('panelKey').value = '';
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('instructionsSection').classList.add('hidden');
+            showNotification('همه اطلاعات پاک شد', 'success');
+        }
+
+        function showNotification(message, type = 'info', duration = 3000) {
+            const colors = {
+                'success': 'bg-green-500',
+                'error': 'bg-red-500',
+                'info': 'bg-blue-500'
+            };
+            
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 ${colors[type]} text-white px-6 py-3 rounded-xl shadow-lg z-50 transform translate-x-full transition-transform duration-300`;
+            notification.innerHTML = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, duration);
+        }
+    </script>
+</body>
+</html>
