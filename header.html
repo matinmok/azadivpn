@@ -1,95 +1,46 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Vazirmatn', sans-serif; }
-        .nav-divider {
-            color: #6b7280;
-            font-size: 1rem;
-            font-weight: 300;
-        }
-    </style>
-</head>
-<body>
-    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
-        <nav class="container mx-auto px-4 flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
-                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
-                </a>
-            </div>
-            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
-                <li><a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
-                <li><span class="nav-divider">|</span></li>
-                <li><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
-                <li><span class="nav-divider">|</span></li>
-                <li><a href="#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
-                <li><span class="nav-divider">|</span></li>
-                <li><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">نظرات کاربران</a></li>
-                <li><span class="nav-divider">|</span></li>
-                <li><a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
-                <li><span class="nav-divider">|</span></li>
-                <li><a href="./article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
-                <li><span class="nav-divider">|</span></li>
-                <li><a href="#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">همکاری</a></li>
-                <li>
-                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">تماس با ما</a>
-                </li>
-            </ul>
-            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
-                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
-                </svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
-            <ul class="px-4 py-2 space-y-2">
-                <li><a href="https://matinmok.github.io/azadivpn/" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
-                <li><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
-                <li><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
-                <li><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">نظرات کاربران</a></li>
-                <li><a href="#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
-                <li><a href="./article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
-                <li><a href="#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">همکاری</a></li>
-                <li>
-                    <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">تماس با ما</a>
-                </li>
-            </ul>
+<header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+    <nav class="container mx-auto px-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+            </a>
         </div>
-    </header>
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight || 80;
-                    window.scrollTo({
-                        top: targetElement.offsetTop - headerHeight - 20, // Added 20px extra padding
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+            <li><a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
+            <li><span class="nav-divider">|</span></li>
+            <li><a href="/#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
+            <li><span class="nav-divider">|</span></li>
+            <li><a href="/#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+            <li><span class="nav-divider">|</span></li>
+            <li><a href="/#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">نظرات کاربران</a></li>
+            <li><span class="nav-divider">|</span></li>
+            <li><a href="/#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
+            <li><span class="nav-divider">|</span></li>
+            <li><a href="./article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+            <li><span class="nav-divider">|</span></li>
+            <li><a href="/#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">همکاری</a></li>
+            <li>
+                <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">تماس با ما</a>
+            </li>
+        </ul>
+        <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+            </svg>
+        </button>
+    </nav>
+    <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+        <ul class="px-4 py-2 space-y-2">
+            <li><a href="https://matinmok.github.io/azadivpn/" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
+            <li><a href="/#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
+            <li><a href="/#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+            <li><a href="/#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">نظرات کاربران</a></li>
+            <li><a href="/#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+            <li><a href="./article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+            <li><a href="/#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">همکاری</a></li>
+            <li>
+                <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">تماس با ما</a>
+            </li>
+        </ul>
+    </div>
+</header>
