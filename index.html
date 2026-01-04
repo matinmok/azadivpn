@@ -111,6 +111,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
         }
 
         body {
@@ -405,7 +406,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
+            padding: 180px 0 100px;
             text-align: center;
             position: relative;
         }
@@ -462,6 +463,40 @@
             margin: 0 auto 40px;
             line-height: 1.9;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        /* محتوای SEO بهبود یافته */
+        .seo-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: right;
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="light"] .seo-content {
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .seo-content h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .seo-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .seo-content strong {
+            color: var(--primary);
         }
 
         .hero-buttons {
@@ -529,6 +564,18 @@
             animation: fadeInUp 0.8s ease-out 0.8s backwards;
         }
 
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .stat-item {
             text-align: center;
             padding: 24px;
@@ -561,7 +608,8 @@
 
         /* Sections */
         .section {
-            padding: 100px 0;
+            padding: 120px 0 100px;
+            scroll-margin-top: 100px;
         }
 
         .section-header {
@@ -607,6 +655,18 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .pricing-card {
@@ -882,6 +942,18 @@
             gap: 24px;
         }
 
+        @media (max-width: 1024px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .review-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -947,24 +1019,63 @@
             line-height: 1.8;
         }
 
+        /* بخش نظر شما - بهبود یافته */
         .review-cta {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             text-align: center;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: ctaGlow 10s linear infinite;
         }
 
         .review-cta .review-avatar {
             background: rgba(255, 255, 255, 0.2);
             margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-cta .review-name {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         .review-cta .review-text {
             color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
 
         .review-cta .btn {
-            margin-top: 20px;
+            margin-top: 10px;
             background: white;
             color: var(--primary);
+            position: relative;
+            z-index: 1;
+            padding: 14px 28px;
+            font-weight: 700;
+        }
+
+        .review-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* FAQ */
@@ -1115,6 +1226,18 @@
             gap: 24px;
         }
 
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .article-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -1190,6 +1313,12 @@
         [data-theme="light"] .partnership-section {
             background: rgba(255, 255, 255, 0.95) !important;
             border: 1px solid rgba(59, 130, 246, 0.15) !important;
+        }
+
+        @media (max-width: 768px) {
+            .partnership-section {
+                padding: 40px 20px;
+            }
         }
 
         .partnership-table {
@@ -1320,6 +1449,13 @@
             border: 1px solid rgba(59, 130, 246, 0.2) !important;
         }
 
+        @media (max-width: 480px) {
+            .popup {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+        }
+
         @keyframes popupIn {
             from { opacity: 0; transform: scale(0.9) translateY(20px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
@@ -1338,6 +1474,20 @@
             font-size: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        @media (max-width: 480px) {
+            .popup-close {
+                top: 15px;
+                left: 15px;
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
         }
 
         .popup-close:hover {
@@ -1351,12 +1501,28 @@
             margin-bottom: 24px;
             text-align: center;
             color: var(--text-primary);
+            padding: 0 20px;
+        }
+
+        @media (max-width: 480px) {
+            .popup h3 {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
         }
 
         .popup-buttons {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 480px) {
+            .popup-buttons {
+                padding: 0 5px;
+            }
         }
 
         .popup-btn {
@@ -1371,6 +1537,13 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
+        }
+
+        @media (max-width: 480px) {
+            .popup-btn {
+                padding: 16px;
+                font-size: 1rem;
+            }
         }
 
         .popup-btn.telegram {
@@ -1403,6 +1576,12 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin-top: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .plan-item {
@@ -1451,12 +1630,24 @@
             width: 100%;
         }
 
-        /* Footer */
+        /* Footer - کاملاً بهبود یافته */
         .footer {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 60px 0 30px;
-            margin-top: 60px;
+            padding: 80px 0 30px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         [data-theme="light"] .footer {
@@ -1468,38 +1659,121 @@
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
         }
 
         .footer-brand .logo {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: inline-flex;
+        }
+
+        @media (max-width: 768px) {
+            .footer-brand .logo {
+                justify-content: center;
+            }
         }
 
         .footer-brand p {
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-brand p {
+                max-width: 100%;
+                margin: 0 auto 25px;
+            }
+        }
+
+        .footer-contact {
+            margin-top: 20px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            width: 20px;
         }
 
         .footer-links h4 {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--text-primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .footer-links h4::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
         }
 
         .footer-links a {
             display: block;
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 8px 0;
+            padding: 10px 0;
             font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-right: 0;
+        }
+
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            right: 0;
+            opacity: 0;
             transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
             color: var(--primary);
-            padding-right: 8px;
+            padding-right: 20px;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            right: -15px;
         }
 
         .footer-bottom {
@@ -1512,6 +1786,14 @@
             gap: 20px;
         }
 
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+        }
+
         [data-theme="light"] .footer-bottom {
             border-top: 1px solid rgba(59, 130, 246, 0.1) !important;
         }
@@ -1519,6 +1801,11 @@
         .footer-bottom p {
             color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+
+        .footer-bottom .copyright {
+            font-size: 0.85rem;
+            opacity: 0.8;
         }
 
         .social-links {
@@ -1558,39 +1845,15 @@
             .mobile-menu-btn {
                 display: block;
             }
-
-            .pricing-grid,
-            .reviews-grid,
-            .articles-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 140px 0 80px;
+                padding: 150px 0 80px;
             }
 
-            .pricing-grid,
-            .reviews-grid,
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .plans-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partnership-section {
-                padding: 40px 20px;
+            .section {
+                padding: 100px 0 80px;
             }
 
             .partnership-table {
@@ -1602,22 +1865,6 @@
                 padding: 40px 24px;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
             .hero-buttons {
                 flex-direction: column;
             }
@@ -1626,9 +1873,24 @@
                 width: 100%;
                 justify-content: center;
             }
+        }
+
+        /* بهبودهای عمومی برای موبایل */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
 
             .popup {
-                padding: 24px;
+                padding: 25px 15px;
+            }
+
+            .cta-box h3 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -1689,7 +1951,6 @@
         </div>
     </header>
 
-    <!-- بقیه کدهای سایت دقیقاً مانند قبل -->
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
@@ -1708,6 +1969,17 @@
                 سرورهای پرسرعت <strong>V2Ray</strong> با <strong>آی‌پی ثابت</strong>،
                 مناسب ترید، استریم و وب‌گردی امن. پشتیبانی ۲۴ ساعته و گارانتی برگشت وجه.
             </p>
+
+            <!-- محتوای SEO بهبود یافته -->
+            <div class="seo-content">
+                <h2><i class="fas fa-search"></i> خرید فیلترشکن قوی - بهترین انتخاب برای دسترسی آزاد به اینترنت</h2>
+                <p><strong>آزادی VPN</strong> ارائه‌دهنده برتر <strong>فیلترشکن قوی و پرسرعت</strong> در ایران است. با سرویس‌های پیشرفته V2Ray و سرورهای پرسرعت در ۵+ کشور مختلف، تجربه‌ای بی‌نظیر از وب‌گردی امن و بدون محدودیت را برای شما فراهم می‌کنیم.</p>
+                <p>✅ <strong>فیلترشکن قوی</strong> با پروتکل V2Ray - مناسب برای ترید، استریم و دانلود</p>
+                <p>✅ <strong>سرعت بالا و پایداری</strong> - بدون افت سرعت و قطعی اتصال</p>
+                <p>✅ <strong>آی‌پی ثابت</strong> - مناسب فعالیت‌های حرفه‌ای و کسب‌وکار</p>
+                <p>✅ <strong>پشتیبانی ۲۴ ساعته</strong> - پاسخگویی سریع از طریق تلگرام و واتساپ</p>
+                <p>✅ <strong>گارانتی برگشت وجه</strong> - در صورت عدم رضایت تا ۷ روز</p>
+            </div>
 
             <div class="hero-buttons">
                 <a href="#products" class="btn btn-primary">
@@ -1750,7 +2022,7 @@
                     تعرفه‌ها
                 </div>
                 <h2 class="section-title">پلن‌های فیلترشکن آزادی VPN</h2>
-                <p class="section-subtitle">با خرید فیلترشکن قوی از آزادی VPN، به اینترنت بدون محدودیت دسترسی پیدا کنید</p>
+                <p class="section-subtitle">با <strong>خرید فیلترشکن قوی</strong> از آزادی VPN، به اینترنت بدون محدودیت دسترسی پیدا کنید</p>
             </div>
 
             <div class="pricing-grid">
@@ -2006,21 +2278,23 @@
                     <p class="review-text">خدمات عالی و بدون افت اتصال ممنون از تیم آزادی وی‌پی‌ان.</p>
                 </article>
 
+                <!-- بخش نظر شما - بهبود یافته -->
                 <article class="review-card review-cta">
                     <div class="review-avatar">
-                        <i class="fas fa-plus"></i>
+                        <i class="fas fa-comment-dots"></i>
                     </div>
-                    <div class="review-name" style="text-align: center; margin-bottom: 8px;">نظر شما</div>
-                    <p class="review-text">تجربه خود از آزادی وی‌پی‌ان را با ما به اشتراک بگذارید!</p>
+                    <div class="review-name" style="text-align: center; margin-bottom: 8px;">نظر شما مهم است!</div>
+                    <p class="review-text">تجربه خود از <strong>فیلترشکن قوی</strong> آزادی VPN را با ما و دیگر کاربران به اشتراک بگذارید. نظرات شما به بهبود خدمات کمک می‌کند!</p>
                     <a href="https://t.me/vpnbrandicobot?start=cmd_401240149" target="_blank" rel="noopener noreferrer" class="btn">
                         <i class="fas fa-paper-plane"></i>
-                        ارسال نظر
+                        ارسال نظر و تجربه
                     </a>
                 </article>
             </div>
         </div>
     </section>
 
+    <!-- بقیه بخش‌های سایت بدون تغییر -->
     <!-- FAQ Section -->
     <section id="faq" class="section">
         <div class="container">
@@ -2030,7 +2304,7 @@
                     سوالات
                 </div>
                 <h2 class="section-title">سوالات متداول درباره فیلترشکن</h2>
-                <p class="section-subtitle">پاسخ سوالات رایج درباره خرید فیلترشکن و استفاده از آزادی VPN</p>
+                <p class="section-subtitle">پاسخ سوالات رایج درباره <strong>خرید فیلترشکن قوی</strong> و استفاده از آزادی VPN</p>
             </div>
 
             <div class="faq-container">
@@ -2096,7 +2370,7 @@
                     مقالات
                 </div>
                 <h2 class="section-title">مقالات آموزشی فیلترشکن</h2>
-                <p class="section-subtitle">آموزش‌های کاربردی درباره نصب و استفاده از فیلترشکن</p>
+                <p class="section-subtitle">آموزش‌های کاربردی درباره نصب و استفاده از <strong>فیلترشکن قوی</strong></p>
             </div>
 
             <div class="articles-grid">
@@ -2105,7 +2379,7 @@
                         <i class="fas fa-shopping-bag"></i>
                     </div>
                     <h3 class="article-title">خرید فیلترشکن صفر تا صد از انتخاب تا خرید</h3>
-                    <p class="article-desc">در این مقاله، همه چیز درباره خرید فیلترشکن امن و پرسرعت از آزادی VPN را بررسی می‌کنیم.</p>
+                    <p class="article-desc">در این مقاله، همه چیز درباره <strong>خرید فیلترشکن امن و پرسرعت</strong> از آزادی VPN را بررسی می‌کنیم.</p>
                     <a href="./article1.html" class="article-link">
                         خواندن مقاله
                         <i class="fas fa-arrow-left"></i>
@@ -2129,7 +2403,7 @@
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3 class="article-title">چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
-                    <p class="article-desc">بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان.</p>
+                    <p class="article-desc">بررسی امنیت، سرعت و مزایای <strong>فیلترشکن‌های پولی</strong> در مقایسه با نسخه‌های رایگان.</p>
                     <a href="./article3.html" class="article-link">
                         خواندن مقاله
                         <i class="fas fa-arrow-left"></i>
@@ -2303,7 +2577,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer - کاملاً بهبود یافته -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -2317,9 +2591,14 @@
                         </div>
                     </a>
                     <p>
-                        آزادی VPN ارائه‌دهنده فیلترشکن قوی و پرسرعت با پشتیبانی ۲۴ ساعته.
+                        <strong>آزادی VPN</strong> ارائه‌دهنده <strong>فیلترشکن قوی و پرسرعت</strong> با پشتیبانی ۲۴ ساعته.
                         سرورهای V2Ray در ۵+ کشور با آی‌پی ثابت مناسب ترید و استریم.
                     </p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> ۰۹۲۲۷۳۳۴۶۰۱</p>
+                        <p><i class="fas fa-envelope"></i> info@azadivpn.com</p>
+                        <p><i class="fas fa-clock"></i> پشتیبانی ۲۴/۷</p>
+                    </div>
                 </div>
 
                 <div class="footer-links">
@@ -2328,6 +2607,7 @@
                     <a href="#servers">وضعیت سرورها</a>
                     <a href="#reviews">نظرات کاربران</a>
                     <a href="#faq">سوالات متداول</a>
+                    <a href="#home">صفحه نخست</a>
                 </div>
 
                 <div class="footer-links">
@@ -2343,17 +2623,21 @@
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer">واتساپ</a>
                     <a href="https://t.me/vpnbrandicobot" target="_blank" rel="noopener noreferrer">تلگرام</a>
                     <a href="https://matinmok.github.io/azadivpn/Rules.html">قوانین استفاده</a>
+                    <a href="https://matinmok.github.io/azadivpn/privacy.html">حریم خصوصی</a>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© ۱۴۰۴ آزادی VPN. تمامی حقوق محفوظ است.</p>
+                <p class="copyright">© ۱۴۰۴ <strong>آزادی VPN</strong>. تمامی حقوق محفوظ است.</p>
                 <div class="social-links">
                     <a href="https://t.me/vpnbrandicobot" target="_blank" rel="noopener noreferrer" aria-label="تلگرام آزادی VPN">
                         <i class="fab fa-telegram-plane"></i>
                     </a>
                     <a href="https://wa.me/09227334601" target="_blank" rel="noopener noreferrer" aria-label="واتساپ آزادی VPN">
                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام آزادی VPN">
+                        <i class="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>
@@ -2548,6 +2832,9 @@
             
             html.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
+            
+            // تنظیم scroll padding برای هدر
+            document.documentElement.style.scrollPaddingTop = '100px';
         });
 
         // Particles Animation
@@ -2602,22 +2889,26 @@
             if (popup && telegramButton) {
                 telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
                 popup.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
         }
 
         function closePurchasePopup() {
             const popup = document.getElementById('purchase-popup');
             if (popup) popup.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         function openPlansPopup() {
             const popup = document.getElementById('plans-popup');
             if (popup) popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closePlansPopup() {
             const popup = document.getElementById('plans-popup');
             if (popup) popup.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         // Close popups on escape key
@@ -2638,30 +2929,30 @@
             });
         });
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-item details').forEach((detail) => {
-            detail.addEventListener('toggle', () => {
-                if (detail.open) {
-                    document.querySelectorAll('.faq-item details').forEach((otherDetail) => {
-                        if (otherDetail !== detail && otherDetail.open) {
-                            otherDetail.open = false;
-                        }
-                    });
-                }
-            });
-        });
-
-        // Smooth Scroll
+        // Smooth Scroll با offset برای هدر
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                if (href === '#') return;
+                
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                const targetElement = document.querySelector(href);
                 if (targetElement) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // بستن منوی موبایل اگر باز است
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    }
                 }
             });
         });
