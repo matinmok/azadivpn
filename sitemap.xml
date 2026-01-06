@@ -1,75 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc>http://azinomi.shop/./article.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/./article1.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/./article2.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/./article3.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html#products</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html#servers</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html#reviews</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html#faq</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html#partnership</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article1.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article2.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article3.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article4.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article5.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article6.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/index.html#home</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
-<url>
-  <loc>http://azinomi.shop/article.html</loc>
-  <lastmod>2025-05-21</lastmod>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://github.com/matinmok/azadivpn/blob/main/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main pages -->
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/404.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article1.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article2.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article3.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article4.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article5.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article6.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article7.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article8.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article9.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Utility & additional pages -->
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/chat.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/competitor-result.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/dashboard.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/meta-result.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/report-result.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/seo.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- Markdown / blog (if intended to be published as HTML) -->
+  <url><loc>https://github.com/matinmok/azadivpn/blob/main/blog/2025-05-20-first-post.md</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+
 </urlset>
