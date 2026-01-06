@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مجموعه مقالات آزادی وی‌پی‌ان درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان، و راهنمای استفاده از V2Ray برای دسترسی به اینترنت آزاد.">
-    <meta name="keywords" content="خرید فیلترشکن قوی, فیلترشکن امن, وی‌پی‌ان, آزادی وی‌پی‌ان, اینترنت آزاد, V2Ray, راهنمای فیلترشکن">
+    <meta name="description" content="مجموعه مقالات تخصصی آزادی وی‌پی‌ان درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان، راهنمای استفاده از V2Ray و بهترین VPN های پولی برای دسترسی به اینترنت آزاد.">
+    <meta name="keywords" content="خرید فیلترشکن قوی, فیلترشکن امن, وی‌پی‌ان, آزادی وی‌پی‌ان, اینترنت آزاد, V2Ray, راهنمای فیلترشکن, خرید VPN پولی, فیلترشکن ویندوز, v2box آیفون">
     <meta name="robots" content="index, follow">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="مقالات آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی">
-    <meta name="twitter:description" content="مقالات آموزشی و کاربردی درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از پروتکل V2Ray در آزادی وی‌پی‌ان.">
-    <meta property="og:title" content="مقالات آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی">
-    <meta property="og:description" content="مقالات آموزشی و کاربردی درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از پروتکل V2Ray در آزادی وی‌پی‌ان.">
+    <meta name="twitter:title" content="مقالات تخصصی آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی">
+    <meta name="twitter:description" content="مقالات آموزشی و کاربردی درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان، استفاده از پروتکل V2Ray و بهترین VPN های پولی در آزادی وی‌پی‌ان.">
+    <meta property="og:title" content="مقالات تخصصی آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی">
+    <meta property="og:description" content="مقالات آموزشی و کاربردی درباره خرید فیلترشکن قوی، امنیت وی‌پی‌ان، استفاده از پروتکل V2Ray و بهترین VPN های پولی در آزادی وی‌پی‌ان.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matinmok.github.io/azadivpn/article.html">
     <link rel="canonical" href="https://matinmok.github.io/azadivpn/article.html">
-    <title>مقالات آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی</title>
+    <title>مقالات تخصصی آزادی وی‌پی‌ان | راهنمای خرید فیلترشکن قوی</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Vazirmatn', sans-serif; }
@@ -25,68 +26,313 @@
             font-size: 1rem;
             font-weight: 300;
         }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(-30%, 30%);
+        }
+        
+        /* Articles Grid */
         .articles-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
             max-width: 1280px;
             margin: 0 auto;
         }
+        
+        /* Article Card */
         .article-card {
             background: #ffffff;
             border-radius: 0.75rem;
-            padding: 1.5rem;
-            text-align: right;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            border-color: #3b82f6;
         }
+        
+        .article-card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .article-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
         .article-card h3 {
             color: #1e3a8a;
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
+            line-height: 1.4;
         }
+        
         .article-card p {
-            color: #374151;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
         }
-        .article-card a {
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 1rem;
+        }
+        
+        .article-category {
             display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: #3b82f6;
             color: white;
             font-weight: 600;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 9999px;
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: fit-content;
+            margin-top: auto;
         }
-        .article-card a:hover {
+        .read-more-btn:hover {
             background: #1d4ed8;
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
+        .read-more-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Featured Article */
+        .featured-article {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .featured-article {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #f59e0b;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            z-index: 10;
+        }
+        
+        /* Categories Filter */
+        .categories-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+        .category-btn {
+            padding: 0.5rem 1.25rem;
+            background: #f3f4f6;
+            color: #4b5563;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        /* Search Box */
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            padding-left: 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 9999px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        .search-box i {
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 1rem;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: #4b5563;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 1rem;
+            margin: 4rem 0;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: #1e3a8a;
+            font-weight: 700;
+            padding: 0.875rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.125rem;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             .articles-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            .article-card {
-                padding: 1rem;
+            .hero-section h1 {
+                font-size: 2rem;
             }
-            .article-card h3 {
-                font-size: 1.125rem;
+            .hero-section p {
+                font-size: 1rem;
             }
-            .article-card p {
-                font-size: 0.9rem;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
+    <!-- Header remains exactly the same -->
     <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
         <nav class="container mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center">
@@ -133,43 +379,257 @@
             </ul>
         </div>
     </header>
-    <section id="articles" class="py-16 bg-gray-100 mt-16">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center animate-fadeInUp">
+                <h1 class="text-4xl font-bold mb-4">دانشگاه وی‌پی‌ان: راهنمای کامل اینترنت آزاد</h1>
+                <p class="text-xl opacity-90 mb-8">مجموعه مقالات تخصصی برای خرید بهترین فیلترشکن، افزایش امنیت آنلاین و دور زدن فیلترینگ با جدیدترین تکنولوژی‌ها</p>
+                <a href="#articles" class="inline-flex items-center bg-white text-blue-600 font-bold py-3 px-6 rounded-full hover:bg-blue-50 transition duration-300">
+                    <i class="fas fa-book-open ml-2"></i>
+                    شروع مطالعه مقالات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">مقالات خرید فیلترشکن</h2>
-            <div class="articles-grid">
-                <div class="article-card">
-                    <h3>خرید فیلترشکن صفر تا صد</h3>
-                    <p>در این مقاله، همه چیز درباره خرید فیلترشکن امن و پرسرعت از آزادی وی‌پی‌ان، از مزایا تا روش‌های خرید را بررسی می‌کنیم.</p>
-                    <a href="article1.html" class="inline-block">خواندن مقاله</a>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                <div class="stat-item">
+                    <div class="stat-number">۲۴+</div>
+                    <div class="stat-label">مقاله تخصصی</div>
                 </div>
-                <div class="article-card">
-                    <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
-                    <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p>
-                    <a href="article2.html" class="inline-block">خواندن مقاله</a>
+                <div class="stat-item">
+                    <div class="stat-number">۱۵,۰۰۰+</div>
+                    <div class="stat-label">خواننده ماهانه</div>
                 </div>
-                <div class="article-card">
-                    <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
-                    <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب آزادی وی‌پی‌ان.</p>
-                    <a href="article3.html" class="inline-block">خواندن مقاله</a>
+                <div class="stat-item">
+                    <div class="stat-number">۹۸٪</div>
+                    <div class="stat-label">رضایت کاربران</div>
                 </div>
-                <div class="article-card">
-                    <h3>راهنمای استفاده از پروتکل V2Ray</h3>
-                    <p>آموزش کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با سرعت بالا و امنیت تضمین‌شده.</p>
-                    <a href="article4.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
-                    <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
-                    <a href="article5.html" class="inline-block">خواندن مقاله</a>
-                </div>
-                <div class="article-card">
-                    <h3>مزایای خرید فیلترشکن با ترافیک نامحدود</h3>
-                    <p>چرا فیلترشکن‌های با ترافیک نامحدود آزادی وی‌پی‌ان بهترین انتخاب برای کاربران حرفه‌ای هستند؟</p>
-                    <a href="article6.html" class="inline-block">خواندن مقاله</a>
+                <div class="stat-item">
+                    <div class="stat-number">۶+</div>
+                    <div class="stat-label">دسته‌بندی موضوعی</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Search & Filter -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <!-- Search Box -->
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="جستجوی مقاله مورد نظر...">
+            </div>
+            
+            <!-- Categories Filter -->
+            <div class="categories-filter">
+                <button class="category-btn active" data-category="all">همه مقالات</button>
+                <button class="category-btn" data-category="buy-guide">راهنمای خرید</button>
+                <button class="category-btn" data-category="security">امنیت و حریم خصوصی</button>
+                <button class="category-btn" data-category="tutorial">آموزش و راهنمایی</button>
+                <button class="category-btn" data-category="comparison">مقایسه و بررسی</button>
+                <button class="category-btn" data-category="news">اخبار و تکنولوژی</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section id="articles" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">آخرین مقالات</h2>
+            
+            <div class="articles-grid">
+                <!-- Featured Article -->
+                <div class="article-card featured-article animate-fadeInUp" data-category="buy-guide">
+                    <div class="relative">
+                        <span class="featured-badge">مقاله ویژه</span>
+                        <img src="https://matinmok.github.io/azadivpn/images/azadi-vpn-logo.jpg" alt="خرید فیلترشکن صفر تا صد" class="article-card-img">
+                    </div>
+                    <div class="article-card-content">
+                        <span class="article-category">راهنمای خرید</span>
+                        <h3>خرید فیلترشکن صفر تا صد با آزادی وی‌پی‌ان</h3>
+                        <p>راهنمای کامل خرید فیلترشکن صفر تا صد با آزادی وی‌پی‌ان. بررسی مزایا، روش‌های خرید، نکات انتخاب VPN امن و مقایسه با VPNهای رایگان برای دسترسی به اینترنت آزاد.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۲۰ اردیبهشت ۱۴۰۴</span>
+                            <span><i class="far fa-clock ml-1"></i> ۸ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article1.html" class="read-more-btn">
+                            <i class="fas fa-book-reader"></i>
+                            خواندن مقاله کامل
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 1: خرید فیلترشکن ویندوز -->
+                <div class="article-card animate-fadeInUp" data-category="buy-guide" data-delay="100">
+                    <img src="https://matinmok.github.io/azadivpn/images/windows-vpn-guide.jpg" alt="خرید فیلترشکن ویندوز" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">راهنمای خرید</span>
+                        <h3>خرید فیلترشکن ویندوز + نکات طلایی انتخاب بهترین VPN</h3>
+                        <p>راهنمای کامل خرید فیلترشکن ویندوز ۱۰ و ۱۱. بررسی بهترین VPN های ویندوز، آموزش نصب و تنظیم، بهینه‌سازی سرعت و امنیت کامل برای کاربران ویندوز.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۲۱ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۱۰ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article-windows-vpn.html" class="read-more-btn">
+                            <i class="fas fa-laptop"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 2: خرید فیلترشکن v2box آیفون -->
+                <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="200">
+                    <img src="https://matinmok.github.io/azadivpn/images/v2box-iphone-guide.jpg" alt="خرید فیلترشکن v2box آیفون" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">آموزش و راهنمایی</span>
+                        <h3>خرید فیلترشکن v2box آیفون + آموزش کامل نصب و راه‌اندازی</h3>
+                        <p>راهنمای جامع خرید و نصب v2box روی آیفون. آموزش قدم به قدم تنظیمات، بهینه‌سازی سرعت و رفع مشکلات رایج برای کاربران iOS.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۲۲ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۱۲ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article-v2box-iphone.html" class="read-more-btn">
+                            <i class="fas fa-mobile-alt"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Article 3: بهترین فیلترشکن پولی -->
+                <div class="article-card animate-fadeInUp" data-category="comparison" data-delay="300">
+                    <img src="https://matinmok.github.io/azadivpn/images/best-paid-vpn-guide.jpg" alt="بهترین فیلترشکن پولی" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">مقایسه و بررسی</span>
+                        <h3>بهترین فیلترشکن پولی ۱۴۰۴ | راهنمای انتخاب VPN پولی با کیفیت</h3>
+                        <p>مقایسه کامل بهترین VPN های پولی بازار ایران. بررسی سرعت، امنیت، قیمت و ویژگی‌های هر سرویس برای انتخاب هوشمندانه.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۲۳ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۱۵ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article-best-paid-vpn.html" class="read-more-btn">
+                            <i class="fas fa-star"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Original Articles (kept for reference) -->
+                <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="400">
+                    <img src="https://matinmok.github.io/azadivpn/images/apps-download.jpg" alt="دانلود اپ‌های فیلترشکن" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">آموزش و راهنمایی</span>
+                        <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
+                        <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۱۵ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۶ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article2.html" class="read-more-btn">
+                            <i class="fas fa-download"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="article-card animate-fadeInUp" data-category="security" data-delay="500">
+                    <img src="https://matinmok.github.io/azadivpn/images/paid-vpn-security.jpg" alt="فیلترشکن پولی" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">امنیت و حریم خصوصی</span>
+                        <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
+                        <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب آزادی وی‌پی‌ان.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۱۰ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۷ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article3.html" class="read-more-btn">
+                            <i class="fas fa-shield-alt"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="600">
+                    <img src="https://matinmok.github.io/azadivpn/images/v2ray-guide.jpg" alt="پروتکل V2Ray" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">آموزش و راهنمایی</span>
+                        <h3>راهنمای استفاده از پروتکل V2Ray</h3>
+                        <p>آموزش کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با سرعت بالا و امنیت تضمین‌شده.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۵ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۹ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article4.html" class="read-more-btn">
+                            <i class="fas fa-code"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="700">
+                    <img src="https://matinmok.github.io/azadivpn/images/server-selection.jpg" alt="انتخاب سرور VPN" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">آموزش و راهنمایی</span>
+                        <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
+                        <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۱ دی ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۵ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article5.html" class="read-more-btn">
+                            <i class="fas fa-server"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="article-card animate-fadeInUp" data-category="news" data-delay="800">
+                    <img src="https://matinmok.github.io/azadivpn/images/unlimited-vpn.jpg" alt="ترافیک نامحدود" class="article-card-img">
+                    <div class="article-card-content">
+                        <span class="article-category">اخبار و تکنولوژی</span>
+                        <h3>مزایای خرید فیلترشکن با ترافیک نامحدود</h3>
+                        <p>چرا فیلترشکن‌های با ترافیک نامحدود آزادی وی‌پی‌ان بهترین انتخاب برای کاربران حرفه‌ای هستند؟</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar ml-1"></i> ۲۵ آذر ۱۴۰۳</span>
+                            <span><i class="far fa-clock ml-1"></i> ۶ دقیقه مطالعه</span>
+                        </div>
+                        <a href="article6.html" class="read-more-btn">
+                            <i class="fas fa-infinity"></i>
+                            مطالعه مقاله
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-300">
+                    <i class="fas fa-plus ml-2"></i>
+                    مشاهده مقالات بیشتر
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container mx-auto px-4">
+            <h2>آماده تجربه اینترنت آزاد هستید؟</h2>
+            <p>همین حالا بهترین فیلترشکن را با سرعت بالا و امنیت کامل خریداری کنید و از اینترنت بدون محدودیت لذت ببرید.</p>
+            <a href="index.html#products" class="cta-btn">
+                <i class="fas fa-shopping-cart ml-2"></i>
+                مشاهده تعرفه‌ها و خرید
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer remains exactly the same -->
     <footer class="py-8 bg-gray-800 text-white text-center">
         <div class="container mx-auto px-4">
             <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
@@ -182,8 +642,9 @@
             </p>
         </div>
     </footer>
+
     <script>
-        // Mobile menu
+        // Mobile menu (unchanged)
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenuButton && mobileMenu) {
@@ -198,7 +659,7 @@
             });
         }
 
-        // Smooth scrolling
+        // Smooth scrolling (unchanged)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -211,6 +672,114 @@
                     });
                 }
             });
+        });
+
+        // Category Filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const articleCards = document.querySelectorAll('.article-card');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                // Show/hide articles based on category
+                articleCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            articleCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const category = card.querySelector('.article-category').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+
+        // Load More Button
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        let visibleArticles = 8;
+        
+        // Initially hide extra articles
+        articleCards.forEach((card, index) => {
+            if (index >= visibleArticles) {
+                card.style.display = 'none';
+            }
+        });
+        
+        loadMoreBtn.addEventListener('click', () => {
+            visibleArticles += 4;
+            
+            // Show next set of articles
+            articleCards.forEach((card, index) => {
+                if (index < visibleArticles) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 50);
+                }
+            });
+            
+            // Hide button if all articles are visible
+            if (visibleArticles >= articleCards.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all article cards
+        articleCards.forEach(card => {
+            observer.observe(card);
         });
     </script>
 </body>
