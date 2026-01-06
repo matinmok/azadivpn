@@ -357,53 +357,273 @@
     </style>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
-    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50" role="banner">
-        <nav class="container mx-auto px-4 flex items-center justify-between" aria-label="منوی اصلی سایت آزادی وی‌پی‌ان">
-            <div class="flex items-center">
-                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600" title="صفحه اصلی آزادی وی‌پی‌ان - خرید فیلترشکن قوی" aria-label="آزادی وی‌پی‌ان - بهترین سرویس فیلترشکن ایران">
-                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+<header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+    <nav class="container mx-auto px-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+            </a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <ul class="hidden lg:flex space-x-6 space-x-reverse items-center">
+            <!-- صفحه نخست -->
+            <li>
+                <a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center gap-1">
+                    <i class="fas fa-home text-sm"></i>
+                    صفحه نخست
+                </a>
+            </li>
+            
+            <!-- تعرفه‌ها -->
+            <li>
+                <a href="https://matinmok.github.io/azadivpn/#products" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center gap-1">
+                    <i class="fas fa-tags text-sm"></i>
+                    تعرفه‌ها
+                </a>
+            </li>
+            
+            <!-- نظرات کاربران -->
+            <li>
+                <a href="https://matinmok.github.io/azadivpn/#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center gap-1">
+                    <i class="fas fa-comment-alt text-sm"></i>
+                    نظرات کاربران
+                </a>
+            </li>
+            
+            <!-- مقالات -->
+            <li>
+                <a href="https://matinmok.github.io/azadivpn/article.html" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center gap-1">
+                    <i class="fas fa-newspaper text-sm"></i>
+                    مقالات
+                </a>
+            </li>
+            
+            <!-- منوی آبشاری آزادی -->
+            <li class="relative group">
+                <button class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center gap-1 focus:outline-none">
+                    <i class="fas fa-chevron-down text-xs"></i>
+                    <span>آزادی</span>
+                </button>
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <a href="https://matinmok.github.io/azadivpn/about.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                        <i class="fas fa-info-circle ml-2"></i>
+                        درباره ما
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/contact.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                        <i class="fas fa-phone-alt ml-2"></i>
+                        تماس با ما
+                    </a>
+                </div>
+            </li>
+            
+            <!-- همکاری -->
+            <li>
+                <a href="https://matinmok.github.io/azadivpn/#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center gap-1">
+                    <i class="fas fa-handshake text-sm"></i>
+                    همکاری
+                </a>
+            </li>
+            
+            <!-- پنل کاربری -->
+            <li>
+                <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" 
+                   class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-full transition duration-300 flex items-center gap-2">
+                    <i class="fas fa-user-circle"></i>
+                    پنل کاربری
+                </a>
+            </li>
+        </ul>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+            </svg>
+        </button>
+    </nav>
+    
+    <!-- Mobile Side Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-y-0 right-0 w-64 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col h-full">
+            <!-- Header -->
+            <div class="bg-blue-600 text-white p-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <span class="bg-white text-blue-600 rounded-md px-2 py-1 ml-2 font-bold">آزادی</span>
+                        <span class="text-white font-bold">وی‌پی‌ان</span>
+                    </div>
+                    <button id="close-mobile-menu" class="text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="flex-1 overflow-y-auto py-4">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="https://matinmok.github.io/azadivpn/" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                            <i class="fas fa-home ml-3"></i>
+                            صفحه نخست
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://matinmok.github.io/azadivpn/#products" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                            <i class="fas fa-tags ml-3"></i>
+                            تعرفه‌ها
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://matinmok.github.io/azadivpn/#reviews" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                            <i class="fas fa-comment-alt ml-3"></i>
+                            نظرات کاربران
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://matinmok.github.io/azadivpn/article.html" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                            <i class="fas fa-newspaper ml-3"></i>
+                            مقالات
+                        </a>
+                    </li>
+                    
+                    <!-- منوی آبشاری موبایل -->
+                    <li class="border-t border-gray-100 mt-2 pt-2">
+                        <div class="px-4 py-2 text-gray-500 text-sm font-semibold">
+                            <i class="fas fa-bars ml-2"></i>
+                            منوی آزادی
+                        </div>
+                        <ul class="mr-6">
+                            <li>
+                                <a href="https://matinmok.github.io/azadivpn/about.html" class="flex items-center px-8 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                                    <i class="fas fa-circle text-xs ml-3"></i>
+                                    درباره ما
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://matinmok.github.io/azadivpn/contact.html" class="flex items-center px-8 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                                    <i class="fas fa-circle text-xs ml-3"></i>
+                                    تماس با ما
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="https://matinmok.github.io/azadivpn/#partnership" class="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
+                            <i class="fas fa-handshake ml-3"></i>
+                            همکاری
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Footer -->
+            <div class="border-t border-gray-200 p-4">
+                <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" 
+                   class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fas fa-user-circle"></i>
+                    ورود به پنل کاربری
                 </a>
             </div>
-            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center" role="menubar">
-                <li role="none"><a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="صفحه اصلی سایت آزادی وی‌پی‌ان">صفحه نخست</a></li>
-                <li role="none"><span class="nav-divider" aria-hidden="true">|</span></li>
-                <li role="none"><a href="#products" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="مشاهده تعرفه‌های خرید فیلترشکن قوی آزادی وی‌پی‌ان">تعرفه‌ها</a></li>
-                <li role="none"><span class="nav-divider" aria-hidden="true">|</span></li>
-                <li role="none"><a href="#servers" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="وضعیت سرورهای فیلترشکن آزادی وی‌پی‌ان">وضعیت سرورها</a></li>
-                <li role="none"><span class="nav-divider" aria-hidden="true">|</span></li>
-                <li role="none"><a href="#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="نظرات کاربران درباره فیلترشکن آزادی وی‌پی‌ان">نظرات کاربران</a></li>
-                <li role="none"><span class="nav-divider" aria-hidden="true">|</span></li>
-                <li role="none"><a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="سوالات متداول درباره خرید فیلترشکن قوی">سوالات متداول</a></li>
-                <li role="none"><span class="nav-divider" aria-hidden="true">|</span></li>
-                <li role="none"><a href="./article.html" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="مقالات آموزشی فیلترشکن و VPN">مقالات</a></li>
-                <li role="none"><span class="nav-divider" aria-hidden="true">|</span></li>
-                <li role="none"><a href="#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300" role="menuitem" title="همکاری و نمایندگی فروش فیلترشکن">همکاری</a></li>
-                <li role="none">
-                    <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300" role="menuitem" title="ورود به پنل کاربری آزادی وی‌پی‌ان">پنل کاربری</a>
-                </li>
-            </ul>
-            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل سایت آزادی وی‌پی‌ان" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24" aria-hidden="true" role="img">
-                    <title>آیکون منوی همبرگری</title>
-                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
-                </svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10" role="menu" aria-label="منوی موبایل">
-            <ul class="px-4 py-2 space-y-2">
-                <li role="none"><a href="https://matinmok.github.io/azadivpn/" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="صفحه اصلی آزادی وی‌پی‌ان">صفحه نخست</a></li>
-                <li role="none"><a href="#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="تعرفه‌های خرید فیلترشکن قوی">تعرفه‌ها</a></li>
-                <li role="none"><a href="#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="وضعیت سرورهای فیلترشکن">وضعیت سرورها</a></li>
-                <li role="none"><a href="#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="نظرات کاربران فیلترشکن">نظرات کاربران</a></li>
-                <li role="none"><a href="#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="سوالات متداول فیلترشکن">سوالات متداول</a></li>
-                <li role="none"><a href="./article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="مقالات آموزشی VPN">مقالات</a></li>
-                <li role="none"><a href="#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300" role="menuitem" title="همکاری با آزادی وی‌پی‌ان">همکاری</a></li>
-                <li role="none">
-                    <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center" role="menuitem" title="پنل کاربری آزادی وی‌پی‌ان">پنل کاربری</a>
-                </li>
-            </ul>
         </div>
-    </header>
+    </div>
+    
+    <!-- Overlay for mobile menu -->
+    <div id="mobile-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+</header>
+
+<style>
+    /* Mobile menu animation */
+    #mobile-menu {
+        transform: translateX(100%);
+    }
+    
+    #mobile-menu.show {
+        transform: translateX(0);
+    }
+    
+    /* Dropdown menu animation */
+    .group:hover .group-hover\\:visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    /* Custom scrollbar for mobile menu */
+    #mobile-menu .overflow-y-auto {
+        scrollbar-width: thin;
+        scrollbar-color: #d1d5db #f3f4f6;
+    }
+    
+    #mobile-menu .overflow-y-auto::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    #mobile-menu .overflow-y-auto::-webkit-scrollbar-track {
+        background: #f3f4f6;
+    }
+    
+    #mobile-menu .overflow-y-auto::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 2px;
+    }
+</style>
+
+<script>
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    
+    function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        mobileOverlay.classList.remove('hidden');
+        setTimeout(() => {
+            mobileMenu.classList.add('show');
+        }, 10);
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileOverlay.classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+    }
+    
+    if (closeMobileMenuButton) {
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+    }
+    
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+    }
+    
+    // Close mobile menu when clicking on links
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            closeMobileMenu();
+        }
+    });
+</script>
 
     <main id="main-content" role="main">
         <section id="home" class="bg-gray-100 py-12 mt-16" aria-labelledby="main-heading">
