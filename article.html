@@ -86,11 +86,17 @@
             border-color: #3b82f6;
         }
         
-        .article-card-img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-            border-bottom: 1px solid #e5e7eb;
+        .article-icon {
+            height: 60px;
+            width: 60px;
+            background: #eff6ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+            font-size: 1.5rem;
         }
         
         .article-card-content {
@@ -114,17 +120,6 @@
             line-height: 1.6;
             margin-bottom: 1.25rem;
             flex-grow: 1;
-        }
-        
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #6b7280;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            border-top: 1px solid #f3f4f6;
-            padding-top: 1rem;
         }
         
         .article-category {
@@ -164,28 +159,22 @@
         /* Featured Article */
         .featured-article {
             grid-column: span 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
         }
         @media (max-width: 768px) {
             .featured-article {
                 grid-column: span 1;
-                grid-template-columns: 1fr;
             }
         }
         
         .featured-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
             background: #f59e0b;
             color: white;
             font-size: 0.75rem;
             font-weight: 700;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            z-index: 10;
+            margin-bottom: 1rem;
+            display: inline-block;
         }
         
         /* Categories Filter */
@@ -447,18 +436,14 @@
             <div class="articles-grid">
                 <!-- Featured Article -->
                 <div class="article-card featured-article animate-fadeInUp" data-category="buy-guide">
-                    <div class="relative">
-                        <span class="featured-badge">مقاله ویژه</span>
-                        <img src="https://matinmok.github.io/azadivpn/images/azadi-vpn-logo.jpg" alt="خرید فیلترشکن صفر تا صد" class="article-card-img">
-                    </div>
                     <div class="article-card-content">
+                        <span class="featured-badge">مقاله ویژه</span>
+                        <div class="article-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
                         <span class="article-category">راهنمای خرید</span>
                         <h3>خرید فیلترشکن صفر تا صد با آزادی وی‌پی‌ان</h3>
                         <p>راهنمای کامل خرید فیلترشکن صفر تا صد با آزادی وی‌پی‌ان. بررسی مزایا، روش‌های خرید، نکات انتخاب VPN امن و مقایسه با VPNهای رایگان برای دسترسی به اینترنت آزاد.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۲۰ اردیبهشت ۱۴۰۴</span>
-                            <span><i class="far fa-clock ml-1"></i> ۸ دقیقه مطالعه</span>
-                        </div>
                         <a href="article1.html" class="read-more-btn">
                             <i class="fas fa-book-reader"></i>
                             خواندن مقاله کامل
@@ -468,15 +453,13 @@
                 
                 <!-- Article 1: خرید فیلترشکن ویندوز -->
                 <div class="article-card animate-fadeInUp" data-category="buy-guide" data-delay="100">
-                    <img src="https://matinmok.github.io/azadivpn/images/windows-vpn-guide.jpg" alt="خرید فیلترشکن ویندوز" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
                         <span class="article-category">راهنمای خرید</span>
                         <h3>خرید فیلترشکن ویندوز + نکات طلایی انتخاب بهترین VPN</h3>
                         <p>راهنمای کامل خرید فیلترشکن ویندوز ۱۰ و ۱۱. بررسی بهترین VPN های ویندوز، آموزش نصب و تنظیم، بهینه‌سازی سرعت و امنیت کامل برای کاربران ویندوز.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۲۱ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۱۰ دقیقه مطالعه</span>
-                        </div>
                         <a href="article-windows-vpn.html" class="read-more-btn">
                             <i class="fas fa-laptop"></i>
                             مطالعه مقاله
@@ -486,15 +469,13 @@
                 
                 <!-- Article 2: خرید فیلترشکن v2box آیفون -->
                 <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="200">
-                    <img src="https://matinmok.github.io/azadivpn/images/v2box-iphone-guide.jpg" alt="خرید فیلترشکن v2box آیفون" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
                         <span class="article-category">آموزش و راهنمایی</span>
                         <h3>خرید فیلترشکن v2box آیفون + آموزش کامل نصب و راه‌اندازی</h3>
                         <p>راهنمای جامع خرید و نصب v2box روی آیفون. آموزش قدم به قدم تنظیمات، بهینه‌سازی سرعت و رفع مشکلات رایج برای کاربران iOS.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۲۲ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۱۲ دقیقه مطالعه</span>
-                        </div>
                         <a href="article-v2box-iphone.html" class="read-more-btn">
                             <i class="fas fa-mobile-alt"></i>
                             مطالعه مقاله
@@ -504,15 +485,13 @@
                 
                 <!-- Article 3: بهترین فیلترشکن پولی -->
                 <div class="article-card animate-fadeInUp" data-category="comparison" data-delay="300">
-                    <img src="https://matinmok.github.io/azadivpn/images/best-paid-vpn-guide.jpg" alt="بهترین فیلترشکن پولی" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
                         <span class="article-category">مقایسه و بررسی</span>
                         <h3>بهترین فیلترشکن پولی ۱۴۰۴ | راهنمای انتخاب VPN پولی با کیفیت</h3>
                         <p>مقایسه کامل بهترین VPN های پولی بازار ایران. بررسی سرعت، امنیت، قیمت و ویژگی‌های هر سرویس برای انتخاب هوشمندانه.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۲۳ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۱۵ دقیقه مطالعه</span>
-                        </div>
                         <a href="article-best-paid-vpn.html" class="read-more-btn">
                             <i class="fas fa-star"></i>
                             مطالعه مقاله
@@ -522,15 +501,13 @@
                 
                 <!-- Original Articles (kept for reference) -->
                 <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="400">
-                    <img src="https://matinmok.github.io/azadivpn/images/apps-download.jpg" alt="دانلود اپ‌های فیلترشکن" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
                         <span class="article-category">آموزش و راهنمایی</span>
                         <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
                         <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۱۵ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۶ دقیقه مطالعه</span>
-                        </div>
                         <a href="article2.html" class="read-more-btn">
                             <i class="fas fa-download"></i>
                             مطالعه مقاله
@@ -539,15 +516,13 @@
                 </div>
                 
                 <div class="article-card animate-fadeInUp" data-category="security" data-delay="500">
-                    <img src="https://matinmok.github.io/azadivpn/images/paid-vpn-security.jpg" alt="فیلترشکن پولی" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
                         <span class="article-category">امنیت و حریم خصوصی</span>
                         <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
                         <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب آزادی وی‌پی‌ان.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۱۰ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۷ دقیقه مطالعه</span>
-                        </div>
                         <a href="article3.html" class="read-more-btn">
                             <i class="fas fa-shield-alt"></i>
                             مطالعه مقاله
@@ -556,15 +531,13 @@
                 </div>
                 
                 <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="600">
-                    <img src="https://matinmok.github.io/azadivpn/images/v2ray-guide.jpg" alt="پروتکل V2Ray" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
                         <span class="article-category">آموزش و راهنمایی</span>
                         <h3>راهنمای استفاده از پروتکل V2Ray</h3>
                         <p>آموزش کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با سرعت بالا و امنیت تضمین‌شده.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۵ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۹ دقیقه مطالعه</span>
-                        </div>
                         <a href="article4.html" class="read-more-btn">
                             <i class="fas fa-code"></i>
                             مطالعه مقاله
@@ -573,15 +546,13 @@
                 </div>
                 
                 <div class="article-card animate-fadeInUp" data-category="tutorial" data-delay="700">
-                    <img src="https://matinmok.github.io/azadivpn/images/server-selection.jpg" alt="انتخاب سرور VPN" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
                         <span class="article-category">آموزش و راهنمایی</span>
                         <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
                         <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۱ دی ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۵ دقیقه مطالعه</span>
-                        </div>
                         <a href="article5.html" class="read-more-btn">
                             <i class="fas fa-server"></i>
                             مطالعه مقاله
@@ -590,15 +561,13 @@
                 </div>
                 
                 <div class="article-card animate-fadeInUp" data-category="news" data-delay="800">
-                    <img src="https://matinmok.github.io/azadivpn/images/unlimited-vpn.jpg" alt="ترافیک نامحدود" class="article-card-img">
                     <div class="article-card-content">
+                        <div class="article-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
                         <span class="article-category">اخبار و تکنولوژی</span>
                         <h3>مزایای خرید فیلترشکن با ترافیک نامحدود</h3>
                         <p>چرا فیلترشکن‌های با ترافیک نامحدود آزادی وی‌پی‌ان بهترین انتخاب برای کاربران حرفه‌ای هستند؟</p>
-                        <div class="article-meta">
-                            <span><i class="far fa-calendar ml-1"></i> ۲۵ آذر ۱۴۰۳</span>
-                            <span><i class="far fa-clock ml-1"></i> ۶ دقیقه مطالعه</span>
-                        </div>
                         <a href="article6.html" class="read-more-btn">
                             <i class="fas fa-infinity"></i>
                             مطالعه مقاله
