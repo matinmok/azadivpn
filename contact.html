@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تماس با آزادی وی‌پی‌ان | پشتیبانی ۲۴ ساعته از طریق تلگرام و واتساپ | خرید و راهنمایی فیلترشکن">
+    <meta name="keywords" content="تماس با آزادی وی‌پی‌ان, پشتیبانی VPN, ارتباط با پشتیبانی, خرید فیلترشکن, راهنمای VPN">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="تماس با ما | آزادی وی‌پی‌ان - پشتیبانی ۲۴ ساعته">
+    <meta name="twitter:description" content="ارتباط با پشتیبانی آزادی وی‌پی‌ان از طریق تلگرام و واتساپ | پاسخگویی سریع به سوالات">
+    <meta property="og:title" content="تماس با ما | آزادی وی‌پی‌ان - پشتیبانی ۲۴ ساعته">
+    <meta property="og:description" content="ارتباط با پشتیبانی آزادی وی‌پی‌ان از طریق تلگرام و واتساپ | پاسخگویی سریع به سوالات">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matinmok.github.io/azadivpn/contact.html">
+    <link rel="canonical" href="https://matinmok.github.io/azadivpn/contact.html">
+    <title>تماس با ما | آزادی وی‌پی‌ان - پشتیبانی ۲۴ ساعته</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+        .nav-divider {
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 5rem 0 3rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+        
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            border: 4px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .contact-card.premium .contact-icon {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .contact-card.chat .contact-icon {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .contact-card.support .contact-icon {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .badge {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.375rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        /* Steps Section */
+        .steps-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        /* FAQ Section */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        
+        .faq-question {
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        
+        .faq-answer {
+            padding: 0 1.25rem 1.25rem;
+            color: #4b5563;
+            line-height: 1.6;
+            border-top: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 0.75rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: #6b7280;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .cta-button.chat {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .cta-button.chat:hover {
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Response Time */
+        .response-time {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-card {
+                padding: 2rem;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            
+            .step-number {
+                margin: 0 auto 1rem;
+            }
+            
+            .hero-section {
+                padding: 4rem 1rem 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
+                    <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+                </a>
+            </div>
+            <ul class="hidden lg:flex space-x-4 space-x-reverse items-center">
+                <li><a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300">صفحه نخست</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#products" class="text-gray-700 hover:text-blue-600 transition duration-300">تعرفه‌ها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#servers" class="text-gray-700 hover:text-blue-600 transition duration-300">وضعیت سرورها</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300">نظرات کاربران</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">سوالات متداول</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="./article.html" class="text-gray-700 hover:text-blue-600 transition duration-300">مقالات</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="./about.html" class="text-gray-700 hover:text-blue-600 transition duration-300">درباره ما</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="./contact.html" class="text-gray-700 hover:text-blue-600 transition duration-300">تماس با ما</a></li>
+                <li><span class="nav-divider">|</span></li>
+                <li><a href="index.html#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300">همکاری</a></li>
+                <li>
+                    <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300">پنل کاربری</a>
+                </li>
+            </ul>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none" aria-label="باز کردن منوی موبایل">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-white shadow-md absolute top-full right-0 left-0 z-10">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="https://matinmok.github.io/azadivpn/" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">صفحه نخست</a></li>
+                <li><a href="index.html#products" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تعرفه‌ها</a></li>
+                <li><a href="index.html#servers" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">وضعیت سرورها</a></li>
+                <li><a href="index.html#reviews" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">نظرات کاربران</a></li>
+                <li><a href="index.html#faq" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">سوالات متداول</a></li>
+                <li><a href="./article.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">مقالات</a></li>
+                <li><a href="./about.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">درباره ما</a></li>
+                <li><a href="./contact.html" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">تماس با ما</a></li>
+                <li><a href="index.html#partnership" class="block text-gray-700 hover:bg-gray-100 py-2 rounded-md transition duration-300">همکاری</a></li>
+                <li>
+                    <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center">پنل کاربری</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 animate-fadeInUp">تماس با آزادی وی‌پی‌ان</h1>
+                <p class="text-lg md:text-xl opacity-90 mb-8 animate-fadeInUp" style="animation-delay: 0.1s">
+                    پشتیبانی ۲۴ ساعته، ۷ روز هفته | پاسخگویی سریع به سوالات و مشکلات
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2>راه‌های ارتباط با ما</h2>
+                <p>برای خرید، پشتیبانی و هرگونه سوال با ما در ارتباط باشید</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Telegram Robot -->
+                <div class="contact-card premium animate-fadeInUp">
+                    <span class="badge">پیشنهاد ویژه</span>
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">ربات خرید تلگرام</h3>
+                    <p class="text-gray-600 mb-4">
+                        برای خرید سریع و خودکار، وارد ربات ما شوید. خرید در کمتر از ۲ دقیقه!
+                    </p>
+                    <a href="https://t.me/vpnbrandicobot" target="_blank" class="cta-button">
+                        <i class="fab fa-telegram-plane"></i>
+                        ورود به ربات @vpnbrandicobot
+                    </a>
+                    <div class="response-time">
+                        <span class="text-blue-600 font-bold">⏱️ پاسخگویی آنی</span>
+                    </div>
+                </div>
+                
+                <!-- Direct Telegram Support -->
+                <div class="contact-card support animate-fadeInUp" style="animation-delay: 0.1s">
+                    <div class="contact-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">پشتیبانی مستقیم تلگرام</h3>
+                    <p class="text-gray-600 mb-4">
+                        برای پشتیبانی فنی، راهنمایی و مشاوره با ادمین در ارتباط باشید
+                    </p>
+                    <a href="https://t.me/Mykalikal" target="_blank" class="cta-button">
+                        <i class="fas fa-comment-dots"></i>
+                        ارتباط با @Mykalikal
+                    </a>
+                    <div class="response-time">
+                        <span class="text-blue-600 font-bold">⚡ پاسخ در کمتر از ۵ دقیقه</span>
+                    </div>
+                </div>
+                
+                <!-- Online Chat Support -->
+                <div class="contact-card chat animate-fadeInUp" style="animation-delay: 0.2s">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">چت آنلاین</h3>
+                    <p class="text-gray-600 mb-4">
+                        برای ارتباط مستقیم و سریع با پشتیبانان ما، روی دکمه زیر کلیک کنید
+                    </p>
+                    <button onclick="startChat()" class="cta-button chat">
+                        <i class="fas fa-comment-alt"></i>
+                        شروع چت آنلاین
+                    </button>
+                    <div class="response-time">
+                        <span class="text-purple-600 font-bold">💬 اتصال فوری به پشتیبان</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Contact -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2>چگونه با ما ارتباط برقرار کنیم؟</h2>
+                <p>مراحل ساده برای دریافت سریع‌ترین پاسخ</p>
+            </div>
+            
+            <div class="steps-section">
+                <!-- Step 1 -->
+                <div class="step-item animate-fadeInUp">
+                    <div class="step-number">۱</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">انتخاب روش ارتباط</h3>
+                        <p class="text-gray-600">
+                            بسته به نوع درخواست خود، یکی از راه‌های ارتباطی بالا را انتخاب کنید:
+                        </p>
+                        <ul class="mt-3 space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-robot text-blue-500 mt-1"></i>
+                                <span><strong>ربات تلگرام:</strong> برای خرید سریع و خودکار</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-headset text-green-500 mt-1"></i>
+                                <span><strong>تلگرام مستقیم:</strong> برای پشتیبانی فنی و مشاوره</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-comments text-purple-500 mt-1"></i>
+                                <span><strong>چت آنلاین:</strong> برای ارتباط مستقیم با پشتیبان</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-item animate-fadeInUp" style="animation-delay: 0.1s">
+                    <div class="step-number">۲</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">ارتباط و توضیح مشکل</h3>
+                        <p class="text-gray-600 mb-3">
+                            پس از ورود به کانال ارتباطی، مشکل یا سوال خود را به طور کامل شرح دهید:
+                        </p>
+                        <div class="bg-blue-50 border-r-4 border-blue-500 p-4 rounded">
+                            <h4 class="font-bold text-blue-700 mb-2">💡 نکات مهم برای شرح مشکل:</h4>
+                            <ul class="text-sm text-blue-600 space-y-1">
+                                <li>• دستگاه مورد استفاده (ویندوز، اندروید، آیفون و...)</li>
+                                <li>• اپلیکیشن مورد استفاده (v2rayNG، V2RayN و...)</li>
+                                <li>• پیام خطای دقیق (در صورت وجود)</li>
+                                <li>• مدت زمانی که مشکل وجود داشته</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-item animate-fadeInUp" style="animation-delay: 0.2s">
+                    <div class="step-number">۳</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">دریافت راه‌حل</h3>
+                        <p class="text-gray-600">
+                            تیم پشتیبانی ما در سریع‌ترین زمان ممکن پاسخ شما را داده و مشکل را حل خواهد کرد. معمولاً مشکلات در کمتر از ۱۰ دقیقه حل می‌شوند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2>سوالات متداول تماس</h2>
+                <p>پاسخ به رایج‌ترین سوالات درباره ارتباط با پشتیبانی</p>
+            </div>
+            
+            <div class="faq-grid">
+                <!-- FAQ 1 -->
+                <div class="faq-item animate-fadeInUp">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>چرا باید از ربات تلگرام استفاده کنم؟</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer hidden">
+                        <p>ربات تلگرام @vpnbrandicobot برای خرید سریع و خودکار طراحی شده. با استفاده از ربات می‌توانید:</p>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• در کمتر از ۲ دقیقه خرید کنید</li>
+                            <li>• کانفیگ را به صورت آنی دریافت کنید</li>
+                            <li>• وضعیت اشتراک خود را بررسی کنید</li>
+                            <li>• سوالات متداول را مشاهده کنید</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item animate-fadeInUp" style="animation-delay: 0.1s">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>چه زمانی با پشتیبانی مستقیم تماس بگیرم؟</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer hidden">
+                        <p>در موارد زیر بهتر است مستقیماً با پشتیبانی @Mykalikal تماس بگیرید:</p>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• نیاز به مشاوره قبل از خرید دارید</li>
+                            <li>• مشکل فنی در نصب یا اتصال دارید</li>
+                            <li>• سوال تخصصی درباره تنظیمات دارید</li>
+                            <li>• درخواست بازگشت وجه دارید</li>
+                            <li>• می‌خواهید نماینده شوید</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item animate-fadeInUp" style="animation-delay: 0.2s">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>چت آنلاین چگونه کار می‌کند؟</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer hidden">
+                        <p>با کلیک روی دکمه "شروع چت آنلاین":</p>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• مستقیماً با یکی از پشتیبانان ما متصل می‌شوید</li>
+                            <li>• نیازی به نصب برنامه خاصی ندارید</li>
+                            <li>• چت در همان صفحه مرورگر شما باز می‌شود</li>
+                            <li>• تمام گفتگوها محرمانه باقی می‌ماند</li>
+                            <li>• می‌توانید فایل یا عکس ارسال کنید</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item animate-fadeInUp" style="animation-delay: 0.3s">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>چقدر طول می‌کشد پاسخ دریافت کنم؟</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer hidden">
+                        <p>زمان پاسخگویی بسته به نوع درخواست و ساعت تماس متفاوت است:</p>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• <strong>ربات تلگرام:</strong> پاسخ آنی (کمتر از ۱ دقیقه)</li>
+                            <li>• <strong>خرید از ربات:</strong> دریافت کانفیگ بلافاصله پس از پرداخت</li>
+                            <li>• <strong>پشتیبانی فنی:</strong> معمولاً کمتر از ۵ دقیقه</li>
+                            <li>• <strong>چت آنلاین:</strong> اتصال فوری و پاسخ سریع</li>
+                            <li>• <strong>ساعات شلوغی:</strong> ممکن است تا ۳۰ دقیقه طول بکشد</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item animate-fadeInUp" style="animation-delay: 0.4s">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>برای خرید نیاز به چه اطلاعاتی دارم؟</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer hidden">
+                        <p>برای خرید از ربات تلگرام فقط نیاز دارید:</p>
+                        <ul class="mt-2 space-y-1 text-gray-600">
+                            <li>• یک دستگاه متصل به اینترنت (موبایل یا کامپیوتر)</li>
+                            <li>• اپلیکیشن تلگرام نصب شده</li>
+                            <li>• امکان پرداخت کارت به کارت</li>
+                            <li>• اطلاع از دستگاه‌هایی که می‌خواهید روی آنها استفاده کنید</li>
+                        </ul>
+                        <p class="mt-3 text-sm text-gray-500">ربات به صورت قدم به قدم شما را راهنمایی می‌کند.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Tips -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="section-header">
+                <h2>راهکارهای خودکار</h2>
+                <p>قبل از تماس با پشتیبانی این موارد را بررسی کنید</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-fadeInUp">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-lg">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-1">سرور را تغییر دهید</h3>
+                            <p class="text-sm text-gray-600">گاهی مشکل فقط مربوط به یک سرور خاص است</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        در اپلیکیشن خود، سرور دیگری را انتخاب کنید (مثلاً از ترکیه به آلمان یا برعکس)
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-fadeInUp" style="animation-delay: 0.1s">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-lg">
+                            <i class="fas fa-redo"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-1">برنامه را ری‌استارت کنید</h3>
+                            <p class="text-sm text-gray-600">برنامه VPN و دستگاه خود را یکبار ببندید و دوباره باز کنید</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        کاملاً از برنامه خارج شوید و دوباره وارد شوید. این کار بسیاری از مشکلات موقت را حل می‌کند
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-fadeInUp" style="animation-delay: 0.2s">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="bg-purple-100 text-purple-600 p-3 rounded-lg">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-1">اینترنت را بررسی کنید</h3>
+                            <p class="text-sm text-gray-600">مطمئن شوید اینترنت شما بدون VPN کار می‌کند</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        ابتدا بدون VPN یک سایت را باز کنید. اگر کار نکرد، مشکل از اینترنت شماست نه VPN
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 animate-fadeInUp" style="animation-delay: 0.3s">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="bg-yellow-100 text-yellow-600 p-3 rounded-lg">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-1">کانفیگ را دوباره اضافه کنید</h3>
+                            <p class="text-sm text-gray-600">کانفیگ قدیمی را پاک کرده و دوباره از ربات دریافت کنید</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        در ربات تلگرام روی "دریافت کانفیگ" کلیک کنید و کانفیگ جدید را در برنامه وارد کنید
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-gray-600 mb-4">اگر پس از بررسی موارد بالا مشکل حل نشد، با پشتیبانی تماس بگیرید</p>
+                <button onclick="startChat()" class="cta-button chat">
+                    <i class="fas fa-comments"></i>
+                    شروع چت آنلاین با پشتیبان
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div class="absolute bottom-0 left-0 w-40 h-40 bg-white opacity-10 rounded-full translate-y-20 -translate-x-20"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">هنوز سوالی دارید؟</h2>
+                    <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+                        ما اینجا هستیم تا به بهترین شکل ممکن پاسخگوی شما باشیم. با خیال راحت با ما در ارتباط باشید
+                    </p>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="https://t.me/vpnbrandicobot" target="_blank" class="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center gap-2">
+                            <i class="fab fa-telegram"></i>
+                            ورود به ربات خرید
+                        </a>
+                        
+                        <a href="https://t.me/Mykalikal" target="_blank" class="bg-blue-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-900 transition duration-300 inline-flex items-center justify-center gap-2">
+                            <i class="fas fa-headset"></i>
+                            پشتیبانی مستقیم
+                        </a>
+                        
+                        <button onclick="startChat()" class="bg-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-600 transition duration-300 inline-flex items-center justify-center gap-2">
+                            <i class="fas fa-comment-alt"></i>
+                            چت آنلاین
+                        </button>
+                    </div>
+                    
+                    <p class="mt-6 text-sm opacity-80">
+                        ⚡ پاسخگویی سریع | 🛡️ پشتیبانی حرفه‌ای | 💰 مشاوره رایگان
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">© ۱۴۰۴ آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
+            <p>
+                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
+                <span class="text-gray-600">|</span>
+                <a href="./article.html" class="text-blue-400 hover:underline mx-2">مقالات</a>
+                <span class="text-gray-600">|</span>
+                <a href="./about.html" class="text-blue-400 hover:underline mx-2">درباره ما</a>
+                <span class="text-gray-600">|</span>
+                <a href="./contact.html" class="text-blue-400 hover:underline mx-2">تماس با ما</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Start Chat Function
+        function startChat() {
+            // این تابع می‌تواند برای اتصال به سرویس چت آنلاین استفاده شود
+            // در حال حاضر کاربر را به پشتیبانی تلگرام هدایت می‌کند
+            window.open('https://t.me/Mykalikal', '_blank');
+            
+            // نمایش پیام اطلاعاتی
+            alert('در حال اتصال به پشتیبان...\n\nاگر به تلگرام هدایت نشدید، می‌توانید مستقیماً با @Mykalikal در تلگرام ارتباط برقرار کنید.');
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fadeInUp').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
