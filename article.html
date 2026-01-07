@@ -1291,11 +1291,12 @@
                 const article = allArticles[i - 6];
                 if (!article) break;
                 
-                const articleCard = document.createElement('div');
-                articleCard.className = 'article-card animate-fadeInUp';
-                articleCard.setAttribute('data-category', article.category);
-                articleCard.style.animationDelay = `${(i * 0.1) + 0.6}s`;
-                articleCard.style.opacity = '0';
+const articleCard = document.createElement('div');
+articleCard.className = 'article-card';
+articleCard.setAttribute('data-category', article.category);
+articleCard.style.opacity = '0';
+articleCard.style.transform = 'translateY(20px)';
+articleCard.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                 
                 articleCard.innerHTML = `
                     <div class="card-header">
