@@ -637,10 +637,10 @@
 
 <style>
     html {
-        scroll-padding-top: 90px;
+        scroll-padding-top: 45px;  /* تغییر شد: 45px */
     }
     [id] {
-        scroll-margin-top: 90px;
+        scroll-margin-top: 45px;   /* تغییر شد: 45px */
     }
     #mobile-menu {
         transform: translateX(100%);
@@ -733,6 +733,31 @@
             azadiDropdownContent.classList.remove('show');
             azadiChevron.classList.remove('rotate-180');
         }
+    });
+
+    // اضافه کردن تابع اسکرول با ارتفاع جدید
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = 45;  /* تغییر شد: 45 */
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    closeMobileMenu();
+                }
+            }
+        });
     });
 
     if (mobileMenuButton) {
