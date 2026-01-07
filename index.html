@@ -1671,9 +1671,9 @@
     </script>
 
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
+        const mobileMenuBtn2 = document.getElementById('mobile-menu-button');
+        const mobileMenu2 = document.getElementById('mobile-menu');
+        if (mobileMenuBtn2 && mobileMenu2) {
             mobileMenuButton.addEventListener('click', () => {
                 const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
                 mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
@@ -1692,8 +1692,8 @@
             closePlansPopup();
             const popup = document.getElementById('purchase-popup');
             const telegramButton = document.getElementById('telegram-purchase-link');
-if (popup) {
-    telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
+            if (popup && telegramButton) {
+                telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
                 popup.classList.remove('hidden');
                 popup.focus();
             }
