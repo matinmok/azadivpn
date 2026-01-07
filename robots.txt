@@ -1,1 +1,3 @@
-User-agent: * Allow: / Sitemap: https://matinmok.github.io/azadivpn/sitemap.xml
+User-agent: *
+Sitemap: https://matinmok.github.io/azadivpn/sitemap.xml
+Allow: /
