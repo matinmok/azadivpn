@@ -1,35 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage -->
-  <url>
-    <loc>https://github.com/matinmok/azadivpn/blob/main/index.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<url>
+  <loc>https://matinmok.github.io/azadivpn/</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
+</url>
 
-  <!-- Main pages -->
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/404.html</loc><changefreq>yearly</changefreq><priority>0.1</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article1.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article2.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article3.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article4.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article5.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article6.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article7.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article8.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/article9.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url>
+  <loc>https://matinmok.github.io/azadivpn/about.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
 
-  <!-- Utility & additional pages -->
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/chat.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/competitor-result.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/dashboard.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/meta-result.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/report-result.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/seo.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+<url>
+  <loc>https://matinmok.github.io/azadivpn/contact.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
 
-  <!-- Markdown / blog (if intended to be published as HTML) -->
-  <url><loc>https://github.com/matinmok/azadivpn/blob/main/blog/2025-05-20-first-post.md</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+<url>
+  <loc>https://matinmok.github.io/azadivpn/Rules.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article1.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article2.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article3.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article4.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article5.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article6.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article7.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article8.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://matinmok.github.io/azadivpn/article9.html</loc>
+  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
 
 </urlset>
