@@ -1670,25 +1670,8 @@
     }
     </script>
 
-    <script>
-        const mobileMenuBtn2 = document.getElementById('mobile-menu-button');
-        const mobileMenu2 = document.getElementById('mobile-menu');
-        if (mobileMenuBtn2 && mobileMenu2) {
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
-            });
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-
-        function openPurchasePopup(telegramLink) {
+<script>
+    function openPurchasePopup(telegramLink) {
             closePlansPopup();
             const popup = document.getElementById('purchase-popup');
             const telegramButton = document.getElementById('telegram-purchase-link');
