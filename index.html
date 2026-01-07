@@ -1692,8 +1692,8 @@
             closePlansPopup();
             const popup = document.getElementById('purchase-popup');
             const telegramButton = document.getElementById('telegram-purchase-link');
-            if (popup && telegramButton) {
-                telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
+if (popup) {
+    telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
                 popup.classList.remove('hidden');
                 popup.focus();
             }
