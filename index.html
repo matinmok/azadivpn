@@ -357,11 +357,8 @@
     </style>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
-<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-    <!-- Spacer div to create gap below header -->
-    <div class="h-16"></div>
-    
-    <nav class="container mx-auto px-4 flex items-center justify-between h-16">
+<header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+    <nav class="container mx-auto px-4 flex items-center justify-between">
         <div class="flex items-center">
             <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
                 <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
@@ -462,123 +459,200 @@
         </button>
     </nav>
     
-    <!-- Mobile Side Menu - Compact Design -->
-    <div id="mobile-menu" class="hidden lg:hidden fixed inset-y-0 right-0 w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out">
+    <!-- Mobile Side Menu - Modern Design -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-y-0 right-0 w-80 bg-gradient-to-b from-white to-gray-50 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out">
         <div class="flex flex-col h-full">
-            <!-- Compact Header -->
-            <div class="bg-blue-600 text-white p-4">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <span class="bg-white text-blue-600 rounded px-2 py-1 text-sm font-bold">آزادی</span>
-                        <span class="font-bold">وی‌پی‌ان</span>
+            <!-- Header with gradient -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="text-white">
+                            <span class="bg-white text-blue-600 rounded-md px-3 py-1 ml-2 font-bold">آزادی</span>
+                            <span class="font-bold text-lg">وی‌پی‌ان</span>
+                        </div>
                     </div>
-                    <button id="close-mobile-menu" class="text-white hover:bg-white/20 p-1 rounded transition duration-300">
+                    <button id="close-mobile-menu" class="text-white hover:bg-white/20 p-2 rounded-full transition duration-300">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
+                
+                <!-- User status (optional) -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm">وضعیت آنلاین</div>
+                        <div class="flex items-center gap-1">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span class="text-xs">آنلاین</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <!-- Menu Items - Compact -->
-            <div class="flex-1 overflow-y-auto py-4">
-                <!-- Menu items without categories for more compact design -->
+            <!-- Menu Items -->
+            <div class="flex-1 overflow-y-auto py-6">
+                <!-- Navigation Title -->
+                <div class="pr-6 mb-4">
+                    <div class="text-gray-500 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
+                        <div class="w-1 h-4 bg-blue-500 rounded-full"></div>
+                        <span>منو اصلی</span>
+                    </div>
+                </div>
+                
                 <ul class="space-y-1">
                     <!-- صفحه نخست -->
                     <li>
-                        <a href="https://matinmok.github.io/azadivpn/" class="flex items-center py-3 pr-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 group">
-                            <div class="w-8 h-8 bg-gray-100 group-hover:bg-blue-100 rounded-md flex items-center justify-center ml-3">
-                                <i class="fas fa-home text-gray-600 group-hover:text-blue-600 text-sm"></i>
+                        <a href="https://matinmok.github.io/azadivpn/" class="flex items-center justify-between py-3.5 pr-8 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
+                            <div class="flex items-center gap-3 pr-4">
+                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-home text-gray-500 group-hover:text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">صفحه نخست</div>
+                                    <div class="text-xs text-gray-400 mt-0.5">خانه اصلی</div>
+                                </div>
                             </div>
-                            <span class="font-medium">صفحه نخست</span>
+                            <i class="fas fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
                         </a>
                     </li>
                     
                     <!-- تعرفه‌ها -->
                     <li>
-                        <a href="https://matinmok.github.io/azadivpn/#products" class="flex items-center py-3 pr-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 group">
-                            <div class="w-8 h-8 bg-gray-100 group-hover:bg-blue-100 rounded-md flex items-center justify-center ml-3">
-                                <i class="fas fa-tags text-gray-600 group-hover:text-blue-600 text-sm"></i>
+                        <a href="https://matinmok.github.io/azadivpn/#products" class="flex items-center justify-between py-3.5 pr-8 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
+                            <div class="flex items-center gap-3 pr-4">
+                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-tags text-gray-500 group-hover:text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">تعرفه‌ها</div>
+                                    <div class="text-xs text-gray-400 mt-0.5">خرید اشتراک</div>
+                                </div>
                             </div>
-                            <span class="font-medium">تعرفه‌ها</span>
+                            <i class="fas fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
                         </a>
                     </li>
                     
                     <!-- نظرات کاربران -->
                     <li>
-                        <a href="https://matinmok.github.io/azadivpn/#reviews" class="flex items-center py-3 pr-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 group">
-                            <div class="w-8 h-8 bg-gray-100 group-hover:bg-blue-100 rounded-md flex items-center justify-center ml-3">
-                                <i class="fas fa-comment-alt text-gray-600 group-hover:text-blue-600 text-sm"></i>
+                        <a href="https://matinmok.github.io/azadivpn/#reviews" class="flex items-center justify-between py-3.5 pr-8 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
+                            <div class="flex items-center gap-3 pr-4">
+                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-comment-alt text-gray-500 group-hover:text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">نظرات کاربران</div>
+                                    <div class="text-xs text-gray-400 mt-0.5">تجربیات مشتریان</div>
+                                </div>
                             </div>
-                            <span class="font-medium">نظرات کاربران</span>
+                            <i class="fas fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
                         </a>
                     </li>
                     
                     <!-- مقالات -->
                     <li>
-                        <a href="https://matinmok.github.io/azadivpn/article.html" class="flex items-center py-3 pr-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 group">
-                            <div class="w-8 h-8 bg-gray-100 group-hover:bg-blue-100 rounded-md flex items-center justify-center ml-3">
-                                <i class="fas fa-newspaper text-gray-600 group-hover:text-blue-600 text-sm"></i>
+                        <a href="https://matinmok.github.io/azadivpn/article.html" class="flex items-center justify-between py-3.5 pr-8 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
+                            <div class="flex items-center gap-3 pr-4">
+                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-newspaper text-gray-500 group-hover:text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">مقالات</div>
+                                    <div class="text-xs text-gray-400 mt-0.5">آموزش و راهنما</div>
+                                </div>
                             </div>
-                            <span class="font-medium">مقالات</span>
+                            <i class="fas fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
                         </a>
                     </li>
                     
                     <!-- همکاری -->
                     <li>
-                        <a href="https://matinmok.github.io/azadivpn/#partnership" class="flex items-center py-3 pr-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 group">
-                            <div class="w-8 h-8 bg-gray-100 group-hover:bg-blue-100 rounded-md flex items-center justify-center ml-3">
-                                <i class="fas fa-handshake text-gray-600 group-hover:text-blue-600 text-sm"></i>
+                        <a href="https://matinmok.github.io/azadivpn/#partnership" class="flex items-center justify-between py-3.5 pr-8 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
+                            <div class="flex items-center gap-3 pr-4">
+                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-handshake text-gray-500 group-hover:text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="font-medium">همکاری</div>
+                                    <div class="text-xs text-gray-400 mt-0.5">فرصت‌های شغلی</div>
+                                </div>
                             </div>
-                            <span class="font-medium">همکاری</span>
+                            <i class="fas fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
                         </a>
                     </li>
-                    
-                    <!-- آزادی ما با آیکون قابل کلیک -->
-                    <li>
-                        <button id="azadi-dropdown-btn" class="w-full flex items-center justify-between py-3 pr-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 group">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gray-100 group-hover:bg-blue-100 rounded-md flex items-center justify-center ml-3">
-                                    <i class="fas fa-building text-gray-600 group-hover:text-blue-600 text-sm"></i>
-                                </div>
-                                <span class="font-medium">آزادی ما</span>
+                </ul>
+                
+                <!-- آزادی ما Section Title -->
+                <div class="pr-6 mt-8 mb-4">
+                    <div class="text-gray-500 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
+                        <div class="w-1 h-4 bg-purple-500 rounded-full"></div>
+                        <span>آزادی ما</span>
+                    </div>
+                </div>
+                
+                <!-- آزادی ما Dropdown -->
+                <div class="mb-8">
+                    <button id="azadi-dropdown-btn" class="w-full flex items-center justify-between py-3.5 pr-8 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group bg-white shadow-sm mr-2">
+                        <div class="flex items-center gap-3 pr-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-building text-purple-500"></i>
                             </div>
-                            <i id="azadi-chevron" class="fas fa-chevron-down text-gray-400 text-xs transition duration-300 ml-2"></i>
-                        </button>
-                        
-                        <!-- Dropdown Content -->
-                        <div id="azadi-dropdown-content" class="mr-10 space-y-1 hidden">
-                            <!-- درباره ما -->
-                            <a href="https://matinmok.github.io/azadivpn/about.html" class="block py-2.5 pr-10 rounded text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-6 h-6 bg-blue-100 rounded flex items-center justify-center">
-                                        <i class="fas fa-info-circle text-blue-500 text-xs"></i>
+                            <div>
+                                <div class="font-medium">آزادی ما</div>
+                                <div class="text-xs text-gray-400 mt-0.5">معرفی و ارتباط</div>
+                            </div>
+                        </div>
+                        <i id="azadi-chevron" class="fas fa-chevron-down text-gray-400 transition duration-300 transform rotate-0 ml-2"></i>
+                    </button>
+                    
+                    <!-- Dropdown Content -->
+                    <div id="azadi-dropdown-content" class="mt-2 mr-8 space-y-1 hidden">
+                        <!-- درباره ما -->
+                        <a href="https://matinmok.github.io/azadivpn/about.html" class="block py-3 pr-12 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition duration-300 group/item">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-info-circle text-purple-500 text-xs"></i>
                                     </div>
                                     <span>درباره ما</span>
                                 </div>
-                            </a>
-                            
-                            <!-- تماس با ما -->
-                            <a href="https://matinmok.github.io/azadivpn/contact.html" class="block py-2.5 pr-10 rounded text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-6 h-6 bg-blue-100 rounded flex items-center justify-center">
-                                        <i class="fas fa-phone-alt text-blue-500 text-xs"></i>
+                                <i class="fas fa-chevron-left text-gray-300 group-hover/item:text-purple-500 transition duration-300"></i>
+                            </div>
+                        </a>
+                        
+                        <!-- تماس با ما -->
+                        <a href="https://matinmok.github.io/azadivpn/contact.html" class="block py-3 pr-12 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition duration-300 group/item">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-6 h-6 bg-purple-100 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-purple-500 text-xs"></i>
                                     </div>
                                     <span>تماس با ما</span>
                                 </div>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+                                <i class="fas fa-chevron-left text-gray-300 group-hover/item:text-purple-500 transition duration-300"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
             
-            <!-- Panel Button - Compact -->
-            <div class="border-t border-gray-200 p-4">
+            <!-- Panel Button - Separated with padding -->
+            <div class="border-t border-gray-200 mx-6 pt-6 pb-8">
                 <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer" 
-                   class="block bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-lg text-center transition duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-                    <i class="fas fa-user-circle"></i>
-                    <span>ورود به پنل کاربری</span>
+                   class="block bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3.5 px-6 rounded-xl text-center transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+                    <i class="fas fa-user-circle text-lg"></i>
+                    <span class="text-lg">ورود به پنل کاربری</span>
                 </a>
+                
+                <!-- Optional footer text -->
+                <div class="text-center mt-4">
+                    <div class="text-xs text-gray-400">
+                        <div class="flex items-center justify-center gap-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span>پشتیبانی ۲۴ ساعته</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -650,22 +724,6 @@
     #azadi-chevron.rotate-180 {
         transform: rotate(180deg);
     }
-    
-    /* Add padding to body to account for fixed header */
-    body {
-        padding-top: 4rem; /* 64px for desktop */
-    }
-    
-    @media (max-width: 1023px) {
-        body {
-            padding-top: 4rem; /* 64px for mobile too */
-        }
-    }
-    
-    /* Smooth scrolling with offset */
-    html {
-        scroll-padding-top: 4rem;
-    }
 </style>
 
 <script>
@@ -690,12 +748,8 @@
     function closeMobileMenu() {
         mobileMenu.classList.remove('show');
         // Close dropdown if open
-        if (azadiDropdownContent) {
-            azadiDropdownContent.classList.remove('show');
-        }
-        if (azadiChevron) {
-            azadiChevron.classList.remove('rotate-180');
-        }
+        azadiDropdownContent.classList.remove('show');
+        azadiChevron.classList.remove('rotate-180');
         setTimeout(() => {
             mobileMenu.classList.add('hidden');
             mobileOverlay.classList.add('hidden');
@@ -707,48 +761,18 @@
     if (azadiDropdownBtn) {
         azadiDropdownBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            e.preventDefault();
-            if (azadiDropdownContent && azadiChevron) {
-                azadiDropdownContent.classList.toggle('show');
-                azadiChevron.classList.toggle('rotate-180');
-            }
+            azadiDropdownContent.classList.toggle('show');
+            azadiChevron.classList.toggle('rotate-180');
         });
     }
     
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         if (azadiDropdownContent && azadiDropdownContent.classList.contains('show') && 
-            azadiDropdownBtn && !azadiDropdownBtn.contains(e.target) && !azadiDropdownContent.contains(e.target)) {
+            !azadiDropdownBtn.contains(e.target) && !azadiDropdownContent.contains(e.target)) {
             azadiDropdownContent.classList.remove('show');
-            if (azadiChevron) {
-                azadiChevron.classList.remove('rotate-180');
-            }
+            azadiChevron.classList.remove('rotate-180');
         }
-    });
-    
-    // Smooth scrolling with offset
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = 64; // Match the padding-top
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (!mobileMenu.classList.contains('hidden')) {
-                    closeMobileMenu();
-                }
-            }
-        });
     });
     
     if (mobileMenuButton) {
@@ -766,11 +790,7 @@
     // Close mobile menu when clicking on links (except dropdown toggle)
     const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
     mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            if (!e.target.closest('button')) {
-                closeMobileMenu();
-            }
-        });
+        link.addEventListener('click', closeMobileMenu);
     });
     
     // Close menu on escape key
