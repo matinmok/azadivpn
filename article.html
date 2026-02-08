@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
-        body { 
+        body {
             font-family: 'Vazirmatn', sans-serif;
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             min-height: 100vh;
@@ -30,7 +30,7 @@
             font-size: 1rem;
             font-weight: 300;
         }
-        
+
         /* Article Card Grid */
         .articles-container {
             display: grid;
@@ -39,13 +39,13 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         /* Article Card */
         .article-card {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 
+            box-shadow:
                 0 4px 6px -1px rgba(0, 0, 0, 0.05),
                 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -55,21 +55,21 @@
             flex-direction: column;
             position: relative;
         }
-        
+
         .article-card:hover {
             transform: translateY(-6px);
-            box-shadow: 
+            box-shadow:
                 0 20px 25px -5px rgba(0, 0, 0, 0.1),
                 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border-color: #3b82f6;
         }
-        
+
         /* Card Header */
         .card-header {
             padding: 1.5rem 1.5rem 0;
             position: relative;
         }
-        
+
         .article-category {
             display: inline-flex;
             align-items: center;
@@ -83,7 +83,7 @@
             margin-bottom: 1rem;
             border: 1px solid rgba(59, 130, 246, 0.2);
         }
-        
+
         .featured-badge {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             color: white;
@@ -97,7 +97,7 @@
             z-index: 10;
             box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
         }
-        
+
         /* Card Body */
         .card-body {
             padding: 0 1.5rem 1.25rem;
@@ -105,7 +105,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .article-card h3 {
             color: #1e3a8a;
             font-size: 1.125rem;
@@ -117,7 +117,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        
+
         .article-card p {
             color: #4b5563;
             font-size: 0.875rem;
@@ -129,14 +129,14 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        
+
         /* Card Footer */
         .card-footer {
             padding: 1rem 1.5rem;
             border-top: 1px solid rgba(229, 231, 235, 0.8);
             background: rgba(249, 250, 251, 0.5);
         }
-        
+
         .article-author {
             display: flex;
             align-items: center;
@@ -145,7 +145,7 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
-        
+
         .author-avatar {
             width: 24px;
             height: 24px;
@@ -158,7 +158,7 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
-        
+
         .read-more-btn {
             display: inline-flex;
             align-items: center;
@@ -176,24 +176,24 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .read-more-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
             background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
         }
-        
+
         /* Featured Article */
         .featured-article {
             grid-column: 1 / -1;
         }
-        
+
         @media (min-width: 768px) {
             .featured-article {
                 grid-column: span 2;
             }
         }
-        
+
         /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -203,7 +203,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -214,7 +214,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
         }
-        
+
         .hero-section::after {
             content: '';
             position: absolute;
@@ -225,7 +225,7 @@
             background: rgba(255, 255, 255, 0.03);
             border-radius: 50%;
         }
-        
+
         /* Categories Filter */
         .categories-filter {
             display: flex;
@@ -235,7 +235,7 @@
             margin-bottom: 3rem;
             padding: 0 1rem;
         }
-        
+
         .category-btn {
             padding: 0.5rem 1.25rem;
             background: rgba(255, 255, 255, 0.9);
@@ -249,19 +249,19 @@
             font-family: 'Vazirmatn', sans-serif;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-        
+
         .category-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .category-btn.active {
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: white;
             border-color: #3b82f6;
             box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
         }
-        
+
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
@@ -274,7 +274,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .cta-section::before {
             content: '';
             position: absolute;
@@ -285,7 +285,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
         }
-        
+
         .cta-section h2 {
             font-size: 1.75rem;
             font-weight: 800;
@@ -293,7 +293,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .cta-section p {
             font-size: 1rem;
             opacity: 0.9;
@@ -301,7 +301,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .cta-btn {
             display: inline-flex;
             align-items: center;
@@ -316,13 +316,13 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .cta-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             background: #f8fafc;
         }
-        
+
         /* Search Box */
         .search-box {
             max-width: 500px;
@@ -330,7 +330,7 @@
             position: relative;
             padding: 0 1rem;
         }
-        
+
         .search-box input {
             width: 100%;
             padding: 0.875rem 1.25rem 0.875rem 3rem;
@@ -342,14 +342,14 @@
             font-family: 'Vazirmatn', sans-serif;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-        
+
         .search-box input:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
             background: white;
         }
-        
+
         .search-box i {
             position: absolute;
             right: 1.75rem;
@@ -358,14 +358,14 @@
             color: #9ca3af;
             z-index: 10;
         }
-        
+
         /* Section Header */
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
             padding: 0 1rem;
         }
-        
+
         .section-header h2 {
             font-size: 2rem;
             font-weight: 800;
@@ -374,7 +374,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-header h2::after {
             content: '';
             position: absolute;
@@ -386,14 +386,14 @@
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             border-radius: 2px;
         }
-        
+
         .section-header p {
             color: #6b7280;
             font-size: 1rem;
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .articles-container {
@@ -401,35 +401,35 @@
                 gap: 1.5rem;
                 padding: 0 1rem;
             }
-            
+
             .hero-section {
                 padding: 4rem 1rem 2rem;
             }
-            
+
             .hero-section h1 {
                 font-size: 1.75rem;
             }
-            
+
             .hero-section p {
                 font-size: 1rem;
             }
-            
+
             .section-header h2 {
                 font-size: 1.5rem;
             }
-            
+
             .category-btn {
                 padding: 0.375rem 1rem;
                 font-size: 0.75rem;
             }
         }
-        
+
         @media (min-width: 1024px) {
             .articles-container {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        
+
         /* Animation */
         @keyframes fadeInUp {
             from {
@@ -441,17 +441,17 @@
                 transform: translateY(0);
             }
         }
-        
+
         .animate-fadeInUp {
             animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
-        
+
         /* Load More Button */
         .load-more-container {
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         .load-more-btn {
             display: inline-flex;
             align-items: center;
@@ -467,7 +467,7 @@
             font-family: 'Vazirmatn', sans-serif;
             font-size: 0.875rem;
         }
-        
+
         .load-more-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
@@ -859,17 +859,17 @@
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = 45;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 if (!mobileMenu.classList.contains('hidden')) {
                     closeMobileMenu();
                 }
@@ -921,7 +921,7 @@
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="جستجوی مقاله...">
             </div>
-            
+
             <div class="categories-filter">
                 <button class="category-btn active" data-category="all">
                     <i class="fas fa-layer-group ml-1"></i>
@@ -954,7 +954,7 @@
                 <h2>مقالات برتر آزادی وی‌پی‌ان</h2>
                 <p>بهترین راهنمایی‌ها برای انتخاب و استفاده از فیلترشکن</p>
             </div>
-            
+
             <div class="articles-container">
                 <!-- Featured Article -->
                 <div class="article-card featured-article animate-fadeInUp" data-category="buy-guide">
@@ -980,7 +980,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Article 1: خرید فیلترشکن ویندوز -->
                 <div class="article-card animate-fadeInUp" data-category="buy-guide" style="animation-delay: 0.1s">
                     <div class="card-header">
@@ -1004,7 +1004,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Article 2: خرید فیلترشکن v2box آیفون -->
                 <div class="article-card animate-fadeInUp" data-category="tutorial" style="animation-delay: 0.2s">
                     <div class="card-header">
@@ -1028,7 +1028,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Article 3: بهترین فیلترشکن پولی -->
                 <div class="article-card animate-fadeInUp" data-category="comparison" style="animation-delay: 0.3s">
                     <div class="card-header">
@@ -1052,7 +1052,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Article 4: دانلود اپ‌های مورد نیاز -->
                 <div class="article-card animate-fadeInUp" data-category="tutorial" style="animation-delay: 0.4s">
                     <div class="card-header">
@@ -1076,7 +1076,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Article 5: چرا فیلترشکن پولی -->
                 <div class="article-card animate-fadeInUp" data-category="security" style="animation-delay: 0.5s">
                     <div class="card-header">
@@ -1243,6 +1243,30 @@
         </a>
     </div>
 </div>
+
+<!-- Article 12: نمایندگی مرزبان -->
+<div class="article-card" data-category="buy-guide">
+    <div class="card-header">
+        <span class="article-category">
+            <i class="fas fa-user-tie"></i>
+            راهنمای خرید
+        </span>
+    </div>
+    <div class="card-body">
+        <h3>راهنمای صفر تا صد نمایندگی مرزبان</h3>
+        <p>آموزش کامل راه‌اندازی و مدیریت نمایندگی مرزبان، از ثبت‌نام و تنظیمات اولیه تا مدیریت کاربران و کسب درآمد از فروش سرویس VPN.</p>
+    </div>
+    <div class="card-footer">
+        <div class="article-author">
+            <div class="author-avatar">تیم</div>
+            <span>تیم آزادی وی‌پی‌ان</span>
+        </div>
+        <a href="https://matinmok.github.io/azadivpn/article10.html" class="read-more-btn mt-3">
+            <i class="fas fa-book-reader"></i>
+            مطالعه مقاله
+        </a>
+    </div>
+</div>
             </div>
         </div>
     </section>
@@ -1282,49 +1306,19 @@
     </footer>
 
     <script>
-        // Mobile menu
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
         // Category Filter
         const categoryBtns = document.querySelectorAll('.category-btn');
         const articleCards = document.querySelectorAll('.article-card');
-        
+
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
                 categoryBtns.forEach(b => b.classList.remove('active'));
                 // Add active class to clicked button
                 btn.classList.add('active');
-                
+
                 const category = btn.getAttribute('data-category');
-                
+
                 // Show/hide articles based on category
                 articleCards.forEach(card => {
                     if (category === 'all' || card.getAttribute('data-category') === category) {
@@ -1348,12 +1342,12 @@
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', () => {
             const searchTerm = searchInput.value.toLowerCase();
-            
+
             articleCards.forEach(card => {
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const description = card.querySelector('p').textContent.toLowerCase();
                 const category = card.querySelector('.article-category').textContent.toLowerCase();
-                
+
                 if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
                     card.style.display = 'flex';
                     setTimeout(() => {
@@ -1368,62 +1362,6 @@
                     }, 300);
                 }
             });
-        });
-
-        
-        loadMoreBtn.addEventListener('click', () => {
-            const container = document.querySelector('.articles-container');
-            const startIndex = visibleArticles;
-            visibleArticles += 3;
-            
-            for (let i = startIndex; i < Math.min(visibleArticles, allArticles.length + 6); i++) {
-                const article = allArticles[i - 6];
-                if (!article) break;
-                
-const articleCard = document.createElement('div');
-articleCard.className = 'article-card';
-articleCard.setAttribute('data-category', article.category);
-articleCard.style.opacity = '0';
-articleCard.style.transform = 'translateY(20px)';
-articleCard.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                
-                articleCard.innerHTML = `
-                    <div class="card-header">
-                        <span class="article-category">
-                            <i class="${article.icon.includes('fab') ? article.icon : 'fas ' + article.icon}"></i>
-                            ${article.category === 'buy-guide' ? 'راهنمای خرید' : 
-                              article.category === 'security' ? 'امنیت و حریم خصوصی' : 
-                              article.category === 'tutorial' ? 'آموزش و راهنمایی' : 
-                              article.category === 'comparison' ? 'مقایسه و بررسی' : 'مقالات'}
-                        </span>
-                    </div>
-                    <div class="card-body">
-                        <h3>${article.title}</h3>
-                        <p>${article.description}</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="article-author">
-                            <div class="author-avatar">تیم</div>
-                            <span>تیم آزادی وی‌پی‌ان</span>
-                        </div>
-                        <a href="${article.link}" class="read-more-btn mt-3">
-                            <i class="fas fa-book-reader"></i>
-                            مطالعه مقاله
-                        </a>
-                    </div>
-                `;
-                
-                container.appendChild(articleCard);
-                
-                setTimeout(() => {
-                    articleCard.style.opacity = '1';
-                    articleCard.style.transform = 'translateY(0)';
-                }, 50);
-            }
-            
-            if (visibleArticles >= allArticles.length + 6) {
-                loadMoreBtn.style.display = 'none';
-            }
         });
 
         // Initial animation
