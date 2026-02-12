@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
     <meta name="description" content="خرید فیلترشکن قوی و پرسرعت از آزادی وی‌پی‌ان با آی‌پی ثابت، پروتکل V2Ray و پشتیبانی ۲۴ ساعته. بهترین فیلترشکن برای دسترسی به اینترنت آزاد با سرورهای آلمان، ترکیه، آمریکا، فنلاند و هلند.">
     <meta name="keywords" content="خرید فیلترشکن قوی, فیلترشکن, آزادی وی‌پی‌ان, وی‌پی‌ان پرسرعت, آی‌پی ثابت, V2Ray, فیلترشکن قوی, خرید VPN, فیلترشکن بدون قطعی, فیلترشکن ایران, بهترین فیلترشکن, خرید فیلترشکن, فیلترشکن پرسرعت">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -340,21 +340,166 @@
                 font-size: 1rem;
             }
         }
-        @media (max-width: 640px) {
-            .partnership-table {
-                display: block;
-                overflow-x: auto;
-            }
-            .partnership-table th,
-            .partnership-table td {
-                font-size: 0.85rem;
-                padding: 0.75rem;
-            }
-            .home-buttons a {
-                padding: 0.75rem 0.5rem;
-                font-size: 0.9rem;
-            }
-        }
+@media (max-width: 640px) {
+    /* رفع مشکل اصلی - حذف عرض‌های ثابت */
+    .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    
+    /* رفع مشکل کارت‌های محصولات */
+    #products .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #products .grid > article {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 1.5rem 1rem !important;
+    }
+    
+    /* رفع مشکل نظرات کاربران */
+    .reviews-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .review-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box;
+    }
+    
+    /* رفع مشکل مقالات */
+    .articles-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .article-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box;
+    }
+    
+    /* رفع مشکل جدول */
+    .partnership-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0;
+    }
+    
+    .partnership-table table {
+        min-width: 500px;
+        width: 100%;
+    }
+    
+    /* رفع مشکل باکس سئو */
+    .max-w-4xl.bg-white.rounded-xl.shadow-lg.p-8 {
+        padding: 1.2rem !important;
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+    
+    /* رفع مشکل چرا آزادی */
+    #why-azadi .grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #why-azadi .grid > div {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box;
+    }
+    
+    /* رفع مشکل تعرفه‌های کامل */
+    #plans-popup .grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    #plans-popup .grid > div {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0.8rem !important;
+        box-sizing: border-box;
+    }
+    
+    /* رفع مشکل دکمه‌ها */
+    .home-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+    
+    .home-buttons a {
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    /* رفع مشکل فوتر */
+    footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    footer nav a {
+        margin: 0 !important;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 380px) {
+    /* برای موبایل‌های خیلی کوچک مثل گلکسی فولد */
+    body {
+        font-size: 14px;
+    }
+    
+    h1.text-4xl {
+        font-size: 1.6rem !important;
+        line-height: 2rem !important;
+    }
+    
+    h2.text-3xl {
+        font-size: 1.3rem !important;
+        line-height: 1.8rem !important;
+    }
+    
+    .review-card h4 {
+        font-size: 0.95rem !important;
+    }
+    
+    .review-card p {
+        font-size: 0.85rem !important;
+    }
+    
+    /* اصلاح دکمه پنل کاربری */
+    .bg-gradient-to-r.from-blue-500.to-blue-600 {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+}
     </style>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
