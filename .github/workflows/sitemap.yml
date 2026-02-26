@@ -5,7 +5,8 @@ on:
     branches:
       - main  # اگه اسم شاخه اصلیت master هست، به جای main بزن master
     paths:
-      - '**.html'  # فقط وقتی فایل HTML تغییر کنه، اجرا می‌شه
+      - '**.html'
+  workflow_dispatch:  # این خط رو اضافه کردم - برای اجرای دستی
 
 jobs:
   sitemap_job:
