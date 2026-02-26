@@ -1,0 +1,33 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main  # اگه اسم شاخه اصلیت master هست، به جای main بزن master
+    paths:
+      - '**.html'  # فقط وقتی فایل HTML تغییر کنه، اجرا می‌شه
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    name: Generate a sitemap
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate the sitemap
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://matinmok.github.io/azadivpn/
+
+      - name: Commit and push the sitemap
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || git commit -m "Automated sitemap update"
+          git push
