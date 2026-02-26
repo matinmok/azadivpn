@@ -1,106 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-  <loc>https://matinmok.github.io/azadivpn/</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>1.00</priority>
+<loc>https://matinmok.github.io/azadivpn/</loc>
+<lastmod>2026-02-19T04:16:13+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/about.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+<loc>https://matinmok.github.io/azadivpn/Rules.html</loc>
+<lastmod>2026-01-07T04:34:13+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/contact.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+<loc>https://matinmok.github.io/azadivpn/about.html</loc>
+<lastmod>2026-02-05T21:28:35+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/Rules.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+<loc>https://matinmok.github.io/azadivpn/admin.html</loc>
+<lastmod>2025-05-14T19:55:31+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
+<loc>https://matinmok.github.io/azadivpn/article-template.html</loc>
+<lastmod>2025-05-21T00:44:40+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article1.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article.html</loc>
+<lastmod>2026-02-09T02:48:43+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article2.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article1.html</loc>
+<lastmod>2026-01-07T04:36:11+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article3.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article10.html</loc>
+<lastmod>2026-02-09T02:21:20+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article4.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article2.html</loc>
+<lastmod>2026-01-07T04:36:43+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article5.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article3.html</loc>
+<lastmod>2026-01-07T04:38:37+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article6.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article4.html</loc>
+<lastmod>2026-01-07T04:39:14+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article7.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article5.html</loc>
+<lastmod>2026-01-07T04:40:49+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article8.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article6.html</loc>
+<lastmod>2026-01-07T04:41:23+03:30</lastmod>
 </url>
-
 <url>
-  <loc>https://matinmok.github.io/azadivpn/article9.html</loc>
-  <lastmod>2026-01-07T01:13:58+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
+<loc>https://matinmok.github.io/azadivpn/article7.html</loc>
+<lastmod>2026-02-07T21:05:41+03:30</lastmod>
 </url>
-
+<url>
+<loc>https://matinmok.github.io/azadivpn/article8.html</loc>
+<lastmod>2026-02-07T21:15:29+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/article9.html</loc>
+<lastmod>2026-02-12T09:40:44+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/chat.html</loc>
+<lastmod>2025-05-14T17:23:59+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/competitor-result.html</loc>
+<lastmod>2025-05-20T15:45:09+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/contact.html</loc>
+<lastmod>2026-01-07T04:43:25+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/dashboard.html</loc>
+<lastmod>2025-05-14T14:37:41+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/goftino_widget.html</loc>
+<lastmod>2025-05-21T03:49:55+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/googleb959bac22587bb1a.html</loc>
+<lastmod>2025-05-16T20:46:05+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/header.html</loc>
+<lastmod>2025-07-12T02:06:39+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/meta-result.html</loc>
+<lastmod>2025-05-20T15:44:33+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/report-result.html</loc>
+<lastmod>2025-05-20T15:45:36+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/seo.html</loc>
+<lastmod>2025-05-20T15:42:11+03:30</lastmod>
+</url>
+<url>
+<loc>https://matinmok.github.io/azadivpn/blog/blogadmin.html</loc>
+<lastmod>2025-05-21T00:08:35+03:30</lastmod>
+</url>
 </urlset>
