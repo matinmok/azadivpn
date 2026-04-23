@@ -30,8 +30,8 @@
     <link rel="alternate" hreflang="x-default" href="https://matinmok.github.io/azadivpn/">
     <link rel="alternate" hreflang="fa" href="https://matinmok.github.io/azadivpn/">
     <title>خرید فیلترشکن قوی و پرسرعت | آزادی وی‌پی‌ان - بهترین سرویس VPN ایران ۱۴۰۴</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6'/%3E%3Cstop offset='100%25' style='stop-color:%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='72' font-size='55' font-weight='bold' fill='white' text-anchor='middle' font-family='Tahoma,Arial'%3Eآ%3C/text%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6'/%3E%3Cstop offset='100%25' style='stop-color:%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='72' font-size='55' font-weight='bold' fill='white' text-anchor='middle' font-family='Tahoma,Arial'%3Eآ%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6'/%3E%3Cstop offset='100%25' style='stop-color:%231d4ed8'/%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='72' font-size='55' font-weight='bold' fill='white' text-anchor='middle' font-family='Tahoma,Arial'%3Eآ%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6'/%3E%3Cstop offset='100%25' style='stop-color:%231d4ed8'/%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='72' font-size='55' font-weight='bold' fill='white' text-anchor='middle' font-family='Tahoma,Arial'%3Eآ%3C/text%3E%3C/svg%3E">
     <meta name="theme-color" content="#3b82f6">
     <meta name="msapplication-TileColor" content="#3b82f6">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -318,6 +318,41 @@
             font-size: 0.875rem;
             margin-bottom: 1rem;
         }
+        /* استایل اطلاعیه چسبان در بالای هدر */
+        .sticky-announcement {
+            background: linear-gradient(90deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .sticky-announcement a {
+            color: #fef08a;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .sticky-announcement a:hover {
+            color: #ffffff;
+        }
+        /* غیرفعال کردن واتساپ */
+        .whatsapp-disabled {
+            opacity: 0.6;
+            pointer-events: none;
+            position: relative;
+            display: inline-block;
+        }
+        .whatsapp-disabled::after {
+            content: " (غیرفعال)";
+            color: #ef4444;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
         @media (max-width: 768px) {
             .reviews-grid {
                 grid-template-columns: 1fr;
@@ -416,7 +451,36 @@
     </style>
 </head>
 <body>
-<header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
+
+<!-- اطلاعیه چسبان بالای هدر -->
+<div class="sticky-announcement">
+    ⚠️ اطلاعیه مهم: قیمت سرویس‌ها بر اساس قبل از جنگ بوده است. برای خرید تنها به آیدی 
+    <a href="https://t.me/Mykalikal" target="_blank" rel="noopener noreferrer">@Mykalikal</a> پیام دهید. با تشکر از همراهی شما
+</div>
+
+<!-- پاپ آپ هنگام باز شدن سایت -->
+<div id="welcome-popup" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[200] p-4" style="display: flex;">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-right border-t-8 border-red-600 transform transition-all">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold text-red-700">⚠️ اطلاعیه مهم</h3>
+            <button onclick="closeWelcomePopup()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+        </div>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+            <p class="font-semibold text-red-600">به علت اختلالات گسترده اینترنت و عدم دسترسی به اینترنت بین‌المللی،</p>
+            <p>تنها سرویس‌های <strong class="text-blue-600">استارلینک (Starlink)</strong> و <strong class="text-blue-600">تانل (Tunnel)</strong> قابل ارائه می‌باشد.</p>
+            <p class="bg-gray-100 p-3 rounded-lg text-center">🔹 جهت خرید و دریافت قیمت به آیدی زیر پیام دهید:</p>
+            <div class="text-center my-4">
+                <a href="https://t.me/Mykalikal" target="_blank" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-md">
+                    <i class="fab fa-telegram"></i> @Mykalikal
+                </a>
+            </div>
+            <p class="text-xs text-gray-500 text-center">با تشکر - آزادی وی‌پی‌ان</p>
+        </div>
+        <button onclick="closeWelcomePopup()" class="mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition">بستن</button>
+    </div>
+</div>
+
+<header class="bg-white shadow-md py-4 sticky top-0 left-0 right-0 z-50" style="top: 0;">
     <nav class="container mx-auto px-4 flex items-center justify-between">
         <div class="flex items-center">
             <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
@@ -534,132 +598,20 @@
                     </div>
                 </div>
                 <ul class="space-y-1">
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-house text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">صفحه نخست</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">خانه اصلی</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#products" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-tags text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">تعرفه‌ها</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">خرید اشتراک</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#reviews" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-comment text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">نظرات کاربران</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">تجربیات مشتریان</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/article.html" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-newspaper text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">مقالات</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">آموزش و راهنما</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#partnership" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-handshake text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">همکاری</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">فرصت‌های شغلی</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
+                    <li><a href="https://matinmok.github.io/azadivpn/" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-house text-gray-500 group-hover:text-blue-500 text-base"></i></div><div><div class="font-medium">صفحه نخست</div><div class="text-xs text-gray-400 mt-0.5">خانه اصلی</div></div></div><i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i></a></li>
+                    <li><a href="#products" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-tags text-gray-500 group-hover:text-blue-500 text-base"></i></div><div><div class="font-medium">تعرفه‌ها</div><div class="text-xs text-gray-400 mt-0.5">خرید اشتراک</div></div></div><i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i></a></li>
+                    <li><a href="#reviews" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-comment text-gray-500 group-hover:text-blue-500 text-base"></i></div><div><div class="font-medium">نظرات کاربران</div><div class="text-xs text-gray-400 mt-0.5">تجربیات مشتریان</div></div></div><i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i></a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/article.html" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-newspaper text-gray-500 group-hover:text-blue-500 text-base"></i></div><div><div class="font-medium">مقالات</div><div class="text-xs text-gray-400 mt-0.5">آموزش و راهنما</div></div></div><i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i></a></li>
+                    <li><a href="#partnership" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center"><i class="fa-solid fa-handshake text-gray-500 group-hover:text-blue-500 text-base"></i></div><div><div class="font-medium">همکاری</div><div class="text-xs text-gray-400 mt-0.5">فرصت‌های شغلی</div></div></div><i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i></a></li>
                 </ul>
-                <div class="mt-8 mb-4">
-                    <div class="text-gray-500 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
-                        <div class="w-1 h-4 bg-purple-500 rounded-full"></div>
-                        <span>آزادی ما</span>
-                    </div>
-                </div>
+                <div class="mt-8 mb-4"><div class="text-gray-500 text-sm font-semibold uppercase tracking-wider flex items-center gap-2"><div class="w-1 h-4 bg-purple-500 rounded-full"></div><span>آزادی ما</span></div></div>
                 <div class="mb-8">
-                    <button id="azadi-dropdown-btn" class="w-full flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group bg-white shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg flex items-center justify-center">
-                                <i class="fa-solid fa-building text-purple-500 text-base"></i>
-                            </div>
-                            <div>
-                                <div class="font-medium">آزادی ما</div>
-                                <div class="text-xs text-gray-400 mt-0.5">معرفی و ارتباط</div>
-                            </div>
-                        </div>
-                        <i id="azadi-chevron" class="fa-solid fa-chevron-down text-gray-400 transition duration-300 transform rotate-0"></i>
-                    </button>
-                    <div id="azadi-dropdown-content" class="mt-2 mr-4 space-y-1 hidden">
-                        <a href="https://matinmok.github.io/azadivpn/about.html" class="flex items-center justify-between py-3 px-3 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition duration-300 group/item">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-purple-100 rounded-md flex items-center justify-center">
-                                    <i class="fa-solid fa-circle-info text-purple-500 text-sm"></i>
-                                </div>
-                                <span>درباره ما</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover/item:text-purple-500 transition duration-300"></i>
-                        </a>
-                        <a href="https://matinmok.github.io/azadivpn/contact.html" class="flex items-center justify-between py-3 px-3 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition duration-300 group/item">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-purple-100 rounded-md flex items-center justify-center">
-                                    <i class="fa-solid fa-phone text-purple-500 text-sm"></i>
-                                </div>
-                                <span>تماس با ما</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover/item:text-purple-500 transition duration-300"></i>
-                        </a>
-                    </div>
+                    <a href="https://matinmok.github.io/azadivpn/about.html" class="flex items-center justify-between py-3 px-3 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition"><div class="flex items-center gap-3"><div class="w-8 h-8 bg-purple-100 rounded-md flex items-center justify-center"><i class="fa-solid fa-circle-info text-purple-500 text-sm"></i></div><span>درباره ما</span></div></a>
+                    <a href="https://matinmok.github.io/azadivpn/contact.html" class="flex items-center justify-between py-3 px-3 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition"><div class="flex items-center gap-3"><div class="w-8 h-8 bg-purple-100 rounded-md flex items-center justify-center"><i class="fa-solid fa-phone text-purple-500 text-sm"></i></div><span>تماس با ما</span></div></a>
                 </div>
             </div>
             <div class="border-t border-gray-200 mx-6 pt-6 pb-8">
-                <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer"
-                   class="block bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3.5 px-6 rounded-xl text-center transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-circle-user text-lg"></i>
-                    <span class="text-lg">ورود به پنل کاربری</span>
-                </a>
-                <div class="text-center mt-4">
-                    <div class="text-xs text-gray-400">
-                        <div class="flex items-center justify-center gap-2">
-                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                            <span>پشتیبانی ۲۴ ساعته</span>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://miniapp.matinder.workers.dev" target="_blank" class="block bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3.5 px-6 rounded-xl text-center shadow-lg flex items-center justify-center gap-3"><i class="fa-solid fa-circle-user text-lg"></i>ورود به پنل کاربری</a>
             </div>
         </div>
     </div>
@@ -668,56 +620,16 @@
 
 <style>
     html {
-        scroll-padding-top: 45px;
+        scroll-padding-top: 110px;
     }
     [id] {
-        scroll-margin-top: 45px;
+        scroll-margin-top: 110px;
     }
     #mobile-menu {
         transform: translateX(100%);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
     }
     #mobile-menu.show {
         transform: translateX(0);
-    }
-    .transition-all {
-        transition-property: all;
-    }
-    #mobile-menu .overflow-y-auto {
-        scrollbar-width: thin;
-        scrollbar-color: #cbd5e1 transparent;
-    }
-    #mobile-menu .overflow-y-auto::-webkit-scrollbar {
-        width: 4px;
-    }
-    #mobile-menu .overflow-y-auto::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    #mobile-menu .overflow-y-auto::-webkit-scrollbar-thumb {
-        background-color: #cbd5e1;
-        border-radius: 2px;
-    }
-    .group:hover .group-hover\:visible {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-    #azadi-dropdown-content.show {
-        display: block;
-        animation: slideDown 0.3s ease forwards;
-    }
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    #azadi-chevron.rotate-180 {
-        transform: rotate(180deg);
     }
 </style>
 
@@ -726,93 +638,26 @@
     const closeMobileMenuButton = document.getElementById('close-mobile-menu');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileOverlay = document.getElementById('mobile-overlay');
-    const azadiDropdownBtn = document.getElementById('azadi-dropdown-btn');
-    const azadiDropdownContent = document.getElementById('azadi-dropdown-content');
-    const azadiChevron = document.getElementById('azadi-chevron');
 
-    function openMobileMenu() {
-        mobileMenu.classList.remove('hidden');
-        mobileOverlay.classList.remove('hidden');
-        setTimeout(() => {
-            mobileMenu.classList.add('show');
-        }, 10);
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-        mobileMenu.classList.remove('show');
-        azadiDropdownContent.classList.remove('show');
-        azadiChevron.classList.remove('rotate-180');
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-            mobileOverlay.classList.add('hidden');
-        }, 300);
-        document.body.style.overflow = '';
-    }
-
-    if (azadiDropdownBtn) {
-        azadiDropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            azadiDropdownContent.classList.toggle('show');
-            azadiChevron.classList.toggle('rotate-180');
-        });
-    }
-
-    document.addEventListener('click', (e) => {
-        if (azadiDropdownContent && azadiDropdownContent.classList.contains('show') &&
-            !azadiDropdownBtn.contains(e.target) && !azadiDropdownContent.contains(e.target)) {
-            azadiDropdownContent.classList.remove('show');
-            azadiChevron.classList.remove('rotate-180');
-        }
-    });
-
+    function openMobileMenu() { mobileMenu.classList.remove('hidden'); mobileOverlay.classList.remove('hidden'); setTimeout(() => mobileMenu.classList.add('show'), 10); document.body.style.overflow = 'hidden'; }
+    function closeMobileMenu() { mobileMenu.classList.remove('show'); setTimeout(() => { mobileMenu.classList.add('hidden'); mobileOverlay.classList.add('hidden'); }, 300); document.body.style.overflow = ''; }
+    if (mobileMenuButton) mobileMenuButton.addEventListener('click', openMobileMenu);
+    if (closeMobileMenuButton) closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
             const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = 45;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                if (!mobileMenu.classList.contains('hidden')) {
-                    closeMobileMenu();
-                }
-            }
+            if (targetElement) { const headerHeight = 110; const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight; window.scrollTo({ top: targetPosition, behavior: 'smooth' }); if (!mobileMenu.classList.contains('hidden')) closeMobileMenu(); }
         });
     });
-
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', openMobileMenu);
-    }
-    if (closeMobileMenuButton) {
-        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-    }
-    if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', closeMobileMenu);
-    }
-
-    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-            closeMobileMenu();
-        }
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) closeMobileMenu(); });
 </script>
 
     <main>
-        <section class="bg-gray-100 py-12 mt-16">
+        <section class="bg-gray-100 py-12 mt-0">
             <div class="container mx-auto text-center px-4">
                 <h1 class="text-4xl font-bold text-gray-800 mb-6">خرید فیلترشکن قوی و پرسرعت با آزادی وی‌پی‌ان</h1>
                 <p class="max-w-2xl mx-auto text-lg text-gray-700 mb-8">
@@ -835,68 +680,21 @@
                         <div>
                             <h2 class="text-2xl font-bold text-blue-600 mb-4">چرا خرید فیلترشکن از آزادی وی‌پی‌ان؟</h2>
                             <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <span><strong>فیلترشکن قوی و پرسرعت</strong> با پروتکل V2Ray</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <span><strong>آی‌پی ثابت</strong> برای اتصال پایدار</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <span><strong>ترافیک نامحدود</strong> بدون کاهش سرعت</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <span><strong>پشتیبانی 24 ساعته</strong> در 7 روز هفته</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <span><strong>سرورهای 5 کشور</strong> با بهترین پینگ</span>
-                                </li>
+                                <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>فیلترشکن قوی و پرسرعت</strong> با پروتکل V2Ray</span></li>
+                                <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>آی‌پی ثابت</strong> برای اتصال پایدار</span></li>
+                                <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>ترافیک نامحدود</strong> بدون کاهش سرعت</span></li>
+                                <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>پشتیبانی 24 ساعته</strong> در 7 روز هفته</span></li>
+                                <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>سرورهای 5 کشور</strong> با بهترین پینگ</span></li>
                             </ul>
                         </div>
                         <div>
                             <h2 class="text-2xl font-bold text-blue-600 mb-4">مزایای خرید فیلترشکن قوی</h2>
-                            <p class="text-gray-700 mb-4">
-                                <strong>خرید فیلترشکن قوی و پرسرعت</strong> از آزادی وی‌پی‌ان تضمین می‌کند که همیشه به اینترنت آزاد و بدون محدودیت دسترسی دارید. 
-                                با سرورهای اختصاصی در 5 کشور مختلف، می‌توانید بهترین سرعت را برای کار، تحصیل، تماشای فیلم و بازی آنلاین تجربه کنید.
-                            </p>
-                            <p class="text-gray-700">
-                                <strong>فیلترشکن آزادی وی‌پی‌ان</strong> نه تنها یک VPN معمولی، بلکه یک سرویس کامل با قابلیت‌های ویژه است که امنیت و حریم خصوصی شما را در اولویت قرار می‌دهد.
-                            </p>
-                            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
-                                <p class="text-blue-800 font-semibold">💡 نکته مهم:</p>
-                                <p class="text-gray-700 text-sm mt-1">برای <strong>خرید فیلترشکن قوی</strong> باید به سرویس‌های معتبر با پشتیبانی فارسی مراجعه کنید. آزادی وی‌پی‌ان با بیش از 3 سال سابقه، معتبرترین ارائه‌دهنده VPN در ایران است.</p>
-                            </div>
+                            <p class="text-gray-700 mb-4"><strong>خرید فیلترشکن قوی و پرسرعت</strong> از آزادی وی‌پی‌ان تضمین می‌کند که همیشه به اینترنت آزاد و بدون محدودیت دسترسی دارید. با سرورهای اختصاصی در 5 کشور مختلف، می‌توانید بهترین سرعت را برای کار، تحصیل، تماشای فیلم و بازی آنلاین تجربه کنید.</p>
+                            <p class="text-gray-700"><strong>فیلترشکن آزادی وی‌پی‌ان</strong> نه تنها یک VPN معمولی، بلکه یک سرویس کامل با قابلیت‌های ویژه است که امنیت و حریم خصوصی شما را در اولویت قرار می‌دهد.</p>
+                            <div class="mt-4 p-4 bg-blue-50 rounded-lg"><p class="text-blue-800 font-semibold">💡 نکته مهم:</p><p class="text-gray-700 text-sm mt-1">برای <strong>خرید فیلترشکن قوی</strong> باید به سرویس‌های معتبر با پشتیبانی فارسی مراجعه کنید. آزادی وی‌پی‌ان با بیش از 3 سال سابقه، معتبرترین ارائه‌دهنده VPN در ایران است.</p></div>
                         </div>
                     </div>
-                    <div class="mt-8 p-6 bg-blue-50 rounded-lg">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">راهنمای خرید فیلترشکن</h3>
-                        <p class="text-gray-700">
-                            برای <strong>خرید فیلترشکن قوی</strong> کافیست از بخش تعرفه‌ها پلن مورد نظر خود را انتخاب کنید. 
-                            ما پلن‌های متنوعی از جمله <strong>فیلترشکن تک کاربر</strong>، <strong>فیلترشکن خانوادگی</strong> و <strong>فیلترشکن VIP</strong> با دسترسی به تمام سرورها ارائه می‌دهیم.
-                            تمامی پلن‌ها دارای گارانتی بازگشت وجه در صورت عدم رضایت هستند.
-                        </p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">خرید فیلترشکن قوی</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">فیلترشکن پرسرعت</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">آزادی وی‌پی‌ان</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">خرید VPN</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">فیلترشکن آی‌پی ثابت</span>
-                        </div>
-                    </div>
+                    <div class="mt-8 p-6 bg-blue-50 rounded-lg"><h3 class="text-xl font-bold text-blue-800 mb-3">راهنمای خرید فیلترشکن</h3><p class="text-gray-700">برای <strong>خرید فیلترشکن قوی</strong> کافیست از بخش تعرفه‌ها پلن مورد نظر خود را انتخاب کنید. ما پلن‌های متنوعی از جمله <strong>فیلترشکن تک کاربر</strong>، <strong>فیلترشکن خانوادگی</strong> و <strong>فیلترشکن VIP</strong> با دسترسی به تمام سرورها ارائه می‌دهیم. تمامی پلن‌ها دارای گارانتی بازگشت وجه در صورت عدم رضایت هستند.</p><div class="mt-4 flex flex-wrap gap-2"><span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">خرید فیلترشکن قوی</span><span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">فیلترشکن پرسرعت</span><span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">آزادی وی‌پی‌ان</span><span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">خرید VPN</span><span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">فیلترشکن آی‌پی ثابت</span></div></div>
                 </div>
             </div>
         </section>
@@ -904,26 +702,10 @@
         <section class="py-8 bg-white">
             <div class="container mx-auto px-4">
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">۱۵,۰۰۰+</div>
-                        <div class="stat-label">کاربر فعال</div>
-                        <div class="stat-desc">خرید فیلترشکن قوی از آزادی وی‌پی‌ان</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">۹۹.۹٪</div>
-                        <div class="stat-label">آپتایم سرور</div>
-                        <div class="stat-desc">پایداری اتصال فیلترشکن</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">۵</div>
-                        <div class="stat-label">کشور سرور</div>
-                        <div class="stat-desc">برای خرید فیلترشکن پرسرعت</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">۲۴/۷</div>
-                        <div class="stat-label">پشتیبانی</div>
-                        <div class="stat-desc">پاسخگویی سریع به کاربران</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-number">۱۵,۰۰۰+</div><div class="stat-label">کاربر فعال</div><div class="stat-desc">خرید فیلترشکن قوی از آزادی وی‌پی‌ان</div></div>
+                    <div class="stat-card"><div class="stat-number">۹۹.۹٪</div><div class="stat-label">آپتایم سرور</div><div class="stat-desc">پایداری اتصال فیلترشکن</div></div>
+                    <div class="stat-card"><div class="stat-number">۵</div><div class="stat-label">کشور سرور</div><div class="stat-desc">برای خرید فیلترشکن پرسرعت</div></div>
+                    <div class="stat-card"><div class="stat-number">۲۴/۷</div><div class="stat-label">پشتیبانی</div><div class="stat-desc">پاسخگویی سریع به کاربران</div></div>
                 </div>
             </div>
         </section>
@@ -932,46 +714,11 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">تعرفه‌های خرید فیلترشکن قوی آزادی وی‌پی‌ان</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-2 border-blue-100">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">فیلترشکن تک کاربر آزادی وی‌پی‌ان</h3>
-                        <p class="text-gray-600 mb-4">مناسب برای استفاده شخصی با سرعت بالا - بهترین فیلترشکن قوی برای کاربران تک نفره</p>
-                        <ul class="text-gray-600 mb-3 text-right">
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>اتصال امن با پروتکل V2Ray</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>پشتیبانی از تمامی دستگاه‌ها</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>سرعت بالا برای استریم و دانلود</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>لوکیشن آلمان و مولتی لوکیشن</li>
-                        </ul>
-                        <p class="text-blue-600 font-bold text-lg mb-4">شروع از ۱۲۰,۰۰۰ تومان</p>
-                        <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
-                    </article>
-                    <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-2 border-blue-100">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">فیلترشکن خانوادگی آزادی وی‌پی‌ان</h3>
-                        <p class="text-gray-600 mb-4">مناسب برای استفاده مشترک یا خانواده با سرعت بالا - فیلترشکن قوی برای ۲ کاربر همزمان</p>
-                        <ul class="text-gray-600 mb-3 text-right">
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>اتصال امن با پروتکل V2Ray</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>پشتیبانی از تمامی دستگاه‌ها</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>سرعت بالا برای استریم و دانلود</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>لوکیشن آلمان و مولتی لوکیشن</li>
-                        </ul>
-                        <p class="text-blue-600 font-bold text-lg mb-4">شروع از ۱۸۰,۰۰۰ تومان</p>
-                        <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
-                    </article>
-                    <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-2 border-blue-100">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">فیلترشکن ویژه ۳ ماهه آزادی وی‌پی‌ان</h3>
-                        <p class="text-gray-600 mb-4">مناسب برای استفاده با مدت زمانی بالا و بدون قطعی - بهترین فیلترشکن قوی برای استفاده طولانی‌مدت</p>
-                        <ul class="text-gray-600 mb-3 text-right">
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>اتصال امن با پروتکل V2Ray</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>پشتیبانی از تمامی دستگاه‌ها</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>سرعت بالا برای استریم و دانلود</li>
-                            <li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>لوکیشن آلمان و مولتی لوکیشن</li>
-                        </ul>
-                        <p class="text-blue-600 font-bold text-lg mb-4">شروع از ۳۶۰,۰۰۰ تومان</p>
-                        <button onclick="openPurchasePopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button>
-                    </article>
+                    <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-2 border-blue-100"><h3 class="text-xl font-semibold text-gray-800 mb-4">فیلترشکن تک کاربر آزادی وی‌پی‌ان</h3><p class="text-gray-600 mb-4">مناسب برای استفاده شخصی با سرعت بالا - بهترین فیلترشکن قوی برای کاربران تک نفره</p><ul class="text-gray-600 mb-3 text-right"><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>اتصال امن با پروتکل V2Ray</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>پشتیبانی از تمامی دستگاه‌ها</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>سرعت بالا برای استریم و دانلود</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>لوکیشن آلمان و مولتی لوکیشن</li></ul><p class="text-blue-600 font-bold text-lg mb-4">شروع از ۱۲۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button></article>
+                    <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-2 border-blue-100"><h3 class="text-xl font-semibold text-gray-800 mb-4">فیلترشکن خانوادگی آزادی وی‌پی‌ان</h3><p class="text-gray-600 mb-4">مناسب برای استفاده مشترک یا خانواده با سرعت بالا - فیلترشکن قوی برای ۲ کاربر همزمان</p><ul class="text-gray-600 mb-3 text-right"><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>اتصال امن با پروتکل V2Ray</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>پشتیبانی از تمامی دستگاه‌ها</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>سرعت بالا برای استریم و دانلود</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>لوکیشن آلمان و مولتی لوکیشن</li></ul><p class="text-blue-600 font-bold text-lg mb-4">شروع از ۱۸۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button></article>
+                    <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 border-2 border-blue-100"><h3 class="text-xl font-semibold text-gray-800 mb-4">فیلترشکن ویژه ۳ ماهه آزادی وی‌پی‌ان</h3><p class="text-gray-600 mb-4">مناسب برای استفاده با مدت زمانی بالا و بدون قطعی - بهترین فیلترشکن قوی برای استفاده طولانی‌مدت</p><ul class="text-gray-600 mb-3 text-right"><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>اتصال امن با پروتکل V2Ray</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>پشتیبانی از تمامی دستگاه‌ها</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>سرعت بالا برای استریم و دانلود</li><li><svg class="inline-block w-5 h-5 ml-2 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 11.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>لوکیشن آلمان و مولتی لوکیشن</li></ul><p class="text-blue-600 font-bold text-lg mb-4">شروع از ۳۶۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">خرید</button></article>
                 </div>
-                <div class="text-center mt-10">
-                    <button onclick="openPlansPopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">مشاهده تمام تعرفه‌ها</button>
-                </div>
+                <div class="text-center mt-10"><button onclick="openPlansPopup()" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">مشاهده تمام تعرفه‌ها</button></div>
             </div>
         </section>
 
@@ -981,19 +728,8 @@
                     <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-1">
                         <div class="bg-white rounded-lg p-8">
                             <div class="flex flex-col md:flex-row items-center gap-8">
-                                <div class="md:w-1/2">
-                                    <img src="https://matinmok.github.io/azadivpn/images/5814253467080527313.jpg" alt="خرید فیلترشکن قوی از آزادی وی‌پی‌ان" class="rounded-lg shadow-lg w-full h-auto" style="max-width: 400px;">
-                                </div>
-                                <div class="md:w-1/2">
-                                    <h3 class="text-2xl font-bold text-blue-600 mb-4">خرید فیلترشکن قوی با تست رایگان</h3>
-                                    <p class="text-gray-700 mb-4">آزادی وی‌پی‌ان با ارائه باکیفیت‌ترین سرویس خرید فیلترشکن قوی، امکان تست رایگان فراهم کرده است.</p>
-                                    <ul class="space-y-2 mb-4">
-                                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> خرید فیلترشکن با آی‌پی ثابت</li>
-                                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> خرید وی‌پی‌ان پرسرعت و بدون قطعی</li>
-                                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> فیلترشکن قوی برای تمام دستگاه‌ها</li>
-                                    </ul>
-                                    <a href="https://t.me/vpnbrandicobot" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">دریافت تست رایگان</a>
-                                </div>
+                                <div class="md:w-1/2"><img src="https://matinmok.github.io/azadivpn/images/5814253467080527313.jpg" alt="خرید فیلترشکن قوی از آزادی وی‌پی‌ان" class="rounded-lg shadow-lg w-full h-auto" style="max-width: 400px;"></div>
+                                <div class="md:w-1/2"><h3 class="text-2xl font-bold text-blue-600 mb-4">خرید فیلترشکن قوی با تست رایگان</h3><p class="text-gray-700 mb-4">آزادی وی‌پی‌ان با ارائه باکیفیت‌ترین سرویس خرید فیلترشکن قوی، امکان تست رایگان فراهم کرده است.</p><ul class="space-y-2 mb-4"><li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> خرید فیلترشکن با آی‌پی ثابت</li><li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> خرید وی‌پی‌ان پرسرعت و بدون قطعی</li><li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> فیلترشکن قوی برای تمام دستگاه‌ها</li></ul><a href="https://t.me/Mykalikal" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">دریافت تست رایگان</a></div>
                             </div>
                         </div>
                     </div>
@@ -1005,26 +741,10 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">چرا فیلترشکن قوی آزادی وی‌پی‌ان را انتخاب کنیم؟</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-4xl mb-4">🚀</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">سرعت فوق‌العاده بالا</h3>
-                        <p class="text-gray-600">فیلترشکن قوی آزادی وی‌پی‌ان با سرورهای پرسرعت، بهترین تجربه استریم و دانلود را فراهم می‌کند.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-4xl mb-4">🔒</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">امنیت بی‌نظیر</h3>
-                        <p class="text-gray-600">پروتکل V2Ray با رمزنگاری قوی، امنیت کامل اطلاعات شما را در فیلترشکن تضمین می‌کند.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-4xl mb-4">🌍</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">سرورهای متنوع</h3>
-                        <p class="text-gray-600">دسترسی به سرورهای فیلترشکن در ۵ کشور: آلمان، ترکیه، آمریکا، فنلاند و هلند با آی‌پی ثابت.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-4xl mb-4">💬</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">پشتیبانی ۲۴/۷</h3>
-                        <p class="text-gray-600">تیم پشتیبانی آزادی وی‌پی‌ان ۲۴ ساعته و ۷ روز هفته آماده پاسخگویی به سوالات شماست.</p>
-                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-4xl mb-4">🚀</div><h3 class="text-lg font-semibold text-gray-800 mb-2">سرعت فوق‌العاده بالا</h3><p class="text-gray-600">فیلترشکن قوی آزادی وی‌پی‌ان با سرورهای پرسرعت، بهترین تجربه استریم و دانلود را فراهم می‌کند.</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-4xl mb-4">🔒</div><h3 class="text-lg font-semibold text-gray-800 mb-2">امنیت بی‌نظیر</h3><p class="text-gray-600">پروتکل V2Ray با رمزنگاری قوی، امنیت کامل اطلاعات شما را در فیلترشکن تضمین می‌کند.</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-4xl mb-4">🌍</div><h3 class="text-lg font-semibold text-gray-800 mb-2">سرورهای متنوع</h3><p class="text-gray-600">دسترسی به سرورهای فیلترشکن در ۵ کشور: آلمان، ترکیه، آمریکا، فنلاند و هلند با آی‌پی ثابت.</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center"><div class="text-4xl mb-4">💬</div><h3 class="text-lg font-semibold text-gray-800 mb-2">پشتیبانی ۲۴/۷</h3><p class="text-gray-600">تیم پشتیبانی آزادی وی‌پی‌ان ۲۴ ساعته و ۷ روز هفته آماده پاسخگویی به سوالات شماست.</p></div>
                 </div>
             </div>
         </section>
@@ -1034,45 +754,13 @@
                 <h2 class="text-center text-3xl font-bold text-gray-800 mb-10 cursor-pointer" onclick="showServerStatus()">وضعیت سرورهای فیلترشکن قوی آزادی وی‌پی‌ان</h2>
                 <div class="max-w-5xl mx-auto">
                     <table class="w-full border-collapse rounded-lg overflow-hidden shadow-md">
-                        <thead>
-                            <tr class="bg-blue-600 text-white">
-                                <th class="p-4 text-right">کشور سرور فیلترشکن</th>
-                                <th class="p-4 text-left">پینگ (میلی‌ثانیه)</th>
-                                <th class="p-4 text-left">وضعیت اتصال</th>
-                                <th class="p-4 text-left">مناسب برای</th>
-                            </tr>
-                        </thead>
+                        <thead><tr class="bg-blue-600 text-white"><th class="p-4 text-right">کشور سرور فیلترشکن</th><th class="p-4 text-left">پینگ (میلی‌ثانیه)</th><th class="p-4 text-left">وضعیت اتصال</th><th class="p-4 text-left">مناسب برای</th></tr></thead>
                         <tbody class="bg-white">
-                            <tr class="border-b">
-                                <td class="p-4 text-right"><img src="https://flagcdn.com/w20/tr.png" alt="پرچم ترکیه - سرور فیلترشکن قوی آزادی وی‌پی‌ان در ترکیه با آی‌پی ثابت" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> ترکیه</td>
-                                <td class="p-4 text-left text-green-600 ping-turkey">45</td>
-                                <td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td>
-                                <td class="p-4 text-left text-sm">همه کاره، گیم</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-4 text-right"><img src="https://flagcdn.com/w20/de.png" alt="پرچم آلمان - سرور فیلترشکن قوی آزادی وی‌پی‌ان در آلمان با سرعت بالا" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> آلمان</td>
-                                <td class="p-4 text-left text-green-600 ping-germany">50</td>
-                                <td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td>
-                                <td class="p-4 text-left text-sm">همه کاره، پایداری بالا</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-4 text-right"><img src="https://flagcdn.com/w20/us.png" alt="پرچم آمریکا - سرور فیلترشکن قوی آزادی وی‌پی‌ان در آمریکا برای دسترسی به سرویس‌های آمریکایی" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> آمریکا</td>
-                                <td class="p-4 text-left text-green-600 ping-usa">65</td>
-                                <td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td>
-                                <td class="p-4 text-left text-sm">مناسب سایت های خارجی</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-4 text-right"><img src="https://flagcdn.com/w20/fi.png" alt="پرچم فنلاند - سرور فیلترشکن قوی آزادی وی‌پی‌ان در فنلاند با پینگ پایین" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> فنلاند</td>
-                                <td class="p-4 text-left text-green-600 ping-finland">60</td>
-                                <td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td>
-                                <td class="p-4 text-left text-sm">سرعت بالا، همه کاره</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 text-right"><img src="https://flagcdn.com/w20/nl.png" alt="پرچم هلند - سرور فیلترشکن قوی آزادی وی‌پی‌ان در هلند با اتصال پایدار" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> هلند</td>
-                                <td class="p-4 text-left text-green-600 ping-netherlands">55</td>
-                                <td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td>
-                                <td class="p-4 text-left text-sm">همه‌کاره، پایدار</td>
-                            </tr>
+                            <tr class="border-b"><td class="p-4 text-right"><img src="https://flagcdn.com/w20/tr.png" alt="پرچم ترکیه" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> ترکیه</td><td class="p-4 text-left text-green-600 ping-turkey">45</td><td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td><td class="p-4 text-left text-sm">همه کاره، گیم</td></tr>
+                            <tr class="border-b"><td class="p-4 text-right"><img src="https://flagcdn.com/w20/de.png" alt="پرچم آلمان" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> آلمان</td><td class="p-4 text-left text-green-600 ping-germany">50</td><td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td><td class="p-4 text-left text-sm">همه کاره، پایداری بالا</td></tr>
+                            <tr class="border-b"><td class="p-4 text-right"><img src="https://flagcdn.com/w20/us.png" alt="پرچم آمریکا" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> آمریکا</td><td class="p-4 text-left text-green-600 ping-usa">65</td><td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td><td class="p-4 text-left text-sm">مناسب سایت های خارجی</td></tr>
+                            <tr class="border-b"><td class="p-4 text-right"><img src="https://flagcdn.com/w20/fi.png" alt="پرچم فنلاند" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> فنلاند</td><td class="p-4 text-left text-green-600 ping-finland">60</td><td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td><td class="p-4 text-left text-sm">سرعت بالا، همه کاره</td></tr>
+                            <tr><td class="p-4 text-right"><img src="https://flagcdn.com/w20/nl.png" alt="پرچم هلند" class="inline-block w-6 h-6 ml-2" width="24" height="24" loading="lazy"> هلند</td><td class="p-4 text-left text-green-600 ping-netherlands">55</td><td class="p-4 text-left"><span class="text-green-600 font-semibold">پایدار</span></td><td class="p-4 text-left text-sm">همه‌کاره، پایدار</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1080,133 +768,30 @@
                 <aside id="reviews" class="max-w-5xl mx-auto mt-10">
                     <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">نظرات کاربران درباره فیلترشکن قوی آزادی وی‌پی‌ان</h2>
                     <div class="reviews-grid">
-                        <article class="review-card">
-                            <h4>محمدرضا از مشهد</h4>
-                            <p>سه سالی میشه که از آزادی وی‌پی‌ان استفاده می‌کنم. سرعت و پایداری عالی بوده همیشه ممنون. بهترین فیلترشکن قوی که تا حالا استفاده کردم.</p>
-                        </article>
-                        <article class="review-card">
-                            <h4>حمید از شیراز</h4>
-                            <p>برای وب‌گردی و اینستاگرام استفاده می‌کنم و بسیار راضی‌ام. پشتیبانی سریع و حرفه‌ای آزادی وی‌پی‌ان واقعاً عالیه.</p>
-                        </article>
-                        <article class="review-card">
-                            <h4>راضیه از تهران</h4>
-                            <p>من و خانواده‌ام از خدمات فیلترشکن آزادی وی‌پی‌ان استفاده می‌کنیم. کیفیت و پشتیبانی حرف نداشته. فیلترشکن قوی و بدون قطعی.</p>
-                        </article>
-                        <article class="review-card">
-                            <h4>امین از رشت</h4>
-                            <p>۸ ماه است که مشتری فیلترشکن آزادی وی‌پی‌ان هستم و به دوستانم توصیه می‌کنم. بدون قطعی و پرسرعت.</p>
-                        </article>
-                        <article class="review-card">
-                            <h4>احمد از بوشهر</h4>
-                            <p>خدمات عالی و بدون افت اتصال ممنون از تیم آزادی وی‌پی‌ان. واقعاً بهترین فیلترشکن قوی ایران هستید.</p>
-                        </article>
-                        <article class="review-card">
-                            <h4>نظر شما درباره فیلترشکن آزادی وی‌پی‌ان</h4>
-                            <p>تجربه خود از خرید فیلترشکن قوی آزادی وی‌پی‌ان را با ما به اشتراک بگذارید!</p>
-                            <a href="https://t.me/vpnbrandicobot?start=cmd_401240149" target="_blank" rel="noopener noreferrer" class="inline-block">ارسال نظر</a>
-                        </article>
+                        <article class="review-card"><h4>محمدرضا از مشهد</h4><p>سه سالی میشه که از آزادی وی‌پی‌ان استفاده می‌کنم. سرعت و پایداری عالی بوده همیشه ممنون. بهترین فیلترشکن قوی که تا حالا استفاده کردم.</p></article>
+                        <article class="review-card"><h4>حمید از شیراز</h4><p>برای وب‌گردی و اینستاگرام استفاده می‌کنم و بسیار راضی‌ام. پشتیبانی سریع و حرفه‌ای آزادی وی‌پی‌ان واقعاً عالیه.</p></article>
+                        <article class="review-card"><h4>راضیه از تهران</h4><p>من و خانواده‌ام از خدمات فیلترشکن آزادی وی‌پی‌ان استفاده می‌کنیم. کیفیت و پشتیبانی حرف نداشته. فیلترشکن قوی و بدون قطعی.</p></article>
+                        <article class="review-card"><h4>امین از رشت</h4><p>۸ ماه است که مشتری فیلترشکن آزادی وی‌پی‌ان هستم و به دوستانم توصیه می‌کنم. بدون قطعی و پرسرعت.</p></article>
+                        <article class="review-card"><h4>احمد از بوشهر</h4><p>خدمات عالی و بدون افت اتصال ممنون از تیم آزادی وی‌پی‌ان. واقعاً بهترین فیلترشکن قوی ایران هستید.</p></article>
+                        <article class="review-card"><h4>نظر شما درباره فیلترشکن آزادی وی‌پی‌ان</h4><p>تجربه خود از خرید فیلترشکن قوی آزادی وی‌پی‌ان را با ما به اشتراک بگذارید!</p><a href="https://t.me/vpnbrandicobot?start=cmd_401240149" target="_blank" rel="noopener noreferrer" class="inline-block">ارسال نظر</a></article>
                     </div>
                 </aside>
 
                 <section id="faq" class="max-w-5xl mx-auto mt-10">
                     <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">سوالات متداول درباره خرید فیلترشکن قوی آزادی وی‌پی‌ان</h2>
                     <div class="faq-container">
-                        <div class="faq-item">
-                            <details>
-                                <summary>تفاوت پلن عادی و VIP فیلترشکن آزادی وی‌پی‌ان چیست؟</summary>
-                                <div class="faq-content">
-                                    <p>پلن عادی فیلترشکن قوی آزادی وی‌پی‌ان شامل سرور آلمان با کانفیگ اختصاصی برای وب‌گردی روزمره است. پلن VIP دسترسی به بیش از ۵ کشور (ترکیه، آلمان، آمریکا، فنلاند، هلند) با سرعت بالاتر و آی‌پی ثابت ارائه می‌دهد.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>چگونه فیلترشکن قوی از آزادی وی‌پی‌ان خریداری کنم؟</summary>
-                                <div class="faq-content">
-                                    <p>برای خرید فیلترشکن قوی از بخش <a href="#products" class="text-blue-600 hover:underline" title="تعرفه‌های خرید فیلترشکن آزادی وی‌پی‌ان">تعرفه‌ها</a> پلن موردنظر را انتخاب کنید و با کلیک روی دکمه خرید، از طریق تلگرام، واتساپ یا فرم سایت اقدام کنید. پشتیبانی آزادی وی‌پی‌ان ۲۴ ساعته آماده کمک به شماست.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>محدودیت ترافیک و مدت زمان پلن‌های فیلترشکن آزادی وی‌پی‌ان چگونه است؟</summary>
-                                <div class="faq-content">
-                                    <p>پلن‌های فیلترشکن قوی آزادی وی‌پی‌ان در دوره‌های ۱ و ۳ ماهه با ترافیک نامحدود ارائه می‌شوند، مناسب برای استفاده بدون نگرانی از حجم مصرفی. تمام پلن‌ها شامل آی‌پی ثابت و پشتیبانی ۲۴ ساعته هستند.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>آیا فیلترشکن با آی‌پی ایران برای کاربران خارج از کشور دارید؟</summary>
-                                <div class="faq-content">
-                                    <p>بله، برای دسترسی به سایت‌های ایرانی از خارج کشور، می‌توانید از سرویس آی‌پی ایران گذر استفاده کنید. برای اطلاعات بیشتر به <a href="https://matinmok.github.io/gozar/" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer" title="سرویس ایران گذر برای دسترسی به سایت‌های ایرانی">ایران گذر</a> مراجعه کنید یا با <a href="https://wa.me/09227334601" class="text-blue-600 hover:underline" title="تماس با پشتیبانی آزادی وی‌پی‌ان">پشتیبانی آزادی وی‌پی‌ان</a> تماس بگیرید.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>فیلترشکن قوی آزادی وی‌پی‌ان از چه پروتکلی استفاده می‌کند؟</summary>
-                                <div class="faq-content">
-                                    <p>فیلترشکن آزادی وی‌پی‌ان از پروتکل V2Ray استفاده می‌کند که یکی از امن‌ترین و سریع‌ترین پروتکل‌های VPN است. این پروتکل قابلیت عبور از فایروال‌ها را دارد و اتصال پایدار و بدون قطعی ارائه می‌دهد.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>آیا فیلترشکن آزادی وی‌پی‌ان روی همه دستگاه‌ها کار می‌کند؟</summary>
-                                <div class="faq-content">
-                                    <p>بله، فیلترشکن قوی آزادی وی‌پی‌ان از تمام دستگاه‌ها پشتیبانی می‌کند شامل: اندروید، iOS (آیفون و آیپد)، ویندوز، مک و لینوکس. راهنمای نصب برای هر سیستم‌عامل در بخش مقالات موجود است.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>آیا برای خرید فیلترشکن قوی نیاز به نصب نرم‌افزار خاصی دارم؟</summary>
-                                <div class="faq-content">
-                                    <p>خیر، برای استفاده از فیلترشکن قوی آزادی وی‌پی‌ان فقط نیاز به یک اپلیکیشن VPN سازگار با پروتکل V2Ray دارید. ما راهنمای کامل نصب برای تمامی پلتفرم‌ها شامل اندروید، iOS، ویندوز، مک و لینوکس را ارائه می‌دهیم.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>آیا خرید فیلترشکن از آزادی وی‌پی‌ان برای استفاده از Netflix و YouTube مناسب است؟</summary>
-                                <div class="faq-content">
-                                    <p>بله، فیلترشکن قوی آزادی وی‌پی‌ان با سرعت بالا و پایداری عالی، برای استریم Netflix، YouTube، Hulu و سایر سرویس‌های استریمینگ کاملاً مناسب است. سرورهای ما به طور منظم تست می‌شوند تا همیشه با این سرویس‌ها کار کنند.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>تفاوت خرید فیلترشکن قوی با سرویس‌های رایگان چیست؟</summary>
-                                <div class="faq-content">
-                                    <p>فیلترشکن‌های رایگان معمولاً محدودیت سرعت و حجم دارند، امنیت کمتری ارائه می‌دهند و ممکن است اطلاعات شما را جمع‌آوری کنند. اما فیلترشکن قوی آزادی وی‌پی‌ان با سرعت نامحدود، امنیت بالا، آی‌پی ثابت و پشتیبانی حرفه‌ای، تجربه‌ای متفاوت ارائه می‌دهد.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>آیا فیلترشکن آزادی وی‌پی‌ان برای بازی آنلاین مناسب است؟</summary>
-                                <div class="faq-content">
-                                    <p>بله، با پینگ پایین و اتصال پایدار سرورهای ما، فیلترشکن قوی آزادی وی‌پی‌ان برای بازی‌های آنلاین کاملاً مناسب است. سرورهای آلمان و ترکیه با پینگ زیر ۵۰ میلی‌ثانیه بهترین تجربه بازی را ارائه می‌دهند.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>چرا باید خرید فیلترشکن قوی را از آزادی وی‌پی‌ان انجام دهم؟</summary>
-                                <div class="faq-content">
-                                    <p>آزادی وی‌پی‌ان با بیش از ۳ سال سابقه، ارائه‌دهنده معتبر فیلترشکن قوی در ایران است. ما با سرورهای اختصاصی، پشتیبانی ۲۴ ساعته، آی‌پی ثابت و تضمین بازگشت وجه، بهترین خدمات VPN را ارائه می‌دهیم.</p>
-                                </div>
-                            </details>
-                        </div>
-                        <div class="faq-item">
-                            <details>
-                                <summary>آیا امکان تست فیلترشکن قوی قبل از خرید وجود دارد؟</summary>
-                                <div class="faq-content">
-                                    <p>بله، شما می‌توانید از طریق دکمه "دریافت تست رایگان" در پایین همین صفحه، یک تست ۲۴ ساعته از فیلترشکن قوی ما دریافت کنید تا از کیفیت سرویس مطمئن شوید.</p>
-                                </div>
-                            </details>
-                        </div>
+                        <div class="faq-item"><details><summary>تفاوت پلن عادی و VIP فیلترشکن آزادی وی‌پی‌ان چیست؟</summary><div class="faq-content"><p>پلن عادی فیلترشکن قوی آزادی وی‌پی‌ان شامل سرور آلمان با کانفیگ اختصاصی برای وب‌گردی روزمره است. پلن VIP دسترسی به بیش از ۵ کشور (ترکیه، آلمان، آمریکا، فنلاند، هلند) با سرعت بالاتر و آی‌پی ثابت ارائه می‌دهد.</p></div></details></div>
+                        <div class="faq-item"><details><summary>چگونه فیلترشکن قوی از آزادی وی‌پی‌ان خریداری کنم؟</summary><div class="faq-content"><p>برای خرید فیلترشکن قوی از بخش <a href="#products" class="text-blue-600 hover:underline">تعرفه‌ها</a> پلن موردنظر را انتخاب کنید و با کلیک روی دکمه خرید، از طریق تلگرام اقدام کنید. پشتیبانی آزادی وی‌پی‌ان ۲۴ ساعته آماده کمک به شماست.</p></div></details></div>
+                        <div class="faq-item"><details><summary>محدودیت ترافیک و مدت زمان پلن‌های فیلترشکن آزادی وی‌پی‌ان چگونه است؟</summary><div class="faq-content"><p>پلن‌های فیلترشکن قوی آزادی وی‌پی‌ان در دوره‌های ۱ و ۳ ماهه با ترافیک نامحدود ارائه می‌شوند، مناسب برای استفاده بدون نگرانی از حجم مصرفی. تمام پلن‌ها شامل آی‌پی ثابت و پشتیبانی ۲۴ ساعته هستند.</p></div></details></div>
+                        <div class="faq-item"><details><summary>آیا فیلترشکن با آی‌پی ایران برای کاربران خارج از کشور دارید؟</summary><div class="faq-content"><p>بله، برای دسترسی به سایت‌های ایرانی از خارج کشور، می‌توانید از سرویس آی‌پی ایران گذر استفاده کنید. برای اطلاعات بیشتر به <a href="https://matinmok.github.io/gozar/" class="text-blue-600 hover:underline" target="_blank">ایران گذر</a> مراجعه کنید یا با <a href="https://t.me/Mykalikal" class="text-blue-600 hover:underline">پشتیبانی آزادی وی‌پی‌ان</a> تماس بگیرید.</p></div></details></div>
+                        <div class="faq-item"><details><summary>فیلترشکن قوی آزادی وی‌پی‌ان از چه پروتکلی استفاده می‌کند؟</summary><div class="faq-content"><p>فیلترشکن آزادی وی‌پی‌ان از پروتکل V2Ray استفاده می‌کند که یکی از امن‌ترین و سریع‌ترین پروتکل‌های VPN است. این پروتکل قابلیت عبور از فایروال‌ها را دارد و اتصال پایدار و بدون قطعی ارائه می‌دهد.</p></div></details></div>
+                        <div class="faq-item"><details><summary>آیا فیلترشکن آزادی وی‌پی‌ان روی همه دستگاه‌ها کار می‌کند؟</summary><div class="faq-content"><p>بله، فیلترشکن قوی آزادی وی‌پی‌ان از تمام دستگاه‌ها پشتیبانی می‌کند شامل: اندروید، iOS (آیفون و آیپد)، ویندوز، مک و لینوکس. راهنمای نصب برای هر سیستم‌عامل در بخش مقالات موجود است.</p></div></details></div>
+                        <div class="faq-item"><details><summary>آیا برای خرید فیلترشکن قوی نیاز به نصب نرم‌افزار خاصی دارم؟</summary><div class="faq-content"><p>خیر، برای استفاده از فیلترشکن قوی آزادی وی‌پی‌ان فقط نیاز به یک اپلیکیشن VPN سازگار با پروتکل V2Ray دارید. ما راهنمای کامل نصب برای تمامی پلتفرم‌ها شامل اندروید، iOS، ویندوز، مک و لینوکس را ارائه می‌دهیم.</p></div></details></div>
+                        <div class="faq-item"><details><summary>آیا خرید فیلترشکن از آزادی وی‌پی‌ان برای استفاده از Netflix و YouTube مناسب است؟</summary><div class="faq-content"><p>بله، فیلترشکن قوی آزادی وی‌پی‌ان با سرعت بالا و پایداری عالی، برای استریم Netflix، YouTube، Hulu و سایر سرویس‌های استریمینگ کاملاً مناسب است. سرورهای ما به طور منظم تست می‌شوند تا همیشه با این سرویس‌ها کار کنند.</p></div></details></div>
+                        <div class="faq-item"><details><summary>تفاوت خرید فیلترشکن قوی با سرویس‌های رایگان چیست؟</summary><div class="faq-content"><p>فیلترشکن‌های رایگان معمولاً محدودیت سرعت و حجم دارند، امنیت کمتری ارائه می‌دهند و ممکن است اطلاعات شما را جمع‌آوری کنند. اما فیلترشکن قوی آزادی وی‌پی‌ان با سرعت نامحدود، امنیت بالا، آی‌پی ثابت و پشتیبانی حرفه‌ای، تجربه‌ای متفاوت ارائه می‌دهد.</p></div></details></div>
+                        <div class="faq-item"><details><summary>آیا فیلترشکن آزادی وی‌پی‌ان برای بازی آنلاین مناسب است؟</summary><div class="faq-content"><p>بله، با پینگ پایین و اتصال پایدار سرورهای ما، فیلترشکن قوی آزادی وی‌پی‌ان برای بازی‌های آنلاین کاملاً مناسب است. سرورهای آلمان و ترکیه با پینگ زیر ۵۰ میلی‌ثانیه بهترین تجربه بازی را ارائه می‌دهند.</p></div></details></div>
+                        <div class="faq-item"><details><summary>چرا باید خرید فیلترشکن قوی را از آزادی وی‌پی‌ان انجام دهم؟</summary><div class="faq-content"><p>آزادی وی‌پی‌ان با بیش از ۳ سال سابقه، ارائه‌دهنده معتبر فیلترشکن قوی در ایران است. ما با سرورهای اختصاصی، پشتیبانی ۲۴ ساعته، آی‌پی ثابت و تضمین بازگشت وجه، بهترین خدمات VPN را ارائه می‌دهیم.</p></div></details></div>
+                        <div class="faq-item"><details><summary>آیا امکان تست فیلترشکن قوی قبل از خرید وجود دارد؟</summary><div class="faq-content"><p>بله، شما می‌توانید از طریق دکمه "دریافت تست رایگان" در پایین همین صفحه، یک تست ۲۴ ساعته از فیلترشکن قوی ما دریافت کنید تا از کیفیت سرویس مطمئن شوید.</p></div></details></div>
                     </div>
                 </section>
 
@@ -1214,34 +799,18 @@
                     <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-8 text-center text-white shadow-lg">
                         <h3 class="text-2xl font-bold mb-4">دریافت تست رایگان فیلترشکن قوی آزادی وی‌پی‌ان در کمتر از ۳ ثانیه</h3>
                         <p class="text-lg mb-6 text-blue-100">قبل از خرید فیلترشکن، سرعت و کیفیت سرویس آزادی وی‌پی‌ان را تست کنید</p>
-                        <a href="https://t.me/vpnbrandicobot" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-md" title="دریافت تست رایگان فیلترشکن قوی آزادی وی‌پی‌ان">
-                            دریافت تست رایگان فیلترشکن
-                        </a>
+                        <a href="https://t.me/Mykalikal" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-md" title="دریافت تست رایگان فیلترشکن قوی آزادی وی‌پی‌ان">دریافت تست رایگان فیلترشکن</a>
                     </div>
                 </div>
 
                 <section id="articles" class="max-w-5xl mx-auto mt-10">
                     <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">مقالات آموزشی فیلترشکن و VPN</h2>
                     <div class="articles-grid">
-                        <article class="article-card">
-                            <h3>راهنمای کامل خرید فیلترشکن قوی: از انتخاب تا خرید</h3>
-                            <p>در این مقاله، همه چیز درباره خرید فیلترشکن قوی و امن و پرسرعت از آزادی وی‌پی‌ان، از مزایا تا روش‌های خرید را بررسی می‌کنیم.</p>
-                            <a href="./article1.html" class="inline-block">خواندن مقاله</a>
-                        </article>
-                        <article class="article-card">
-                            <h3>دانلود اپلیکیشن‌های فیلترشکن برای اندروید، iOS و ویندوز</h3>
-                            <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن قوی در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p>
-                            <a href="./article2.html" class="inline-block">خواندن مقاله</a>
-                        </article>
-                        <article class="article-card">
-                            <h3>چرا باید از فیلترشکن پولی مثل آزادی وی‌پی‌ان استفاده کنیم؟</h3>
-                            <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب فیلترشکن قوی آزادی وی‌پی‌ان.</p>
-                            <a href="./article3.html" class="inline-block">خواندن مقاله</a>
-                        </article>
+                        <article class="article-card"><h3>راهنمای کامل خرید فیلترشکن قوی: از انتخاب تا خرید</h3><p>در این مقاله، همه چیز درباره خرید فیلترشکن قوی و امن و پرسرعت از آزادی وی‌پی‌ان، از مزایا تا روش‌های خرید را بررسی می‌کنیم.</p><a href="./article1.html" class="inline-block">خواندن مقاله</a></article>
+                        <article class="article-card"><h3>دانلود اپلیکیشن‌های فیلترشکن برای اندروید، iOS و ویندوز</h3><p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن قوی در سیستم‌عامل‌های مختلف مانند اندروید، iOS و ویندوز.</p><a href="./article2.html" class="inline-block">خواندن مقاله</a></article>
+                        <article class="article-card"><h3>چرا باید از فیلترشکن پولی مثل آزادی وی‌پی‌ان استفاده کنیم؟</h3><p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب فیلترشکن قوی آزادی وی‌پی‌ان.</p><a href="./article3.html" class="inline-block">خواندن مقاله</a></article>
                     </div>
-                    <div class="text-center mt-10">
-                        <a href="./article.html" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">مشاهده مقالات بیشتر</a>
-                    </div>
+                    <div class="text-center mt-10"><a href="./article.html" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">مشاهده مقالات بیشتر</a></div>
                 </section>
             </div>
         </section>
@@ -1250,45 +819,15 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">همکاری و نمایندگی فروش فیلترشکن با آزادی وی‌پی‌ان</h2>
                 <div class="max-w-5xl mx-auto">
-                    <p class="text-lg text-gray-700 mb-8 text-center">
-                        با دریافت نمایندگی فروش فیلترشکن از <strong>آزادی وی‌پی‌ان</strong>، بدون نیاز به مدیریت سرور، کسب درآمد کنید. پنل‌های همکاری ما با سرورهای <abbr title="پروتکل امن V2Ray">V2Ray</abbr> و پشتیبانی ۲۴ ساعته، مناسب کسب‌وکارهای کوچک و بزرگ است.
-                    </p>
+                    <p class="text-lg text-gray-700 mb-8 text-center">با دریافت نمایندگی فروش فیلترشکن از <strong>آزادی وی‌پی‌ان</strong>، بدون نیاز به مدیریت سرور، کسب درآمد کنید. پنل‌های همکاری ما با سرورهای <abbr title="پروتکل امن V2Ray">V2Ray</abbr> و پشتیبانی ۲۴ ساعته، مناسب کسب‌وکارهای کوچک و بزرگ است.</p>
                     <table class="partnership-table">
-                        <thead>
-                            <tr>
-                                <th>نام پلن همکاری</th>
-                                <th>قیمت تحویلی (به میلیون تومان)</th>
-                                <th>حداقل مصرف ماهانه</th>
-                                <th>هزینه فعال‌سازی</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>نام پلن همکاری</th><th>قیمت تحویلی (به میلیون تومان)</th><th>حداقل مصرف ماهانه</th><th>هزینه فعال‌سازی</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td>پلن پایه نمایندگی فیلترشکن</td>
-                                <td>از ترایی 2 بسته به مصرف</td>
-                                <td>1 ترابایت مصرف</td>
-                                <td>۳۵۰,۰۰۰ تومان <br>
-                                    <a href="https://t.me/vpnbrandicobot?start=product_1008" target="_blank" rel="noopener noreferrer" class="plan-button mt-2">درخواست</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>پلن سازمانی نمایندگی فیلترشکن</td>
-                                <td>از ترایی 1.200 بسته به مصرف</td>
-                                <td>5 ترابایت مصرف</td>
-                                <td>۵۵۰,۰۰۰ تومان <br>
-                                    <a href="https://t.me/Mykalikal" target="_blank" rel="noopener noreferrer" class="plan-button mt-2">درخواست</a>
-                                </td>
-                            </tr>
+                            <tr><td>پلن پایه نمایندگی فیلترشکن</td><td>از ترایی 2 بسته به مصرف</td><td>1 ترابایت مصرف</td><td>۳۵۰,۰۰۰ تومان <br><a href="https://t.me/Mykalikal" target="_blank" class="plan-button mt-2">درخواست</a></td></tr>
+                            <tr><td>پلن سازمانی نمایندگی فیلترشکن</td><td>از ترایی 1.200 بسته به مصرف</td><td>5 ترابایت مصرف</td><td>۵۵۰,۰۰۰ تومان <br><a href="https://t.me/Mykalikal" target="_blank" class="plan-button mt-2">درخواست</a></td></tr>
                         </tbody>
                     </table>
-                    <div class="mt-8">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">نکات مهم همکاری با آزادی وی‌پی‌ان</h3>
-                        <ul class="notes-list">
-                            <li>در هر دو پنل نمایندگی فیلترشکن، دسترسی ویژه شما به وب پنل و ربات پنل تلگرام اعطا میشود.</li>
-                            <li>امکان سفارش ربات فروش فیلترشکن اختصاصی با هزینه جداگانه وجود دارد.</li>
-                            <li>پشتیبانی ۲۴ ساعته آزادی وی‌پی‌ان برای تمام نمایندگان در دسترس است.</li>
-                        </ul>
-                    </div>
+                    <div class="mt-8"><h3 class="text-xl font-semibold text-gray-800 mb-4">نکات مهم همکاری با آزادی وی‌پی‌ان</h3><ul class="notes-list"><li>در هر دو پنل نمایندگی فیلترشکن، دسترسی ویژه شما به وب پنل و ربات پنل تلگرام اعطا میشود.</li><li>امکان سفارش ربات فروش فیلترشکن اختصاصی با هزینه جداگانه وجود دارد.</li><li>پشتیبانی ۲۴ ساعته آزادی وی‌پی‌ان برای تمام نمایندگان در دسترس است.</li></ul></div>
                 </div>
             </div>
         </section>
@@ -1298,8 +837,8 @@
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">روش‌های خرید فیلترشکن قوی آزادی وی‌پی‌ان</h3>
             <div class="space-y-4">
-                <a id="telegram-purchase-link" href="https://t.me/vpnbrandicobot?start=cmd_529066921" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن از طریق تلگرام (پیشنهادی تحویل آنی)</a>
-                <a href="https://wa.me/+989227334601" target="_blank" rel="noopener noreferrer" class="block bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن از طریق واتساپ</a>
+                <a id="telegram-purchase-link" href="https://t.me/Mykalikal" target="_blank" rel="noopener noreferrer" class="block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن از طریق تلگرام (پیشنهادی تحویل آنی)</a>
+                <div class="block bg-gray-300 text-gray-600 font-semibold py-3 px-6 rounded-full text-center cursor-not-allowed whatsapp-disabled">خرید فیلترشکن از طریق واتساپ (غیرفعال)</div>
                 <a href="https://form.matinder.workers.dev/" target="_blank" rel="noopener noreferrer" class="block bg-blue-400 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-full text-center transition duration-300">خرید فیلترشکن از طریق فرم سایت</a>
             </div>
             <button onclick="closePurchasePopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300">بستن</button>
@@ -1310,54 +849,14 @@
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto">
             <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">لیست کامل تعرفه‌های خرید فیلترشکن قوی آزادی وی‌پی‌ان</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۱ کاربر (آلمان)</h4>
-                    <p class="text-gray-600 mb-3">بدون محدودیت حجم، مناسب وب‌گردی با فیلترشکن قوی</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۱۲۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1000')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۱ کاربر (VIP)</h4>
-                    <p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با آی‌پی ثابت</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۲۰۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1001')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۲ کاربر (آلمان)</h4>
-                    <p class="text-gray-600 mb-3">بدون محدودیت حجم، برای استفاده مشترک خانوادگی</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۱۸۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1002')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۲ کاربر (VIP)</h4>
-                    <p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با فیلترشکن قوی</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۲۵۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1003')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۱ کاربر (آلمان)</h4>
-                    <p class="text-gray-600 mb-3">بدون محدودیت حجم، مناسب استفاده طولانی‌مدت</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۳۶۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1004')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۱ کاربر (VIP)</h4>
-                    <p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با آی‌پی ثابت</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۶۰۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1005')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۲ کاربر (آلمان)</h4>
-                    <p class="text-gray-600 mb-3">بدون محدودیت حجم، برای استفاده مشترک خانوادگی</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۵۴۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1006')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
-                <article class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۲ کاربر (VIP)</h4>
-                    <p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با فیلترشکن قوی</p>
-                    <p class="text-blue-600 font-bold text-lg mb-4">۷۵۰,۰۰۰ تومان</p>
-                    <button onclick="openPurchasePopup('https://t.me/vpnbrandicobot?start=product_1007')" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button>
-                </article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۱ کاربر (آلمان)</h4><p class="text-gray-600 mb-3">بدون محدودیت حجم، مناسب وب‌گردی با فیلترشکن قوی</p><p class="text-blue-600 font-bold text-lg mb-4">۱۲۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۱ کاربر (VIP)</h4><p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با آی‌پی ثابت</p><p class="text-blue-600 font-bold text-lg mb-4">۲۰۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۲ کاربر (آلمان)</h4><p class="text-gray-600 mb-3">بدون محدودیت حجم، برای استفاده مشترک خانوادگی</p><p class="text-blue-600 font-bold text-lg mb-4">۱۸۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۱ ماهه، ۲ کاربر (VIP)</h4><p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با فیلترشکن قوی</p><p class="text-blue-600 font-bold text-lg mb-4">۲۵۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۱ کاربر (آلمان)</h4><p class="text-gray-600 mb-3">بدون محدودیت حجم، مناسب استفاده طولانی‌مدت</p><p class="text-blue-600 font-bold text-lg mb-4">۳۶۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۱ کاربر (VIP)</h4><p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با آی‌پی ثابت</p><p class="text-blue-600 font-bold text-lg mb-4">۶۰۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۲ کاربر (آلمان)</h4><p class="text-gray-600 mb-3">بدون محدودیت حجم، برای استفاده مشترک خانوادگی</p><p class="text-blue-600 font-bold text-lg mb-4">۵۴۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
+                <article class="bg-gray-50 p-4 rounded-lg shadow-sm"><h4 class="text-lg font-semibold text-gray-800 mb-2">فیلترشکن ۳ ماهه، ۲ کاربر (VIP)</h4><p class="text-gray-600 mb-3">دسترسی به ۵+ کشور، بدون محدودیت حجم با فیلترشکن قوی</p><p class="text-blue-600 font-bold text-lg mb-4">۷۵۰,۰۰۰ تومان</p><button onclick="openWelcomePopupDirect()" class="w-full block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full text-center transition duration-300">خرید</button></article>
             </div>
             <button onclick="closePlansPopup()" class="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300">بستن</button>
         </div>
@@ -1366,19 +865,8 @@
     <footer class="py-8 bg-gray-800 text-white text-center">
         <div class="container mx-auto px-4">
             <p class="mb-2">© ۱۴۰۴ <strong>آزادی وی‌پی‌ان</strong> - ارائه‌دهنده فیلترشکن قوی و پرسرعت. تمامی حقوق محفوظ است.</p>
-            <nav>
-                <a href="#products" class="text-blue-400 hover:underline mx-2" title="خرید فیلترشکن قوی از آزادی وی‌پی‌ان">خرید فیلترشکن قوی</a>
-                <span class="text-gray-600">|</span>
-                <a href="./article.html" class="text-blue-400 hover:underline mx-2" title="مقالات آموزشی VPN و فیلترشکن">مقالات آموزشی</a>
-                <span class="text-gray-600">|</span>
-                <a href="https://matinmok.github.io/azadivpn/contact.html" class="text-blue-400 hover:underline mx-2" title="تماس با پشتیبانی آزادی وی‌پی‌ان">تماس با ما</a>
-                <span class="text-gray-600">|</span>
-                <a href="https://matinmok.github.io/azadivpn/about.html" class="text-blue-400 hover:underline mx-2" title="درباره آزادی وی پی ان">درباره ما</a>
-            </nav>
-            <div class="mt-4 text-sm text-gray-400">
-                <p>این سایت با هدف ارائه اطلاعات درباره خرید فیلترشکن قوی و آشنایی با سرویس VPN طراحی شده است.</p>
-                <p class="mt-1">آزادی وی‌پی‌ان - معتبرترین ارائه‌دهنده فیلترشکن در ایران</p>
-            </div>
+            <nav><a href="#products" class="text-blue-400 hover:underline mx-2" title="خرید فیلترشکن قوی از آزادی وی‌پی‌ان">خرید فیلترشکن قوی</a><span class="text-gray-600">|</span><a href="./article.html" class="text-blue-400 hover:underline mx-2" title="مقالات آموزشی VPN و فیلترشکن">مقالات آموزشی</a><span class="text-gray-600">|</span><a href="https://matinmok.github.io/azadivpn/contact.html" class="text-blue-400 hover:underline mx-2" title="تماس با پشتیبانی آزادی وی‌پی‌ان">تماس با ما</a><span class="text-gray-600">|</span><a href="https://matinmok.github.io/azadivpn/about.html" class="text-blue-400 hover:underline mx-2" title="درباره آزادی وی پی ان">درباره ما</a></nav>
+            <div class="mt-4 text-sm text-gray-400"><p>این سایت با هدف ارائه اطلاعات درباره خرید فیلترشکن قوی و آشنایی با سرویس VPN طراحی شده است.</p><p class="mt-1">آزادی وی‌پی‌ان - معتبرترین ارائه‌دهنده فیلترشکن در ایران</p></div>
         </div>
     </footer>
 
@@ -1390,333 +878,35 @@
       "name": "آزادی وی‌پی‌ان",
       "alternateName": ["Azadi VPN", "آزادی VPN", "فیلترشکن آزادی"],
       "url": "https://matinmok.github.io/azadivpn/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://matinmok.github.io/azadivpn/images/logo.jpg",
-        "width": 512,
-        "height": 512
-      },
+      "logo": {"@type": "ImageObject","url": "https://matinmok.github.io/azadivpn/images/logo.jpg","width": 512,"height": 512},
       "image": "https://matinmok.github.io/azadivpn/images/og-image.jpg",
       "description": "آزادی وی‌پی‌ان ارائه‌دهنده فیلترشکن قوی و پرسرعت با پروتکل V2Ray، آی‌پی ثابت و پشتیبانی ۲۴ ساعته برای دسترسی به اینترنت آزاد",
       "foundingDate": "2021",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+989227334601",
-        "contactType": "customer service",
-        "areaServed": "Worldwide",
-        "availableLanguage": ["Persian", "Farsi"]
-      },
-      "sameAs": [
-        "https://t.me/vpnbrandicobot",
-        "https://wa.me/09227334601"
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://matinmok.github.io/azadivpn/#website",
-      "url": "https://matinmok.github.io/azadivpn/",
-      "name": "آزادی وی‌پی‌ان - خرید فیلترشکن قوی",
-      "description": "خرید فیلترشکن قوی و پرسرعت از آزادی وی‌پی‌ان با آی‌پی ثابت و پشتیبانی ۲۴ ساعته",
-      "publisher": {
-        "@id": "https://matinmok.github.io/azadivpn/#organization"
-      },
-      "inLanguage": "fa-IR"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "صفحه اصلی آزادی وی‌پی‌ان",
-          "item": "https://matinmok.github.io/azadivpn/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "تعرفه‌های خرید فیلترشکن قوی",
-          "item": "https://matinmok.github.io/azadivpn/#products"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "وضعیت سرورها",
-          "item": "https://matinmok.github.io/azadivpn/#servers"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "نظرات کاربران",
-          "item": "https://matinmok.github.io/azadivpn/#reviews"
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "name": "سوالات متداول فیلترشکن",
-          "item": "https://matinmok.github.io/azadivpn/#faq"
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "name": "همکاری و نمایندگی",
-          "item": "https://matinmok.github.io/azadivpn/#partnership"
-        }
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://matinmok.github.io/azadivpn/#faqpage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "تفاوت پلن عادی و VIP فیلترشکن آزادی وی‌پی‌ان چیست؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "پلن عادی فیلترشکن قوی آزادی وی‌پی‌ان شامل سرور آلمان با کانفیگ اختصاصی برای وب‌گردی روزمره است. پلن VIP دسترسی به بیش از ۵ کشور (ترکیه، آلمان، آمریکا، فنلاند، هلند) با سرعت بالاتر و آی‌پی ثابت ارائه می‌دهد."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "چگونه فیلترشکن قوی از آزادی وی‌پی‌ان خریداری کنم؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "برای خرید فیلترشکن قوی از بخش تعرفه‌ها پلن موردنظر را انتخاب کنید و با کلیک روی دکمه خرید، از طریق تلگرام، واتساپ یا فرم سایت اقدام کنید. پشتیبانی آزادی وی‌پی‌ان ۲۴ ساعته آماده کمک به شماست."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "محدودیت ترافیک و مدت زمان پلن‌های فیلترشکن آزادی وی‌پی‌ان چگونه است؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "پلن‌های فیلترشکن قوی آزادی وی‌پی‌ان در دوره‌های ۱ و ۳ ماهه با ترافیک نامحدود ارائه می‌شوند، مناسب برای استفاده بدون نگرانی از حجم مصرفی. تمام پلن‌ها شامل آی‌پی ثابت و پشتیبانی ۲۴ ساعته هستند."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "آیا فیلترشکن با آی‌پی ایران برای کاربران خارج از کشور دارید؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "بله، برای دسترسی به سایت‌های ایرانی از خارج کشور، می‌توانید از سرویس آی‌پی ایران گذر استفاده کنید. برای اطلاعات بیشتر به ایران گذر مراجعه کنید یا با پشتیبانی آزادی وی‌پی‌ان تماس بگیرید."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "فیلترشکن قوی آزادی وی‌پی‌ان از چه پروتکلی استفاده می‌کند؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "فیلترشکن آزادی وی‌پی‌ان از پروتکل V2Ray استفاده می‌کند که یکی از امن‌ترین و سریع‌ترین پروتکل‌های VPN است. این پروتکل قابلیت عبور از فایروال‌ها را دارد و اتصال پایدار و بدون قطعی ارائه می‌دهد."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "آیا فیلترشکن آزادی وی‌پی‌ان روی همه دستگاه‌ها کار می‌کند؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "بله، فیلترشکن قوی آزادی وی‌پی‌ان از تمام دستگاه‌ها پشتیبانی می‌کند شامل: اندروید، iOS (آیفون و آیپد)، ویندوز، مک و لینوکس. راهنمای نصب برای هر سیستم‌عامل در بخش مقالات موجود است."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "آیا برای خرید فیلترشکن قوی نیاز به نصب نرم‌افزار خاصی دارم؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "خیر، برای استفاده از فیلترشکن قوی آزادی وی‌پی‌ان فقط نیاز به یک اپلیکیشن VPN سازگار با پروتکل V2Ray دارید. ما راهنمای کامل نصب برای تمامی پلتفرم‌ها شامل اندروید، iOS، ویندوز، مک و لینوکس را ارائه می‌دهیم."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "آیا خرید فیلترشکن از آزادی وی‌پی‌ان برای استفاده از Netflix و YouTube مناسب است؟",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "بله، فیلترشکن قوی آزادی وی‌پی‌ان با سرعت بالا و پایداری عالی، برای استریم Netflix، YouTube، Hulu و سایر سرویس‌های استریمینگ کاملاً مناسب است. سرورهای ما به طور منظم تست می‌شوند تا همیشه با این سرویس‌ها کار کنند."
-          }
-        }
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "@id": "https://matinmok.github.io/azadivpn/#product",
-      "name": "فیلترشکن قوی آزادی وی‌پی‌ان",
-      "alternateName": ["آزادی VPN", "Azadi VPN"],
-      "image": "https://matinmok.github.io/azadivpn/images/og-image.jpg",
-      "description": "فیلترشکن قوی و پرسرعت آزادی وی‌پی‌ان با پروتکل V2Ray، آی‌پی ثابت، ترافیک نامحدود و پشتیبانی ۲۴ ساعته. سرورهای پایدار در ۵ کشور برای دسترسی به اینترنت آزاد.",
-      "brand": {
-        "@type": "Brand",
-        "name": "آزادی وی‌پی‌ان"
-      },
-      "category": "VPN Service",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "5",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "priceCurrency": "IRR",
-          "price": "1200000",
-          "name": "فیلترشکن تک کاربر ۱ ماهه",
-          "description": "فیلترشکن قوی تک کاربر با سرور آلمان و ترافیک نامحدود",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31",
-          "url": "https://matinmok.github.io/azadivpn/#products"
-        },
-        {
-          "@type": "Offer",
-          "priceCurrency": "IRR",
-          "price": "1800000",
-          "name": "فیلترشکن خانوادگی ۱ ماهه",
-          "description": "فیلترشکن قوی ۲ کاربره با سرور آلمان و ترافیک نامحدود",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31",
-          "url": "https://matinmok.github.io/azadivpn/#products"
-        },
-        {
-          "@type": "Offer",
-          "priceCurrency": "IRR",
-          "price": "3600000",
-          "name": "فیلترشکن ویژه ۳ ماهه",
-          "description": "فیلترشکن قوی با مدت ۳ ماه و ترافیک نامحدود",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31",
-          "url": "https://matinmok.github.io/azadivpn/#products"
-        },
-        {
-          "@type": "Offer",
-          "priceCurrency": "IRR",
-          "price": "2000000",
-          "name": "فیلترشکن VIP ۱ ماهه",
-          "description": "فیلترشکن قوی VIP با دسترسی به ۵ کشور و آی‌پی ثابت",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31",
-          "url": "https://matinmok.github.io/azadivpn/#products"
-        }
-      ],
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "محمدرضا از مشهد"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "سه سالی میشه که از آزادی وی‌پی‌ان استفاده می‌کنم. سرعت و پایداری عالی بوده همیشه ممنون. بهترین فیلترشکن قوی که تا حالا استفاده کردم."
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "حمید از شیراز"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "برای وب‌گردی و اینستاگرام استفاده می‌کنم و بسیار راضی‌ام. پشتیبانی سریع و حرفه‌ای آزادی وی‌پی‌ان واقعاً عالیه."
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "راضیه از تهران"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "من و خانواده‌ام از خدمات فیلترشکن آزادی وی‌پی‌ان استفاده می‌کنیم. کیفیت و پشتیبانی حرف نداشته. فیلترشکن قوی و بدون قطعی."
-        }
-      ]
+      "contactPoint": {"@type": "ContactPoint","telephone": "+989227334601","contactType": "customer service","areaServed": "Worldwide","availableLanguage": ["Persian", "Farsi"]},
+      "sameAs": ["https://t.me/Mykalikal"]
     }
     </script>
 
     <script>
-        function openPurchasePopup(telegramLink) {
-            closePlansPopup();
-            const popup = document.getElementById('purchase-popup');
-            const telegramButton = document.getElementById('telegram-purchase-link');
-            if (popup && telegramButton) {
-                telegramButton.href = telegramLink || 'https://t.me/vpnbrandicobot';
-                popup.classList.remove('hidden');
-                popup.focus();
-            }
-        }
-
-        function closePurchasePopup() {
-            const popup = document.getElementById('purchase-popup');
-            if (popup) popup.classList.add('hidden');
-        }
-
-        function openPlansPopup() {
-            const popup = document.getElementById('plans-popup');
-            if (popup) {
-                popup.classList.remove('hidden');
-                popup.focus();
-            }
-        }
-
-        function closePlansPopup() {
-            const popup = document.getElementById('plans-popup');
-            if (popup) popup.classList.add('hidden');
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closePurchasePopup();
-                closePlansPopup();
-            }
-        });
-
-        document.querySelectorAll('.faq-item details').forEach((detail) => {
-            detail.addEventListener('toggle', () => {
-                if (detail.open) {
-                    document.querySelectorAll('.faq-item details').forEach((otherDetail) => {
-                        if (otherDetail !== detail && otherDetail.open) {
-                            otherDetail.open = false;
-                        }
-                    });
-                }
-            });
-        });
-
+        function closeWelcomePopup() { document.getElementById('welcome-popup').style.display = 'none'; }
+        function openWelcomePopupDirect() { document.getElementById('welcome-popup').style.display = 'flex'; closePurchasePopup(); closePlansPopup(); }
+        function openPurchasePopup() { document.getElementById('purchase-popup').classList.remove('hidden'); }
+        function closePurchasePopup() { document.getElementById('purchase-popup').classList.add('hidden'); }
+        function openPlansPopup() { document.getElementById('plans-popup').classList.remove('hidden'); }
+        function closePlansPopup() { document.getElementById('plans-popup').classList.add('hidden'); }
+        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') { closeWelcomePopup(); closePurchasePopup(); closePlansPopup(); } });
+        window.addEventListener('load', () => { document.getElementById('welcome-popup').style.display = 'flex'; });
         function updatePings() {
-            const turkeyPing = document.querySelector('.ping-turkey');
-            if (turkeyPing) turkeyPing.textContent = Math.floor(Math.random() * (60 - 45 + 1)) + 45;
-            const germanyPing = document.querySelector('.ping-germany');
-            if (germanyPing) germanyPing.textContent = Math.floor(Math.random() * (60 - 50 + 1)) + 50;
-            const usaPing = document.querySelector('.ping-usa');
-            if (usaPing) usaPing.textContent = Math.floor(Math.random() * (80 - 65 + 1)) + 65;
-            const finlandPing = document.querySelector('.ping-finland');
-            if (finlandPing) finlandPing.textContent = Math.floor(Math.random() * (70 - 60 + 1)) + 60;
-            const netherlandsPing = document.querySelector('.ping-netherlands');
-            if (netherlandsPing) netherlandsPing.textContent = Math.floor(Math.random() * (65 - 55 + 1)) + 55;
+            const turkeyPing = document.querySelector('.ping-turkey'); if(turkeyPing) turkeyPing.textContent = Math.floor(Math.random() * (60 - 45 + 1)) + 45;
+            const germanyPing = document.querySelector('.ping-germany'); if(germanyPing) germanyPing.textContent = Math.floor(Math.random() * (60 - 50 + 1)) + 50;
+            const usaPing = document.querySelector('.ping-usa'); if(usaPing) usaPing.textContent = Math.floor(Math.random() * (80 - 65 + 1)) + 65;
+            const finlandPing = document.querySelector('.ping-finland'); if(finlandPing) finlandPing.textContent = Math.floor(Math.random() * (70 - 60 + 1)) + 60;
+            const netherlandsPing = document.querySelector('.ping-netherlands'); if(netherlandsPing) netherlandsPing.textContent = Math.floor(Math.random() * (65 - 55 + 1)) + 55;
         }
         updatePings();
         setInterval(updatePings, 5000);
+        // حذف و غیرفعال کردن واتساپ
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(el => { if(el) { el.style.display = 'none'; el.insertAdjacentHTML('afterend', '<span class="text-red-500 text-sm mr-2">(غیرفعال)</span>'); } });
     </script>
 </body>
 </html>
