@@ -3,45 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما | آزادی وی‌پی‌ان</title>
+    
+    <!-- ========== متا تگ‌های سئو ========== -->
     <meta name="description" content="درباره آزادی وی‌پی‌ان - تاریخچه، ماموریت و ارزش‌های ما در ارائه خدمات VPN با کیفیت و امن برای کاربران ایرانی">
     <meta name="keywords" content="درباره آزادی وی‌پی‌ان, تاریخچه VPN, ماموریت آزادی وی‌پی‌ان, خدمات VPN ایران, فیلترشکن امن">
     <meta name="robots" content="index, follow">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="درباره ما | آزادی وی‌پی‌ان - ارائه‌دهنده VPN با کیفیت">
-    <meta name="twitter:description" content="تاریخچه، ماموریت و ارزش‌های آزادی وی‌پی‌ان در ارائه خدمات VPN امن و با کیفیت">
-    <meta property="og:title" content="درباره ما | آزادی وی‌پی‌ان - ارائه‌دهنده VPN با کیفیت">
+    <link rel="canonical" href="https://matinmok.github.io/azadivpn/about.html">
+    
+    <!-- ========== Open Graph ========== -->
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:site_name" content="آزادی وی‌پی‌ان">
+    <meta property="og:title" content="درباره ما | آزادی وی‌پی‌ان">
     <meta property="og:description" content="تاریخچه، ماموریت و ارزش‌های آزادی وی‌پی‌ان در ارائه خدمات VPN امن و با کیفیت">
+    <meta property="og:image" content="https://matinmok.github.io/azadivpn/images/og-image.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matinmok.github.io/azadivpn/about.html">
-    <link rel="canonical" href="https://matinmok.github.io/azadivpn/about.html">
-    <title>درباره ما | آزادی وی‌پی‌ان - ارائه‌دهنده VPN با کیفیت</title>
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="درباره ما | آزادی وی‌پی‌ان">
+    <meta name="twitter:description" content="تاریخچه، ماموریت و ارزش‌های آزادی وی‌پی‌ان">
+    
+    <!-- ========== فونت و استایل ========== -->
+    <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        html { scroll-behavior: smooth; }
-        body { 
+        /* ========== استایل‌های پایه مطابق با قالب اصلی ========== */
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body {
             font-family: 'Vazirmatn', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.7;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        .nav-divider {
-            color: #6b7280;
-            font-size: 1rem;
-            font-weight: 300;
+        ::selection { background: #3b82f6; color: white; }
+        
+        /* ========== کانتینر استاندارد ========== */
+        .container-custom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        @media (max-width: 640px) {
+            .container-custom { padding: 0 1rem; }
         }
         
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        /* ========== دکمه‌ها ========== */
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
-            padding: 5rem 0 3rem;
-            margin-top: 4rem;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+        .btn-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-success:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+        }
+        
+        /* ========== هدر شیشه‌ای ========== */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* ========== هیرو سکشن ========== */
+        .hero-about {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 7rem 0 4rem;
             position: relative;
             overflow: hidden;
         }
-        
-        .hero-section::before {
+        .hero-about::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -51,8 +116,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
         }
-        
-        .hero-section::after {
+        .hero-about::after {
             content: '';
             position: absolute;
             bottom: -30%;
@@ -63,14 +127,26 @@
             border-radius: 50%;
         }
         
-        /* Timeline */
+        /* ========== کارت محتوا ========== */
+        .content-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            transition: all 0.3s ease;
+        }
+        .content-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* ========== تایم‌لاین ========== */
         .timeline {
             position: relative;
             max-width: 800px;
-            margin: 4rem auto;
+            margin: 0 auto;
             padding: 0 1rem;
         }
-        
         .timeline::before {
             content: '';
             position: absolute;
@@ -82,7 +158,6 @@
             background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
             border-radius: 2px;
         }
-        
         @media (max-width: 768px) {
             .timeline::before {
                 right: 2rem;
@@ -91,24 +166,20 @@
         }
         
         .timeline-item {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
             width: calc(50% - 2rem);
         }
-        
         .timeline-item:nth-child(odd) {
             margin-right: auto;
             margin-left: 0;
             padding-left: 2rem;
         }
-        
         .timeline-item:nth-child(even) {
             margin-left: auto;
             margin-right: 0;
             padding-right: 2rem;
-            text-align: left;
         }
-        
         @media (max-width: 768px) {
             .timeline-item {
                 width: calc(100% - 4rem);
@@ -116,7 +187,6 @@
                 margin-left: 0 !important;
                 padding-left: 4rem;
                 padding-right: 0;
-                text-align: right !important;
             }
         }
         
@@ -124,22 +194,18 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             border-radius: 50%;
             border: 4px solid white;
             box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            top: 0;
         }
-        
         .timeline-item:nth-child(odd) .timeline-dot {
             right: -2rem;
-            top: 0;
         }
-        
         .timeline-item:nth-child(even) .timeline-dot {
             left: -2rem;
-            top: 0;
         }
-        
         @media (max-width: 768px) {
             .timeline-dot {
                 right: -2rem !important;
@@ -150,71 +216,59 @@
         .timeline-content {
             background: white;
             padding: 1.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.8);
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
         }
-        
         .timeline-year {
-            color: #3b82f6;
+            color: #1d4ed8;
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
         
-        /* Values Section */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
+        /* ========== کارت ارزش‌ها ========== */
         .value-card {
             background: white;
             padding: 2rem;
-            border-radius: 16px;
+            border-radius: 1.2rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.8);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
         }
-        
         .value-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(59, 130, 246, 0.2);
         }
-        
         .value-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.2rem;
             color: #1d4ed8;
             font-size: 1.5rem;
-            border: 2px solid rgba(59, 130, 246, 0.2);
+            border: 2px solid rgba(59, 130, 246, 0.15);
         }
         
-        /* Stats Section */
-        .stats-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            padding: 4rem 0;
-            margin: 4rem 0;
-            border-radius: 20px;
+        /* ========== کارت آمار ========== */
+        .stats-about {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
             position: relative;
             overflow: hidden;
         }
-        
-        .stats-section::before {
+        .stats-about::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -224,1086 +278,544 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
         }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
+            color: white;
         }
-        
-        .stat-number::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 100%;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-        }
-        
         .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
         }
         
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
+        /* ========== کارت تیم ========== */
         .team-card {
             background: white;
             padding: 2rem;
-            border-radius: 16px;
+            border-radius: 1.2rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
         }
-        
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
         .team-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.2rem;
             color: white;
             font-size: 2rem;
-            font-weight: 700;
             border: 4px solid white;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
         
-        /* Section Header */
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
+        /* ========== دکمه بازگشت به بالا ========== */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+            cursor: pointer;
+        }
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top:hover { transform: translateY(-5px) scale(1.05); }
+        
+        /* ========== فوتر ========== */
+        .footer-gradient {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-top: 3px solid #3b82f6;
+        }
+        .footer-link {
+            color: #94a3b8;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .footer-link:hover { color: #60a5fa; }
+        
+        /* ========== انیمیشن‌ها ========== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .float-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        
+        /* ========== ریسپانسیو ========== */
+        @media (max-width: 768px) {
+            .content-card { padding: 1.5rem; }
+            .hero-about { padding: 6rem 0 3rem; }
+            .hero-about h1 { font-size: 1.8rem; }
+            .stats-about { padding: 2rem 1.2rem; }
+            .stat-number { font-size: 2rem; }
+            .value-card { padding: 1.2rem; }
+            .team-card { padding: 1.2rem; }
+        }
+        @media (max-width: 480px) {
+            .content-card { padding: 1rem; }
+            .timeline-content { padding: 1rem; }
         }
         
-        .section-header h2 {
+        /* ========== عنوان بخش ========== */
+        .section-title {
             font-size: 2rem;
             font-weight: 800;
-            color: #1e3a8a;
-            margin-bottom: 0.75rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 50%;
-            transform: translateX(50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            border-radius: 2px;
-        }
-        
-        .section-header p {
-            color: #6b7280;
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Content Box */
-        .content-box {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            margin: 3rem auto;
-            max-width: 900px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.8);
-        }
-        
-        @media (max-width: 768px) {
-            .content-box {
-                padding: 1.5rem;
-                margin: 2rem 1rem;
-            }
-        }
-        
-        /* Mission Vision */
-        .mission-vision {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .mission-card, .vision-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(229, 231, 235, 0.8);
-        }
-        
-        .mission-card {
-            border-top: 4px solid #3b82f6;
-        }
-        
-        .vision-card {
-            border-top: 4px solid #10b981;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            padding: 3rem 1rem;
+            color: #1e293b;
             text-align: center;
-            border-radius: 20px;
-            margin: 4rem auto;
-            max-width: 800px;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 0.5rem;
         }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
+        .section-title span { color: #1d4ed8; }
+        .section-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 0.95rem;
         }
-        
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: white;
-            color: #1e3a8a;
-            font-weight: 700;
-            padding: 0.875rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            background: #f8fafc;
-        }
-        
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease forwards;
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-<header class="bg-white shadow-md py-4 fixed top-0 left-0 right-0 z-50">
-    <nav class="container mx-auto px-4 flex items-center justify-between">
-        <div class="flex items-center">
-            <a href="https://matinmok.github.io/azadivpn/" class="text-xl font-bold text-blue-600">
-                <span class="bg-blue-600 text-white rounded-md px-3 py-1 ml-2">آزادی</span>وی‌پی‌ان
+
+<!-- ========== HEADER شیشه‌ای ========== -->
+<header class="glass-header fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="container-custom py-3 flex items-center justify-between">
+        <!-- لوگو -->
+        <a href="https://matinmok.github.io/azadivpn/" class="flex items-center gap-2 text-2xl font-extrabold">
+            <span class="bg-gradient-to-r from-blue-600 to-blue-400 text-white px-3 py-1 rounded-xl text-sm">آزادی</span>
+            <span class="text-gray-800">وی‌پی‌ان</span>
+            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-normal">پیشرو در سرعت</span>
+        </a>
+        
+        <!-- منوی دسکتاپ -->
+        <nav class="flex items-center gap-1 text-sm font-medium">
+            <a href="https://matinmok.github.io/azadivpn/" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">صفحه اصلی</a>
+            <a href="https://matinmok.github.io/azadivpn/#pricing-section" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">تعرفه‌ها</a>
+            <a href="https://matinmok.github.io/azadivpn/article.html" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">مقالات</a>
+            <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
+               class="btn-primary text-sm py-2 px-5 mr-2">
+                <i class="fas fa-user-circle ml-1"></i> پورتال کاربری
+            </a>
+        </nav>
+    </div>
+</header>
+
+<!-- ========== هیرو ========== -->
+<section class="hero-about">
+    <div class="container-custom relative z-10">
+        <div class="max-w-3xl mx-auto text-center text-white">
+            <div class="text-6xl mb-4 float-icon">
+                <i class="fas fa-flag"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-up">
+                درباره <span class="text-blue-300">آزادی وی‌پی‌ان</span>
+            </h1>
+            <p class="text-lg md:text-xl opacity-90 mb-6 animate-fade-up delay-1">
+                داستان ما، از یک ایده کوچک تا تبدیل شدن به یکی از معتبرترین ارائه‌دهندگان VPN در ایران
+            </p>
+            <a href="#story" class="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg animate-fade-up delay-2">
+                <i class="fas fa-book-open"></i>
+                خواندن داستان ما
             </a>
         </div>
+    </div>
+</section>
 
-        <!-- Desktop Menu -->
-        <ul class="hidden lg:flex items-center space-x-0 space-x-reverse">
-            <li>
-                <a href="https://matinmok.github.io/azadivpn/" class="text-gray-700 hover:text-blue-600 transition duration-300 px-4 py-2 flex items-center gap-2 group">
-                    <i class="fas fa-home text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                    صفحه نخست
-                </a>
-            </li>
-            <li class="text-gray-300">|</li>
-            <li>
-                <a href="https://matinmok.github.io/azadivpn/#products" class="text-gray-700 hover:text-blue-600 transition duration-300 px-4 py-2 flex items-center gap-2 group">
-                    <i class="fas fa-tags text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                    تعرفه‌ها
-                </a>
-            </li>
-            <li class="text-gray-300">|</li>
-            <li>
-                <a href="https://matinmok.github.io/azadivpn/#reviews" class="text-gray-700 hover:text-blue-600 transition duration-300 px-4 py-2 flex items-center gap-2 group">
-                    <i class="fas fa-comment-alt text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                    نظرات کاربران
-                </a>
-            </li>
-            <li class="text-gray-300">|</li>
-            <li>
-                <a href="https://matinmok.github.io/azadivpn/article.html" class="text-gray-700 hover:text-blue-600 transition duration-300 px-4 py-2 flex items-center gap-2 group">
-                    <i class="fas fa-newspaper text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                    مقالات
-                </a>
-            </li>
-            <li class="text-gray-300">|</li>
-            <li class="relative group">
-                <button class="text-gray-700 hover:text-blue-600 transition duration-300 px-4 py-2 flex items-center gap-2 focus:outline-none">
-                    <i class="fas fa-building text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                    <span>آزادی ما</span>
-                    <i class="fas fa-chevron-down text-xs text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                </button>
-                <div class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
-                    <a href="https://matinmok.github.io/azadivpn/about.html" class="block px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-info-circle text-blue-500 text-sm"></i>
-                        </div>
-                        <div>
-                            <div class="font-medium">درباره ما</div>
-                            <div class="text-xs text-gray-400 mt-0.5">معرفی تیم و اهداف</div>
-                        </div>
-                    </a>
-                    <a href="https://matinmok.github.io/azadivpn/contact.html" class="block px-5 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-phone-alt text-blue-500 text-sm"></i>
-                        </div>
-                        <div>
-                            <div class="font-medium">تماس با ما</div>
-                            <div class="text-xs text-gray-400 mt-0.5">راه‌های ارتباط</div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li class="text-gray-300">|</li>
-            <li>
-                <a href="https://matinmok.github.io/azadivpn/#partnership" class="text-gray-700 hover:text-blue-600 transition duration-300 px-4 py-2 flex items-center gap-2 group">
-                    <i class="fas fa-handshake text-gray-400 group-hover:text-blue-500 transition duration-300"></i>
-                    همکاری
-                </a>
-            </li>
-            <li class="mr-2">
-                <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer"
-                   class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-2.5 px-6 rounded-full transition duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl">
-                    <i class="fas fa-user-circle"></i>
-                    پنل کاربری
-                </a>
-            </li>
-        </ul>
+<!-- ========== داستان ما ========== -->
+<section id="story" class="py-16">
+    <div class="container-custom">
+        <h2 class="section-title">داستان <span>ما</span></h2>
+        <p class="section-subtitle">از یک نیاز ساده تا تبدیل شدن به بزرگترین خانواده VPN ایران</p>
+        
+        <div class="content-card animate-fade-up max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                در سال <strong class="text-blue-600">۱۴۰۱</strong> و در پی اتفاقات مهمی که در فضای مجازی ایران رخ داد، نیاز به دسترسی آزاد و امن به اینترنت بیش از هر زمان دیگری احساس شد.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                ما در <strong class="text-blue-600">آزادی وی‌پی‌ان</strong>، با درک این نیاز ضروری، کار خود را آغاز کردیم. هدف ما ساده بود: <strong>ایجاد پلی امن و پایدار</strong> میان کاربران ایرانی و دنیای آزاد اطلاعات.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+                امروز پس از سال‌ها تلاش و خدمت‌رسانی، به لطف اعتماد شما کاربران عزیز، به یکی از <strong class="text-blue-600">معتبرترین و محبوب‌ترین</strong> ارائه‌دهندگان خدمات VPN در ایران تبدیل شده‌ایم.
+            </p>
+        </div>
+    </div>
+</section>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none p-2 hover:bg-gray-100 rounded-lg transition duration-300" aria-label="باز کردن منوی موبایل">
-            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-5h18V6H3v2z"/>
-            </svg>
-        </button>
-    </nav>
-
-    <!-- Mobile Side Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden fixed inset-y-0 right-0 w-80 bg-gradient-to-b from-white to-gray-50 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out">
-        <div class="flex flex-col h-full">
-            <!-- Header with gradient -->
-            <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center gap-3">
-                        <div class="text-white">
-                            <span class="bg-white text-blue-600 rounded-md px-3 py-1 ml-2 font-bold">آزادی</span>
-                            <span class="font-bold text-lg">وی‌پی‌ان</span>
-                        </div>
-                    </div>
-                    <button id="close-mobile-menu" class="text-white hover:bg-white/20 p-2 rounded-full transition duration-300">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3">
-                    <div class="flex items-center justify-between">
-                        <div class="text-sm">وضعیت آنلاین</div>
-                        <div class="flex items-center gap-1">
-                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                            <span class="text-xs">آنلاین</span>
-                        </div>
-                    </div>
+<!-- ========== تایم‌لاین ========== -->
+<section class="py-16 bg-white">
+    <div class="container-custom">
+        <h2 class="section-title">تاریخچه <span>آزادی وی‌پی‌ان</span></h2>
+        <p class="section-subtitle">مراحل رشد و توسعه ما از ابتدا تا امروز</p>
+        
+        <div class="timeline">
+            <!-- ۱۴۰۱ -->
+            <div class="timeline-item animate-fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><i class="fas fa-calendar-alt"></i> سال ۱۴۰۱</div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-1">شروع داستان</h4>
+                    <p class="text-gray-600 text-sm">در پی ملی شدن اینترنت و افزایش نیاز به دسترسی آزاد، تیم آزادی وی‌پی‌ان کار خود را آغاز کرد.</p>
                 </div>
             </div>
-
-            <!-- Menu Items -->
-            <div class="flex-1 overflow-y-auto py-6 px-4">
-                <div class="mb-4">
-                    <div class="text-gray-500 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
-                        <div class="w-1 h-4 bg-blue-500 rounded-full"></div>
-                        <span>منو اصلی</span>
-                    </div>
-                </div>
-
-                <ul class="space-y-1">
-                    <!-- صفحه نخست -->
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-house text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">صفحه نخست</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">خانه اصلی</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-
-                    <!-- تعرفه‌ها -->
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/#products" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-tags text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">تعرفه‌ها</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">خرید اشتراک</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-
-                    <!-- نظرات کاربران -->
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/#reviews" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-comment text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">نظرات کاربران</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">تجربیات مشتریان</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-
-                    <!-- مقالات -->
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/article.html" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-newspaper text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">مقالات</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">آموزش و راهنما</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-
-                    <!-- همکاری -->
-                    <li>
-                        <a href="https://matinmok.github.io/azadivpn/#partnership" class="flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gray-100 group-hover:bg-blue-50 rounded-lg flex items-center justify-center transition duration-300">
-                                    <i class="fa-solid fa-handshake text-gray-500 group-hover:text-blue-500 text-base"></i>
-                                </div>
-                                <div>
-                                    <div class="font-medium">همکاری</div>
-                                    <div class="text-xs text-gray-400 mt-0.5">فرصت‌های شغلی</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover:text-blue-500 transition duration-300"></i>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- آزادی ما Section -->
-                <div class="mt-8 mb-4">
-                    <div class="text-gray-500 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
-                        <div class="w-1 h-4 bg-purple-500 rounded-full"></div>
-                        <span>آزادی ما</span>
-                    </div>
-                </div>
-
-                <!-- آزادی ما Dropdown -->
-                <div class="mb-8">
-                    <button id="azadi-dropdown-btn" class="w-full flex items-center justify-between py-3.5 px-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-md transition-all duration-300 group bg-white shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg flex items-center justify-center">
-                                <i class="fa-solid fa-building text-purple-500 text-base"></i>
-                            </div>
-                            <div>
-                                <div class="font-medium">آزادی ما</div>
-                                <div class="text-xs text-gray-400 mt-0.5">معرفی و ارتباط</div>
-                            </div>
-                        </div>
-                        <i id="azadi-chevron" class="fa-solid fa-chevron-down text-gray-400 transition duration-300 transform rotate-0"></i>
-                    </button>
-
-                    <div id="azadi-dropdown-content" class="mt-2 mr-4 space-y-1 hidden">
-                        <a href="https://matinmok.github.io/azadivpn/about.html" class="flex items-center justify-between py-3 px-3 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition duration-300 group/item">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-purple-100 rounded-md flex items-center justify-center">
-                                    <i class="fa-solid fa-circle-info text-purple-500 text-sm"></i>
-                                </div>
-                                <span>درباره ما</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover/item:text-purple-500 transition duration-300"></i>
-                        </a>
-                        <a href="https://matinmok.github.io/azadivpn/contact.html" class="flex items-center justify-between py-3 px-3 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-600 transition duration-300 group/item">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-purple-100 rounded-md flex items-center justify-center">
-                                    <i class="fa-solid fa-phone text-purple-500 text-sm"></i>
-                                </div>
-                                <span>تماس با ما</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-left text-gray-300 group-hover/item:text-purple-500 transition duration-300"></i>
-                        </a>
-                    </div>
+            
+            <!-- ۱۴۰۲ -->
+            <div class="timeline-item animate-fade-up delay-1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><i class="fas fa-robot"></i> نیمه اول ۱۴۰۲</div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-1">توسعه ربات هوشمند</h4>
+                    <p class="text-gray-600 text-sm">با هدف ساده‌سازی فرآیند خرید و پشتیبانی، ربات تلگرام اختصاصی طراحی و راه‌اندازی شد.</p>
                 </div>
             </div>
+            
+            <!-- ۱۴۰۲ - نمایندگی -->
+            <div class="timeline-item animate-fade-up delay-2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><i class="fas fa-users"></i> نیمه دوم ۱۴۰۲</div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-1">راه‌اندازی سیستم نمایندگی</h4>
+                    <p class="text-gray-600 text-sm">با استقبال گسترده کاربران، سیستم نمایندگی فعال شد و ده‌ها نماینده به خانواده آزادی وی‌پی‌ان پیوستند.</p>
+                </div>
+            </div>
+            
+            <!-- ۱۴۰۳ -->
+            <div class="timeline-item animate-fade-up delay-3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><i class="fas fa-server"></i> سال ۱۴۰۳</div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-1">توسعه سرورهای جهانی</h4>
+                    <p class="text-gray-600 text-sm">اضافه شدن سرورهای جدید در کشورهای مختلف و ارتقای زیرساخت‌ها برای ارائه خدمات با کیفیت‌تر.</p>
+                </div>
+            </div>
+            
+            <!-- ۱۴۰۴ -->
+            <div class="timeline-item animate-fade-up delay-4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year"><i class="fas fa-trophy"></i> سال ۱۴۰۴</div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-1">دستاوردهای بزرگ</h4>
+                    <p class="text-gray-600 text-sm">تبدیل شدن به یکی از برترین ارائه‌دهندگان VPN ایران با بیش از ۱۰۰ نماینده فعال و هزاران کاربر راضی.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <!-- Panel Button -->
-            <div class="border-t border-gray-200 mx-6 pt-6 pb-8">
-                <a href="https://miniapp.matinder.workers.dev" target="_blank" rel="noopener noreferrer"
-                   class="block bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3.5 px-6 rounded-xl text-center transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-circle-user text-lg"></i>
-                    <span class="text-lg">ورود به پنل کاربری</span>
-                </a>
-                <div class="text-center mt-4">
-                    <div class="text-xs text-gray-400">
-                        <div class="flex items-center justify-center gap-2">
-                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                            <span>پشتیبانی ۲۴ ساعته</span>
-                        </div>
+<!-- ========== ماموریت و چشم‌انداز ========== -->
+<section class="py-16 bg-gray-50">
+    <div class="container-custom">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="content-card animate-fade-up text-center border-t-4 border-t-blue-500">
+                <div class="value-icon mx-auto">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">ماموریت ما</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    ارائه خدمات VPN با بالاترین سطح امنیت، سرعت و پایداری برای کاربران ایرانی تا بتوانند بدون دغدغه به اطلاعات آزاد دسترسی داشته باشند و حریم خصوصی آنلاین خود را حفظ کنند.
+                </p>
+            </div>
+            
+            <div class="content-card animate-fade-up delay-1 text-center border-t-4 border-t-green-500">
+                <div class="value-icon mx-auto">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">چشم‌انداز ما</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    تبدیل شدن به پیشروترین پلتفرم دسترسی آزاد به اطلاعات در منطقه و ایجاد جامعه‌ای از کاربرانی که می‌توانند با اطمینان کامل در فضای مجازی فعالیت کنند.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ارزش‌های ما ========== -->
+<section class="py-16 bg-white">
+    <div class="container-custom">
+        <h2 class="section-title">ارزش‌های <span>ما</span></h2>
+        <p class="section-subtitle">اصولی که بر اساس آنها کار می‌کنیم</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="value-card animate-fade-up">
+                <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">امنیت مطلق</h4>
+                <p class="text-gray-600 text-sm">استفاده از پیشرفته‌ترین پروتکل‌های رمزنگاری و سیاست No-Log</p>
+            </div>
+            
+            <div class="value-card animate-fade-up delay-1">
+                <div class="value-icon"><i class="fas fa-bolt"></i></div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">سرعت بالا</h4>
+                <p class="text-gray-600 text-sm">سرورهای پرسرعت و بهینه‌سازی‌های مداوم زیرساخت</p>
+            </div>
+            
+            <div class="value-card animate-fade-up delay-2">
+                <div class="value-icon"><i class="fas fa-headset"></i></div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">پشتیبانی ۲۴/۷</h4>
+                <p class="text-gray-600 text-sm">تیم پشتیبانی اختصاصی پاسخگوی سوالات در تمام ساعات</p>
+            </div>
+            
+            <div class="value-card animate-fade-up delay-3">
+                <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                <h4 class="text-lg font-bold text-gray-800 mb-2">شفافیت کامل</h4>
+                <p class="text-gray-600 text-sm">شفافیت در قیمت‌گذاری، شرایط استفاده و عملکرد سرورها</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== آمار ========== -->
+<section class="py-16 bg-gray-50">
+    <div class="container-custom">
+        <div class="stats-about">
+            <div class="relative z-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-white text-center mb-2">در یک نگاه</h2>
+                <p class="text-white/80 text-center mb-8">آمار و ارقامی از رشد و توسعه ما</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center animate-fade-up">
+                        <div class="stat-number">۳+</div>
+                        <div class="stat-label">سال تجربه</div>
+                    </div>
+                    <div class="text-center animate-fade-up delay-1">
+                        <div class="stat-number">۱۰۰+</div>
+                        <div class="stat-label">نماینده فعال</div>
+                    </div>
+                    <div class="text-center animate-fade-up delay-2">
+                        <div class="stat-number">۸</div>
+                        <div class="stat-label">لوکیشن سرور</div>
+                    </div>
+                    <div class="text-center animate-fade-up delay-3">
+                        <div class="stat-number">۲۴/۷</div>
+                        <div class="stat-label">پشتیبانی</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Overlay -->
-    <div id="mobile-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"></div>
-</header>
-
-<style>
-    html {
-        scroll-padding-top: 45px;
-    }
-    [id] {
-        scroll-margin-top: 45px;
-    }
-    #mobile-menu {
-        transform: translateX(100%);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
-    }
-    #mobile-menu.show {
-        transform: translateX(0);
-    }
-    .transition-all {
-        transition-property: all;
-    }
-    #mobile-menu .overflow-y-auto {
-        scrollbar-width: thin;
-        scrollbar-color: #cbd5e1 transparent;
-    }
-    #mobile-menu .overflow-y-auto::-webkit-scrollbar {
-        width: 4px;
-    }
-    #mobile-menu .overflow-y-auto::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    #mobile-menu .overflow-y-auto::-webkit-scrollbar-thumb {
-        background-color: #cbd5e1;
-        border-radius: 2px;
-    }
-    .group:hover .group-hover\:visible {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-    #azadi-dropdown-content.show {
-        display: block;
-        animation: slideDown 0.3s ease forwards;
-    }
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    #azadi-chevron.rotate-180 {
-        transform: rotate(180deg);
-    }
-</style>
-
-<script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileOverlay = document.getElementById('mobile-overlay');
-    const azadiDropdownBtn = document.getElementById('azadi-dropdown-btn');
-    const azadiDropdownContent = document.getElementById('azadi-dropdown-content');
-    const azadiChevron = document.getElementById('azadi-chevron');
-
-    function openMobileMenu() {
-        mobileMenu.classList.remove('hidden');
-        mobileOverlay.classList.remove('hidden');
-        setTimeout(() => {
-            mobileMenu.classList.add('show');
-        }, 10);
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-        mobileMenu.classList.remove('show');
-        azadiDropdownContent.classList.remove('show');
-        azadiChevron.classList.remove('rotate-180');
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-            mobileOverlay.classList.add('hidden');
-        }, 300);
-        document.body.style.overflow = '';
-    }
-
-    if (azadiDropdownBtn) {
-        azadiDropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            azadiDropdownContent.classList.toggle('show');
-            azadiChevron.classList.toggle('rotate-180');
-        });
-    }
-
-    document.addEventListener('click', (e) => {
-        if (azadiDropdownContent && azadiDropdownContent.classList.contains('show') &&
-            !azadiDropdownBtn.contains(e.target) && !azadiDropdownContent.contains(e.target)) {
-            azadiDropdownContent.classList.remove('show');
-            azadiChevron.classList.remove('rotate-180');
-        }
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+<!-- ========== تیم ما ========== -->
+<section class="py-16 bg-white">
+    <div class="container-custom">
+        <h2 class="section-title">تیم <span>ما</span></h2>
+        <p class="section-subtitle">افرادی که پشت صحنه آزادی وی‌پی‌ان هستند</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="team-card animate-fade-up">
+                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                <h4 class="text-lg font-bold text-gray-800">مدیریت فنی</h4>
+                <p class="text-sm text-blue-600 mb-2">متخصص امنیت شبکه</p>
+                <p class="text-sm text-gray-500">مسئول طراحی و نگهداری زیرساخت‌های فنی و تضمین امنیت سرویس</p>
+            </div>
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = 45;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                if (!mobileMenu.classList.contains('hidden')) {
-                    closeMobileMenu();
-                }
+            <div class="team-card animate-fade-up delay-1">
+                <div class="team-avatar"><i class="fas fa-headset"></i></div>
+                <h4 class="text-lg font-bold text-gray-800">تیم پشتیبانی</h4>
+                <p class="text-sm text-blue-600 mb-2">پاسخگوی ۲۴ ساعته</p>
+                <p class="text-sm text-gray-500">تیم اختصاصی که به صورت شبانه‌روزی پاسخگوی سوالات کاربران است</p>
+            </div>
+            
+            <div class="team-card animate-fade-up delay-2">
+                <div class="team-avatar"><i class="fas fa-users"></i></div>
+                <h4 class="text-lg font-bold text-gray-800">نمایندگان</h4>
+                <p class="text-sm text-blue-600 mb-2">شبکه ملی همکاران</p>
+                <p class="text-sm text-gray-500">بیش از ۱۰۰ نماینده فعال در سراسر ایران که خدمات ما را توسعه می‌دهند</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="py-16 bg-gray-50">
+    <div class="container-custom">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-center text-white shadow-xl">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3">به خانواده بزرگ آزادی وی‌پی‌ان بپیوندید</h2>
+            <p class="text-blue-100 max-w-2xl mx-auto mb-6">همین حالا به هزاران کاربر راضی ما ملحق شوید و اینترنت آزاد را تجربه کنید</p>
+            <a href="https://matinmok.github.io/azadivpn/#pricing-section" class="btn-success inline-flex items-center gap-2 text-lg px-8">
+                <i class="fas fa-shopping-cart"></i>
+                شروع استفاده از سرویس
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer-gradient text-white py-12">
+    <div class="container-custom">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="text-2xl font-bold mb-4">
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-xl text-sm">آزادی</span>
+                    <span class="text-white">وی‌پی‌ان</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">پیشرو در سرعت و اینترنت — ارائه‌دهنده برتر فیلترشکن قوی و پولی در ایران با بیش از ۲۲,۰۰۰ کاربر فعال و ۴ سال سابقه درخشان.</p>
+                <div class="flex gap-3 mt-4">
+                    <a href="https://t.me/vpnbrandicobot" target="_blank" class="text-gray-400 hover:text-blue-400 transition text-xl"><i class="fab fa-telegram"></i></a>
+                    <a href="https://t.me/Mykalikal" target="_blank" class="text-gray-400 hover:text-blue-400 transition text-xl"><i class="fas fa-headset"></i></a>
+                    <a href="https://portal.azadibin.sbs" target="_blank" class="text-gray-400 hover:text-purple-400 transition text-xl"><i class="fas fa-user-circle"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-3">لینک‌های مفید</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://matinmok.github.io/azadivpn/#features" class="footer-link">مزایا</a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/#pricing-section" class="footer-link">تعرفه‌ها</a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/#reviews" class="footer-link">نظرات</a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/#faq" class="footer-link">سوالات متداول</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-3">دسترسی سریع</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://matinmok.github.io/azadivpn/article.html" class="footer-link">مقالات</a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/about.html" class="footer-link text-blue-400">درباره ما</a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/contact.html" class="footer-link">تماس با ما</a></li>
+                    <li><a href="https://matinmok.github.io/azadivpn/Rules.html" class="footer-link">قوانین</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-3">اطلاعات تماس</h5>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><i class="fab fa-telegram ml-2 text-blue-400"></i> @vpnbrandicobot</li>
+                    <li><i class="fas fa-headset ml-2 text-blue-400"></i> @Mykalikal</li>
+                    <li><i class="fas fa-globe ml-2 text-blue-400"></i> portal.azadibin.sbs</li>
+                    <li><i class="fas fa-clock ml-2 text-blue-400"></i> ۲۴ ساعته، ۷ روز هفته</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">
+            <p>© ۱۴۰۵ - تمامی حقوق برای <strong class="text-white">آزادی وی‌پی‌ان</strong> محفوظ است.</p>
+            <p class="mt-1">آزادی وی‌پی‌ان — پیشرو در سرعت و اینترنت</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== دکمه بازگشت به بالا ========== -->
+<button id="back-to-top" aria-label="بازگشت به بالا">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ========== اسکریپت‌ها ========== -->
+<script>
+    (function() {
+        // ======== دکمه بازگشت به بالا ========
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
             }
         });
-    });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', openMobileMenu);
-    }
-    if (closeMobileMenuButton) {
-        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-    }
-    if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', closeMobileMenu);
-    }
+        // ======== تغییر هدر هنگام اسکرول ========
+        const header = document.querySelector('.glass-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.95)';
+            } else {
+                header.style.background = 'rgba(255,255,255,0.85)';
+            }
+        });
 
-    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-            closeMobileMenu();
-        }
-    });
-</script>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 animate-fadeInUp">درباره آزادی وی‌پی‌ان</h1>
-                <p class="text-lg md:text-xl opacity-90 mb-8 animate-fadeInUp" style="animation-delay: 0.1s">
-                    داستان ما، از یک ایده کوچک تا تبدیل شدن به یکی از معتبرترین ارائه‌دهندگان VPN در ایران
-                </p>
-                <a href="#story" class="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-3 px-6 rounded-full hover:bg-blue-50 transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.2s">
-                    <i class="fas fa-book-open"></i>
-                    خواندن داستان ما
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story -->
-    <section id="story" class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2>داستان ما</h2>
-                <p>از یک نیاز ساده تا تبدیل شدن به بزرگترین خانواده VPN ایران</p>
-            </div>
-            
-            <div class="content-box animate-fadeInUp">
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    در سال <strong>۱۴۰۱</strong> و در پی اتفاقات مهمی که در فضای مجازی ایران رخ داد، به ویژه پس از <strong>ملی شدن اینترنت</strong> در زمان جاوید نام مهسا امینی، نیاز به دسترسی آزاد و امن به اینترنت بیش از هر زمان دیگری احساس شد.
-                </p>
-                
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    ما در آزادی وی‌پی‌ان، با درک این نیاز ضروری، کار خود را آغاز کردیم. هدف ما ساده بود: <strong>ایجاد پلی امن و پایدار</strong> میان کاربران ایرانی و دنیای آزاد اطلاعات.
-                </p>
-                
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    امروز پس از سال‌ها تلاش و خدمت‌رسانی، به لطف اعتماد شما کاربران عزیز، به یکی از <strong>معتبرترین و محبوب‌ترین</strong> ارائه‌دهندگان خدمات VPN در ایران تبدیل شده‌ایم.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2>تاریخچه آزادی وی‌پی‌ان</h2>
-                <p>مراحل رشد و توسعه ما از ابتدا تا امروز</p>
-            </div>
-            
-            <div class="timeline">
-                <!-- 1401 -->
-                <div class="timeline-item animate-fadeInUp">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">
-                            <i class="fas fa-calendar-alt"></i>
-                            سال ۱۴۰۱
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">شروع داستان</h3>
-                        <p class="text-gray-600">
-                            در پی ملی شدن اینترنت و افزایش نیاز به دسترسی آزاد، تیم آزادی وی‌پی‌ان با هدف ارائه خدمات VPN امن و پایدار کار خود را آغاز کرد.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- 1402 -->
-                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.1s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">
-                            <i class="fas fa-robot"></i>
-                            نیمه اول ۱۴۰۲
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">توسعه ربات هوشمند</h3>
-                        <p class="text-gray-600">
-                            با هدف ساده‌سازی فرآیند خرید و پشتیبانی، ربات تلگرام اختصاصی طراحی و راه‌اندازی شد که انقلابی در تجربه کاربری ایجاد کرد.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- 1402 - سیستم نمایندگی -->
-                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.2s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">
-                            <i class="fas fa-users"></i>
-                            نیمه دوم ۱۴۰۲
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">راه‌اندازی سیستم نمایندگی</h3>
-                        <p class="text-gray-600">
-                            با استقبال گسترده کاربران، سیستم نمایندگی فعال شد و ده‌ها نماینده در سراسر ایران به خانواده آزادی وی‌پی‌ان پیوستند.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- 1403 -->
-                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.3s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">
-                            <i class="fas fa-server"></i>
-                            سال ۱۴۰۳
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">توسعه سرورهای جهانی</h3>
-                        <p class="text-gray-600">
-                            اضافه شدن سرورهای جدید در کشورهای مختلف و ارتقای زیرساخت‌ها برای ارائه خدمات با کیفیت‌تر و پایدارتر.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- 1404 -->
-                <div class="timeline-item animate-fadeInUp" style="animation-delay: 0.4s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-year">
-                            <i class="fas fa-trophy"></i>
-                            سال 1405
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">دستاوردهای بزرگ</h3>
-                        <p class="text-gray-600">
-                            تبدیل شدن به یکی از برترین ارائه‌دهندگان VPN ایران با بیش از ۱۰۰ نماینده فعال و هزاران کاربر راضی در سراسر کشور.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission & Vision -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2>ماموریت و چشمانداز ما</h2>
-                <p>هدفی که برای آن تلاش می‌کنیم و آینده‌ای که می‌سازیم</p>
-            </div>
-            
-            <div class="mission-vision">
-                <div class="mission-card animate-fadeInUp">
-                    <div class="value-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">ماموریت ما</h3>
-                    <p class="text-gray-600 text-center leading-relaxed">
-                        ارائه خدمات VPN با بالاترین سطح امنیت، سرعت و پایداری برای کاربران ایرانی تا بتوانند بدون دغدغه به اطلاعات آزاد دسترسی داشته باشند و حریم خصوصی آنلاین خود را حفظ کنند.
-                    </p>
-                </div>
-                
-                <div class="vision-card animate-fadeInUp" style="animation-delay: 0.1s">
-                    <div class="value-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">چشمانداز ما</h3>
-                    <p class="text-gray-600 text-center leading-relaxed">
-                        تبدیل شدن به پیشروترین پلتفرم دسترسی آزاد به اطلاعات در منطقه و ایجاد جامعه‌ای از کاربرانی که می‌توانند با اطمینان کامل در فضای مجازی فعالیت کنند.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Values -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2>ارزش‌های ما</h2>
-                <p>اصولی که بر اساس آنها کار می‌کنیم</p>
-            </div>
-            
-            <div class="values-grid">
-                <div class="value-card animate-fadeInUp">
-                    <div class="value-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">امنیت مطلق</h3>
-                    <p class="text-gray-600">
-                        استفاده از پیشرفته‌ترین پروتکل‌های رمزنگاری و سیاست No-Log برای تضمین امنیت و حریم خصوصی کاربران
-                    </p>
-                </div>
-                
-                <div class="value-card animate-fadeInUp" style="animation-delay: 0.1s">
-                    <div class="value-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">سرعت بالا</h3>
-                    <p class="text-gray-600">
-                        ارائه سرعت واقعی اینترنت با بهره‌گیری از سرورهای پرسرعت و بهینه‌سازی‌های مداوم زیرساخت
-                    </p>
-                </div>
-                
-                <div class="value-card animate-fadeInUp" style="animation-delay: 0.2s">
-                    <div class="value-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">پشتیبانی ۲۴/۷</h3>
-                    <p class="text-gray-600">
-                        تیم پشتیبانی اختصاصی که به صورت ۲۴ ساعته و در ۷ روز هفته پاسخگوی سوالات و مشکلات کاربران است
-                    </p>
-                </div>
-                
-                <div class="value-card animate-fadeInUp" style="animation-delay: 0.3s">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">شفافیت کامل</h3>
-                    <p class="text-gray-600">
-                        شفافیت کامل در قیمت‌گذاری، شرایط استفاده و ارائه گزارش‌های عملکرد سرورها به کاربران
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics -->
-    <section class="stats-section">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="section-header">
-                <h2 class="text-white">در یک نگاه</h2>
-                <p class="text-white opacity-90">آمار و ارقامی از رشد و توسعه ما</p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-item animate-fadeInUp">
-                    <div class="stat-number">۳+</div>
-                    <div class="stat-label">سال تجربه</div>
-                </div>
-                
-                <div class="stat-item animate-fadeInUp" style="animation-delay: 0.1s">
-                    <div class="stat-number">۱۰۰+</div>
-                    <div class="stat-label">نماینده فعال</div>
-                </div>
-                
-                <div class="stat-item animate-fadeInUp" style="animation-delay: 0.2s">
-                    <div class="stat-number">۵+</div>
-                    <div class="stat-label">کشور میزبان سرور</div>
-                </div>
-                
-                <div class="stat-item animate-fadeInUp" style="animation-delay: 0.3s">
-                    <div class="stat-number">۲۴/۷</div>
-                    <div class="stat-label">پشتیبانی</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Team -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2>تیم ما</h2>
-                <p>افرادی که پشت صحنه آزادی وی‌پی‌ان هستند</p>
-            </div>
-            
-            <div class="team-grid">
-                <div class="team-card animate-fadeInUp">
-                    <div class="team-avatar">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">مدیریت فنی</h3>
-                    <p class="text-gray-600 mb-4">متخصص امنیت شبکه</p>
-                    <p class="text-sm text-gray-500">
-                        مسئول طراحی و نگهداری زیرساخت‌های فنی و تضمین امنیت سرویس
-                    </p>
-                </div>
-                
-                <div class="team-card animate-fadeInUp" style="animation-delay: 0.1s">
-                    <div class="team-avatar">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">تیم پشتیبانی</h3>
-                    <p class="text-gray-600 mb-4">پاسخگوی ۲۴ ساعته</p>
-                    <p class="text-sm text-gray-500">
-                        تیم اختصاصی که به صورت شبانه‌روزی پاسخگوی سوالات کاربران است
-                    </p>
-                </div>
-                
-                <div class="team-card animate-fadeInUp" style="animation-delay: 0.2s">
-                    <div class="team-avatar">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">نمایندگان</h3>
-                    <p class="text-gray-600 mb-4">شبکه ملی همکاران</p>
-                    <p class="text-sm text-gray-500">
-                        بیش از ۱۰۰ نماینده فعال در سراسر ایران که خدمات ما را توسعه می‌دهند
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="section-header">
-                <h2>چرا آزادی وی‌پی‌ان؟</h2>
-                <p>دلایل انتخاب ما توسط هزاران کاربر ایرانی</p>
-            </div>
-            
-            <div class="content-box animate-fadeInUp">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex items-start gap-3">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-1">تخصص و تجربه</h4>
-                            <p class="text-sm text-gray-600">۳ سال تجربه مستمر در ارائه خدمات VPN در ایران</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-1">تکنولوژی پیشرفته</h4>
-                            <p class="text-sm text-gray-600">استفاده از پروتکل V2Ray و رمزنگاری AES-256</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-1">پشتیبانی واقعی</h4>
-                            <p class="text-sm text-gray-600">پشتیبانی ۲۴ ساعته از طریق تلگرام و واتساپ</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-1">سیستم نمایندگی</h4>
-                            <p class="text-sm text-gray-600">شبکه گسترده نمایندگان در سراسر ایران</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-1">قیمت منصفانه</h4>
-                            <p class="text-sm text-gray-600">ارائه خدمات با کیفیت در ازای قیمت‌های مناسب</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-3">
-                        <div class="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 mb-1">پایداری بالا</h4>
-                            <p class="text-sm text-gray-600">سرورهای پایدار با آپتایم بالای ۹۹٪</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="cta-section">
-                <h2>به خانواده بزرگ آزادی وی‌پی‌ان بپیوندید</h2>
-                <p>همین حالا به هزاران کاربر راضی ما ملحق شوید و اینترنت آزاد را تجربه کنید</p>
-                <a href="index.html#products" class="cta-btn">
-                    <i class="fas fa-shopping-cart ml-2"></i>
-                    شروع استفاده از سرویس
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-gray-800 text-white text-center">
-        <div class="container mx-auto px-4">
-            <p class="mb-2">© 1405 آزادی وی‌پی‌ان. تمامی حقوق محفوظ است.</p>
-            <p>
-                <a href="index.html#products" class="text-blue-400 hover:underline mx-2">خرید فیلترشکن</a>
-                <span class="text-gray-600">|</span>
-                <a href="./article.html" class="text-blue-400 hover:underline mx-2">مقالات</a>
-                <span class="text-gray-600">|</span>
-                <a href="./about.html" class="text-blue-400 hover:underline mx-2">درباره ما</a>
-                <span class="text-gray-600">|</span>
-                <a href="https://wa.me/09227334601" class="text-blue-400 hover:underline mx-2">تماس با ما</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-        }
-
-        // Smooth scrolling
+        // ======== اسکرول نرم ========
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+            anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const headerHeight = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
         });
 
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // ======== مشاهده انیمیشن ========
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        // Observe all animated elements
-        document.querySelectorAll('.animate-fadeInUp').forEach(element => {
-            observer.observe(element);
+        document.querySelectorAll('.animate-fade-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
         });
-    </script>
+    })();
+</script>
+
+<!-- ========== JSON-LD ========== -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "درباره آزادی وی‌پی‌ان",
+    "description": "تاریخچه، ماموریت و ارزش‌های آزادی وی‌پی‌ان در ارائه خدمات VPN امن و با کیفیت",
+    "url": "https://matinmok.github.io/azadivpn/about.html",
+    "mainEntity": {
+        "@type": "Organization",
+        "name": "آزادی وی‌پی‌ان",
+        "alternateName": ["Azadi VPN", "فیلترشکن آزادی"],
+        "foundingDate": "2021",
+        "slogan": "پیشرو در سرعت و اینترنت",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+989227334601",
+            "contactType": "customer service",
+            "availableLanguage": ["Persian"]
+        }
+    }
+}
+</script>
+
 </body>
 </html>
