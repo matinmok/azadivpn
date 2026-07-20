@@ -6,23 +6,30 @@
     <title>خطای ۴۰۴ | صفحه پیدا نشد | آزادی وی‌پی‌ان</title>
     
     <!-- ========== متا تگ‌های سئو ========== -->
-    <meta name="description" content="صفحه موردنظر در آزادی وی‌پی‌ان پیدا نشد. به صفحه اصلی بروید یا با پشتیبانی تماس بگیرید.">
-    <meta name="keywords" content="خطای 404, فیلترشکن, آزادی وی‌پی‌ان, صفحه پیدا نشد">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="صفحه موردنظر در آزادی وی‌پی‌ان پیدا نشد. به صفحه اصلی بازگردید یا با پشتیبانی ۲۴ ساعته تماس بگیرید.">
+    <meta name="keywords" content="خطای 404, صفحه پیدا نشد, آزادی وی‌پی‌ان, فیلترشکن, VPN">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="آزادی وی‌پی‌ان">
     <link rel="canonical" href="https://matinmok.github.io/azadivpn/404.html">
     
-    <!-- ========== Open Graph ========== -->
+    <!-- ========== Open Graph / توییتر کارت ========== -->
     <meta property="og:locale" content="fa_IR">
     <meta property="og:site_name" content="آزادی وی‌پی‌ان">
     <meta property="og:title" content="خطای ۴۰۴ | صفحه پیدا نشد | آزادی وی‌پی‌ان">
-    <meta property="og:description" content="صفحه موردنظر پیدا نشد. به صفحه اصلی بروید یا با پشتیبانی تماس بگیرید.">
+    <meta property="og:description" content="صفحه موردنظر در آزادی وی‌پی‌ان پیدا نشد. به صفحه اصلی بازگردید یا با پشتیبانی تماس بگیرید.">
     <meta property="og:image" content="https://matinmok.github.io/azadivpn/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matinmok.github.io/azadivpn/404.html">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="خطای ۴۰۴ | آزادی وی‌پی‌ان">
-    <meta name="twitter:description" content="صفحه موردنظر پیدا نشد.">
+    <meta name="twitter:title" content="خطای ۴۰۴ | صفحه پیدا نشد | آزادی وی‌پی‌ان">
+    <meta name="twitter:description" content="صفحه موردنظر پیدا نشد. به صفحه اصلی بازگردید یا با پشتیبانی تماس بگیرید.">
+    
+    <!-- ========== آیکون و تم ========== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6'/%3E%3Cstop offset='100%25' style='stop-color:%231d4ed8'/%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='72' font-size='55' font-weight='bold' fill='white' text-anchor='middle' font-family='Tahoma,Arial'%3Eآ%3C/text%3E%3C/svg%3E">
+    <meta name="theme-color" content="#1d4ed8">
     
     <!-- ========== فونت و استایل ========== -->
     <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet" crossorigin="anonymous">
@@ -30,7 +37,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        /* ========== استایل‌های پایه مطابق با قالب اصلی ========== */
+        /* ========== استایل‌های پایه ========== */
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body {
@@ -38,9 +45,6 @@
             background: #f8fafc;
             color: #1e293b;
             line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
         ::selection { background: #3b82f6; color: white; }
         
@@ -51,10 +55,12 @@
             padding: 0 1.5rem;
         }
         @media (max-width: 640px) {
-            .container-custom { padding: 0 1rem; }
+            .container-custom {
+                padding: 0 1rem;
+            }
         }
         
-        /* ========== دکمه‌های مطابق با قالب اصلی ========== */
+        /* ========== دکمه‌ها ========== */
         .btn-primary {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
@@ -72,22 +78,60 @@
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
         }
-        .btn-success {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
+        .btn-secondary {
+            background: white;
+            color: #1d4ed8;
             font-weight: 700;
             padding: 0.8rem 2rem;
             border-radius: 9999px;
+            border: 2px solid #1d4ed8;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
             display: inline-block;
-            border: none;
-            cursor: pointer;
             text-decoration: none;
         }
-        .btn-success:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+        .btn-secondary:hover {
+            background: #1d4ed8;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* ========== کارت خطا ========== */
+        .error-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .error-card .error-icon {
+            font-size: 5rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .error-card h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        .error-card h1 span {
+            color: #1d4ed8;
+        }
+        .error-card p {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .error-card .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
         }
         
         /* ========== هدر شیشه‌ای ========== */
@@ -99,67 +143,7 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
         
-        /* ========== کارت خطا ========== */
-        .error-card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 3rem 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(59, 130, 246, 0.08);
-            max-width: 600px;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        .error-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-        }
-        
-        /* ========== انیمیشن ========== */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-        .float-icon {
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up {
-            animation: fadeUp 0.6s ease forwards;
-        }
-        
-        /* ========== دکمه بازگشت به بالا ========== */
-        #back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            border: none;
-            cursor: pointer;
-        }
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        #back-to-top:hover { transform: translateY(-5px) scale(1.05); }
-        
-        /* ========== فوتر مطابق با قالب اصلی ========== */
+        /* ========== فوتر ========== */
         .footer-gradient {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             border-top: 3px solid #3b82f6;
@@ -171,93 +155,263 @@
         }
         .footer-link:hover { color: #60a5fa; }
         
+        /* ========== منوی کشویی ========== */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 0.5rem;
+            z-index: 60;
+        }
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .dropdown-menu a:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+        .dropdown-menu a i {
+            font-size: 1.1rem;
+            color: #64748b;
+            width: 1.5rem;
+            text-align: center;
+        }
+        .dropdown-menu a:hover i {
+            color: #1d4ed8;
+        }
+        .dropdown-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .dropdown-trigger .chevron {
+            transition: transform 0.3s;
+        }
+        .dropdown-trigger.open .chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* ========== منوی موبایل ========== */
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        #mobile-menu.show { transform: translateX(0); }
+        #mobile-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        #mobile-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding-right: 1.5rem;
+        }
+        .mobile-submenu.open {
+            max-height: 300px;
+        }
+        .mobile-submenu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .mobile-submenu a:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+        .mobile-submenu a i {
+            font-size: 1rem;
+            color: #64748b;
+            width: 1.5rem;
+            text-align: center;
+        }
+        .mobile-submenu a:hover i {
+            color: #1d4ed8;
+        }
+        
         /* ========== ریسپانسیو ========== */
+        @media (max-width: 1024px) {
+            .desktop-nav { display: none !important; }
+            .mobile-nav-toggle { display: block !important; }
+        }
+        @media (min-width: 1025px) {
+            .mobile-nav-toggle { display: none !important; }
+            .desktop-nav { display: flex !important; }
+        }
         @media (max-width: 640px) {
             .error-card { padding: 2rem 1.2rem; }
-            .error-card h1 { font-size: 2rem !important; }
-            .error-card .error-number { font-size: 6rem !important; }
+            .error-card h1 { font-size: 2rem; }
+            .error-card .error-icon { font-size: 4rem; }
+            .error-card .btn-group { flex-direction: column; }
+            .error-card .btn-group a { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<!-- ========== HEADER شیشه‌ای مطابق با قالب اصلی ========== -->
+<!-- ========== HEADER ========== -->
 <header class="glass-header fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="container-custom py-3 flex items-center justify-between">
         <!-- لوگو -->
         <a href="https://matinmok.github.io/azadivpn/" class="flex items-center gap-2 text-2xl font-extrabold">
             <span class="bg-gradient-to-r from-blue-600 to-blue-400 text-white px-3 py-1 rounded-xl text-sm">آزادی</span>
             <span class="text-gray-800">وی‌پی‌ان</span>
-            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-normal">پیشرو در سرعت</span>
         </a>
         
         <!-- منوی دسکتاپ -->
-        <nav class="flex items-center gap-1 text-sm font-medium">
-            <a href="https://matinmok.github.io/azadivpn/#features" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">مزایا</a>
+        <nav class="desktop-nav items-center gap-1 text-sm font-medium">
+            <a href="https://matinmok.github.io/azadivpn/" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">صفحه نخست</a>
             <a href="https://matinmok.github.io/azadivpn/#pricing-section" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">تعرفه‌ها</a>
             <a href="https://matinmok.github.io/azadivpn/#reviews" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">نظرات</a>
-            <a href="https://matinmok.github.io/azadivpn/#faq" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">پرسش‌ها</a>
+            <a href="https://matinmok.github.io/azadivpn/article.html" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">مقالات</a>
+            
+            <!-- منوی کشویی "آزادی ما" -->
+            <div class="relative group">
+                <div class="dropdown-trigger px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition" onclick="toggleDropdown(event)">
+                    آزادی ما
+                    <i class="fas fa-chevron-down chevron text-xs mr-1"></i>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="https://matinmok.github.io/azadivpn/Rules.html">
+                        <i class="fas fa-gavel"></i> قوانین آزادی VPN
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/about.html">
+                        <i class="fas fa-info-circle"></i> درباره ما
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/contact.html">
+                        <i class="fas fa-envelope"></i> تماس با ما
+                    </a>
+                </div>
+            </div>
+            
             <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
                class="btn-primary text-sm py-2 px-5 mr-2">
                 <i class="fas fa-user-circle ml-1"></i> پورتال کاربری
             </a>
         </nav>
+        
+        <!-- دکمه منوی موبایل -->
+        <button id="mobile-menu-toggle" class="mobile-nav-toggle text-gray-700 hover:bg-gray-100 p-2 rounded-lg transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
     </div>
 </header>
 
+<!-- ========== منوی موبایل ========== -->
+<div id="mobile-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"></div>
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 max-w-[80vw] z-50 shadow-2xl overflow-y-auto p-6">
+    <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold text-gray-800">منو</span>
+        <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-800 p-2">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+    </div>
+    <ul class="space-y-2 text-base">
+        <li><a href="https://matinmok.github.io/azadivpn/" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">صفحه نخست</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/#pricing-section" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">تعرفه‌ها</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/#reviews" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">نظرات</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/article.html" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">مقالات</a></li>
+        
+        <!-- زیرمنوی موبایل "آزادی ما" -->
+        <li>
+            <div class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50 cursor-pointer transition" onclick="toggleMobileSubmenu(event)">
+                <span class="text-gray-800 font-medium">آزادی ما</span>
+                <i class="fas fa-chevron-down text-gray-400 transition-transform" id="mobile-submenu-chevron"></i>
+            </div>
+            <div class="mobile-submenu" id="mobile-submenu">
+                <a href="https://matinmok.github.io/azadivpn/Rules.html">
+                    <i class="fas fa-gavel"></i> قوانین آزادی VPN
+                </a>
+                <a href="https://matinmok.github.io/azadivpn/about.html">
+                    <i class="fas fa-info-circle"></i> درباره ما
+                </a>
+                <a href="https://matinmok.github.io/azadivpn/contact.html">
+                    <i class="fas fa-envelope"></i> تماس با ما
+                </a>
+            </div>
+        </li>
+        
+        <li class="mt-4">
+            <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
+               class="btn-primary w-full text-center block py-3">
+                <i class="fas fa-user-circle ml-1"></i> پورتال کاربری
+            </a>
+        </li>
+    </ul>
+    <div class="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500">
+        <p>پشتیبانی ۲۴ ساعته</p>
+        <p class="text-xs mt-1">ارائه‌دهنده برتر فیلترشکن در ایران</p>
+    </div>
+</div>
+
 <!-- ========== بخش اصلی: خطای ۴۰۴ ========== -->
-<main class="flex-1 flex items-center justify-center pt-32 pb-16">
-    <div class="container-custom">
-        <div class="flex justify-center">
-            <div class="error-card animate-fade-up text-center">
-                <!-- آیکون خطا -->
-                <div class="float-icon text-7xl text-blue-500 mb-4">
-                    <i class="fas fa-compass"></i>
-                </div>
-                
-                <!-- شماره خطا -->
-                <div class="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2 error-number">
-                    ۴۰۴
-                </div>
-                
-                <!-- عنوان -->
-                <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                    صفحه پیدا نشد!
-                </h1>
-                
-                <!-- توضیح -->
-                <p class="text-gray-500 text-base leading-relaxed max-w-sm mx-auto mb-6">
+<main>
+    <section class="min-h-screen flex items-center justify-center pt-24 pb-12 px-4 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <div class="container-custom flex justify-center">
+            <div class="error-card animate-fade-up">
+                <span class="error-icon"><i class="fas fa-compass"></i></span>
+                <h1>خطای <span>۴۰۴</span></h1>
+                <p class="text-gray-600">
                     متأسفیم! صفحه‌ای که به دنبال آن هستید وجود ندارد یا منتقل شده است.
+                    <br>
                     می‌توانید به صفحه اصلی بازگردید یا با پشتیبانی تماس بگیرید.
                 </p>
-                
-                <!-- دکمه‌های اقدام -->
-                <div class="flex flex-col sm:flex-row justify-center gap-3">
-                    <a href="https://matinmok.github.io/azadivpn/" class="btn-primary flex items-center justify-center gap-2">
-                        <i class="fas fa-home"></i> صفحه اصلی
+                <div class="btn-group">
+                    <a href="https://matinmok.github.io/azadivpn/" class="btn-primary">
+                        <i class="fas fa-home ml-1"></i> صفحه اصلی
                     </a>
-                    <a href="https://t.me/Mykalikal" target="_blank" class="btn-success flex items-center justify-center gap-2">
-                        <i class="fas fa-headset"></i> تماس با پشتیبانی
+                    <a href="https://t.me/Mykalikal" target="_blank" class="btn-secondary">
+                        <i class="fas fa-headset ml-1"></i> پشتیبانی
                     </a>
                 </div>
-                
-                <!-- لینک‌های سریع -->
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                    <p class="text-xs text-gray-400 mb-3">شاید این صفحات مفید باشند:</p>
-                    <div class="flex flex-wrap justify-center gap-2 text-sm">
-                        <a href="https://matinmok.github.io/azadivpn/#pricing-section" class="text-blue-600 hover:underline">تعرفه‌ها</a>
-                        <span class="text-gray-300">|</span>
-                        <a href="https://matinmok.github.io/azadivpn/article.html" class="text-blue-600 hover:underline">مقالات</a>
-                        <span class="text-gray-300">|</span>
-                        <a href="https://matinmok.github.io/azadivpn/#faq" class="text-blue-600 hover:underline">سوالات متداول</a>
-                    </div>
-                </div>
+                <p class="text-xs text-gray-400 mt-6">
+                    <i class="fas fa-undo-alt ml-1"></i> هدایت خودکار به صفحه اصلی در <span id="countdown">۵</span> ثانیه
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 
-<!-- ========== FOOTER مطابق با قالب اصلی ========== -->
+<!-- ========== FOOTER ========== -->
 <footer class="footer-gradient text-white py-12">
     <div class="container-custom">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -308,28 +462,98 @@
     </div>
 </footer>
 
-<!-- ========== دکمه بازگشت به بالا ========== -->
-<button id="back-to-top" aria-label="بازگشت به بالا">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
 <!-- ========== اسکریپت‌ها ========== -->
 <script>
     (function() {
-        // ======== دکمه بازگشت به بالا ========
-        const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
+        // ======== منوی موبایل ========
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-overlay');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('show');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('show');
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        menuClose.addEventListener('click', closeMobileMenu);
+        overlay.addEventListener('click', closeMobileMenu);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
         });
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        // ======== تغییر هدر هنگام اسکرول ========
+        // ======== منوی کشویی "آزادی ما" در دسکتاپ ========
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            const trigger = e.currentTarget;
+            const dropdown = document.getElementById('dropdown-menu');
+            const isOpen = dropdown.classList.contains('show');
+            
+            document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+                if (m.id !== 'dropdown-menu') m.classList.remove('show');
+            });
+            document.querySelectorAll('.dropdown-trigger.open').forEach(t => {
+                if (t !== trigger) t.classList.remove('open');
+            });
+            
+            if (isOpen) {
+                dropdown.classList.remove('show');
+                trigger.classList.remove('open');
+            } else {
+                dropdown.classList.add('show');
+                trigger.classList.add('open');
+            }
+        }
+        window.toggleDropdown = toggleDropdown;
+
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('dropdown-menu');
+            const trigger = document.querySelector('.dropdown-trigger');
+            if (!e.target.closest('.dropdown-trigger') && !e.target.closest('.dropdown-menu')) {
+                dropdown.classList.remove('show');
+                if (trigger) trigger.classList.remove('open');
+            }
+        });
+
+        // ======== زیرمنوی موبایل ========
+        function toggleMobileSubmenu(e) {
+            const parent = e.currentTarget.closest('li');
+            const submenu = parent.querySelector('.mobile-submenu');
+            const chevron = parent.querySelector('#mobile-submenu-chevron');
+            if (submenu) {
+                submenu.classList.toggle('open');
+                if (chevron) {
+                    chevron.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+                }
+            }
+        }
+        window.toggleMobileSubmenu = toggleMobileSubmenu;
+
+        // ======== شمارش معکوس و هدایت خودکار ========
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+        const interval = setInterval(() => {
+            seconds -= 1;
+            if (countdownEl) {
+                countdownEl.textContent = seconds;
+            }
+            if (seconds <= 0) {
+                clearInterval(interval);
+                window.location.href = 'https://matinmok.github.io/azadivpn/';
+            }
+        }, 1000);
+
+        // ======== تغییر هدر ========
         const header = document.querySelector('.glass-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -339,25 +563,32 @@
             }
         });
 
-        // ======== اسکرول نرم ========
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    const headerHeight = 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-            });
-        });
+        // ======== نمایش/مخفی‌سازی دکمه‌های منو ========
+        function handleMenuVisibility() {
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const desktopNav = document.querySelector('.desktop-nav');
+            if (window.innerWidth <= 1024) {
+                toggle.style.display = 'block';
+                desktopNav.style.display = 'none';
+            } else {
+                toggle.style.display = 'none';
+                desktopNav.style.display = 'flex';
+            }
+        }
+        handleMenuVisibility();
+        window.addEventListener('resize', handleMenuVisibility);
 
-        // ======== هدایت خودکار به صفحه اصلی پس از ۸ ثانیه ========
-        setTimeout(() => {
-            window.location.href = 'https://matinmok.github.io/azadivpn/';
-        }, 8000);
+        // ======== انیمیشن کارت ========
+        const card = document.querySelector('.error-card');
+        if (card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                card.style.transition = 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        }
     })();
 </script>
 
@@ -369,13 +600,10 @@
   "name": "آزادی وی‌پی‌ان",
   "alternateName": ["Azadi VPN", "فیلترشکن آزادی"],
   "url": "https://matinmok.github.io/azadivpn/",
-  "logo": "https://matinmok.github.io/azadivpn/images/logo.jpg",
   "description": "خرید فیلترشکن قوی و پولی با پروتکل V2Ray، آی‌پی ثابت و تحویل آنی",
   "slogan": "پیشرو در سرعت و اینترنت",
-  "foundingDate": "2021",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+989227334601",
     "contactType": "customer service",
     "availableLanguage": ["Persian"]
   }
