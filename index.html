@@ -495,6 +495,102 @@
             .desktop-nav { display: flex !important; }
         }
         
+        /* ========== منوی کشویی "آزادی ما" ========== */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            min-width: 200px;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 0.5rem;
+            z-index: 60;
+        }
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .dropdown-menu a:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+        .dropdown-menu a i {
+            font-size: 1.1rem;
+            color: #64748b;
+            width: 1.5rem;
+            text-align: center;
+        }
+        .dropdown-menu a:hover i {
+            color: #1d4ed8;
+        }
+        .dropdown-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .dropdown-trigger .chevron {
+            transition: transform 0.3s;
+        }
+        .dropdown-trigger.open .chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* منوی موبایل - زیرمنو */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding-right: 1.5rem;
+        }
+        .mobile-submenu.open {
+            max-height: 300px;
+        }
+        .mobile-submenu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .mobile-submenu a:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+        .mobile-submenu a i {
+            font-size: 1rem;
+            color: #64748b;
+            width: 1.5rem;
+            text-align: center;
+        }
+        .mobile-submenu a:hover i {
+            color: #1d4ed8;
+        }
+        
         /* ========== گرید با ارتفاع یکسان ========== */
         .grid-equal {
             display: grid;
@@ -528,12 +624,30 @@
         
         <!-- منوی دسکتاپ -->
         <nav class="desktop-nav items-center gap-1 text-sm font-medium">
-            <a href="#features" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">مزایا</a>
+            <a href="https://matinmok.github.io/azadivpn/" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">صفحه نخست</a>
             <a href="#pricing-section" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">تعرفه‌ها</a>
             <a href="#reviews" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">نظرات</a>
-            <a href="#faq" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">پرسش‌ها</a>
-            <a href="#articles" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">مقالات</a>
-            <a href="#partnership" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">همکاری</a>
+            <a href="https://matinmok.github.io/azadivpn/article.html" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">مقالات</a>
+            
+            <!-- منوی کشویی "آزادی ما" -->
+            <div class="relative group">
+                <div class="dropdown-trigger px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition" onclick="toggleDropdown(event)">
+                    آزادی ما
+                    <i class="fas fa-chevron-down chevron text-xs mr-1"></i>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="https://matinmok.github.io/azadivpn/Rules.html">
+                        <i class="fas fa-gavel"></i> قوانین آزادی VPN
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/about.html">
+                        <i class="fas fa-info-circle"></i> درباره ما
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/contact.html">
+                        <i class="fas fa-envelope"></i> تماس با ما
+                    </a>
+                </div>
+            </div>
+            
             <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
                class="btn-primary text-sm py-2 px-5 mr-2">
                 <i class="fas fa-user-circle ml-1"></i> پورتال کاربری
@@ -559,12 +673,30 @@
         </button>
     </div>
     <ul class="space-y-2 text-base">
-        <li><a href="#features" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">مزایا</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">صفحه نخست</a></li>
         <li><a href="#pricing-section" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">تعرفه‌ها</a></li>
         <li><a href="#reviews" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">نظرات</a></li>
-        <li><a href="#faq" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">پرسش‌ها</a></li>
-        <li><a href="#articles" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">مقالات</a></li>
-        <li><a href="#partnership" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">همکاری</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/article.html" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">مقالات</a></li>
+        
+        <!-- زیرمنوی موبایل "آزادی ما" -->
+        <li>
+            <div class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50 cursor-pointer transition" onclick="toggleMobileSubmenu(event)">
+                <span class="text-gray-800 font-medium">آزادی ما</span>
+                <i class="fas fa-chevron-down text-gray-400 transition-transform" id="mobile-submenu-chevron"></i>
+            </div>
+            <div class="mobile-submenu" id="mobile-submenu">
+                <a href="https://matinmok.github.io/azadivpn/Rules.html">
+                    <i class="fas fa-gavel"></i> قوانین آزادی VPN
+                </a>
+                <a href="https://matinmok.github.io/azadivpn/about.html">
+                    <i class="fas fa-info-circle"></i> درباره ما
+                </a>
+                <a href="https://matinmok.github.io/azadivpn/contact.html">
+                    <i class="fas fa-envelope"></i> تماس با ما
+                </a>
+            </div>
+        </li>
+        
         <li class="mt-4">
             <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
                class="btn-primary w-full text-center block py-3">
@@ -913,8 +1045,8 @@
                     <strong>آزادی وی‌پی‌ان</strong> — پیشرو در سرعت و اینترنت
                 </p>
                 <p class="text-base text-gray-500 max-w-2xl mx-auto mb-8">
-                    بهترین <strong>فیلترشکن قوی</strong> با پروتکل <strong>V2Ray</strong>، 
-                    آی‌پی ثابت، <strong>تحویل آنی</strong> و پشتیبانی ۲۴ ساعته. 
+                    بهترین <strong>فیلترشکن قوی</strong> با پروتکل <strong>V2Ray</strong>, 
+                    آی‌پی ثابت, <strong>تحویل آنی</strong> و پشتیبانی ۲۴ ساعته. 
                     <span class="text-blue-600 font-semibold">ضمانت بازگشت وجه</span> تا ۷ روز.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -1555,6 +1687,55 @@
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
+
+        // ======== منوی کشویی "آزادی ما" در دسکتاپ ========
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            const trigger = e.currentTarget;
+            const dropdown = document.getElementById('dropdown-menu');
+            const isOpen = dropdown.classList.contains('show');
+            
+            // بستن همه منوهای کشویی دیگر
+            document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+                if (m.id !== 'dropdown-menu') m.classList.remove('show');
+            });
+            document.querySelectorAll('.dropdown-trigger.open').forEach(t => {
+                if (t !== trigger) t.classList.remove('open');
+            });
+            
+            if (isOpen) {
+                dropdown.classList.remove('show');
+                trigger.classList.remove('open');
+            } else {
+                dropdown.classList.add('show');
+                trigger.classList.add('open');
+            }
+        }
+        window.toggleDropdown = toggleDropdown;
+
+        // بستن منوی کشویی با کلیک بیرون
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('dropdown-menu');
+            const trigger = document.querySelector('.dropdown-trigger');
+            if (!e.target.closest('.dropdown-trigger') && !e.target.closest('.dropdown-menu')) {
+                dropdown.classList.remove('show');
+                if (trigger) trigger.classList.remove('open');
+            }
+        });
+
+        // ======== زیرمنوی موبایل "آزادی ما" ========
+        function toggleMobileSubmenu(e) {
+            const parent = e.currentTarget.closest('li');
+            const submenu = parent.querySelector('.mobile-submenu');
+            const chevron = parent.querySelector('#mobile-submenu-chevron');
+            if (submenu) {
+                submenu.classList.toggle('open');
+                if (chevron) {
+                    chevron.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+                }
+            }
+        }
+        window.toggleMobileSubmenu = toggleMobileSubmenu;
 
         // ======== پاپ‌آپ خرید ========
         const buyPopup = document.getElementById('buy-popup');
