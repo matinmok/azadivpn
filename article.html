@@ -8,21 +8,28 @@
     <!-- ========== متا تگ‌های سئو ========== -->
     <meta name="description" content="مقالات تخصصی خرید فیلترشکن قوی، امنیت وی‌پی‌ان، راهنمای استفاده از V2Ray و VPN پولی | آزادی وی‌پی‌ان">
     <meta name="keywords" content="خرید فیلترشکن قوی, فیلترشکن امن, وی‌پی‌ان, آزادی وی‌پی‌ان, اینترنت آزاد, V2Ray, راهنمای فیلترشکن, خرید VPN پولی">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large">
+    <meta name="author" content="آزادی وی‌پی‌ان">
     <link rel="canonical" href="https://matinmok.github.io/azadivpn/article.html">
     
-    <!-- ========== Open Graph ========== -->
+    <!-- ========== Open Graph / توییتر کارت ========== -->
     <meta property="og:locale" content="fa_IR">
     <meta property="og:site_name" content="آزادی وی‌پی‌ان">
     <meta property="og:title" content="مقالات تخصصی | آزادی وی‌پی‌ان">
-    <meta property="og:description" content="مقالات آموزشی خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از VPN | آزادی وی‌پی‌ان">
+    <meta property="og:description" content="مقالات تخصصی خرید فیلترشکن قوی، امنیت وی‌پی‌ان، راهنمای استفاده از V2Ray و VPN پولی">
     <meta property="og:image" content="https://matinmok.github.io/azadivpn/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matinmok.github.io/azadivpn/article.html">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="مقالات تخصصی | آزادی وی‌پی‌ان">
-    <meta name="twitter:description" content="مقالات آموزشی خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از VPN">
+    <meta name="twitter:description" content="مقالات تخصصی خرید فیلترشکن قوی، امنیت وی‌پی‌ان و راهنمای استفاده از V2Ray">
+    
+    <!-- ========== آیکون و تم ========== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6'/%3E%3Cstop offset='100%25' style='stop-color:%231d4ed8'/%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='72' font-size='55' font-weight='bold' fill='white' text-anchor='middle' font-family='Tahoma,Arial'%3Eآ%3C/text%3E%3C/svg%3E">
+    <meta name="theme-color" content="#1d4ed8">
     
     <!-- ========== فونت و استایل ========== -->
     <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet" crossorigin="anonymous">
@@ -30,7 +37,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        /* ========== استایل‌های پایه مطابق با قالب اصلی ========== */
+        /* ========== استایل‌های پایه ========== */
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body {
@@ -133,8 +140,8 @@
             border-radius: 1.2rem;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(59, 130, 246, 0.08);
             transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.08);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -144,72 +151,70 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             border-color: rgba(59, 130, 246, 0.2);
         }
-        .article-card .card-body {
+        .article-card .article-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: linear-gradient(135deg, #e2e8f0, #f1f5f9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #94a3b8;
+        }
+        .article-card .article-content {
             padding: 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-        .article-card .card-body h3 {
+        .article-card .article-content .category-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+        .article-card .article-content h3 {
             font-size: 1.1rem;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 0.5rem;
             line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
-        .article-card .card-body p {
+        .article-card .article-content p {
             color: #64748b;
             font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 1rem;
             flex: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
-        .article-card .card-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        /* ========== برچسب دسته‌بندی ========== */
-        .category-badge {
+        .article-card .article-content .read-more {
+            color: #1d4ed8;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
-            background: #eff6ff;
-            color: #1d4ed8;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.25rem 0.8rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(59, 130, 246, 0.15);
+            transition: all 0.3s;
+            margin-top: auto;
         }
-        .featured-badge {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 0.2rem 0.8rem;
-            border-radius: 9999px;
+        .article-card .article-content .read-more:hover {
+            color: #3b82f6;
+            gap: 0.6rem;
         }
         
-        /* ========== دکمه فیلتر ========== */
+        /* ========== فیلتر دسته‌بندی ========== */
         .filter-btn {
-            padding: 0.4rem 1.2rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 9999px;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
             border: 2px solid #e2e8f0;
             background: white;
@@ -220,7 +225,6 @@
         .filter-btn:hover {
             border-color: #3b82f6;
             color: #1d4ed8;
-            transform: translateY(-2px);
         }
         .filter-btn.active {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8);
@@ -234,17 +238,17 @@
             width: 100%;
             max-width: 400px;
             padding: 0.7rem 1.2rem 0.7rem 3rem;
-            border: 2px solid #e2e8f0;
             border-radius: 9999px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            font-family: 'Vazirmatn', sans-serif;
             font-size: 0.9rem;
             transition: all 0.3s ease;
-            font-family: 'Vazirmatn', sans-serif;
-            background: white;
+            outline: none;
         }
         .search-input:focus {
-            outline: none;
             border-color: #3b82f6;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         }
         .search-wrapper {
             position: relative;
@@ -256,6 +260,129 @@
             top: 50%;
             transform: translateY(-50%);
             color: #94a3b8;
+        }
+        
+        /* ========== فوتر ========== */
+        .footer-gradient {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-top: 3px solid #3b82f6;
+        }
+        .footer-link {
+            color: #94a3b8;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .footer-link:hover { color: #60a5fa; }
+        
+        /* ========== منوی کشویی ========== */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 0.5rem;
+            z-index: 60;
+        }
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .dropdown-menu a:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+        .dropdown-menu a i {
+            font-size: 1.1rem;
+            color: #64748b;
+            width: 1.5rem;
+            text-align: center;
+        }
+        .dropdown-menu a:hover i {
+            color: #1d4ed8;
+        }
+        .dropdown-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .dropdown-trigger .chevron {
+            transition: transform 0.3s;
+        }
+        .dropdown-trigger.open .chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* ========== منوی موبایل ========== */
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        #mobile-menu.show { transform: translateX(0); }
+        #mobile-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        #mobile-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding-right: 1.5rem;
+        }
+        .mobile-submenu.open {
+            max-height: 300px;
+        }
+        .mobile-submenu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 0.75rem;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .mobile-submenu a:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+        .mobile-submenu a i {
+            font-size: 1rem;
+            color: #64748b;
+            width: 1.5rem;
+            text-align: center;
+        }
+        .mobile-submenu a:hover i {
+            color: #1d4ed8;
         }
         
         /* ========== دکمه بازگشت به بالا ========== */
@@ -286,32 +413,13 @@
         }
         #back-to-top:hover { transform: translateY(-5px) scale(1.05); }
         
-        /* ========== فوتر ========== */
-        .footer-gradient {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            border-top: 3px solid #3b82f6;
-        }
-        .footer-link {
-            color: #94a3b8;
-            transition: color 0.3s;
-            text-decoration: none;
-        }
-        .footer-link:hover { color: #60a5fa; }
-        
         /* ========== انیمیشن‌ها ========== */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-        }
         .animate-fade-up {
             animation: fadeUp 0.6s ease forwards;
-        }
-        .float-icon {
-            animation: float 3s ease-in-out infinite;
         }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
@@ -319,22 +427,27 @@
         .delay-4 { animation-delay: 0.4s; }
         
         /* ========== ریسپانسیو ========== */
+        @media (max-width: 1024px) {
+            .desktop-nav { display: none !important; }
+            .mobile-nav-toggle { display: block !important; }
+        }
+        @media (min-width: 1025px) {
+            .mobile-nav-toggle { display: none !important; }
+            .desktop-nav { display: flex !important; }
+        }
         @media (max-width: 768px) {
             .hero-articles { padding: 6rem 0 3rem; }
             .hero-articles h1 { font-size: 1.8rem; }
-            .article-card .card-body { padding: 1.2rem; }
-            .article-card .card-footer { padding: 0.8rem 1.2rem; flex-direction: column; align-items: stretch; }
-            .filter-btn { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
-            .search-input { max-width: 100%; font-size: 0.8rem; padding: 0.6rem 1rem 0.6rem 2.5rem; }
-            .search-wrapper i { right: 1rem; }
+            .article-card .article-content { padding: 1.2rem; }
+            .filter-btn { padding: 0.4rem 1rem; font-size: 0.75rem; }
+            .search-input { max-width: 100%; }
         }
         @media (max-width: 480px) {
-            .article-card .card-body { padding: 1rem; }
-            .article-card .card-body h3 { font-size: 1rem; }
-            .article-card .card-body p { font-size: 0.8rem; }
+            .hero-articles h1 { font-size: 1.5rem; }
+            .article-card .article-content { padding: 1rem; }
+            .article-card .article-content h3 { font-size: 1rem; }
         }
         
-        /* ========== عنوان بخش ========== */
         .section-title {
             font-size: 2rem;
             font-weight: 800;
@@ -350,14 +463,11 @@
             margin: 0 auto 2.5rem;
             font-size: 0.95rem;
         }
-        @media (max-width: 768px) {
-            .section-title { font-size: 1.5rem; }
-        }
     </style>
 </head>
 <body>
 
-<!-- ========== HEADER شیشه‌ای ========== -->
+<!-- ========== HEADER ========== -->
 <header class="glass-header fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="container-custom py-3 flex items-center justify-between">
         <!-- لوگو -->
@@ -368,17 +478,123 @@
         </a>
         
         <!-- منوی دسکتاپ -->
-        <nav class="flex items-center gap-1 text-sm font-medium">
-            <a href="https://matinmok.github.io/azadivpn/" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">صفحه اصلی</a>
+        <nav class="desktop-nav items-center gap-1 text-sm font-medium">
+            <a href="https://matinmok.github.io/azadivpn/" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">صفحه نخست</a>
             <a href="https://matinmok.github.io/azadivpn/#pricing-section" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">تعرفه‌ها</a>
-            <a href="https://matinmok.github.io/azadivpn/article.html" class="px-3 py-2 rounded-lg text-blue-600 bg-blue-50 transition">مقالات</a>
+            <a href="https://matinmok.github.io/azadivpn/#reviews" class="px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition">نظرات</a>
+            <a href="https://matinmok.github.io/azadivpn/article.html" class="px-3 py-2 rounded-lg text-blue-600 bg-blue-50 transition font-bold">مقالات</a>
+            
+            <!-- منوی کشویی "آزادی ما" -->
+            <div class="relative group">
+                <div class="dropdown-trigger px-3 py-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition" onclick="toggleDropdown(event)">
+                    آزادی ما
+                    <i class="fas fa-chevron-down chevron text-xs mr-1"></i>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="https://matinmok.github.io/azadivpn/Rules.html">
+                        <i class="fas fa-gavel"></i> قوانین آزادی VPN
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/about.html">
+                        <i class="fas fa-info-circle"></i> درباره ما
+                    </a>
+                    <a href="https://matinmok.github.io/azadivpn/contact.html">
+                        <i class="fas fa-envelope"></i> تماس با ما
+                    </a>
+                </div>
+            </div>
+            
             <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
                class="btn-primary text-sm py-2 px-5 mr-2">
                 <i class="fas fa-user-circle ml-1"></i> پورتال کاربری
             </a>
         </nav>
+        
+        <!-- دکمه منوی موبایل -->
+        <button id="mobile-menu-toggle" class="mobile-nav-toggle text-gray-700 hover:bg-gray-100 p-2 rounded-lg transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
     </div>
 </header>
+
+<!-- ========== منوی موبایل ========== -->
+<div id="mobile-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"></div>
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 max-w-[80vw] z-50 shadow-2xl overflow-y-auto p-6">
+    <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold text-gray-800">منو</span>
+        <button id="mobile-menu-close" class="text-gray-500 hover:text-gray-800 p-2">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+    </div>
+    <ul class="space-y-2 text-base">
+        <li><a href="https://matinmok.github.io/azadivpn/" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">صفحه نخست</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/#pricing-section" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">تعرفه‌ها</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/#reviews" class="block py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition">نظرات</a></li>
+        <li><a href="https://matinmok.github.io/azadivpn/article.html" class="block py-3 px-4 rounded-xl bg-blue-50 text-blue-600 transition font-bold">مقالات</a></li>
+        
+        <!-- زیرمنوی موبایل "آزادی ما" -->
+        <li>
+            <div class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50 cursor-pointer transition" onclick="toggleMobileSubmenu(event)">
+                <span class="text-gray-800 font-medium">آزادی ما</span>
+                <i class="fas fa-chevron-down text-gray-400 transition-transform" id="mobile-submenu-chevron"></i>
+            </div>
+            <div class="mobile-submenu" id="mobile-submenu">
+                <a href="https://matinmok.github.io/azadivpn/Rules.html">
+                    <i class="fas fa-gavel"></i> قوانین آزادی VPN
+                </a>
+                <a href="https://matinmok.github.io/azadivpn/about.html">
+                    <i class="fas fa-info-circle"></i> درباره ما
+                </a>
+                <a href="https://matinmok.github.io/azadivpn/contact.html">
+                    <i class="fas fa-envelope"></i> تماس با ما
+                </a>
+            </div>
+        </li>
+        
+        <li class="mt-4">
+            <a href="https://portal.azadibin.sbs" target="_blank" rel="noopener" 
+               class="btn-primary w-full text-center block py-3">
+                <i class="fas fa-user-circle ml-1"></i> پورتال کاربری
+            </a>
+        </li>
+        <li class="mt-2">
+            <a href="#" onclick="openBuyPopup(); return false;" 
+               class="btn-success w-full text-center block py-3 text-sm">
+                <i class="fas fa-bolt ml-1"></i> خرید و تحویل آنی
+            </a>
+        </li>
+    </ul>
+    <div class="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500">
+        <p>پشتیبانی ۲۴ ساعته</p>
+        <p class="text-xs mt-1">ارائه‌دهنده برتر فیلترشکن در ایران</p>
+    </div>
+</div>
+
+<!-- ========== پاپ‌آپ خرید ========== -->
+<div id="buy-popup" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+        <button onclick="closeBuyPopup()" class="absolute top-3 left-3 text-gray-400 hover:text-gray-800 text-xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="text-center mb-6">
+            <div class="text-4xl text-blue-500 mb-2"><i class="fas fa-bolt"></i></div>
+            <h3 class="text-xl font-bold text-gray-900">خرید و تحویل آنی</h3>
+            <p class="text-gray-500 text-sm">سرویس شما در کمتر از چند دقیقه تحویل داده می‌شود</p>
+        </div>
+        <a href="https://t.me/vpnbrandicobot" target="_blank" class="block p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition text-center mb-3">
+            <span class="text-2xl block">🤖</span>
+            <span class="font-bold text-gray-800">ربات تلگرام</span>
+            <span class="text-xs text-gray-500 block">پیشنهادی — تحویل خودکار و سریع</span>
+        </a>
+        <a href="https://portal.azadibin.sbs" target="_blank" class="block p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition text-center">
+            <span class="text-2xl block">🌐</span>
+            <span class="font-bold text-gray-800">پورتال کاربری</span>
+            <span class="text-xs text-gray-500 block">مدیریت و خرید سرویس</span>
+        </a>
+        <button onclick="closeBuyPopup()" class="mt-4 w-full text-gray-400 hover:text-gray-600 text-sm py-2">بستن</button>
+    </div>
+</div>
 
 <!-- ========== هیرو ========== -->
 <section class="hero-articles">
@@ -388,7 +604,7 @@
                 <i class="fas fa-newspaper"></i>
             </div>
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-up">
-                مقالات تخصصی <span class="text-blue-300">آزادی وی‌پی‌ان</span>
+                مقالات <span class="text-blue-300">آزادی وی‌پی‌ان</span>
             </h1>
             <p class="text-lg md:text-xl opacity-90 mb-6 animate-fade-up delay-1">
                 راهنمای کامل خرید، نصب و استفاده از بهترین فیلترشکن‌های بازار
@@ -405,16 +621,13 @@
 <section class="py-8 bg-white border-b border-gray-100">
     <div class="container-custom">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-            <!-- دکمه‌های فیلتر -->
-            <div class="flex flex-wrap justify-center gap-2">
+            <div class="flex flex-wrap gap-2 justify-center">
                 <button class="filter-btn active" data-filter="all">همه مقالات</button>
                 <button class="filter-btn" data-filter="buy-guide">راهنمای خرید</button>
                 <button class="filter-btn" data-filter="security">امنیت</button>
                 <button class="filter-btn" data-filter="tutorial">آموزش</button>
                 <button class="filter-btn" data-filter="comparison">مقایسه</button>
             </div>
-            
-            <!-- جستجو -->
             <div class="search-wrapper">
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" class="search-input" placeholder="جستجوی مقاله...">
@@ -426,190 +639,174 @@
 <!-- ========== مقالات ========== -->
 <section id="articles" class="py-16">
     <div class="container-custom">
-        <h2 class="section-title">مقالات برتر <span>آزادی وی‌پی‌ان</span></h2>
+        <h2 class="section-title">مقالات <span>برتر</span></h2>
         <p class="section-subtitle">بهترین راهنمایی‌ها برای انتخاب و استفاده از فیلترشکن</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="articlesGrid">
-            
-            <!-- ===== مقاله ویژه ===== -->
-            <div class="article-card md:col-span-2 lg:col-span-3 animate-fade-up" data-category="buy-guide">
-                <div class="card-body">
-                    <div class="flex items-center gap-3 mb-2 flex-wrap">
-                        <span class="featured-badge"><i class="fas fa-star ml-1"></i> مقاله ویژه</span>
-                        <span class="category-badge"><i class="fas fa-shopping-cart"></i> راهنمای خرید</span>
+            <!-- مقاله ۱ - ویژه -->
+            <div class="article-card animate-fade-up" data-category="buy-guide" style="grid-column: 1 / -1;">
+                <div class="relative">
+                    <div class="article-image bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+                        <i class="fas fa-star text-4xl"></i>
                     </div>
+                    <span class="absolute top-4 left-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">ویژه</span>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-shopping-cart ml-1"></i> راهنمای خرید</span>
                     <h3>خرید فیلترشکن صفر تا صد با آزادی وی‌پی‌ان</h3>
                     <p>راهنمای کامل خرید فیلترشکن از مزایا تا روش‌های خرید، نکات انتخاب VPN امن و مقایسه با VPNهای رایگان برای دسترسی به اینترنت آزاد.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی وی‌پی‌ان</span>
-                    <a href="article1.html" class="btn-primary text-sm py-1.5 px-4">مطالعه مقاله <i class="fas fa-arrow-left mr-1"></i></a>
+                    <a href="article1.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۱ ===== -->
+            <!-- مقاله ۲ -->
             <div class="article-card animate-fade-up delay-1" data-category="buy-guide">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fab fa-windows"></i> راهنمای خرید</span>
+                <div class="article-image bg-gradient-to-r from-blue-400 to-cyan-400 text-white">
+                    <i class="fab fa-windows text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fab fa-windows ml-1"></i> راهنمای خرید</span>
                     <h3>خرید فیلترشکن ویندوز + نکات طلایی</h3>
-                    <p>راهنمای کامل خرید فیلترشکن ویندوز ۱۰ و ۱۱. بررسی بهترین VPN های ویندوز، آموزش نصب و تنظیم.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article8.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <p>راهنمای کامل خرید فیلترشکن ویندوز ۱۰ و ۱۱. بررسی بهترین VPN های ویندوز، آموزش نصب و تنظیم، بهینه‌سازی سرعت و امنیت کامل.</p>
+                    <a href="article8.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۲ ===== -->
+            <!-- مقاله ۳ -->
             <div class="article-card animate-fade-up delay-2" data-category="tutorial">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fab fa-apple"></i> آموزش</span>
+                <div class="article-image bg-gradient-to-r from-purple-400 to-pink-400 text-white">
+                    <i class="fab fa-apple text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fab fa-apple ml-1"></i> آموزش</span>
                     <h3>خرید فیلترشکن v2box آیفون</h3>
-                    <p>راهنمای جامع خرید و نصب v2box روی آیفون. آموزش قدم به قدم تنظیمات و بهینه‌سازی سرعت.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article7.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <p>راهنمای جامع خرید و نصب v2box روی آیفون. آموزش قدم به قدم تنظیمات، بهینه‌سازی سرعت و رفع مشکلات رایج برای کاربران iOS.</p>
+                    <a href="article7.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۳ ===== -->
+            <!-- مقاله ۴ -->
             <div class="article-card animate-fade-up delay-3" data-category="comparison">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-crown"></i> مقایسه</span>
+                <div class="article-image bg-gradient-to-r from-amber-400 to-orange-400 text-white">
+                    <i class="fas fa-crown text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-balance-scale ml-1"></i> مقایسه</span>
                     <h3>بهترین فیلترشکن پولی ۱۴۰۵</h3>
-                    <p>راهنمای انتخاب VPN پولی با کیفیت. بررسی کامل فیلترشکن‌های پولی بازار ایران.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article9.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <p>راهنمای انتخاب VPN پولی با کیفیت. بررسی کامل فیلترشکن‌های پولی بازار ایران و دلایل برتری آزادی وی‌پی‌ان.</p>
+                    <a href="article9.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۴ ===== -->
+            <!-- مقاله ۵ -->
             <div class="article-card animate-fade-up delay-1" data-category="tutorial">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-download"></i> آموزش</span>
+                <div class="article-image bg-gradient-to-r from-emerald-400 to-green-400 text-white">
+                    <i class="fas fa-download text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-graduation-cap ml-1"></i> آموزش</span>
                     <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
-                    <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article2.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <p>معرفی و دانلود اپلیکیشن‌های مورد نیاز برای استفاده از فیلترشکن در سیستم‌عامل‌های مختلف اندروید، iOS و ویندوز.</p>
+                    <a href="article2.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۵ ===== -->
+            <!-- مقاله ۶ -->
             <div class="article-card animate-fade-up delay-2" data-category="security">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-shield-alt"></i> امنیت</span>
-                    <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
-                    <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان.</p>
+                <div class="article-image bg-gradient-to-r from-rose-400 to-red-400 text-white">
+                    <i class="fas fa-shield-alt text-4xl"></i>
                 </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article3.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-lock ml-1"></i> امنیت</span>
+                    <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
+                    <p>بررسی امنیت، سرعت و مزایای فیلترشکن‌های پولی در مقایسه با نسخه‌های رایگان و دلایل انتخاب آزادی وی‌پی‌ان.</p>
+                    <a href="article3.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۶ ===== -->
+            <!-- مقاله ۷ -->
             <div class="article-card animate-fade-up delay-3" data-category="tutorial">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-code"></i> آموزش</span>
+                <div class="article-image bg-gradient-to-r from-indigo-400 to-blue-400 text-white">
+                    <i class="fas fa-code text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-server ml-1"></i> آموزش</span>
                     <h3>راهنمای استفاده از پروتکل V2Ray</h3>
                     <p>آموزش کامل استفاده از پروتکل V2Ray برای دسترسی به اینترنت آزاد با سرعت بالا و امنیت تضمین‌شده.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article4.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <a href="article4.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۷ ===== -->
-            <div class="article-card animate-fade-up delay-1" data-category="tutorial">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-server"></i> آموزش</span>
-                    <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
-                    <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
+            <!-- مقاله ۸ -->
+            <div class="article-card animate-fade-up delay-1" data-category="security">
+                <div class="article-image bg-gradient-to-r from-violet-400 to-purple-400 text-white">
+                    <i class="fas fa-lock text-4xl"></i>
                 </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article5.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
-                </div>
-            </div>
-            
-            <!-- ===== مقاله ۸ ===== -->
-            <div class="article-card animate-fade-up delay-2" data-category="security">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-lock"></i> امنیت</span>
-                    <h3>امنیت در استفاده از فیلترشکن</h3>
-                    <p>راهکارهای افزایش امنیت هنگام استفاده از VPN و محافظت از حریم خصوصی در فضای آنلاین.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article6.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
-                </div>
-            </div>
-            
-            <!-- ===== مقاله ۹ ===== -->
-            <div class="article-card animate-fade-up delay-3" data-category="buy-guide">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fab fa-android"></i> راهنمای خرید</span>
-                    <h3>خرید فیلترشکن برای اندروید</h3>
-                    <p>راهنمای خرید و نصب فیلترشکن بر روی دستگاه‌های اندروید با بهترین تنظیمات و امنیت.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article7.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
-                </div>
-            </div>
-            
-            <!-- ===== مقاله ۱۰ ===== -->
-            <div class="article-card animate-fade-up delay-1" data-category="tutorial">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-tools"></i> آموزش</span>
-                    <h3>رفع مشکلات رایج فیلترشکن</h3>
-                    <p>آموزش حل مشکلات متداول در اتصال VPN و راهکارهای افزایش پایداری اتصال.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article8.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
-                </div>
-            </div>
-            
-            <!-- ===== مقاله ۱۱ ===== -->
-            <div class="article-card animate-fade-up delay-2" data-category="security">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-network-wired"></i> امنیت</span>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-network-wired ml-1"></i> امنیت</span>
                     <h3>مقایسه پروتکل‌های VPN</h3>
                     <p>بررسی کامل پروتکل‌های مختلف VPN و انتخاب بهترین گزینه برای شرایط ایران.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article9.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <a href="article9.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
-            <!-- ===== مقاله ۱۲ ===== -->
-            <div class="article-card animate-fade-up delay-3" data-category="buy-guide">
-                <div class="card-body">
-                    <span class="category-badge"><i class="fas fa-user-tie"></i> راهنمای خرید</span>
+            <!-- مقاله ۹ -->
+            <div class="article-card animate-fade-up delay-2" data-category="buy-guide">
+                <div class="article-image bg-gradient-to-r from-teal-400 to-cyan-400 text-white">
+                    <i class="fab fa-android text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fab fa-android ml-1"></i> راهنمای خرید</span>
+                    <h3>خرید فیلترشکن برای اندروید</h3>
+                    <p>راهنمای خرید و نصب فیلترشکن بر روی دستگاه‌های اندروید با بهترین تنظیمات و امنیت.</p>
+                    <a href="article7.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+            
+            <!-- مقاله ۱۰ -->
+            <div class="article-card animate-fade-up delay-3" data-category="tutorial">
+                <div class="article-image bg-gradient-to-r from-slate-400 to-gray-400 text-white">
+                    <i class="fas fa-tools text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-wrench ml-1"></i> آموزش</span>
+                    <h3>رفع مشکلات رایج فیلترشکن</h3>
+                    <p>آموزش حل مشکلات متداول در اتصال VPN و راهکارهای افزایش پایداری اتصال.</p>
+                    <a href="article8.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+            
+            <!-- مقاله ۱۱ -->
+            <div class="article-card animate-fade-up delay-1" data-category="buy-guide">
+                <div class="article-image bg-gradient-to-r from-fuchsia-400 to-pink-400 text-white">
+                    <i class="fas fa-user-tie text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-handshake ml-1"></i> راهنمای خرید</span>
                     <h3>راهنمای صفر تا صد نمایندگی مرزبان</h3>
                     <p>آموزش کامل راه‌اندازی و مدیریت نمایندگی مرزبان، از ثبت‌نام تا مدیریت کاربران و کسب درآمد.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="text-xs text-gray-400"><i class="fas fa-user ml-1"></i> تیم آزادی</span>
-                    <a href="article10.html" class="btn-primary text-sm py-1.5 px-4">مطالعه</a>
+                    <a href="article10.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
             
+            <!-- مقاله ۱۲ -->
+            <div class="article-card animate-fade-up delay-2" data-category="tutorial">
+                <div class="article-image bg-gradient-to-r from-sky-400 to-blue-400 text-white">
+                    <i class="fas fa-globe text-4xl"></i>
+                </div>
+                <div class="article-content">
+                    <span class="category-tag"><i class="fas fa-server ml-1"></i> آموزش</span>
+                    <h3>چگونه بهترین سرور وی‌پی‌ان را انتخاب کنیم؟</h3>
+                    <p>نکات کلیدی برای انتخاب سرور مناسب وی‌پی‌ان بر اساس نیازهای شما، از جمله پینگ و موقعیت جغرافیایی.</p>
+                    <a href="article5.html" class="read-more">مطالعه مقاله <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
         </div>
         
-        <!-- دکمه بارگذاری بیشتر -->
         <div class="text-center mt-10">
             <button id="loadMoreBtn" class="btn-primary inline-flex items-center gap-2">
-                <i class="fas fa-plus"></i>
-                بارگذاری مقالات بیشتر
+                <i class="fas fa-plus-circle"></i>
+                مشاهده مقالات بیشتر
             </button>
         </div>
     </div>
@@ -688,6 +885,105 @@
 <!-- ========== اسکریپت‌ها ========== -->
 <script>
     (function() {
+        // ======== منوی موبایل ========
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-overlay');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('show');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('show');
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        menuClose.addEventListener('click', closeMobileMenu);
+        overlay.addEventListener('click', closeMobileMenu);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // ======== منوی کشویی "آزادی ما" در دسکتاپ ========
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            const trigger = e.currentTarget;
+            const dropdown = document.getElementById('dropdown-menu');
+            const isOpen = dropdown.classList.contains('show');
+            
+            document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+                if (m.id !== 'dropdown-menu') m.classList.remove('show');
+            });
+            document.querySelectorAll('.dropdown-trigger.open').forEach(t => {
+                if (t !== trigger) t.classList.remove('open');
+            });
+            
+            if (isOpen) {
+                dropdown.classList.remove('show');
+                trigger.classList.remove('open');
+            } else {
+                dropdown.classList.add('show');
+                trigger.classList.add('open');
+            }
+        }
+        window.toggleDropdown = toggleDropdown;
+
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('dropdown-menu');
+            const trigger = document.querySelector('.dropdown-trigger');
+            if (!e.target.closest('.dropdown-trigger') && !e.target.closest('.dropdown-menu')) {
+                dropdown.classList.remove('show');
+                if (trigger) trigger.classList.remove('open');
+            }
+        });
+
+        // ======== زیرمنوی موبایل ========
+        function toggleMobileSubmenu(e) {
+            const parent = e.currentTarget.closest('li');
+            const submenu = parent.querySelector('.mobile-submenu');
+            const chevron = parent.querySelector('#mobile-submenu-chevron');
+            if (submenu) {
+                submenu.classList.toggle('open');
+                if (chevron) {
+                    chevron.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+                }
+            }
+        }
+        window.toggleMobileSubmenu = toggleMobileSubmenu;
+
+        // ======== پاپ‌آپ خرید ========
+        const buyPopup = document.getElementById('buy-popup');
+
+        function openBuyPopup() {
+            buyPopup.classList.remove('hidden');
+            buyPopup.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        window.openBuyPopup = openBuyPopup;
+
+        function closeBuyPopup() {
+            buyPopup.classList.add('hidden');
+            buyPopup.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        window.closeBuyPopup = closeBuyPopup;
+
+        buyPopup.addEventListener('click', function(e) {
+            if (e.target === this) closeBuyPopup();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeBuyPopup();
+        });
+
         // ======== دکمه بازگشت به بالا ========
         const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
@@ -711,7 +1007,22 @@
             }
         });
 
-        // ======== فیلتر مقالات ========
+        // ======== نمایش/مخفی‌سازی دکمه‌های منو ========
+        function handleMenuVisibility() {
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const desktopNav = document.querySelector('.desktop-nav');
+            if (window.innerWidth <= 1024) {
+                toggle.style.display = 'block';
+                desktopNav.style.display = 'none';
+            } else {
+                toggle.style.display = 'none';
+                desktopNav.style.display = 'flex';
+            }
+        }
+        handleMenuVisibility();
+        window.addEventListener('resize', handleMenuVisibility);
+
+        // ======== فیلتر دسته‌بندی ========
         const filterBtns = document.querySelectorAll('.filter-btn');
         const articles = document.querySelectorAll('.article-card');
         const searchInput = document.getElementById('searchInput');
@@ -720,75 +1031,69 @@
             const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
             const searchTerm = searchInput.value.toLowerCase().trim();
 
-            articles.forEach(article => {
-                const category = article.dataset.category;
-                const title = article.querySelector('h3')?.textContent.toLowerCase() || '';
-                const desc = article.querySelector('p')?.textContent.toLowerCase() || '';
-                const matchFilter = activeFilter === 'all' || category === activeFilter;
-                const matchSearch = title.includes(searchTerm) || desc.includes(searchTerm);
-
-                if (matchFilter && matchSearch) {
-                    article.style.display = 'flex';
+            articles.forEach(card => {
+                const category = card.dataset.category;
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                const categoryText = card.querySelector('.category-tag')?.textContent.toLowerCase() || '';
+                
+                const matchesFilter = activeFilter === 'all' || category === activeFilter;
+                const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm) || categoryText.includes(searchTerm);
+                
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'flex';
                     setTimeout(() => {
-                        article.style.opacity = '1';
-                        article.style.transform = 'translateY(0)';
-                    }, 10);
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
                 } else {
-                    article.style.opacity = '0';
-                    article.style.transform = 'translateY(20px)';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
                     setTimeout(() => {
-                        article.style.display = 'none';
+                        card.style.display = 'none';
                     }, 300);
                 }
             });
         }
 
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', function() {
                 filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                this.classList.add('active');
                 filterArticles();
             });
         });
 
         searchInput.addEventListener('input', filterArticles);
 
-        // ======== بارگذاری بیشتر ========
-        let visibleCount = 9;
+        // ======== لود بیشتر ========
+        let visibleCount = 6;
         const loadMoreBtn = document.getElementById('loadMoreBtn');
-        const allArticles = Array.from(articles);
+        const allArticles = document.querySelectorAll('.article-card');
 
-        function updateVisibility() {
-            allArticles.forEach((article, index) => {
-                if (index < visibleCount) {
-                    article.style.display = 'flex';
-                    setTimeout(() => {
-                        article.style.opacity = '1';
-                        article.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    article.style.display = 'none';
-                }
-            });
-
-            if (visibleCount >= allArticles.length) {
-                loadMoreBtn.style.display = 'none';
-            } else {
-                loadMoreBtn.style.display = 'inline-flex';
+        // Initially show first 6 articles (excluding featured which is always visible)
+        allArticles.forEach((card, index) => {
+            if (index > 5) {
+                card.style.display = 'none';
             }
-        }
-
-        loadMoreBtn.addEventListener('click', () => {
-            visibleCount = Math.min(visibleCount + 6, allArticles.length);
-            updateVisibility();
-            // فیلتر مجدد بعد از بارگذاری
-            filterArticles();
         });
 
-        // تنظیم اولیه - نمایش ۹ مقاله اول
-        setTimeout(() => {
-            updateVisibility();
-        }, 100);
+        loadMoreBtn.addEventListener('click', function() {
+            const hiddenArticles = document.querySelectorAll('.article-card[style*="display: none"]');
+            let count = 0;
+            hiddenArticles.forEach(card => {
+                if (count < 3) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    count++;
+                }
+            });
+            
+            if (document.querySelectorAll('.article-card[style*="display: none"]').length === 0) {
+                this.style.display = 'none';
+            }
+        });
 
         // ======== اسکرول نرم ========
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -804,42 +1109,49 @@
                 }
             });
         });
-
-        // ======== مشاهده انیمیشن ========
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animate-fade-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
     })();
 </script>
 
 <!-- ========== JSON-LD ========== -->
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "مقالات تخصصی آزادی وی‌پی‌ان",
-    "description": "مقالات آموزشی خرید فیلترشکن قوی، امنیت وی‌پی‌ان و استفاده از VPN",
-    "url": "https://matinmok.github.io/azadivpn/article.html",
-    "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-            {"@type": "ListItem","position": 1,"url": "https://matinmok.github.io/azadivpn/article1.html"},
-            {"@type": "ListItem","position": 2,"url": "https://matinmok.github.io/azadivpn/article2.html"},
-            {"@type": "ListItem","position": 3,"url": "https://matinmok.github.io/azadivpn/article3.html"}
-        ]
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "مقالات تخصصی آزادی وی‌پی‌ان",
+  "description": "مقالات تخصصی خرید فیلترشکن قوی، امنیت وی‌پی‌ان، راهنمای استفاده از V2Ray و VPN پولی",
+  "url": "https://matinmok.github.io/azadivpn/article.html",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "خرید فیلترشکن صفر تا صد با آزادی وی‌پی‌ان"},
+      {"@type": "ListItem", "position": 2, "name": "خرید فیلترشکن ویندوز + نکات طلایی"},
+      {"@type": "ListItem", "position": 3, "name": "خرید فیلترشکن v2box آیفون"},
+      {"@type": "ListItem", "position": 4, "name": "بهترین فیلترشکن پولی ۱۴۰۵"},
+      {"@type": "ListItem", "position": 5, "name": "دانلود اپ‌های مورد نیاز برای فیلترشکن"},
+      {"@type": "ListItem", "position": 6, "name": "چرا باید از فیلترشکن پولی استفاده کنیم؟"}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "صفحه نخست",
+      "item": "https://matinmok.github.io/azadivpn/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "مقالات",
+      "item": "https://matinmok.github.io/azadivpn/article.html"
     }
+  ]
 }
 </script>
 
