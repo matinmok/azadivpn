@@ -10,7 +10,6 @@
     <meta name="keywords" content="خرید فیلترشکن قوی, خرید فیلترشکن پولی, آزادی وی پی ان, فیلترشکن پرسرعت, VPN, V2Ray, خرید VPN, فیلترشکن بدون قطعی, فیلترشکن آی‌پی ثابت">
     <meta name="robots" content="index, follow, max-snippet:150, max-image-preview:large">
     <meta name="author" content="آزادی وی‌پی‌ان">
-    <meta name="revisit-after" content="3 days">
     <meta name="language" content="Persian">
     <link rel="canonical" href="https://matinmok.github.io/azadivpn/">
     <link rel="alternate" hreflang="fa" href="https://matinmok.github.io/azadivpn/">
@@ -262,6 +261,109 @@
             font-size: 0.75rem;
             font-weight: 600;
             background: white;
+        }
+
+        /* ========== نوار آمار هیرو (شیک و جدا شده) ========== */
+        .hero-stats-strip {
+            margin-top: 2.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.12);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 40px rgba(30, 64, 175, 0.08);
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+        }
+        .hero-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1.4rem;
+            position: relative;
+        }
+        .hero-stat-item + .hero-stat-item::before {
+            content: '';
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+        }
+        .hero-stat-icon {
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            border-radius: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        }
+        .hero-stat-item:nth-child(2) .hero-stat-icon { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 10px rgba(16,185,129,0.3); }
+        .hero-stat-item:nth-child(3) .hero-stat-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed); box-shadow: 0 4px 10px rgba(139,92,246,0.3); }
+        .hero-stat-item:nth-child(4) .hero-stat-icon { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 10px rgba(245,158,11,0.3); }
+        .hero-stat-item:nth-child(5) .hero-stat-icon { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 4px 10px rgba(239,68,68,0.3); }
+        .hero-stat-text { text-align: right; }
+        .hero-stat-value { font-weight: 800; color: #1e293b; font-size: 0.95rem; line-height: 1.3; }
+        .hero-stat-label { color: #64748b; font-size: 0.72rem; }
+        @media (max-width: 768px) {
+            .hero-stats-strip { padding: 0.8rem; gap: 0.4rem 0; }
+            .hero-stat-item { padding: 0.5rem 0.8rem; }
+            .hero-stat-item + .hero-stat-item::before { display: none; }
+        }
+
+        /* ========== بخش راهنمای خرید فیلترشکن ========== */
+        .buying-guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+        .buying-guide-table th {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 0.9rem 1rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .buying-guide-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.88rem;
+            color: #334155;
+        }
+        .buying-guide-table tr:last-child td { border-bottom: none; }
+        .buying-guide-table tr:hover td { background: #f8fafc; }
+        .guide-check-card {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(59,130,246,0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        .guide-check-card .num {
+            width: 36px;
+            height: 36px;
+            border-radius: 0.8rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
         }
         
         /* ========== پاپ‌آپ تعرفه‌ها ========== */
@@ -1057,12 +1159,42 @@
                         <i class="fas fa-list"></i> مشاهده تعرفه‌ها
                     </a>
                 </div>
-                <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-                    <span><i class="fas fa-users text-blue-500 ml-1"></i> ۲۲,۰۰۰+ کاربر فعال</span>
-                    <span><i class="fas fa-check-circle text-green-500 ml-1"></i> ۹۹.۹٪ آپتایم</span>
-                    <span><i class="fas fa-globe text-blue-500 ml-1"></i> ۸ لوکیشن سرور</span>
-                    <span><i class="fas fa-headset text-blue-500 ml-1"></i> پشتیبانی ۲۴/۷</span>
-                    <span><i class="fas fa-bolt text-yellow-500 ml-1"></i> تحویل آنی</span>
+                <div class="hero-stats-strip">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="hero-stat-text">
+                            <div class="hero-stat-value">۲۲,۰۰۰+</div>
+                            <div class="hero-stat-label">کاربر فعال</div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="hero-stat-text">
+                            <div class="hero-stat-value">۹۹.۹٪</div>
+                            <div class="hero-stat-label">آپتایم سرورها</div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon"><i class="fas fa-globe"></i></div>
+                        <div class="hero-stat-text">
+                            <div class="hero-stat-value">۸ لوکیشن</div>
+                            <div class="hero-stat-label">سرور اختصاصی</div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon"><i class="fas fa-headset"></i></div>
+                        <div class="hero-stat-text">
+                            <div class="hero-stat-value">۲۴/۷</div>
+                            <div class="hero-stat-label">پشتیبانی آنلاین</div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="hero-stat-text">
+                            <div class="hero-stat-value">آنی</div>
+                            <div class="hero-stat-label">تحویل سرویس</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1132,6 +1264,113 @@
                         <h3 class="text-xl font-bold text-gray-800 mb-2">پشتیبانی همه دستگاه‌ها</h3>
                         <p class="text-gray-500 text-sm">اندروید، iOS، ویندوز، مک، لینوکس و روترهای خانگی</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== بخش: راهنمای جامع خرید فیلترشکن قوی ========== -->
+    <section id="buying-guide" class="py-16 bg-gray-50">
+        <div class="container-custom">
+            <div class="text-center mb-12">
+                <span class="badge-outline mb-2">راهنمای خرید</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">راهنمای جامع <span class="text-blue-600">خرید فیلترشکن قوی</span>: چطور بهترین VPN را انتخاب کنیم؟</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mt-3">پیش از خرید فیلترشکن، شناخت پروتکل‌ها و معیارهای فنی به شما کمک می‌کند تصمیم درستی بگیرید</p>
+            </div>
+
+            <!-- مقایسه پروتکل‌ها -->
+            <div class="max-w-4xl mx-auto mb-14">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+                    <i class="fas fa-network-wired text-blue-500"></i> مقایسه پروتکل‌های امنیتی VPN
+                </h3>
+                <p class="text-gray-500 text-sm mb-5">پروتکل، مغز متفکر هر فیلترشکن است و مستقیماً روی سرعت، امنیت و توانایی دور زدن فیلترینگ اثر می‌گذارد. آزادی وی‌پی‌ان از پروتکل <strong>V2Ray</strong> استفاده می‌کند؛ در جدول زیر می‌بینید چرا این انتخاب برای کاربران ایرانی منطقی‌تر از سایر گزینه‌هاست:</p>
+                <div class="overflow-x-auto">
+                    <table class="buying-guide-table">
+                        <thead>
+                            <tr>
+                                <th>پروتکل</th>
+                                <th>دور زدن فیلترینگ پیشرفته</th>
+                                <th>سرعت</th>
+                                <th>مصرف باتری</th>
+                                <th>مناسب ایران</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold text-blue-700">V2Ray (استفاده‌شده در آزادی وی‌پی‌ان)</td>
+                                <td>بسیار بالا — ترافیک را شبیه HTTPS عادی می‌کند</td>
+                                <td>بالا</td>
+                                <td>متوسط</td>
+                                <td><i class="fas fa-check-circle text-green-500"></i> بله</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">WireGuard</td>
+                                <td>پایین — الگوی ترافیک به‌سادگی شناسایی می‌شود</td>
+                                <td>بسیار بالا</td>
+                                <td>کم</td>
+                                <td>محدود</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">OpenVPN</td>
+                                <td>متوسط</td>
+                                <td>متوسط</td>
+                                <td>زیاد</td>
+                                <td>محدود</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">IKEv2/IPSec</td>
+                                <td>پایین</td>
+                                <td>بالا</td>
+                                <td>کم</td>
+                                <td>خیر</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- چک‌لیست خرید -->
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center flex items-center justify-center gap-2">
+                    <i class="fas fa-clipboard-check text-blue-500"></i> چک‌لیست ۶ مرحله‌ای پیش از خرید فیلترشکن قوی
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="guide-check-card">
+                        <div class="num">۱</div>
+                        <h4 class="font-bold text-gray-800 mb-1">پروتکل امنیتی را بررسی کنید</h4>
+                        <p class="text-gray-500 text-sm">مطمئن شوید سرویس از پروتکل‌های مقاوم در برابر فیلترینگ مثل V2Ray استفاده می‌کند، نه پروتکل‌های قدیمی و به‌راحتی شناسایی‌شونده.</p>
+                    </div>
+                    <div class="guide-check-card">
+                        <div class="num">۲</div>
+                        <h4 class="font-bold text-gray-800 mb-1">پیش از خرید تست کنید</h4>
+                        <p class="text-gray-500 text-sm">هر سرویس معتبر باید امکان تست رایگان قبل از خرید فیلترشکن قوی را بدهد تا سرعت و پایداری واقعی را بسنجید.</p>
+                    </div>
+                    <div class="guide-check-card">
+                        <div class="num">۳</div>
+                        <h4 class="font-bold text-gray-800 mb-1">سیاست عدم ثبت لاگ</h4>
+                        <p class="text-gray-500 text-sm">از سرویس‌دهنده درباره No-Log Policy بپرسید؛ داده‌های اتصال شما نباید ذخیره یا در اختیار شخص ثالث قرار گیرد.</p>
+                    </div>
+                    <div class="guide-check-card">
+                        <div class="num">۴</div>
+                        <h4 class="font-bold text-gray-800 mb-1">تنوع لوکیشن سرور</h4>
+                        <p class="text-gray-500 text-sm">دسترسی به چند لوکیشن مختلف (مثل ترکیه، آلمان، هلند) باعث می‌شود در صورت افت سرعت یک سرور، به سرور دیگر سوییچ کنید.</p>
+                    </div>
+                    <div class="guide-check-card">
+                        <div class="num">۵</div>
+                        <h4 class="font-bold text-gray-800 mb-1">پشتیبانی واقعی و پاسخگو</h4>
+                        <p class="text-gray-500 text-sm">پیش از خرید فیلترشکن، سرعت پاسخ‌گویی پشتیبانی را بسنجید؛ در مشکلات فنی این تیم است که واقعاً به کمک شما می‌آید.</p>
+                    </div>
+                    <div class="guide-check-card">
+                        <div class="num">۶</div>
+                        <h4 class="font-bold text-gray-800 mb-1">گارانتی بازگشت وجه</h4>
+                        <p class="text-gray-500 text-sm">وجود ضمانت بازگشت وجه نشانه اطمینان سرویس‌دهنده به کیفیت کار خودش است و ریسک خرید را برای شما کاهش می‌دهد.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <p class="text-gray-500 text-sm mb-4">آزادی وی‌پی‌ان در تمام این ۶ معیار صدق می‌کند — برای مطالعه راهنمای کامل‌تر می‌توانید مقاله اختصاصی ما را هم بخوانید.</p>
+                    <a href="./article1.html" class="btn-secondary inline-flex items-center gap-2">
+                        <i class="fas fa-book-open"></i> مطالعه راهنمای کامل خرید فیلترشکن
+                    </a>
                 </div>
             </div>
         </div>
@@ -1888,11 +2127,81 @@
   "@type": "Product",
   "name": "فیلترشکن قوی آزادی وی‌پی‌ان",
   "description": "بهترین فیلترشکن قوی و پولی با V2Ray، آی‌پی ثابت، تحویل آنی و پشتیبانی ۲۴ ساعته",
+  "image": [
+    "https://matinmok.github.io/azadivpn/images/og-image.jpg"
+  ],
+  "url": "https://matinmok.github.io/azadivpn/#pricing-section",
   "brand": {"@type": "Brand","name": "آزادی وی‌پی‌ان"},
   "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.8","reviewCount": "220"},
   "offers": [
-    {"@type": "Offer","priceCurrency": "IRR","price": "100000","name": "CIP 20GB 1 ماهه","availability": "https://schema.org/InStock"},
-    {"@type": "Offer","priceCurrency": "IRR","price": "120000","name": "VIP عادی 1 ماهه","availability": "https://schema.org/InStock"}
+    {"@type": "Offer","priceCurrency": "IRR","price": "100000","name": "CIP 20GB 1 ماهه","availability": "https://schema.org/InStock","url": "https://matinmok.github.io/azadivpn/#pricing-section"},
+    {"@type": "Offer","priceCurrency": "IRR","price": "120000","name": "VIP عادی 1 ماهه","availability": "https://schema.org/InStock","url": "https://matinmok.github.io/azadivpn/#pricing-section"}
+  ]
+}
+</script>
+
+<!-- ========== FAQPage Schema (منطبق با بخش سوالات متداول صفحه) ========== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "تفاوت پلن CIP و VIP در آزادی وی‌پی‌ان چیست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "پلن CIP (پلن‌های حجمی) با ۸ لوکیشن شامل آمریکا، هلند، ترکیه، فنلاند، آلمان، سوئد، فرانسه و مولداوی است و از سرورهای تانل و مستقیم استفاده می‌کند. پلن VIP (پلن‌های نامحدود) با ۵ لوکیشن، ترافیک نامحدود و کانفیگ مستقیم ارائه می‌دهد و برای مصرف بالا مناسب‌تر است."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چگونه می‌توانم فیلترشکن قوی از آزادی وی‌پی‌ان خریداری کنم؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "از طریق ربات تلگرام @vpnbrandicobot برای تحویل خودکار و آنی، یا از طریق پورتال کاربری portal.azadibin.sbs برای مدیریت سرویس اقدام کنید. پس از انتخاب پلن و پرداخت، کانفیگ V2Ray در کمتر از چند دقیقه تحویل داده می‌شود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا فیلترشکن آزادی وی‌پی‌ان برای بازی آنلاین مناسب است؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله، با پینگ زیر ۵۰ میلی‌ثانیه در سرورهای ترکیه، آلمان و فرانسه، تجربه مناسبی برای بازی‌های آنلاین مانند PUBG، Fortnite، Call of Duty و Valorant فراهم می‌شود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا امکان دریافت تست رایگان فیلترشکن قبل از خرید وجود دارد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله، آزادی وی‌پی‌ان امکان تست رایگان ۲۴ ساعته پیش از خرید را از طریق ربات تلگرام @vpnbrandicobot در اختیار کاربران قرار می‌دهد."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا فیلترشکن آزادی وی‌پی‌ان روی همه دستگاه‌ها کار می‌کند؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله، از اندروید، iOS، ویندوز، مک، لینوکس و همچنین روترهای خانگی پشتیبانی کامل می‌شود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا فیلترشکن آزادی وی‌پی‌ان به سرویس‌های استریمینگ دسترسی دارد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله، به سرویس‌هایی مانند Netflix، YouTube، Hulu، Disney+، Spotify و HBO Max با کیفیت بالا و بدون بافر دسترسی خواهید داشت."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا خرید فیلترشکن از آزادی وی‌پی‌ان امن است؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله، با استفاده از پروتکل V2Ray و رمزنگاری پیشرفته، همراه با سیاست عدم نگهداری لاگ (No-Log Policy) و درگاه‌های پرداخت امن."
+      }
+    }
   ]
 }
 </script>
