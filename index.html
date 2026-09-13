@@ -1993,6 +1993,144 @@
           padding-top: 7rem !important;
         }
       }
+
+      /* ===== ENHANCED MAP ANIMATIONS ===== */
+      .map-svg {
+        overflow: visible;
+      }
+      .map-svg .map-line-group path {
+        stroke-dasharray: 5 10;
+        animation: dashFlow 3s linear infinite;
+        stroke-linecap: round;
+      }
+      @keyframes dashFlow {
+        0% {
+          stroke-dashoffset: 0;
+        }
+        100% {
+          stroke-dashoffset: -30;
+        }
+      }
+
+      .map-svg .map-dot {
+        transform-origin: center;
+        transform-box: fill-box;
+        animation: dotGlow 3.2s ease-in-out infinite;
+      }
+      .map-svg .map-dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .map-svg .map-dot:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .map-svg .map-dot:nth-child(3) {
+        animation-delay: 0.8s;
+      }
+      .map-svg .map-dot:nth-child(4) {
+        animation-delay: 1.2s;
+      }
+      .map-svg .map-dot:nth-child(5) {
+        animation-delay: 1.6s;
+      }
+      .map-svg .map-dot:nth-child(6) {
+        animation-delay: 2s;
+      }
+      .map-svg .map-dot:nth-child(7) {
+        animation-delay: 2.4s;
+      }
+      .map-svg .map-dot:nth-child(8) {
+        animation-delay: 2.8s;
+      }
+      @keyframes dotGlow {
+        0%,
+        100% {
+          opacity: 0.65;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.55);
+        }
+      }
+
+      .map-svg .map-hub {
+        transform-origin: center;
+        transform-box: fill-box;
+        animation: hubGlow 2.8s ease-in-out infinite;
+      }
+      @keyframes hubGlow {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.75;
+          transform: scale(1.18);
+        }
+      }
+
+      .map-svg .map-hub-ring {
+        transform-origin: center;
+        transform-box: fill-box;
+        animation: hubRing 2.8s ease-in-out infinite;
+      }
+      @keyframes hubRing {
+        0%,
+        100% {
+          opacity: 0.35;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.08;
+          transform: scale(1.35);
+        }
+      }
+
+      .map-svg .map-blob {
+        animation: blobDrift 6s ease-in-out infinite alternate;
+      }
+      .map-svg .map-blob:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .map-svg .map-blob:nth-child(2) {
+        animation-delay: 1s;
+      }
+      .map-svg .map-blob:nth-child(3) {
+        animation-delay: 2s;
+      }
+      .map-svg .map-blob:nth-child(4) {
+        animation-delay: 3s;
+      }
+      .map-svg .map-blob:nth-child(5) {
+        animation-delay: 4s;
+      }
+      .map-svg .map-blob:nth-child(6) {
+        animation-delay: 5s;
+      }
+      @keyframes blobDrift {
+        0% {
+          opacity: 0.55;
+        }
+        100% {
+          opacity: 0.9;
+        }
+      }
+
+      /* ===== PHONE METRICS ANIMATIONS ===== */
+      .phone-foot span:first-child {
+        display: inline-block;
+        min-width: 4.2em;
+        text-align: left;
+        font-variant-numeric: tabular-nums;
+      }
+      .phone-foot span:last-child {
+        display: inline-block;
+        min-width: 5.4em;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        direction: ltr;
+      }
     </style>
   </head>
   <body>
@@ -2014,7 +2152,7 @@
           <a href="#faq">سوالات متداول</a>
           <a href="https://matinmok.github.io/azadivpn/article.html">مقالات</a>
           <a href="https://matinmok.github.io/azadivpn/about.html">درباره ما</a>
-          <a href="https://matinmok.github.io/azadivpn/contact.html">تماس با ما</a>
+          <a href="#contact">تماس با ما</a>
         </nav>
         <div class="nav-actions">
           <a
@@ -2074,7 +2212,7 @@
           >
         </li>
         <li>
-          <a href="https://matinmok.github.io/azadivpn/contact.html"><i class="fas fa-envelope"></i> تماس با ما</a>
+          <a href="#contact"><i class="fas fa-envelope"></i> تماس با ما</a>
         </li>
         <li>
           <a href="https://matinmok.github.io/azadivpn/Rules.html"
@@ -2175,19 +2313,27 @@
                   <svg
                     class="phone-sparkline"
                     viewBox="0 0 200 40"
-                    preserveAspectRatio="none">
+                    preserveAspectRatio="none"
+                    id="phone-sparkline-svg">
                     <polyline
                       points="0,30 20,25 40,28 60,15 80,20 100,10 120,18 140,8 160,14 180,6 200,12"
                       fill="none"
                       stroke="#4C82FF"
-                      stroke-width="2" />
+                      stroke-width="2"
+                      id="sparkline-polyline" />
                   </svg>
                   <div class="phone-foot">
-                    <span>۰۰:۱۲:۳۴</span><span>۱.۲ MB/s</span>
+                    <span id="phone-timer">۰۰:۱۲:۳۴</span
+                    ><span id="phone-speed">۱.۲ MB/s</span>
                   </div>
                   <div style="text-align: center; margin-top: 0.6rem">
                     <span class="ping-badge"
-                      >پینگ: <span class="ping-num">۹۹ms</span></span
+                      >پینگ:
+                      <span
+                        class="ping-num"
+                        id="phone-ping"
+                        >۹۹ms</span
+                      ></span
                     >
                   </div>
                 </div>
@@ -2316,24 +2462,31 @@
                 </pattern>
               </defs>
               <path
+                class="map-blob"
                 d="M40,150 Q70,100 120,110 Q160,90 190,120 Q170,160 130,170 Q80,190 40,150Z"
                 fill="url(#dotgrid)" />
               <path
+                class="map-blob"
                 d="M120,190 Q140,220 130,260 Q110,270 100,235 Q95,205 120,190Z"
                 fill="url(#dotgrid)" />
               <path
+                class="map-blob"
                 d="M260,90 Q300,70 330,90 Q345,110 320,125 Q290,140 265,120 Q250,105 260,90Z"
                 fill="url(#dotgrid)" />
               <path
+                class="map-blob"
                 d="M270,140 Q300,150 300,190 Q290,230 270,220 Q255,180 270,140Z"
                 fill="url(#dotgrid)" />
               <path
+                class="map-blob"
                 d="M370,90 Q430,80 480,100 Q520,115 500,145 Q450,160 400,150 Q365,130 370,90Z"
                 fill="url(#dotgrid)" />
               <path
+                class="map-blob"
                 d="M470,190 Q500,185 505,215 Q490,230 470,220 Q460,205 470,190Z"
                 fill="url(#dotgrid)" />
               <g
+                class="map-line-group"
                 stroke="var(--map-line)"
                 stroke-width="1.4"
                 fill="none"
@@ -2348,6 +2501,25 @@
                 <path d="M300,150 Q340,145 360,130" />
               </g>
               <circle
+                class="map-hub-ring"
+                cx="300"
+                cy="150"
+                r="16"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+                opacity="0.3" />
+              <circle
+                class="map-hub-ring"
+                cx="300"
+                cy="150"
+                r="24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="0.8"
+                opacity="0.15" />
+              <circle
+                class="map-hub"
                 cx="300"
                 cy="150"
                 r="5"
@@ -2357,37 +2529,48 @@
                 cy="150"
                 r="9"
                 fill="var(--primary)"
-                opacity="0.25" />
-              <g fill="var(--primary)">
+                opacity="0.2"
+                class="map-hub-ring" />
+              <g
+                fill="var(--primary)"
+                class="map-dot-group">
                 <circle
+                  class="map-dot"
                   cx="100"
                   cy="140"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="300"
                   cy="105"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="335"
                   cy="120"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="350"
                   cy="135"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="315"
                   cy="100"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="355"
                   cy="150"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="325"
                   cy="115"
                   r="4" />
                 <circle
+                  class="map-dot"
                   cx="360"
                   cy="130"
                   r="4" />
@@ -3725,6 +3908,80 @@
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') closeBuyModal();
         });
+
+        /* ===== live phone metrics + sparkline ===== */
+        (function () {
+          var pingEl = document.getElementById('phone-ping');
+          var speedEl = document.getElementById('phone-speed');
+          var timerEl = document.getElementById('phone-timer');
+          var polyline = document.getElementById('sparkline-polyline');
+          if (!pingEl || !speedEl || !timerEl || !polyline) return;
+
+          var totalSeconds = 754; // 00:12:34
+
+          function formatTime(sec) {
+            var h = Math.floor(sec / 3600);
+            var m = Math.floor((sec % 3600) / 60);
+            var s = sec % 60;
+            return (
+              (h < 10 ? '۰' + h : h) +
+              ':' +
+              (m < 10 ? '۰' + m : m) +
+              ':' +
+              (s < 10 ? '۰' + s : s)
+            );
+          }
+
+          function toPersian(num) {
+            return num
+              .toString()
+              .replace(/\d/g, function (d) {
+                return '۰۱۲۳۴۵۶۷۸۹'[d];
+              });
+          }
+
+          // sparkline: 11 points, each 0..40
+          var points = [30, 25, 28, 15, 20, 10, 18, 8, 14, 6, 12];
+
+          function updateSparkline() {
+            // shift left and add a new random point
+            points.shift();
+            var newVal = Math.floor(Math.random() * 30) + 6;
+            points.push(newVal);
+            var str = '';
+            for (var i = 0; i < points.length; i++) {
+              var x = (i / (points.length - 1)) * 200;
+              var y = points[i];
+              str += x + ',' + y + ' ';
+            }
+            polyline.setAttribute('points', str.trim());
+          }
+
+          function updateMetrics() {
+            // Ping between 80 and 110
+            var ping = Math.floor(Math.random() * 31) + 80;
+            pingEl.textContent = toPersian(ping) + 'ms';
+
+            // Speed between 1.5 and 30 MB/s
+            var speed = (Math.random() * 28.5 + 1.5).toFixed(1);
+            speedEl.textContent = toPersian(speed) + ' MB/s';
+
+            // Timer increments (sometimes faster)
+            totalSeconds += Math.random() > 0.7 ? 2 : 1;
+            timerEl.textContent = formatTime(totalSeconds);
+
+            // update sparkline every tick
+            updateSparkline();
+          }
+
+          // Initial values
+          pingEl.textContent = '۹۹ms';
+          speedEl.textContent = '۱۲.۴ MB/s';
+          timerEl.textContent = formatTime(totalSeconds);
+
+          // Update every 1 second (as requested, log-like)
+          setInterval(updateMetrics, 1000);
+        })();
       })();
     </script>
 
