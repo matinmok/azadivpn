@@ -2379,6 +2379,124 @@
         font-variant-numeric: tabular-nums;
         direction: ltr;
       }
+      /* ===== World Map with background image ===== */
+      .world-map-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 600 / 300;
+        border-radius: 0.8rem;
+        overflow: hidden;
+      }
+      .world-map-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        filter: grayscale(100%) opacity(0.5) contrast(1.15);
+        mix-blend-mode: multiply;
+        user-select: none;
+        pointer-events: none;
+      }
+      html[data-theme='dark'] .world-map-img {
+        filter: grayscale(100%) opacity(0.35) invert(1) brightness(1.6);
+        mix-blend-mode: screen;
+      }
+      .world-map-overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      /* Hub animations */
+      .hub-pulse {
+        transform-origin: 340px 120px;
+        transform-box: view-box;
+        animation: hubPulse 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      @keyframes hubPulse {
+        0%,
+        100% {
+          opacity: 0.35;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+      }
+      .hub-ring {
+        transform-origin: 340px 120px;
+        transform-box: view-box;
+        animation: hubRing 2.8s ease-in-out infinite;
+      }
+      @keyframes hubRing {
+        0%,
+        100% {
+          opacity: 0.4;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.08;
+          transform: scale(1.35);
+        }
+      }
+      .hub-dot {
+        transform-origin: 340px 120px;
+        transform-box: view-box;
+        animation: hubDot 2.8s ease-in-out infinite;
+      }
+      @keyframes hubDot {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.25);
+        }
+      }
+      .country-dot {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: countryGlow 3.2s ease-in-out infinite;
+      }
+      .country-dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .country-dot:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .country-dot:nth-child(3) {
+        animation-delay: 0.8s;
+      }
+      .country-dot:nth-child(4) {
+        animation-delay: 1.2s;
+      }
+      .country-dot:nth-child(5) {
+        animation-delay: 1.6s;
+      }
+      .country-dot:nth-child(6) {
+        animation-delay: 2s;
+      }
+      .country-dot:nth-child(7) {
+        animation-delay: 2.4s;
+      }
+      .country-dot:nth-child(8) {
+        animation-delay: 2.8s;
+      }
+      @keyframes countryGlow {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.35);
+        }
+      }
     </style>
   </head>
   <body>
@@ -2730,317 +2848,282 @@
             </div>
           </div>
 
-          <!-- ===== Minimal World Map (using real map image) ===== -->
-          <div class="map-card">
-            <svg
-              class="map-svg"
-              viewBox="0 0 320 160"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="نقشه مینیمال جهان با نقاط سرورهای آزادی VPN">
-              <defs>
-                <radialGradient
-                  id="hubGlowGrad"
-                  cx="50%"
-                  cy="50%"
-                  r="50%">
-                  <stop
-                    offset="0%"
-                    stop-color="var(--primary)"
-                    stop-opacity="0.4" />
-                  <stop
-                    offset="100%"
-                    stop-color="var(--primary)"
-                    stop-opacity="0" />
-                </radialGradient>
-              </defs>
+          <!-- ===== Minimal World Map (image as background, dots positioned over it) ===== -->
+          <div
+            class="map-card"
+            style="background: var(--surface); overflow: hidden">
+            <div class="world-map-wrap">
+              <!-- Map image as background -->
+              <img
+                src="https://matinmok.github.io/azadivpn/images/world-continents.jpg"
+                alt="نقشه جهان"
+                class="world-map-img" />
 
-              <!-- Real minimal world map image -->
-              <image
-                href="images/world-continents.jpg"
-                x="0"
-                y="0"
-                width="320"
-                height="160"
-                preserveAspectRatio="xMidYMid meet"
-                style="filter: grayscale(100%) opacity(0.35) brightness(1.4)" />
+              <!-- SVG overlay with dots and lines, same size as image -->
+              <svg
+                class="world-map-overlay"
+                viewBox="0 0 600 300"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient
+                    id="hubGlowGrad"
+                    cx="50%"
+                    cy="50%"
+                    r="50%">
+                    <stop
+                      offset="0%"
+                      stop-color="#2456e8"
+                      stop-opacity="0.35" />
+                    <stop
+                      offset="100%"
+                      stop-color="#2456e8"
+                      stop-opacity="0" />
+                  </radialGradient>
+                </defs>
 
-              <!-- ===== CONNECTION LINES ===== -->
-              <g
-                class="map-line-group"
-                stroke="var(--primary)"
-                stroke-width="0.8"
-                stroke-opacity="0.5"
-                fill="none">
-                <!-- USA (approx 55, 65) -->
-                <path d="M200,80 L55,65" />
-                <!-- Netherlands (approx 165, 45) -->
-                <path d="M200,80 L165,45" />
-                <!-- Turkey (approx 180, 55) -->
-                <path d="M200,80 L180,55" />
-                <!-- Finland (approx 180, 25) -->
-                <path d="M200,80 L180,25" />
-                <!-- Germany (approx 170, 40) -->
-                <path d="M200,80 L170,40" />
-                <!-- Sweden (approx 165, 20) -->
-                <path d="M200,80 L165,20" />
-                <!-- France (approx 155, 45) -->
-                <path d="M200,80 L155,45" />
-                <!-- Moldova (approx 195, 55) -->
-                <path d="M200,80 L195,55" />
-                <!-- Hong Kong (approx 260, 70) -->
-                <path d="M200,80 L260,70" />
-                <!-- Singapore (approx 270, 95) -->
-                <path d="M200,80 L270,95" />
-                <!-- Albania (approx 185, 60) -->
-                <path d="M200,80 L185,60" />
-                <!-- Bulgaria (approx 195, 60) -->
-                <path d="M200,80 L195,60" />
-              </g>
+                <!-- ===== CONNECTION LINES (hub at Europe/Middle East) ===== -->
+                <g
+                  stroke="#2456e8"
+                  stroke-width="1.2"
+                  stroke-opacity="0.55"
+                  fill="none"
+                  stroke-dasharray="4 6"
+                  stroke-linecap="round">
+                  <!-- USA -->
+                  <path d="M305,115 L105,105" />
+                  <!-- Netherlands -->
+                  <path d="M305,115 L282,98" />
+                  <!-- Turkey -->
+                  <path d="M305,115 L315,120" />
+                  <!-- Finland -->
+                  <path d="M305,115 L320,60" />
+                  <!-- Germany -->
+                  <path d="M305,115 L295,95" />
+                  <!-- Sweden -->
+                  <path d="M305,115 L300,60" />
+                  <!-- France -->
+                  <path d="M305,115 L272,105" />
+                  <!-- Moldova -->
+                  <path d="M305,115 L330,110" />
+                  <!-- Hong Kong -->
+                  <path d="M305,115 L455,140" />
+                  <!-- Singapore -->
+                  <path d="M305,115 L465,180" />
+                  <!-- Albania -->
+                  <path d="M305,115 L312,128" />
+                  <!-- Bulgaria -->
+                  <path d="M305,115 L325,122" />
+                </g>
 
-              <!-- ===== PULSING DATA DOTS ===== -->
-              <g
-                class="map-pulse-group"
-                fill="var(--primary)">
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="0s"
-                    repeatCount="indefinite"
-                    path="M200,80 L55,65" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="0.3s"
-                    repeatCount="indefinite"
-                    path="M200,80 L165,45" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="0.3s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="0.6s"
-                    repeatCount="indefinite"
-                    path="M200,80 L180,55" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="0.6s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="0.9s"
-                    repeatCount="indefinite"
-                    path="M200,80 L180,25" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="0.9s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="1.2s"
-                    repeatCount="indefinite"
-                    path="M200,80 L170,40" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="1.2s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="1.5s"
-                    repeatCount="indefinite"
-                    path="M200,80 L165,20" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="1.5s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="1.8s"
-                    repeatCount="indefinite"
-                    path="M200,80 L155,45" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="1.8s"
-                    repeatCount="indefinite" />
-                </circle>
-                <circle
-                  class="map-pulse"
-                  r="1.5">
-                  <animateMotion
-                    dur="2.5s"
-                    begin="2.1s"
-                    repeatCount="indefinite"
-                    path="M200,80 L195,55" />
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;1;0"
-                    keyTimes="0;0.1;0.85;1"
-                    dur="2.5s"
-                    begin="2.1s"
-                    repeatCount="indefinite" />
-                </circle>
-              </g>
+                <!-- Pulsing dots moving along lines -->
+                <g fill="#2456e8">
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="0s"
+                      repeatCount="indefinite"
+                      path="M305,115 L105,105" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="0.3s"
+                      repeatCount="indefinite"
+                      path="M305,115 L282,98" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="0.3s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="0.6s"
+                      repeatCount="indefinite"
+                      path="M305,115 L315,120" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="0.6s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="0.9s"
+                      repeatCount="indefinite"
+                      path="M305,115 L320,60" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="0.9s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="1.2s"
+                      repeatCount="indefinite"
+                      path="M305,115 L295,95" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="1.2s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="1.5s"
+                      repeatCount="indefinite"
+                      path="M305,115 L300,60" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="1.5s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="1.8s"
+                      repeatCount="indefinite"
+                      path="M305,115 L272,105" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="1.8s"
+                      repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2.5">
+                    <animateMotion
+                      dur="2.8s"
+                      begin="2.1s"
+                      repeatCount="indefinite"
+                      path="M305,115 L330,110" />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;1;0"
+                      keyTimes="0;0.1;0.85;1"
+                      dur="2.8s"
+                      begin="2.1s"
+                      repeatCount="indefinite" />
+                  </circle>
+                </g>
 
-              <!-- ===== CENTRAL HUB ===== -->
-              <circle
-                cx="200"
-                cy="80"
-                r="30"
-                fill="url(#hubGlowGrad)"
-                class="map-hub-pulse" />
-              <circle
-                class="map-hub-ring"
-                cx="200"
-                cy="80"
-                r="8"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="1"
-                opacity="0.3" />
-              <circle
-                class="map-hub-ring"
-                cx="200"
-                cy="80"
-                r="12"
-                fill="none"
-                stroke="var(--primary)"
-                stroke-width="0.6"
-                opacity="0.15" />
-              <circle
-                class="map-hub"
-                cx="200"
-                cy="80"
-                r="3"
-                fill="var(--primary)" />
+                <!-- Central hub (Europe/Middle East) -->
+                <circle
+                  cx="305"
+                  cy="115"
+                  r="55"
+                  fill="url(#hubGlowGrad)" />
+                <circle
+                  cx="305"
+                  cy="115"
+                  r="14"
+                  fill="none"
+                  stroke="#2456e8"
+                  stroke-width="1.2"
+                  opacity="0.35" />
+                <circle
+                  cx="305"
+                  cy="115"
+                  r="22"
+                  fill="none"
+                  stroke="#2456e8"
+                  stroke-width="0.8"
+                  opacity="0.18" />
+                <circle
+                  cx="305"
+                  cy="115"
+                  r="5"
+                  fill="#2456e8" />
 
-              <!-- ===== COUNTRY LOCATION DOTS ===== -->
-              <g
-                fill="var(--primary)"
-                class="map-dot-group">
-                <!-- USA -->
-                <circle
-                  class="map-dot"
-                  cx="55"
-                  cy="65"
-                  r="2" />
-                <!-- Netherlands -->
-                <circle
-                  class="map-dot"
-                  cx="165"
-                  cy="45"
-                  r="2" />
-                <!-- Turkey -->
-                <circle
-                  class="map-dot"
-                  cx="180"
-                  cy="55"
-                  r="2" />
-                <!-- Finland -->
-                <circle
-                  class="map-dot"
-                  cx="180"
-                  cy="25"
-                  r="2" />
-                <!-- Germany -->
-                <circle
-                  class="map-dot"
-                  cx="170"
-                  cy="40"
-                  r="2" />
-                <!-- Sweden -->
-                <circle
-                  class="map-dot"
-                  cx="165"
-                  cy="20"
-                  r="2" />
-                <!-- France -->
-                <circle
-                  class="map-dot"
-                  cx="155"
-                  cy="45"
-                  r="2" />
-                <!-- Moldova -->
-                <circle
-                  class="map-dot"
-                  cx="195"
-                  cy="55"
-                  r="2" />
-                <!-- Hong Kong -->
-                <circle
-                  class="map-dot"
-                  cx="260"
-                  cy="70"
-                  r="2" />
-                <!-- Singapore -->
-                <circle
-                  class="map-dot"
-                  cx="270"
-                  cy="95"
-                  r="2" />
-                <!-- Albania -->
-                <circle
-                  class="map-dot"
-                  cx="185"
-                  cy="60"
-                  r="2" />
-                <!-- Bulgaria -->
-                <circle
-                  class="map-dot"
-                  cx="195"
-                  cy="60"
-                  r="2" />
-              </g>
-            </svg>
+                <!-- Country location dots -->
+                <g fill="#2456e8">
+                  <!-- USA -->
+                  <circle
+                    cx="105"
+                    cy="105"
+                    r="4" />
+                  <!-- Netherlands -->
+                  <circle
+                    cx="282"
+                    cy="98"
+                    r="4" />
+                  <!-- Turkey -->
+                  <circle
+                    cx="315"
+                    cy="120"
+                    r="4" />
+                  <!-- Finland -->
+                  <circle
+                    cx="320"
+                    cy="60"
+                    r="4" />
+                  <!-- Germany -->
+                  <circle
+                    cx="295"
+                    cy="95"
+                    r="4" />
+                  <!-- Sweden -->
+                  <circle
+                    cx="300"
+                    cy="60"
+                    r="4" />
+                  <!-- France -->
+                  <circle
+                    cx="272"
+                    cy="105"
+                    r="4" />
+                  <!-- Moldova -->
+                  <circle
+                    cx="330"
+                    cy="110"
+                    r="4" />
+                  <!-- Hong Kong -->
+                  <circle
+                    cx="455"
+                    cy="140"
+                    r="4" />
+                  <!-- Singapore -->
+                  <circle
+                    cx="465"
+                    cy="180"
+                    r="4" />
+                  <!-- Albania -->
+                  <circle
+                    cx="312"
+                    cy="128"
+                    r="4" />
+                  <!-- Bulgaria -->
+                  <circle
+                    cx="325"
+                    cy="122"
+                    r="4" />
+                </g>
+              </svg>
+            </div>
             <div class="map-stats">
               <div class="map-stat"><b>۱۲+</b><span>کشور</span></div>
               <div class="map-stat"><b>۲۰+</b><span>سرور فعال</span></div>
