@@ -681,7 +681,7 @@
         position: relative;
         overflow: hidden;
       }
-       @media (min-width: 961px) {
+      @media (min-width: 961px) {
         .hero {
           padding-top: 6rem;
         }
@@ -1243,11 +1243,7 @@
         right: 0;
         left: 0;
         height: 4px;
-        background: linear-gradient(
-          90deg,
-          var(--primary),
-          var(--primary-dark)
-        );
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
         opacity: 0;
         transition: opacity 0.25s ease;
       }
@@ -1261,8 +1257,7 @@
       }
       .plan-card.popular {
         border-color: var(--primary);
-        box-shadow: 0 10px 28px rgba(36, 86, 232, 0.16),
-          var(--shadow-card);
+        box-shadow: 0 10px 28px rgba(36, 86, 232, 0.16), var(--shadow-card);
         background: linear-gradient(
           165deg,
           var(--surface) 55%,
@@ -1274,8 +1269,7 @@
       }
       .plan-card.premium {
         border-color: var(--accent);
-        box-shadow: 0 10px 28px rgba(240, 172, 59, 0.18),
-          var(--shadow-card);
+        box-shadow: 0 10px 28px rgba(240, 172, 59, 0.18), var(--shadow-card);
         background: linear-gradient(
           165deg,
           var(--surface) 50%,
@@ -1543,6 +1537,16 @@
         font-size: 2rem;
         margin-bottom: 0.55rem;
       }
+      @media (max-width: 640px) {
+        .device-row {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.9rem;
+        }
+        .device-card {
+          width: 100%;
+        }
+      }
 
       .review-card {
         background: var(--surface);
@@ -1692,6 +1696,155 @@
         font-weight: 700;
         font-size: 0.87rem;
         text-decoration: none;
+      }
+
+      .article-card-v2 {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 1.3rem;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        transition: box-shadow 0.25s ease, transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+      .article-card-v2:hover {
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-6px);
+        border-color: rgba(36, 86, 232, 0.3);
+      }
+      .article-banner {
+        position: relative;
+        height: 160px; /* Increased height for better spacing */
+        background: linear-gradient(
+          135deg,
+          rgba(36, 86, 232, 0.14),
+          rgba(36, 86, 232, 0.03)
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 0 1.4rem;
+        overflow: hidden;
+      }
+      .article-banner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle,
+          var(--primary) 1px,
+          transparent 1px
+        );
+        background-size: 14px 14px;
+        opacity: 0.14;
+      }
+      .article-banner .article-tag {
+        position: relative;
+        z-index: 1;
+        font-size: 0.68rem;
+        font-weight: 800;
+        color: var(--primary);
+        background: var(--surface);
+        border: 1px solid rgba(36, 86, 232, 0.25);
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        margin-bottom: 0.9rem; /* Adjusted spacing */
+        box-shadow: 0 4px 10px rgba(36, 86, 232, 0.12);
+      }
+      .article-banner .article-icon-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1.2rem;
+        width: 2.6rem;
+        height: 2.6rem;
+        border-radius: 0.8rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        box-shadow: 0 8px 18px rgba(36, 86, 232, 0.3);
+        z-index: 1;
+      }
+      .article-body-v2 {
+        padding: 1.7rem 1.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .article-body-v2 h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.6rem;
+      }
+      .article-body-v2 p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        flex: 1;
+        margin-bottom: 1.2rem;
+      }
+      .article-meta-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px dashed var(--border);
+        padding-top: 1rem;
+      }
+      .article-meta-row .read-time {
+        font-size: 0.75rem;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .article-meta-row .read-time i {
+        color: var(--primary);
+      }
+      .article-meta-row a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: gap 0.15s ease;
+      }
+      .article-meta-row a:hover {
+        gap: 0.6rem;
+      }
+      .articles-cta {
+        text-align: center;
+        margin-top: 2.4rem;
+      }
+      @media (max-width: 640px) {
+        .article-banner {
+          height: 130px; /* Increased on mobile too */
+          padding: 0 1.1rem;
+        }
+        .article-banner .article-icon-badge {
+          width: 2.2rem;
+          height: 2.2rem;
+          font-size: 0.9rem;
+          top: 0.8rem;
+          left: 0.9rem;
+        }
+        .article-body-v2 {
+          padding: 1.4rem 1.2rem 1.2rem;
+        }
+        .article-body-v2 h3 {
+          font-size: 0.97rem;
+        }
+        .article-body-v2 p {
+          font-size: 0.83rem;
+        }
       }
 
       footer {
@@ -2042,9 +2195,6 @@
         max-width: 820px;
         margin: 0 auto;
       }
-      /* Mirrors the footer's box model: padding lives on the section itself,
-         the inner box only gets a max-width, so this box's edges line up
-         exactly with the footer-shell's edges on desktop. */
       .wide-shell {
         max-width: 1220px;
         margin: 0 auto;
@@ -2250,7 +2400,9 @@
           <a href="#faq">سوالات متداول</a>
           <a href="https://matinmok.github.io/azadivpn/article.html">مقالات</a>
           <a href="https://matinmok.github.io/azadivpn/about.html">درباره ما</a>
-          <a href="https://matinmok.github.io/azadivpn/contact.html">تماس با ما</a>
+          <a href="https://matinmok.github.io/azadivpn/contact.html"
+            >تماس با ما</a
+          >
         </nav>
         <div class="nav-actions">
           <a
@@ -2310,7 +2462,9 @@
           >
         </li>
         <li>
-          <a href="https://matinmok.github.io/azadivpn/contact.html"><i class="fas fa-envelope"></i> تماس با ما</a>
+          <a href="https://matinmok.github.io/azadivpn/contact.html"
+            ><i class="fas fa-envelope"></i> تماس با ما</a
+          >
         </li>
         <li>
           <a href="https://matinmok.github.io/azadivpn/Rules.html"
@@ -2531,203 +2685,364 @@
                   src="https://flagcdn.com/w80/md.png"
                   alt="مولداوی" /><span>مولداوی</span>
               </div>
+              <div
+                class="loc-tile loc-tile-extra"
+                style="display: none">
+                <img
+                  src="https://flagcdn.com/w80/hk.png"
+                  alt="هنگ‌کنگ" /><span>هنگ‌کنگ</span>
+              </div>
+              <div
+                class="loc-tile loc-tile-extra"
+                style="display: none">
+                <img
+                  src="https://flagcdn.com/w80/sg.png"
+                  alt="سنگاپور" /><span>سنگاپور</span>
+              </div>
+              <div
+                class="loc-tile loc-tile-extra"
+                style="display: none">
+                <img
+                  src="https://flagcdn.com/w80/al.png"
+                  alt="آلبانی" /><span>آلبانی</span>
+              </div>
+              <div
+                class="loc-tile loc-tile-extra"
+                style="display: none">
+                <img
+                  src="https://flagcdn.com/w80/bg.png"
+                  alt="بلغارستان" /><span>بلغارستان</span>
+              </div>
             </div>
-            <a
-              href="#pricing"
-              class="btn btn-ghost btn-sm"
-              >مشاهده همه پلن‌ها <i class="fas fa-arrow-left"></i
-            ></a>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap">
+              <a
+                href="#pricing"
+                class="btn btn-ghost btn-sm"
+                >مشاهده همه پلن‌ها <i class="fas fa-arrow-left"></i
+              ></a>
+              <button
+                id="loc-toggle-btn"
+                type="button"
+                onclick="toggleAllLocations()"
+                class="btn btn-outline btn-sm">
+                مشاهده تمامی کشور ها <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
           </div>
 
+          <!-- ===== Minimal World Map (using real map image) ===== -->
           <div class="map-card">
             <svg
               class="map-svg"
-              viewBox="0 0 560 320"
+              viewBox="0 0 320 160"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
-              aria-label="نقشه پراکندگی سرورهای آزادی VPN در جهان">
+              aria-label="نقشه مینیمال جهان با نقاط سرورهای آزادی VPN">
               <defs>
-                <pattern
-                  id="dotgrid"
-                  width="9"
-                  height="9"
-                  patternUnits="userSpaceOnUse">
-                  <circle
-                    cx="1.1"
-                    cy="1.1"
-                    r="1.1"
-                    fill="var(--map-dot)" />
-                </pattern>
-                <radialGradient id="hubGlowGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.55" />
-                  <stop offset="100%" stop-color="var(--primary)" stop-opacity="0" />
+                <radialGradient
+                  id="hubGlowGrad"
+                  cx="50%"
+                  cy="50%"
+                  r="50%">
+                  <stop
+                    offset="0%"
+                    stop-color="var(--primary)"
+                    stop-opacity="0.4" />
+                  <stop
+                    offset="100%"
+                    stop-color="var(--primary)"
+                    stop-opacity="0" />
                 </radialGradient>
-                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.1" />
-                  <stop offset="50%" stop-color="var(--primary)" stop-opacity="0.75" />
-                  <stop offset="100%" stop-color="var(--primary)" stop-opacity="0.1" />
-                </linearGradient>
               </defs>
-              <path
-                class="map-blob"
-                d="M40,150 Q70,100 120,110 Q160,90 190,120 Q170,160 130,170 Q80,190 40,150Z"
-                fill="url(#dotgrid)" />
-              <path
-                class="map-blob"
-                d="M120,190 Q140,220 130,260 Q110,270 100,235 Q95,205 120,190Z"
-                fill="url(#dotgrid)" />
-              <path
-                class="map-blob"
-                d="M260,90 Q300,70 330,90 Q345,110 320,125 Q290,140 265,120 Q250,105 260,90Z"
-                fill="url(#dotgrid)" />
-              <path
-                class="map-blob"
-                d="M270,140 Q300,150 300,190 Q290,230 270,220 Q255,180 270,140Z"
-                fill="url(#dotgrid)" />
-              <path
-                class="map-blob"
-                d="M370,90 Q430,80 480,100 Q520,115 500,145 Q450,160 400,150 Q365,130 370,90Z"
-                fill="url(#dotgrid)" />
-              <path
-                class="map-blob"
-                d="M470,190 Q500,185 505,215 Q490,230 470,220 Q460,205 470,190Z"
-                fill="url(#dotgrid)" />
 
-              <circle
-                cx="300"
-                cy="150"
-                r="60"
-                fill="url(#hubGlowGrad)"
-                class="map-hub-pulse" />
+              <!-- Real minimal world map image -->
+              <image
+                href="images/world-continents.jpg"
+                x="0"
+                y="0"
+                width="320"
+                height="160"
+                preserveAspectRatio="xMidYMid meet"
+                style="filter: grayscale(100%) opacity(0.35) brightness(1.4)" />
 
+              <!-- ===== CONNECTION LINES ===== -->
               <g
                 class="map-line-group"
-                stroke="url(#lineGrad)"
-                stroke-width="1.6"
+                stroke="var(--primary)"
+                stroke-width="0.8"
+                stroke-opacity="0.5"
                 fill="none">
-                <path d="M300,150 Q260,120 100,140" />
-                <path d="M300,150 Q290,130 300,105" />
-                <path d="M300,150 Q310,130 335,120" />
-                <path d="M300,150 Q320,140 350,135" />
-                <path d="M300,150 Q305,120 315,100" />
-                <path d="M300,150 Q330,150 355,150" />
-                <path d="M300,150 Q315,135 325,115" />
-                <path d="M300,150 Q340,145 360,130" />
+                <!-- USA (approx 55, 65) -->
+                <path d="M200,80 L55,65" />
+                <!-- Netherlands (approx 165, 45) -->
+                <path d="M200,80 L165,45" />
+                <!-- Turkey (approx 180, 55) -->
+                <path d="M200,80 L180,55" />
+                <!-- Finland (approx 180, 25) -->
+                <path d="M200,80 L180,25" />
+                <!-- Germany (approx 170, 40) -->
+                <path d="M200,80 L170,40" />
+                <!-- Sweden (approx 165, 20) -->
+                <path d="M200,80 L165,20" />
+                <!-- France (approx 155, 45) -->
+                <path d="M200,80 L155,45" />
+                <!-- Moldova (approx 195, 55) -->
+                <path d="M200,80 L195,55" />
+                <!-- Hong Kong (approx 260, 70) -->
+                <path d="M200,80 L260,70" />
+                <!-- Singapore (approx 270, 95) -->
+                <path d="M200,80 L270,95" />
+                <!-- Albania (approx 185, 60) -->
+                <path d="M200,80 L185,60" />
+                <!-- Bulgaria (approx 195, 60) -->
+                <path d="M200,80 L195,60" />
               </g>
 
-              <g class="map-pulse-group" fill="var(--primary)">
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" repeatCount="indefinite" path="M300,150 Q260,120 100,140" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" repeatCount="indefinite" />
+              <!-- ===== PULSING DATA DOTS ===== -->
+              <g
+                class="map-pulse-group"
+                fill="var(--primary)">
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="0s"
+                    repeatCount="indefinite"
+                    path="M200,80 L55,65" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="0.35s" repeatCount="indefinite" path="M300,150 Q290,130 300,105" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="0.35s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="0.3s"
+                    repeatCount="indefinite"
+                    path="M200,80 L165,45" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="0.3s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="0.7s" repeatCount="indefinite" path="M300,150 Q310,130 335,120" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="0.7s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="0.6s"
+                    repeatCount="indefinite"
+                    path="M200,80 L180,55" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="0.6s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="1.05s" repeatCount="indefinite" path="M300,150 Q320,140 350,135" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="1.05s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="0.9s"
+                    repeatCount="indefinite"
+                    path="M200,80 L180,25" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="0.9s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="1.4s" repeatCount="indefinite" path="M300,150 Q305,120 315,100" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="1.4s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="1.2s"
+                    repeatCount="indefinite"
+                    path="M200,80 L170,40" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="1.2s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="1.75s" repeatCount="indefinite" path="M300,150 Q330,150 355,150" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="1.75s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="1.5s"
+                    repeatCount="indefinite"
+                    path="M200,80 L165,20" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="1.5s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="2.1s" repeatCount="indefinite" path="M300,150 Q315,135 325,115" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="2.1s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="1.8s"
+                    repeatCount="indefinite"
+                    path="M200,80 L155,45" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="1.8s"
+                    repeatCount="indefinite" />
                 </circle>
-                <circle class="map-pulse" r="3">
-                  <animateMotion dur="2.6s" begin="2.45s" repeatCount="indefinite" path="M300,150 Q340,145 360,130" />
-                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.6s" begin="2.45s" repeatCount="indefinite" />
+                <circle
+                  class="map-pulse"
+                  r="1.5">
+                  <animateMotion
+                    dur="2.5s"
+                    begin="2.1s"
+                    repeatCount="indefinite"
+                    path="M200,80 L195,55" />
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.1;0.85;1"
+                    dur="2.5s"
+                    begin="2.1s"
+                    repeatCount="indefinite" />
                 </circle>
               </g>
 
+              <!-- ===== CENTRAL HUB ===== -->
+              <circle
+                cx="200"
+                cy="80"
+                r="30"
+                fill="url(#hubGlowGrad)"
+                class="map-hub-pulse" />
               <circle
                 class="map-hub-ring"
-                cx="300"
-                cy="150"
-                r="16"
+                cx="200"
+                cy="80"
+                r="8"
                 fill="none"
                 stroke="var(--primary)"
-                stroke-width="1.5"
+                stroke-width="1"
                 opacity="0.3" />
               <circle
                 class="map-hub-ring"
-                cx="300"
-                cy="150"
-                r="24"
+                cx="200"
+                cy="80"
+                r="12"
                 fill="none"
                 stroke="var(--primary)"
-                stroke-width="0.8"
+                stroke-width="0.6"
                 opacity="0.15" />
               <circle
                 class="map-hub"
-                cx="300"
-                cy="150"
-                r="5"
+                cx="200"
+                cy="80"
+                r="3"
                 fill="var(--primary)" />
-              <circle
-                cx="300"
-                cy="150"
-                r="9"
-                fill="var(--primary)"
-                opacity="0.2"
-                class="map-hub-ring" />
+
+              <!-- ===== COUNTRY LOCATION DOTS ===== -->
               <g
                 fill="var(--primary)"
                 class="map-dot-group">
+                <!-- USA -->
                 <circle
                   class="map-dot"
-                  cx="100"
-                  cy="140"
-                  r="4" />
+                  cx="55"
+                  cy="65"
+                  r="2" />
+                <!-- Netherlands -->
                 <circle
                   class="map-dot"
-                  cx="300"
-                  cy="105"
-                  r="4" />
+                  cx="165"
+                  cy="45"
+                  r="2" />
+                <!-- Turkey -->
                 <circle
                   class="map-dot"
-                  cx="335"
-                  cy="120"
-                  r="4" />
+                  cx="180"
+                  cy="55"
+                  r="2" />
+                <!-- Finland -->
                 <circle
                   class="map-dot"
-                  cx="350"
-                  cy="135"
-                  r="4" />
+                  cx="180"
+                  cy="25"
+                  r="2" />
+                <!-- Germany -->
                 <circle
                   class="map-dot"
-                  cx="315"
-                  cy="100"
-                  r="4" />
+                  cx="170"
+                  cy="40"
+                  r="2" />
+                <!-- Sweden -->
                 <circle
                   class="map-dot"
-                  cx="355"
-                  cy="150"
-                  r="4" />
+                  cx="165"
+                  cy="20"
+                  r="2" />
+                <!-- France -->
                 <circle
                   class="map-dot"
-                  cx="325"
-                  cy="115"
-                  r="4" />
+                  cx="155"
+                  cy="45"
+                  r="2" />
+                <!-- Moldova -->
                 <circle
                   class="map-dot"
-                  cx="360"
-                  cy="130"
-                  r="4" />
+                  cx="195"
+                  cy="55"
+                  r="2" />
+                <!-- Hong Kong -->
+                <circle
+                  class="map-dot"
+                  cx="260"
+                  cy="70"
+                  r="2" />
+                <!-- Singapore -->
+                <circle
+                  class="map-dot"
+                  cx="270"
+                  cy="95"
+                  r="2" />
+                <!-- Albania -->
+                <circle
+                  class="map-dot"
+                  cx="185"
+                  cy="60"
+                  r="2" />
+                <!-- Bulgaria -->
+                <circle
+                  class="map-dot"
+                  cx="195"
+                  cy="60"
+                  r="2" />
               </g>
             </svg>
             <div class="map-stats">
-              <div class="map-stat"><b>۸+</b><span>کشور</span></div>
+              <div class="map-stat"><b>۱۲+</b><span>کشور</span></div>
               <div class="map-stat"><b>۲۰+</b><span>سرور فعال</span></div>
               <div class="map-stat"><b>۹۹.۹٪</b><span>پایداری اتصال</span></div>
             </div>
@@ -2805,7 +3120,7 @@
               class="type-btn active"
               data-type="cip"
               onclick="setPlanType('cip')">
-              <i class="fas fa-database"></i> پلن حجمی
+              <i class="fas fa-database"></i> پلن حجمی | CIP
             </button>
             <button
               class="type-btn"
@@ -3244,7 +3559,9 @@
         </div>
       </section>
 
-      <section id="compatibility" class="wide-shell-section">
+      <section
+        id="compatibility"
+        class="wide-shell-section">
         <div class="wide-shell">
           <div class="section-head center">
             <span class="eyebrow">سازگاری با انواع دیوایس ها</span>
@@ -3313,7 +3630,9 @@
                     محمدرضا، تهران
                   </div>
                   <div class="review-stars">★★★★★</div>
-                  <div class="review-meta">پلن ۵۰ گیگ سه‌ماهه · اندروید</div>
+                  <div class="review-meta">
+                    پلن ۵۰ گیگ سه‌ماهه · اندروید · فروردین ۱۴۰۵
+                  </div>
                 </div>
               </div>
               <p class="review-body">
@@ -3333,7 +3652,9 @@
                     سارا، اصفهان
                   </div>
                   <div class="review-stars">★★★★★</div>
-                  <div class="review-meta">پلن VIP ویژه · آیفون</div>
+                  <div class="review-meta">
+                    پلن VIP ویژه · آیفون · اسفند ۱۴۰۴
+                  </div>
                 </div>
               </div>
               <p class="review-body">
@@ -3354,7 +3675,9 @@
                     علی، شیراز
                   </div>
                   <div class="review-stars">★★★★★</div>
-                  <div class="review-meta">پلن ۱۰۰ گیگ یک‌ماهه · ویندوز</div>
+                  <div class="review-meta">
+                    پلن ۱۰۰ گیگ یک‌ماهه · ویندوز · شهریور ۱۴۰۵
+                  </div>
                 </div>
               </div>
               <p class="review-body">
@@ -3374,7 +3697,9 @@
                     نرگس، مشهد
                   </div>
                   <div class="review-stars">★★★★★</div>
-                  <div class="review-meta">VIP خانوادگی سه‌ماهه · دو کاربر</div>
+                  <div class="review-meta">
+                    VIP خانوادگی سه‌ماهه · دو کاربر · اردیبهشت ۱۴۰۵
+                  </div>
                 </div>
               </div>
               <p class="review-body">
@@ -3395,7 +3720,9 @@
                     رضا، کرج
                   </div>
                   <div class="review-stars">★★★★★</div>
-                  <div class="review-meta">مشتری بیش از ۲ سال · مک</div>
+                  <div class="review-meta">
+                    مشتری بیش از ۲ سال · مک · مرداد ۱۴۰۵
+                  </div>
                 </div>
               </div>
               <p class="review-body">
@@ -3632,41 +3959,77 @@
             </p>
           </div>
           <div class="grid grid-3">
-            <div class="article-card">
-              <div class="article-num">۰۱</div>
-              <h3>راهنمای کامل خرید فیلترشکن قوی</h3>
-              <p>
-                همه چیز درباره خرید فیلترشکن قوی و امن، از انتخاب بهترین پلن تا
-                روش‌های پرداخت و تحویل آنی.
-              </p>
-              <a href="https://matinmok.github.io/azadivpn/article1.html"
-                >مطالعه مقاله <i class="fas fa-arrow-left"></i
-              ></a>
+            <div class="article-card-v2">
+              <div class="article-banner">
+                <div class="article-icon-badge">
+                  <i class="fas fa-cart-shopping"></i>
+                </div>
+                <span class="article-tag">راهنمای خرید</span>
+              </div>
+              <div class="article-body-v2">
+                <h3>راهنمای کامل خرید فیلترشکن قوی</h3>
+                <p>
+                  همه چیز درباره خرید فیلترشکن قوی و امن، از انتخاب بهترین پلن
+                  تا روش‌های پرداخت و تحویل آنی.
+                </p>
+                <div class="article-meta-row">
+                  <span class="read-time"
+                    ><i class="fas fa-clock"></i> ۸ دقیقه</span
+                  >
+                  <a href="https://matinmok.github.io/azadivpn/article1.html"
+                    >مطالعه مقاله <i class="fas fa-arrow-left"></i
+                  ></a>
+                </div>
+              </div>
             </div>
-            <div class="article-card">
-              <div class="article-num">۰۲</div>
-              <h3>نصب فیلترشکن روی اندروید و iOS</h3>
-              <p>
-                آموزش گام‌به‌گام نصب و راه‌اندازی فیلترشکن قوی روی گوشی و تبلت
-                با پروتکل V2Ray.
-              </p>
-              <a href="https://matinmok.github.io/azadivpn/article2.html"
-                >مطالعه مقاله <i class="fas fa-arrow-left"></i
-              ></a>
+            <div class="article-card-v2">
+              <div class="article-banner">
+                <div class="article-icon-badge">
+                  <i class="fas fa-mobile-screen-button"></i>
+                </div>
+                <span class="article-tag">آموزش نصب</span>
+              </div>
+              <div class="article-body-v2">
+                <h3>دانلود اپ‌های مورد نیاز برای فیلترشکن</h3>
+                <p>
+                  آموزش گام‌به‌گام نصب و راه‌اندازی فیلترشکن قوی روی گوشی و تبلت
+                  با پروتکل V2Ray.
+                </p>
+                <div class="article-meta-row">
+                  <span class="read-time"
+                    ><i class="fas fa-clock"></i> ۶ دقیقه</span
+                  >
+                  <a href="https://matinmok.github.io/azadivpn/article2.html"
+                    >مطالعه مقاله <i class="fas fa-arrow-left"></i
+                  ></a>
+                </div>
+              </div>
             </div>
-            <div class="article-card">
-              <div class="article-num">۰۳</div>
-              <h3>چرا فیلترشکن پولی بهتر از رایگان است؟</h3>
-              <p>
-                مقایسه امنیت، سرعت و مزایای فیلترشکن‌های پولی در برابر رایگان و
-                دلایل انتخاب آزادی وی‌پی‌ان.
-              </p>
-              <a href="https://matinmok.github.io/azadivpn/article3.html"
-                >مطالعه مقاله <i class="fas fa-arrow-left"></i
-              ></a>
+            <div class="article-card-v2">
+              <div class="article-banner">
+                <div class="article-icon-badge">
+                  <i class="fas fa-scale-balanced"></i>
+                </div>
+                <span class="article-tag">مقایسه</span>
+              </div>
+              <div class="article-body-v2">
+                <h3>چرا باید از فیلترشکن پولی استفاده کنیم؟</h3>
+                <p>
+                  مقایسه امنیت، سرعت و مزایای فیلترشکن‌های پولی در برابر رایگان
+                  و دلایل انتخاب آزادی وی‌پی‌ان.
+                </p>
+                <div class="article-meta-row">
+                  <span class="read-time"
+                    ><i class="fas fa-clock"></i> ۷ دقیقه</span
+                  >
+                  <a href="https://matinmok.github.io/azadivpn/article3.html"
+                    >مطالعه مقاله <i class="fas fa-arrow-left"></i
+                  ></a>
+                </div>
+              </div>
             </div>
           </div>
-          <div style="text-align: center; margin-top: 2rem">
+          <div class="articles-cta">
             <a
               href="https://matinmok.github.io/azadivpn/article.html"
               class="btn btn-outline"
@@ -3716,8 +4079,7 @@
             <h2>همیشه در دسترس شما هستیم</h2>
             <p>پشتیبانی ۲۴ ساعته، ۷ روز هفته</p>
           </div>
-          <div
-            class="grid grid-3 contact-grid">
+          <div class="grid grid-3 contact-grid">
             <div
               class="card"
               style="text-align: center">
@@ -4035,6 +4397,18 @@
             dur === 3 ? 'grid' : 'none';
         };
 
+        window.toggleAllLocations = function () {
+          var extras = document.querySelectorAll('.loc-tile-extra');
+          var btn = document.getElementById('loc-toggle-btn');
+          var showing = extras.length && extras[0].style.display !== 'none';
+          extras.forEach(function (el) {
+            el.style.display = showing ? 'none' : '';
+          });
+          btn.innerHTML = showing
+            ? 'مشاهده تمامی کشور ها <i class="fas fa-chevron-down"></i>'
+            : 'نمایش کمتر <i class="fas fa-chevron-up"></i>';
+        };
+
         window.toggleMoreFaq = function () {
           var extra = document.getElementById('faq-extra');
           var btn = document.getElementById('faq-more');
@@ -4083,11 +4457,9 @@
           }
 
           function toPersian(num) {
-            return num
-              .toString()
-              .replace(/\d/g, function (d) {
-                return '۰۱۲۳۴۵۶۷۸۹'[d];
-              });
+            return num.toString().replace(/\d/g, function (d) {
+              return '۰۱۲۳۴۵۶۷۸۹'[d];
+            });
           }
 
           // sparkline: 11 points, each 0..40
