@@ -2809,6 +2809,41 @@
           font-size: 0.78rem;
         }
       }
+      /* ===== پلن ۱۰۰ گیگ در موبایل: تمام‌عرض + شاخص ===== */
+      @media (max-width: 760px) {
+        #cip-1 .plan-card:last-child,
+        #cip-3 .plan-card:last-child {
+          grid-column: 1 / -1;
+          padding: 1.2rem 1.1rem 1.1rem;
+          border-width: 2px;
+          background: linear-gradient(
+            160deg,
+            var(--surface) 45%,
+            rgba(36, 86, 232, 0.08)
+          );
+        }
+        #cip-1 .plan-card:last-child .plan-vol,
+        #cip-3 .plan-card:last-child .plan-vol {
+          font-size: 1.25rem;
+        }
+        #cip-1 .plan-card:last-child .plan-price,
+        #cip-3 .plan-card:last-child .plan-price {
+          font-size: 1.5rem;
+        }
+        #cip-1 .plan-card:last-child .plan-features,
+        #cip-3 .plan-card:last-child .plan-features {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.4rem 0.8rem;
+          font-size: 0.78rem;
+          margin-bottom: 1rem;
+        }
+        #cip-1 .plan-card:last-child .btn,
+        #cip-3 .plan-card:last-child .btn {
+          padding: 0.7rem 0.6rem;
+          font-size: 0.85rem;
+        }
+      }
     </style>
   </head>
   <body>
