@@ -2505,6 +2505,310 @@
           margin-top: 1.5rem;
         }
       }
+
+      /* ===== حاشیه برای باکس‌های خاکستری / آبی‌ کمرنگ (لایت و دارک) ===== */
+      .card-icon,
+      .mini-feature .ico,
+      .eyebrow,
+      .duration-btn,
+      .btn-ghost {
+        border: 1px solid var(--border);
+      }
+
+      /* ===== دکوراسیون پس‌زمینه بخش مقالات ===== */
+      #articles {
+        position: relative;
+        overflow: hidden;
+      }
+      #articles::before,
+      #articles::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        z-index: 0;
+        pointer-events: none;
+      }
+      #articles::before {
+        top: -160px;
+        left: -110px;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(
+          circle,
+          rgba(36, 86, 232, 0.14),
+          transparent 70%
+        );
+      }
+      #articles::after {
+        bottom: -170px;
+        right: -110px;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(
+          circle,
+          rgba(240, 172, 59, 0.12),
+          transparent 70%
+        );
+      }
+      #articles .wrap {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ===== بخش دریافت پنل نمایندگی ===== */
+      #reseller {
+        position: relative;
+        overflow: hidden;
+      }
+      #reseller::before {
+        content: '';
+        position: absolute;
+        top: -140px;
+        right: -120px;
+        width: 340px;
+        height: 340px;
+        background: radial-gradient(
+          circle,
+          rgba(36, 86, 232, 0.12),
+          transparent 70%
+        );
+        border-radius: 50%;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .reseller-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      @media (max-width: 960px) {
+        .reseller-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .panel-mockup {
+          transform: none;
+          max-width: 560px;
+          margin: 0 auto;
+        }
+      }
+      .reseller-copy p.lead {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: 0.8rem 0 1.6rem;
+      }
+      .reseller-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        overflow: hidden;
+        margin-bottom: 1.6rem;
+        box-shadow: var(--shadow-card);
+      }
+      .reseller-table tr:not(:last-child) td {
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .reseller-table td {
+        padding: 1rem 1.2rem;
+        font-size: 0.86rem;
+        vertical-align: top;
+      }
+      .reseller-table td:first-child {
+        width: 38%;
+        font-weight: 700;
+        color: var(--ink);
+        background: var(--surface-2);
+      }
+      .reseller-table td:first-child i {
+        color: var(--primary);
+        font-size: 0.85rem;
+        margin-left: 0.4rem;
+      }
+      .reseller-table td:last-child {
+        color: var(--ink-soft);
+      }
+      .reseller-features {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .reseller-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .reseller-features li i {
+        color: #fff;
+        background: var(--success);
+        width: 1.05rem;
+        height: 1.05rem;
+        border-radius: 50%;
+        font-size: 0.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .panel-mockup-title-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: var(--ink);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 0.45rem 1.1rem;
+        border-radius: 9999px;
+        box-shadow: 0 6px 18px rgba(36, 86, 232, 0.12);
+        margin-bottom: 0.9rem;
+        position: relative;
+        z-index: 2;
+      }
+      .panel-mockup-title-badge::before {
+        content: '';
+        position: absolute;
+        inset: -8px;
+        border-radius: 9999px;
+        background: radial-gradient(
+          circle,
+          rgba(36, 86, 232, 0.18),
+          transparent 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+      .panel-mockup-title-badge .pmt-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 3px rgba(24, 154, 108, 0.2);
+        flex-shrink: 0;
+      }
+      .panel-mockup {
+        background: var(--phone-bezel);
+        border-radius: 1.3rem;
+        padding: 0.7rem;
+        box-shadow: var(--shadow-float);
+        transform: rotate(-2deg);
+        max-width: 520px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .panel-mockup-screen {
+        background: linear-gradient(160deg, #132043, var(--phone-screen));
+        border-radius: 0.95rem;
+        padding: 1.1rem 1.1rem 1.4rem;
+      }
+      .panel-mockup-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+      }
+      .panel-mockup-bar span {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .panel-mockup-bar span:nth-child(1) {
+        background: #e0574a;
+      }
+      .panel-mockup-bar span:nth-child(2) {
+        background: #f0ac3b;
+      }
+      .panel-mockup-bar span:nth-child(3) {
+        background: #189a6c;
+      }
+      .panel-mockup-title {
+        margin-right: auto;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 700;
+      }
+      .panel-row {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.85rem;
+        padding: 0.75rem 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-bottom: 0.7rem;
+      }
+      .panel-row .pr-icon {
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 0.6rem;
+        background: rgba(76, 130, 255, 0.16);
+        color: #4c82ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .panel-row .pr-text b {
+        display: block;
+        color: #fff;
+        font-size: 0.83rem;
+      }
+      .panel-row .pr-text span {
+        display: block;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.68rem;
+        margin-top: 0.1rem;
+      }
+      .panel-row .pr-val {
+        margin-right: auto;
+        color: #38c793;
+        font-weight: 800;
+        font-size: 0.82rem;
+      }
+      @media (max-width: 640px) {
+        .panel-mockup {
+          max-width: 100%;
+          width: 100%;
+          transform: none;
+          margin: 0 auto;
+        }
+        .panel-mockup-title-badge {
+          font-size: 0.76rem;
+          padding: 0.4rem 0.9rem;
+          margin-bottom: 0.75rem;
+        }
+        .panel-mockup-title-badge .pmt-dot {
+          width: 7px;
+          height: 7px;
+        }
+        .reseller-copy h2 {
+          font-size: 1.4rem;
+        }
+        .reseller-copy p.lead {
+          font-size: 0.88rem;
+        }
+        .reseller-table td {
+          padding: 0.75rem 0.8rem;
+          font-size: 0.8rem;
+        }
+        .reseller-table td:first-child {
+          width: 42%;
+        }
+        .reseller-features {
+          font-size: 0.78rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -4126,6 +4430,107 @@
               class="btn btn-outline"
               ><i class="fas fa-newspaper"></i> مشاهده همه مقالات</a
             >
+          </div>
+        </div>
+      </section>
+
+      <section id="reseller">
+        <div class="wrap reseller-grid">
+          <div class="reseller-copy">
+            <span class="eyebrow">همکاری در فروش</span>
+            <h2>دریافت پنل نمایندگی آزادی VPN</h2>
+            <p class="lead">
+              آزادی VPN با اعطای دسترسی نمایندگی، یکی از پنل‌های مرزبان، ربکا یا
+              سنایی را در اختیار شما فروشندگان قرار می‌دهد. کافی‌ست تنها بابت
+              حجم مصرفی به‌صورت ترابایتی هزینه پرداخت کنید و بدون نیاز به خرید و
+              مدیریت زیرساخت اختصاصی، فروش سرویس فیلترشکن را زیر برند خودتان
+              آغاز کنید.
+            </p>
+            <table class="reseller-table">
+              <tbody>
+                <tr>
+                  <td><i class="fas fa-users"></i> تعداد کاربر</td>
+                  <td>حداقل ۵۰ کاربر فعال در ماه</td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-database"></i> حداقل مصرف</td>
+                  <td>حداقل ۵۰۰ گیگابایت ترافیک در ماه</td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-ban"></i> محدودیت‌ها</td>
+                  <td>
+                    عدم اشتراک‌گذاری سرویس‌ها در کانال‌ها و گروه‌های عمومی
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-star"></i> ویژگی‌ها</td>
+                  <td>
+                    <ul class="reseller-features">
+                      <li>
+                        <i class="fas fa-check"></i> ساخت، ویرایش و مدیریت
+                        کاربران
+                      </li>
+                      <li>
+                        <i class="fas fa-check"></i> مشاهده ترافیک مصرفی پنل
+                      </li>
+                      <li>
+                        <i class="fas fa-check"></i> بروزرسانی منظم توسط
+                        پشتیبانی
+                      </li>
+                      <li>
+                        <i class="fas fa-check"></i> پشتیبانی نمایندگان PRO
+                      </li>
+                      <li>
+                        <i class="fas fa-check"></i> امکان ساخت ربات فروش
+                        اختصاصی
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <a
+              href="https://t.me/Mykalikal"
+              target="_blank"
+              class="btn btn-cta">
+              <i class="fab fa-telegram"></i> درخواست پنل نمایندگی از تلگرام
+            </a>
+          </div>
+          <div class="panel-mockup">
+            <div class="panel-mockup-title-badge">
+              <span class="pmt-dot"></span>
+              پنل یکی از نمایندگان
+            </div>
+            <div class="panel-mockup-screen">
+              <div class="panel-mockup-bar">
+                <span></span><span></span><span></span>
+                <span class="panel-mockup-title"></span>
+              </div>
+              <div class="panel-row">
+                <div class="pr-icon"><i class="fas fa-user-group"></i></div>
+                <div class="pr-text">
+                  <b>کاربران فعال</b>
+                  <span>در حال حاضر</span>
+                </div>
+                <div class="pr-val">۲,۵۸۰ نفر</div>
+              </div>
+              <div class="panel-row">
+                <div class="pr-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="pr-text">
+                  <b>ترافیک مصرفی</b>
+                  <span>این ماه</span>
+                </div>
+                <div class="pr-val">۳.۹ ترابایت</div>
+              </div>
+              <div class="panel-row">
+                <div class="pr-icon"><i class="fas fa-circle-check"></i></div>
+                <div class="pr-text">
+                  <b>وضعیت پنل</b>
+                  <span>مرزبان فعال</span>
+                </div>
+                <div class="pr-val">فعال</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
