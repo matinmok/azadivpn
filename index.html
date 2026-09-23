@@ -2844,9 +2844,109 @@
           font-size: 0.85rem;
         }
       }
+
+      /* ===== نوار چسبان پایین (Bottom Sticky Bar) ===== */
+      .bottom-sticky-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 150;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 -4px 20px rgba(16, 25, 46, 0.06);
+      }
+      html[data-theme='dark'] .bottom-sticky-bar {
+        background: rgba(10, 18, 36, 0.65);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      }
+      .bottom-sticky-bar .sticky-inner {
+        width: 100%;
+        max-width: 1220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .bottom-sticky-bar .sticky-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: #fff;
+        font-weight: 800;
+        font-size: 1rem;
+        padding: 0.85rem 2.2rem;
+        border-radius: 0.8rem;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(36, 86, 232, 0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        font-family: inherit;
+        width: 100%;
+        max-width: 420px;
+        letter-spacing: 0.01em;
+      }
+      .bottom-sticky-bar .sticky-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(36, 86, 232, 0.45);
+      }
+      .bottom-sticky-bar .sticky-btn i {
+        font-size: 1.1rem;
+      }
+      @media (max-width: 760px) {
+        .bottom-sticky-bar {
+          padding: 0.6rem 0.9rem;
+          border-radius: 1.5rem 1.5rem 0 0;
+          left: 0.6rem;
+          right: 0.6rem;
+          width: auto;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-bottom: none;
+          box-shadow: 0 -6px 24px rgba(16, 25, 46, 0.1);
+        }
+        html[data-theme='dark'] .bottom-sticky-bar {
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+        .bottom-sticky-bar .sticky-btn {
+          font-size: 0.92rem;
+          padding: 0.75rem 1.5rem;
+          max-width: 100%;
+        }
+      }
+      /* اطمینان از اینکه نوار چسبان با دکمه‌های شناور تداخل ندارد */
+      #back-to-top {
+        bottom: 5.5rem; /* بالاتر از نوار چسبان */
+      }
+      @media (max-width: 760px) {
+        #back-to-top {
+          bottom: 5.2rem;
+        }
+      }
+      /* فاصله اضافه برای فوتر تا زیر نوار چسبان نرود */
+      footer {
+        padding-bottom: 6rem;
+      }
+      @media (max-width: 760px) {
+        footer {
+          padding-bottom: 5.5rem;
+        }
+      }
+      /* تنظیم چت گفتینو تا با نوار چسبان تداخل نکند */
+      #goftino_widget {
+        bottom: 5rem !important;
+      }
     </style>
   </head>
   <body>
+    <!-- ... تمام هدر و منو و مدال و ... بدون تغییر ... -->
     <header class="site-header">
       <div class="wrap header-inner">
         <a
@@ -2999,7 +3099,21 @@
       </div>
     </div>
 
+    <!-- ===== نوار چسبان پایین ===== -->
+    <div class="bottom-sticky-bar">
+      <div class="sticky-inner">
+        <button
+          class="sticky-btn"
+          onclick="openBuyModal()">
+          <i class="fas fa-bolt"></i>
+          خرید فوری اشتراک
+        </button>
+      </div>
+    </div>
+    <!-- ===== پایان نوار چسبان ===== -->
+
     <main id="top">
+      <!-- ... کل محتوای main بدون تغییر ... -->
       <section class="hero">
         <div class="wrap hero-grid">
           <div class="hero-media">
@@ -3195,18 +3309,14 @@
             </div>
           </div>
 
-          <!-- ===== Minimal World Map (image as background, dots positioned over it) ===== -->
           <div
             class="map-card"
             style="background: var(--surface); overflow: hidden">
             <div class="world-map-wrap">
-              <!-- Map image as background -->
               <img
                 src="https://matinmok.github.io/azadivpn/images/world-continents.jpg"
                 alt="نقشه جهان"
                 class="world-map-img" />
-
-              <!-- SVG overlay with dots and lines, same size as image -->
               <svg
                 class="world-map-overlay"
                 viewBox="0 0 600 300"
@@ -3229,7 +3339,6 @@
                   </radialGradient>
                 </defs>
 
-                <!-- ===== CONNECTION LINES (hub at Europe/Middle East) ===== -->
                 <g
                   stroke="#2456e8"
                   stroke-width="1.2"
@@ -3237,33 +3346,20 @@
                   fill="none"
                   stroke-dasharray="4 6"
                   stroke-linecap="round">
-                  <!-- USA -->
                   <path d="M305,115 L105,105" />
-                  <!-- Netherlands -->
                   <path d="M305,115 L282,98" />
-                  <!-- Turkey -->
                   <path d="M305,115 L315,120" />
-                  <!-- Finland -->
                   <path d="M305,115 L320,60" />
-                  <!-- Germany -->
                   <path d="M305,115 L295,95" />
-                  <!-- Sweden -->
                   <path d="M305,115 L300,60" />
-                  <!-- France -->
                   <path d="M305,115 L272,105" />
-                  <!-- Moldova -->
                   <path d="M305,115 L330,110" />
-                  <!-- Hong Kong -->
                   <path d="M305,115 L455,140" />
-                  <!-- Singapore -->
                   <path d="M305,115 L465,180" />
-                  <!-- Albania -->
                   <path d="M305,115 L312,128" />
-                  <!-- Bulgaria -->
                   <path d="M305,115 L325,122" />
                 </g>
 
-                <!-- Pulsing dots moving along lines -->
                 <g fill="#2456e8">
                   <circle r="2.5">
                     <animateMotion
@@ -3378,7 +3474,6 @@
                   </circle>
                 </g>
 
-                <!-- Central hub (Europe/Middle East) -->
                 <circle
                   cx="305"
                   cy="115"
@@ -3406,64 +3501,51 @@
                   r="5"
                   fill="#2456e8" />
 
-                <!-- Country location dots -->
                 <g fill="#2456e8">
-                  <!-- USA -->
                   <circle
                     cx="105"
                     cy="105"
                     r="4" />
-                  <!-- Netherlands -->
                   <circle
                     cx="282"
                     cy="98"
                     r="4" />
-                  <!-- Turkey -->
                   <circle
                     cx="315"
                     cy="120"
                     r="4" />
-                  <!-- Finland -->
                   <circle
                     cx="320"
                     cy="60"
                     r="4" />
-                  <!-- Germany -->
                   <circle
                     cx="295"
                     cy="95"
                     r="4" />
-                  <!-- Sweden -->
                   <circle
                     cx="300"
                     cy="60"
                     r="4" />
-                  <!-- France -->
                   <circle
                     cx="272"
                     cy="105"
                     r="4" />
-                  <!-- Moldova -->
                   <circle
                     cx="330"
                     cy="110"
                     r="4" />
-                  <!-- Hong Kong -->
                   <circle
                     cx="455"
                     cy="140"
                     r="4" />
-                  <!-- Singapore -->
                   <circle
                     cx="465"
                     cy="180"
                     r="4" />
-                  <!-- Albania -->
                   <circle
                     cx="312"
                     cy="128"
                     r="4" />
-                  <!-- Bulgaria -->
                   <circle
                     cx="325"
                     cy="122"
@@ -4993,11 +5075,9 @@
             });
           }
 
-          // sparkline: 11 points, each 0..40
           var points = [30, 25, 28, 15, 20, 10, 18, 8, 14, 6, 12];
 
           function updateSparkline() {
-            // shift left and add a new random point
             points.shift();
             var newVal = Math.floor(Math.random() * 30) + 6;
             points.push(newVal);
@@ -5011,28 +5091,18 @@
           }
 
           function updateMetrics() {
-            // Ping between 80 and 110
             var ping = Math.floor(Math.random() * 31) + 80;
             pingEl.textContent = toPersian(ping) + 'ms';
-
-            // Speed between 1.5 and 30 MB/s
             var speed = (Math.random() * 28.5 + 1.5).toFixed(1);
             speedEl.textContent = toPersian(speed) + ' MB/s';
-
-            // Timer increments (sometimes faster)
             totalSeconds += Math.random() > 0.7 ? 2 : 1;
             timerEl.textContent = formatTime(totalSeconds);
-
-            // update sparkline every tick
             updateSparkline();
           }
 
-          // Initial values
           pingEl.textContent = '۹۹ms';
           speedEl.textContent = '۱۲.۴ MB/s';
           timerEl.textContent = formatTime(totalSeconds);
-
-          // Update every 1 second (as requested, log-like)
           setInterval(updateMetrics, 1000);
         })();
       })();
