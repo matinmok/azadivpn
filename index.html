@@ -2943,6 +2943,14 @@
       #goftino_widget {
         bottom: 5rem !important;
       }
+      .bottom-sticky-bar {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+body.menu-open .bottom-sticky-bar {
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+}
     </style>
   </head>
   <body>
@@ -4940,16 +4948,18 @@
         var close = document.getElementById('mobile-close');
         var menu = document.getElementById('mobile-menu');
         var overlay = document.getElementById('overlay');
-        function openMenu() {
-          menu.classList.add('show');
-          overlay.classList.add('show');
-          document.body.style.overflow = 'hidden';
-        }
-        function closeMenu() {
-          menu.classList.remove('show');
-          overlay.classList.remove('show');
-          document.body.style.overflow = '';
-        }
+function openMenu() {
+  menu.classList.add('show');
+  overlay.classList.add('show');
+  document.body.classList.add('menu-open'); /* ← اضافه شد */
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menu.classList.remove('show');
+  overlay.classList.remove('show');
+  document.body.classList.remove('menu-open'); /* ← اضافه شد */
+  document.body.style.overflow = '';
+}
         toggle.addEventListener('click', openMenu);
         close.addEventListener('click', closeMenu);
         overlay.addEventListener('click', closeMenu);
