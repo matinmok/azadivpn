@@ -5439,5 +5439,46 @@ function closeMenu() {
       }
     </script>
     <script src="https://aiazadi.matinder.workers.dev/widget.js" defer></script>
+    <script>
+(function(){
+  function tuneWidget(){
+    var host = document.getElementById('azadi-ai-root');
+    if (!host || !host.shadowRoot) return false;
+    var sr = host.shadowRoot;
+    if (sr.querySelector('#azadi-boost')) return true;
+
+    var style = document.createElement('style');
+    style.id = 'azadi-boost';
+    style.textContent = `
+      .w { --bo: 160px !important; }
+      @media (max-width: 520px) {
+        .w { --bo: 170px !important; }
+      }
+      .w.hide .fab, .w.hide .panel { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
+    `;
+    sr.appendChild(style);
+    var last = false;
+    function check(){
+      var hide = document.body.classList.contains('menu-open') ||
+                 document.getElementById('buy-modal-overlay')?.classList.contains('active');
+      if (hide !== last){
+        last = hide;
+        var w = sr.querySelector('.w');
+        if (w) w.classList.toggle('hide', hide);
+      }
+    }
+    var mo = new MutationObserver(check);
+    mo.observe(document.body, { attributes:true, attributeFilter:['class'] });
+    var modal = document.getElementById('buy-modal-overlay');
+    if (modal) new MutationObserver(check).observe(modal, { attributes:true, attributeFilter:['class'] });
+    check();
+    return true;
+  }
+  var tries = 0;
+  var t = setInterval(function(){
+    if (tuneWidget() || ++tries > 40) clearInterval(t);
+  }, 250);
+})();
+</script>
   </body>
 </html>
