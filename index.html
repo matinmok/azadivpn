@@ -5450,9 +5450,12 @@ function closeMenu() {
     var style = document.createElement('style');
     style.id = 'azadi-boost';
     style.textContent = `
-      .w { --bo: 70px !important; }
+.fab   { bottom: 80px  !important; }
+.panel { bottom: 80px  !important; }
+
 @media (max-width: 520px) {
-  .w { --bo: 100px !important; }
+  .fab   { bottom: 100px !important; }
+  .panel { bottom: 100px !important; }
 }
       .w.hide .fab, .w.hide .panel { opacity:0 !important; visibility:hidden !important; pointer-events:none !important; }
     `;
